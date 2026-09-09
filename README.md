@@ -6,8 +6,8 @@ Repositorio orientado al seguimiento del curso Formación para la Investigación
 
 Revisión sistemática (formato IEEE, metodología Kitchenham) sobre las técnicas de Inteligencia Artificial —Deep Learning, NLP y Visión por Computadora— empleadas para la extracción de información clave (KIE) y la automatización del registro y validación de documentos dentro de arquitecturas de sistemas empresariales, cubriendo el periodo 2017–2024.
 
-- 📎 Artículo completo: [`Introduccion_RSL_corregida.docx`](./Introduccion_RSL_corregida.docx)
-- 📊 Presentación: [`presentacion.pptx`](./presentacion.pptx)
+-  Artículo completo: 
+-  Presentación:
 
 ### Estructura del artículo
 1. Introducción
