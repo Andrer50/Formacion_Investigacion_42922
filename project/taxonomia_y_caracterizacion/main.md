@@ -13,7 +13,7 @@ Siguiendo la evolución descrita en la literatura, los enfoques se ordenan en un
 
 **B. Inputs de datos**
 
-En paralelo, cada propuesta se caracteriza según las modalidades de entrada que combina —texto, posición/layout y visual, más características hechas a mano en los enfoques más antiguos [1]— y según el tipo de documento visualmente rico (VRD) sobre el que se valida: facturas, recibos, formularios o contratos [2], [3]. Esta segunda variable es la que evidencia si el estudio se probó sobre benchmarks públicos controlados (p. ej. FUNSD, CORD, SROIE) o sobre datos de un flujo empresarial real (ERP/CRM), distinción central para responder la subpregunta SP-P del presente estudio.
+En paralelo, cada propuesta se caracteriza según las modalidades de entrada que combina —texto, posición/layout y visual, más características hechas a mano en los enfoques más antiguos [1]— y según el tipo de documento visualmente rico (VRD) sobre el que se valida: facturas, recibos, formularios o contratos [2], [3]. Esta segunda variable es la que evidencia si el estudio se probó sobre benchmarks públicos controlados (p. ej. FUNSD, CORD, SROIE) o sobre datos de un flujo empresarial real (ERP/CRM), distinción central para responder las preguntas de investigación **PI4** y **PD3** del presente estudio.
 
 La Tabla I resume ambos ejes y sirve como formulario de codificación para el cribado a texto completo de los estudios primarios.
 

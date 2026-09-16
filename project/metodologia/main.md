@@ -1,90 +1,230 @@
-# Metodología: formulación del marco PICO y estrategia de búsqueda
+# Metodología de la Revisión Sistemática de Literatura (RSL)
 
-## 1. Delimitación del estudio
+## 0. Encuadre metodológico y estándares de investigación
 
-El presente avance corresponde a la formulación metodológica de una revisión sistemática de la literatura sobre el uso de la Inteligencia Artificial (IA) y el Procesamiento Inteligente de Documentos (IDP) en la automatización del registro y la validación de documentos empresariales.
+La presente Revisión Sistemática de Literatura (RSL) se diseña y ejecuta bajo las directrices metodológicas de **Kitchenham & Charters (2007)** para la ingeniería de software y sistemas de información, y se reporta siguiendo los estándares internacionales de la declaración **PRISMA 2020** (*Preferred Reporting Items for Systematic Reviews and Meta-Analyses*).
 
-El estudio se delimita a **sistemas de información empresariales y flujos internos de registro documental estrictamente privados**. En consecuencia, no se consideran como población principal los sistemas gubernamentales, los servicios públicos ni los flujos documentales dirigidos directamente a usuarios externos.
+El protocolo de investigación (preguntas, criterios de elegibilidad, ecuaciones de búsqueda y estrategia de extracción) ha sido formalizado *a priori* para garantizar la objetividad, la reproducibilidad y la mitigación de sesgos en la selección del corpus documental.
 
-La pregunta maestra de la revisión se formula de la siguiente manera:
+---
 
-> **¿Cuál es el impacto de la Inteligencia Artificial (IA) en la automatización de procesos y la reducción de la carga operativa frente al ingreso manual de datos en el área de registro y validación documental de sistemas empresariales?**
+## 1. Paso 1 — El tema de partida y delimitación del estudio
 
-## 2. Marco PICO
+El estudio aborda el uso de la **Inteligencia Artificial (IA)** y el **Procesamiento Inteligente de Documentos (IDP / Intelligent Document Processing)** en la automatización del registro y la validación de documentos empresariales.
 
-El marco PICO permite organizar la pregunta general en cuatro componentes y mantener la trazabilidad entre el problema de investigación, las subpreguntas, los términos de búsqueda y la síntesis de resultados.
+* **Delimitación positiva:** Sistemas de información empresariales (ERP, CRM, gestores documentales) y flujos internos de registro y validación documental corporativos estrictamente privados.
+* **Delimitación negativa:** Se excluyen los sistemas de administración pública/gubernamental, los servicios de atención ciudadana y los flujos documentales masivos de cara al usuario final externo, debido a que obedecen a marcos regulatorios, volumetrías y dinámicas operativas distintas.
 
-| Componente | Definición para esta revisión |
-| --- | --- |
-| **P: Población / Contexto** | Sistemas de información empresariales y flujos de trabajo de registro documental estrictamente privados. |
-| **I: Intervención** | Integración de arquitecturas de Inteligencia Artificial y Procesamiento Inteligente de Documentos (IDP / IA-OCR), incluida la extracción de información. |
-| **C: Comparación** | Ingreso manual de datos o procesamiento tradicional sin integración de IA. |
-| **O: Outcome / Resultado** | Nivel de automatización, reducción de la carga operativa y eficiencia, considerando también precisión y velocidad. |
+---
 
-## 3. Subpreguntas de investigación
+## 2. Paso 2 — Delimitación de los componentes PICOC
 
-Cada subpregunta corresponde a un componente específico del marco PICO. Esta relación permite identificar qué evidencia debe extraerse de cada estudio y cómo se organizarán los resultados de la revisión.
+Para descomponer el problema y asegurar una cobertura exhaustiva y auditable, se emplea el marco extendido **PICOC** (Población, Intervención, Comparación, Outcome/Resultado y Contexto):
 
-| Código | Componente | Subpregunta |
-| --- | --- | --- |
-| **SP-P** | **Población / Contexto** | **¿Qué desafíos operativos enfrentan actualmente los sistemas de información empresariales en sus flujos internos de registro y validación documental?** |
-| **SP-I** | **Intervención** | **¿Cómo influye la integración de arquitecturas de Inteligencia Artificial y Procesamiento Inteligente de Documentos en los flujos de extracción de datos semiestructurados?** |
-| **SP-C** | **Comparación** | **¿Cómo se compara el desempeño de la automatización documental mediante IA frente al ingreso manual de datos tradicional en términos de precisión y velocidad?** |
-| **SP-O** | **Resultados** | **¿Qué efecto tienen estas tecnologías en la reducción de la carga operativa y la optimización de la eficiencia para los trabajadores internos de la empresa?** |
+| Componente | Definición para este estudio | Justificación |
+| :--- | :--- | :--- |
+| **P — Población / Problema** | Sistemas de información empresariales (ERP, CRM, DMS) y flujos internos de registro y validación documental. | Representa el entorno operativo y tecnológico donde se generan cuellos de botella por el ingreso manual y la heterogeneidad de formatos. |
+| **I — Intervención** | Arquitecturas de Inteligencia Artificial para IDP (IA-OCR, KIE, modelos basados en secuencias, grafos o LLM multimodales). | Constituye la tecnología y enfoque algorítmico cuyo impacto y eficacia se analizan en la literatura. |
+| **C — Comparación** | Ingreso manual de datos o procesamiento tradicional basado en reglas y plantillas rígidas. | Establece la línea base convencional frente a la cual se contrasta la ganancia en precisión, tiempo y costos. |
+| **O — Resultado / Outcome** | Grado de automatización, reducción de la carga operativa, precisión en la extracción (F1-score, exactitud) y velocidad/tiempo de respuesta. | Variables cuantitativas y métricas de rendimiento clave para evaluar la viabilidad y el retorno operativo. |
+| **C — Contexto** | Entornos corporativos privados y ventana temporal 2018–2025. | Delimita el dominio de aplicación y el período de maduración de los modelos de aprendizaje profundo y multimodales. |
 
-### 3.1. Trazabilidad entre PICO y resultados
+---
 
-La presentación de los resultados se organizará según los códigos de las subpreguntas. Cada estudio incluido deberá indicar a cuál o cuáles de ellas aporta evidencia.
+## 3. Paso 3 — La pregunta maestra
 
-| Componente | Evidencia que se debe extraer | Organización de resultados |
-| --- | --- | --- |
-| **P** | Tipo de empresa, sistema de información, documento y flujo interno analizado; además de los desafíos operativos identificados. | Respuesta a **SP-P**. |
-| **I** | Técnica de IA o IDP utilizada, arquitectura, etapa de extracción y tipo de dato semiestructurado procesado. | Respuesta a **SP-I**. |
-| **C** | Método manual o tradicional empleado como referencia y condiciones de comparación. | Respuesta a **SP-C**. |
-| **O** | Métricas de automatización, precisión, velocidad, carga operativa y eficiencia. | Respuesta a **SP-O**. |
+Articulando los cinco componentes del marco PICOC en una única formulación integral, la pregunta principal de la investigación se define como:
 
-## 4. Términos de búsqueda
+> **¿Cuál es el impacto de las arquitecturas de Inteligencia Artificial y Procesamiento Inteligente de Documentos (IDP), frente al ingreso manual y enfoques basados en reglas, sobre la precisión, la velocidad y la reducción de la carga operativa en el registro y validación documental dentro de sistemas empresariales, entre 2018 y 2025?**
 
-Para consultar bases de datos indexadas como Scopus y Web of Science, los términos derivados del marco PICO se expresan en inglés. Dentro de cada bloque, los sinónimos se combinan mediante el operador booleano `OR`.
+---
 
-| Bloque | Componente PICO | Términos en inglés |
-| --- | --- | --- |
-| **P** | Contexto | `"enterprise information systems"` OR `"document management"` OR `"business workflows"` |
-| **I** | Tecnología | `"artificial intelligence"` OR `"intelligent document processing"` OR `"optical character recognition"` OR `"information extraction"` |
-| **C** | Comparación | `"manual data entry"` OR `"manual processing"` OR `"traditional processing"` |
-| **O** | Resultados | `"automation"` OR `"workload reduction"` OR `"efficiency"` OR `"operational load"` |
+## 4. Paso 4 — Descomposición en preguntas de investigación (PI)
 
-## 5. Ecuación de búsqueda principal
+A partir del andamiaje PICOC, la pregunta maestra se descompone en **cuatro Preguntas de Investigación (PI)** temáticas que orientan la extracción y síntesis de evidencia técnica:
 
-Los cuatro bloques se unen con el operador `AND`, mientras que los términos equivalentes de cada componente se unen con `OR`. La ecuación contiene más de tres operadores booleanos y puede adaptarse a la sintaxis específica de cada base de datos.
+| Código | Pregunta de investigación | Componente PICOC que la origina |
+| :--- | :--- | :---: |
+| **PI1** | ¿Qué arquitecturas y enfoques algorítmicos de IA/IDP (secuencias, grafos, modelos generativos multimodales) se han implementado en el procesamiento de documentos empresariales? | **I** |
+| **PI2** | ¿Qué niveles de precisión (F1-score, exactitud) y velocidad/tiempo de resolución alcanzan estas arquitecturas en tareas de extracción de datos semiestructurados? | **I + O** |
+| **PI3** | ¿Qué diferencias de desempeño, escalabilidad y costo operativo se reportan entre las soluciones basadas en IA y los métodos tradicionales o manuales? | **I vs. C** |
+| **PI4** | ¿En qué tipologías documentales (facturas, recibos, formularios, contratos) y arquitecturas de sistemas empresariales (ERP/CRM) se han validado estas propuestas? | **P / Contexto** |
+
+---
+
+## 5. Paso 5 — Preguntas descriptivas o bibliométricas (PD)
+
+Para caracterizar cuantitativamente el cuerpo de literatura científica recuperado, se formulan **tres Preguntas Descriptivas (PD)** independientes del análisis temático PICO:
+
+| Código | Pregunta descriptiva / bibliométrica | Propósito en la RSL |
+| :--- | :--- | :--- |
+| **PD1** | ¿Cómo ha evolucionado el volumen de producción científica anual sobre IA aplicada a documentos empresariales entre 2018 y 2025? | Identificar tendencias de publicación y puntos de inflexión temporal en el área. |
+| **PD2** | ¿Qué autores, revistas/conferencias indexadas y países concentran la mayor productividad e impacto académico? | Mapear los núcleos de investigación y los canales de difusión de mayor relevancia. |
+| **PD3** | ¿Qué tipos de diseño metodológico (estudios de caso, experimentos controlados, benchmarks) y datasets (públicos vs. privados) predominan en el corpus? | Evaluar el nivel de madurez empírica y la transferibilidad de las soluciones al entorno industrial. |
+
+---
+
+## 6. Paso 6 — Términos de búsqueda y ecuación lógica
+
+A partir de los componentes PICOC, se derivaron los términos clave y sinónimos en inglés, combinándolos con el operador booleano `OR` dentro de cada bloque y con `AND` entre bloques temáticos.
+
+### 6.1. Matriz de descriptores y palabras clave
+
+| Bloque PICOC | Concepto base | Descriptores en inglés (con sinónimos y variantes) |
+| :---: | :--- | :--- |
+| **P** | Sistemas empresariales / Documentos | `"enterprise information systems"` OR `"document management"` OR `"business workflows"` OR `"ERP"` OR `"invoice processing"` OR `"receipt processing"` |
+| **I** | Inteligencia Artificial / IDP | `"intelligent document processing"` OR `"IDP"` OR `"optical character recognition"` OR `"OCR"` OR `"information extraction"` OR `"key information extraction"` OR `"document AI"` OR `"LayoutLM"` |
+| **C** | Comparación / Tradicional | `"manual data entry"` OR `"manual processing"` OR `"traditional processing"` OR `"rule-based"` |
+| **O** | Métricas / Desempeño | `"automation"` OR `"workload reduction"` OR `"efficiency"` OR `"accuracy"` OR `"processing time"` OR `"F1-score"` |
+
+### 6.2. Ecuación booleana principal
 
 ```text
-("enterprise information systems" OR "document management" OR "business workflows") AND ("artificial intelligence" OR "intelligent document processing" OR "optical character recognition" OR "information extraction") AND ("manual data entry" OR "manual processing" OR "traditional processing") AND ("automation" OR "workload reduction" OR "efficiency" OR "operational load")
+("enterprise information systems" OR "document management" OR "business workflows" OR "ERP" OR "invoice processing" OR "receipt processing")
+AND ("intelligent document processing" OR "IDP" OR "optical character recognition" OR "OCR" OR "information extraction" OR "key information extraction" OR "document AI" OR "LayoutLM")
+AND ("manual data entry" OR "manual processing" OR "traditional processing" OR "rule-based" OR "automation" OR "workload reduction" OR "efficiency" OR "accuracy")
 ```
 
-### 5.1. Adaptación a bases de datos
+### 6.3. Adaptación sintáctica por base de datos
 
-Para Scopus, la ecuación puede ejecutarse dentro de los campos de título, resumen y palabras clave mediante `TITLE-ABS-KEY(...)`. Para Web of Science, puede utilizarse el campo de tema mediante `TS=(...)`.
+* **Scopus:**
+  ```text
+  TITLE-ABS-KEY(("enterprise information systems" OR "document management" OR "business workflows" OR "ERP" OR "invoice processing" OR "receipt processing") AND ("intelligent document processing" OR "IDP" OR "optical character recognition" OR "OCR" OR "information extraction" OR "key information extraction" OR "document AI" OR "LayoutLM") AND ("manual data entry" OR "manual processing" OR "traditional processing" OR "rule-based" OR "automation" OR "workload reduction" OR "efficiency" OR "accuracy"))
+  ```
+* **Web of Science (WoS):**
+  ```text
+  TS=(("enterprise information systems" OR "document management" OR "business workflows" OR "ERP" OR "invoice processing" OR "receipt processing") AND ("intelligent document processing" OR "IDP" OR "optical character recognition" OR "OCR" OR "information extraction" OR "key information extraction" OR "document AI" OR "LayoutLM") AND ("manual data entry" OR "manual processing" OR "traditional processing" OR "rule-based" OR "automation" OR "workload reduction" OR "efficiency" OR "accuracy"))
+  ```
 
-**Scopus**
+---
 
-```text
-TITLE-ABS-KEY(("enterprise information systems" OR "document management" OR "business workflows") AND ("artificial intelligence" OR "intelligent document processing" OR "optical character recognition" OR "information extraction") AND ("manual data entry" OR "manual processing" OR "traditional processing") AND ("automation" OR "workload reduction" OR "efficiency" OR "operational load"))
+## 7. Paso 7 — Criterios de inclusión y exclusión codificados
+
+Los criterios de elegibilidad se codifican de forma unívoca para permitir la trazabilidad individual de cada decisión de cribado.
+
+> **Regla operativa de filtrado:** Primero se declaran los criterios de inclusión; durante el cribado, se aplican primero las exclusiones gruesas (año, idioma, tipo de documento) y posteriormente se verifica la inclusión temática a texto completo.
+
+| Código | Tipo | Criterio de elegibilidad |
+| :---: | :---: | :--- |
+| **IN1** | Inclusión | Estudios publicados en la ventana temporal comprendida entre **2018 y 2025**. |
+| **IN2** | Inclusión | Artículos de revista revisados por pares (*journal articles*) o ponencias en congresos internacionales indexados (*conference proceedings*). |
+| **IN3** | Inclusión | Estudios indexados en las bases de datos principales **Scopus** o **Web of Science Core Collection**. |
+| **IN4** | Inclusión | Artículos que propongan, evalúen o comparen modelos de IA/IDP aplicados al registro, extracción o validación de documentos en entornos empresariales. |
+| **EX1** | Exclusión | Documentos publicados en idiomas distintos al **inglés** o **español**. |
+| **EX2** | Exclusión | Publicaciones no disponibles a texto completo a través de los accesos institucionales. |
+| **EX3** | Exclusión | Literatura gris, preprints (arXiv sin revisión por pares), notas editoriales, resúmenes breves (*extended abstracts*) o capítulos de libros sin arbitraje estricto. |
+| **EX4** | Exclusión | Estudios enfocados exclusivamente en trámites del sector público/gubernamental o registros médicos no equiparables a flujos empresariales. |
+| **EX-n** | Exclusión | Documentos que, tras la lectura completa, no aportan evidencia empírica a ninguna de las cuatro preguntas de investigación (**PI1–PI4**). |
+
+---
+
+## 8. Paso 8 — Bitácora de reducción del corpus (evidencia de búsqueda)
+
+Para garantizar la **reproducibilidad temporal**, las búsquedas en todas las bases se ejecutan en la misma fecha calendario.
+
+### 8.1. Registro maestro por base indexada
+
+| Base de datos | Fecha de ejecución | Ecuación adaptada | Resultados brutos ($n$) | Tras filtros nativos ($n$) | Archivo exportado de evidencia |
+| :--- | :---: | :--- | :---: | :---: | :--- |
+| **Scopus** | *[DD/MM/AAAA]* | Ecuación en `TITLE-ABS-KEY` | *[Por registrar]* | *[Por registrar]* | `scopus_raw.bib` / Captura fechada |
+| **Web of Science** | *[DD/MM/AAAA]* | Ecuación en `TS` | *[Por registrar]* | *[Por registrar]* | `wos_raw.bib` / Captura fechada |
+| **Total bruto consolidado** | — | — | **$N_{bruto}$** | **$N_{nativos}$** | — |
+
+### 8.2. Bitácora de filtros nativos paso a paso
+
+| Base | Filtro nativo aplicado | Valor del filtro | $n$ restante |
+| :--- | :--- | :--- | :---: |
+| **Scopus** | *(Búsqueda inicial bruta)* | Ecuación sin filtros adicionales | $n_1$ |
+| Scopus | Rango temporal | 2018–2025 | $n_2$ |
+| Scopus | Tipo de documento | Article, Conference Paper | $n_3$ |
+| Scopus | Idioma | English, Spanish | $n_4$ |
+| Scopus | Área temática | Computer Science, Engineering, Decision Sciences | $n_{Scopus}$ |
+| **WoS** | *(Búsqueda inicial bruta)* | Ecuación sin filtros adicionales | $m_1$ |
+| WoS | Rango temporal | 2018–2025 | $m_2$ |
+| WoS | Tipo de documento | Article, Proceedings Paper | $m_3$ |
+| WoS | Idioma | English, Spanish | $m_4$ |
+| WoS | Categoría de indexación | Computer Science, Engineering Electrical Electronic | $m_{WoS}$ |
+
+---
+
+## 9. Paso 9 — Las cuatro fases del flujo PRISMA 2020
+
+El proceso de selección se estructura en cuatro fases rigurosamente secuenciales:
+
+```mermaid
+flowchart TD
+    subgraph F1["Fase 1: Identificación"]
+        A1["Registros identificados en bases de datos<br>(Scopus: n = ___, WoS: n = ___)"] --> A2["Total de registros brutos<br>(n = ___)"]
+        A2 --> A3["Eliminación de duplicados (vía DOI en Mendeley/Zotero)<br>(n = ___ eliminados)"]
+        A3 --> A4["Registros únicos ingresados al cribado<br>(n = ___)"]
+    end
+
+    subgraph F2["Fase 2: Cribado (Screening)"]
+        A4 --> B1["Cribado por título y resumen (Doble revisor)"]
+        B1 --> B2["Registros excluidos por no pertinencia temática<br>(EX1, EX3, EX4: n = ___)"]
+        B1 --> B3["Registros seleccionados para texto completo<br>(n = ___)"]
+    end
+
+    subgraph F3["Fase 3: Elegibilidad"]
+        B3 --> C1["Evaluación a texto completo y control de calidad (QA)"]
+        C1 --> C2["Registros excluidos a texto completo con justificación<br>(EX2: n=___, EX-n: n=___)"]
+        C1 --> C3["Estudios que superan la evaluación de calidad"]
+    end
+
+    subgraph F4["Fase 4: Inclusión"]
+        C3 --> D1["Corpus final de estudios incluidos en la síntesis<br>(N = ___ estudios primarios)"]
+    end
 ```
 
-**Web of Science**
+### Protocolo de cribado y control de sesgos:
+1. **Deduplicación:** Se realiza mediante cotejo automático y manual de **DOI** y títulos normalizados en gestor bibliográfico (**Mendeley / Zotero**).
+2. **Cribado por doble revisor:** Dos investigadores revisan independientemente los títulos y resúmenes. Las discrepancias se resuelven por consenso argumentado o con arbitraje de un tercer revisor, reportando el nivel de concordancia mediante el **índice Kappa de Cohen** ($\kappa$).
+3. **Evaluación de Calidad Metodológica (QA):** Se aplica una escala basada en Kitchenham con 5 preguntas de control (`QA1` a `QA5`) calificadas como `1 = Sí`, `0.5 = Parcial`, `0 = No`, estableciendo un umbral mínimo de corte ($\ge 3.0/5.0$) para la inclusión definitiva.
 
-```text
-TS=(("enterprise information systems" OR "document management" OR "business workflows") AND ("artificial intelligence" OR "intelligent document processing" OR "optical character recognition" OR "information extraction") AND ("manual data entry" OR "manual processing" OR "traditional processing") AND ("automation" OR "workload reduction" OR "efficiency" OR "operational load"))
-```
+---
 
-## 6. Registro de búsqueda y reproducibilidad
+## 10. Paso 10 — Tabla de mapeo artículo × pregunta y alerta de ineditud
 
-Cada ejecución de la ecuación deberá registrarse para garantizar que la búsqueda pueda ser revisada y replicada. Como mínimo, se documentarán la base consultada, la fecha, la ecuación exacta y la cantidad de resultados obtenidos.
+### 10.1. Matriz de trazabilidad (Artículo × PI)
 
-| Base de datos | Fecha de ejecución | Ecuación aplicada | Resultados brutos | Resultados tras filtros | Archivo o evidencia |
-| --- | --- | --- | ---: | ---: | --- |
-| Scopus | Pendiente | Ecuación principal adaptada a `TITLE-ABS-KEY` | Pendiente | Pendiente | Captura y exportación `.ris` / `.bib` |
-| Web of Science | Pendiente | Ecuación principal adaptada a `TS` | Pendiente | Pendiente | Captura y exportación `.ris` / `.bib` |
+Cada artículo del corpus final se valida contra las cuatro preguntas de investigación temáticas para clasificar los aportes y verificar que no existan estudios desconectados:
 
-Los valores marcados como **Pendiente** se completarán después de ejecutar la búsqueda en cada base. En la etapa de selección, los estudios se clasificarán según la subpregunta PICO a la que aporten evidencia.
+| Código de estudio | Referencia bibliográfica | PI1 (Arquitecturas) | PI2 (Métricas/Velocidad) | PI3 (Comparación vs Trad.) | PI4 (Tipologías/ERP) | Total preguntas | Clasificación del estudio |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **[S01]** | *Autor et al., Año* | ✔ | ✔ | ✔ | ✔ | 4/4 | **Estudio nuclear** |
+| **[S02]** | *Autor et al., Año* | ✔ | ✔ | — | ✔ | 3/4 | Estudio de soporte temático |
+| **[S03]** | *Autor et al., Año* | ✔ | — | — | ✔ | 2/4 | Estudio de caracterización |
+| **[...]** | *...* | ... | ... | ... | ... | ... | ... |
+
+* **Estudios Nucleares (4/4):** Artículos que abordan simultáneamente arquitectura, métricas, comparativa y contexto empresarial; constituyen la columna vertebral de la discusión.
+* **Alerta de exclusión (0/4):** Todo artículo que tras la lectura completa no marque ninguna casilla queda excluido automáticamente bajo la causal **`EX-n`**.
+
+### 10.2. Paso 10-bis: Protocolo ante la Alerta de Ineditud
+
+Si durante el cribado se detecta un artículo que responde íntegramente a las 4 preguntas de investigación:
+1. **Si es un estudio primario:** Se valida como *estudio nuclear*.
+2. **Si es una revisión sistemática previa (RSL o Survey):** Se activa la **alerta de ineditud**. Se analiza su ventana temporal y taxonomía para diferenciar formalmente la presente RSL como un avance que cubre una brecha no resuelta (ej. incorporación de modelos multimodales recientes post-2023 o foco específico en ERP corporativos).
+
+---
+
+## 11. Paso 11 — Enlace de cada pregunta con la sección de Resultados
+
+Para garantizar la coherencia estricta de la RSL, **cada pregunta (PI y PD) se responde de manera explícita en la sección de Resultados** con sustento cuantitativo, tabla y gráfico propios:
+
+| Pregunta | Contenido temático a responder en Resultados | Tabla de evidencia asociada | Gráfico cuantitativo asociado |
+| :---: | :--- | :--- | :--- |
+| **PD1** | Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales. | Tabla de distribución de frecuencia de artículos por año (2018–2025). | Gráfico de líneas / barras de tendencia temporal. |
+| **PD2** | Productividad académica por autor, revista/conferencia indexada y país de origen. | Ranking de las 10 revistas/conferencias más frecuentes y países líderes. | Gráfico de barras horizontales / mapa coroplético de distribución geográfica. |
+| **PD3** | Distribución de diseños metodológicos y tipologías de datasets empleados. | Tabla cruzada de diseño del estudio $\times$ tipo de dataset (público vs. empresarial). | Gráfico circular o de barras apiladas por tipología de validación. |
+| **PI1** | Taxonomía de enfoques algorítmicos (secuenciales, grafos, LLM multimodales/KIE). | Matriz de arquitecturas de IA identificadas $\times$ número de estudios. | Gráfico de barras por familia algorítmica. |
+| **PI2** | Rendimiento cuantitativo reportado (F1-score, exactitud, reducción de tiempo). | Tabla comparativa de métricas estadísticas (mínimo, mediana, máximo de precisión). | Diagrama de caja y bigotes (*boxplot*) o gráfico de dispersión de métricas. |
+| **PI3** | Comparativa de eficiencia y costo operativo: IA/IDP frente a ingreso manual/reglas. | Tabla de ganancia porcentual en velocidad y tasa de reducción de error operativo. | Gráfico de barras comparativas (Método tradicional vs. Enfoque IA). |
+| **PI4** | Tipologías documentales (facturas, recibos, órdenes) y sistemas ERP/CRM integrados. | Tabla de frecuencia por tipo de documento visualmente rico $\times$ plataforma empresarial. | Gráfico de barras agrupadas o matriz de calor (*heatmap*). |
+
+---
+
+## 12. Cierre: Cadena de trazabilidad metodológica completa
+
+El flujo metodológico consolidado asegura que cada artículo, cifra y resultado sea completamente auditable bajo la siguiente cadena:
+
+$$\text{Tema} \longrightarrow \text{PICOC} \longrightarrow \text{Pregunta Maestra} \longrightarrow \text{Preguntas (PI + PD)} \longrightarrow \text{Ecuación Booleana} \longrightarrow \text{Criterios IN/EX} \longrightarrow \text{Bitácora de Filtros} \longrightarrow \text{Flujo PRISMA} \longrightarrow \text{Mapeo Artículos} \longrightarrow \text{Resultados (Tablas + Gráficos)}$$
