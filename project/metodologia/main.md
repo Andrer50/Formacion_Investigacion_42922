@@ -120,14 +120,23 @@ TS=(("business document*" OR "financial document*" OR "administrative document*"
 ### 6.5. Tabla comparativa de iteraciones y calibración de la búsqueda
 
 La siguiente tabla resume la evolución metodológica del proceso de consulta, referenciando las ecuaciones codificadas en la sección 6.4:
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> bb823be13232234790cb0f072a0114bf7c4d6036
 |  N.° Iteración  |   Base de datos    | Ecuación referenciada | Resultados brutos ($n$) | Diagnóstico metodológico                                                                                       |    Decisión    | Evidencia archivada                                        |
 | :-------------: | :----------------: | :-------------------: | :---------------------: | :------------------------------------------------------------------------------------------------------------- | :------------: | :--------------------------------------------------------- |
 | **Iteración 1** |     **Scopus**     |      `[EQ-IT1]`       |         **142**         | **Sobre-restringida:** Frases literales cerradas y comparación manual rígida que limitaron la recuperación.    | **Descartada** | `project/metodologia/evidencias/scopus_iteracion1_142.png` |
 | **Iteración 2** |     **Scopus**     |   `[EQ-IT2-SCOPUS]`   |         **865**         | **Óptima:** Uso de comodines (`*`), descriptores _KIE/Doc AI_ y ampliación morfológica ($800 \le n \le 1200$). |  **Aprobada**  | `project/metodologia/evidencias/scopus_iteracion2_865.png` |
+<<<<<<< HEAD
 | **Iteración 2** | **Web of Science** |    `[EQ-IT2-WOS]`     |         **123**         | **Sobre-restringida:** El campo `TS` de WoS con la misma sintaxis de Scopus resultó mucho más restrictivo (razón ~1:7 frente a Scopus).                          | **Descartada**  | `project/metodologia/evidencias/wos_iteracion_1_123.png`  |
 | **Iteración 3** | **Web of Science** |    `[EQ-IT3-WOS]`     |         **755**         | **Óptima:** Ampliación del bloque de Intervención con sinónimos generales (_NLP, deep learning, machine learning_), orden de magnitud comparable a Scopus.                          | **Aprobada**  | `project/metodologia/evidencias/wos_iteracion_2_755.png`  |
  
+=======
+| **Iteración 2** | **Web of Science** |    `[EQ-IT2-WOS]`     |    _[Por ejecutar]_     | **En ejecución:** Adaptación al campo temático `TS` de WoS con la sintaxis calibrada.                          | **Pendiente**  | `project/metodologia/evidencias/wos_iteracion_brutos.png`  |
+
+>>>>>>> bb823be13232234790cb0f072a0114bf7c4d6036
 ---
 
 ## 7. Paso 7 — Criterios de inclusión y exclusión codificados
@@ -162,7 +171,7 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en todas las ba
 | **Web of Science**          | _[Fecha de ejecución]_ | Ecuación calibrada (Iteración 3) en `TS`            |    **755**    |     **154**      | `project/metodologia/evidencias/wos_iteracion_2_755.png` y `wos_export.ris`     |
 | **Total bruto consolidado** |           —            | —                                                   |     **1620**     |     **$N_{nativos}$**      | —                                                                                |
  
-
+ 
 
 ### 8.2. Bitácora de filtros nativos paso a paso (Scopus)
 
@@ -178,10 +187,19 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en todas las ba
 
 | Base    | Filtro nativo aplicado     | Valor del filtro                                    |   $n$ restante    | Evidencia asociada                               |
 | :------ | :------------------------- | :-------------------------------------------------- | :---------------: | :----------------------------------------------- |
+<<<<<<< HEAD
 | **WoS** | _(Búsqueda inicial bruta — Iteración 3)_ | Ecuación calibrada sin filtros                      | **755** | `project/metodologia/evidencias/wos_iteracion_2_755.png`    |
 | WoS     | 1–3. Tipo de documento (Artículo) + Idioma (Inglés) + Rango temporal (2018–2025, implícito en el corpus resultante) | Filtros acumulados                                           |  **154**   | `project/metodologia/evidencias/wos_refine_154.xlsx`                      |
 | WoS     | 4. Categoría WoS           | Engineering Electrical Electronic, Computer Science Information Systems, Telecommunications, Computer Science Artificial Intelligence, Computer Science Interdisciplinary Applications, Computer Science Theory Methods, Computer Science Hardware Architecture, Operations Research Management Science, Computer Science Software Engineering | **154**   | `project/metodologia/evidencias/wos_filtros_paso_a_paso.png` |
  
+=======
+| **WoS** | _(Búsqueda inicial bruta)_ | Ecuación calibrada sin filtros                      | _[Por registrar]_ | `assets/metodologia/wos_iteracion_brutos.png`    |
+| WoS     | 1. Rango temporal          | 2018–2025                                           |  _[Por anotar]_   | Captura tras filtro de años                      |
+| WoS     | 2. Tipo de documento       | Article, Proceedings Paper                          |  _[Por anotar]_   | Captura tras tipo de documento                   |
+| WoS     | 3. Idioma                  | English, Spanish                                    |  _[Por anotar]_   | Captura tras idioma                              |
+| WoS     | 4. Categoría WoS           | Computer Science, Engineering Electrical Electronic |  _[Por anotar]_   | `assets/metodologia/wos_filtros_paso_a_paso.png` |
+
+>>>>>>> bb823be13232234790cb0f072a0114bf7c4d6036
 ---
 
 ## 9. Paso 9 — Las cuatro fases del flujo PRISMA 2020
