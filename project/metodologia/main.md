@@ -128,11 +128,11 @@ TS=(("business document*" OR "financial document*" OR "administrative document*"
 La siguiente tabla resume la evolución metodológica del proceso de consulta, referenciando las ecuaciones codificadas en la sección 6.4:
 
 | Base de datos | N.° Iteración | Ecuación referenciada | Resultados brutos ($n$) | Diagnóstico metodológico | Decisión | Evidencia archivada |
-| :---: | :---: | :---: | :---: | :--- | :---: | :--- |
-| **Scopus** | **Iteración 1** | `[EQ-IT1-SCOPUS]` | **142** | **Sobre-restringida:** Frases literales cerradas y comparación manual rígida que limitaron la recuperación. | **Descartada** | `project/metodologia/evidencias/scopus_iteracion1_142.png` |
-| **Scopus** | **Iteración 2** | `[EQ-IT2-SCOPUS]` | **865** | **Óptima:** Uso de comodines (`*`), descriptores _KIE/Doc AI_ y ampliación morfológica ($800 \le n \le 1200$). | **Aprobada** | `project/metodologia/evidencias/scopus_iteracion2_865.png` |
-| **Web of Science** | **Iteración 1** | `[EQ-IT1-WOS]` | **123** | **Sobre-restringida:** El campo `TS` de WoS con sintaxis estricta resultó excesivamente restrictivo frente a Scopus. | **Descartada** | `project/metodologia/evidencias/wos_iteracion_1_123.png` |
-| **Web of Science** | **Iteración 2** | `[EQ-IT2-WOS]` | **755** | **Óptima:** Ampliación del bloque de Intervención con sinónimos generales (_NLP, deep learning, machine learning_). | **Aprobada** | `project/metodologia/evidencias/wos_iteracion_2_755.png` |
+| :---: | :---: | :--- | :---: | :--- | :---: | :--- |
+| **Scopus** | **Iteración 1** | `[EQ-IT1-SCOPUS]` | **140** | **Sobre-restringida:** Frases literales cerradas y comparación manual rígida que limitaron la recuperación. | **Descartada** | `project/metodologia/evidencias/scopus_iteracion1_140.png` |
+| **Scopus** | **Iteración 2** | `[EQ-IT2-SCOPUS]` | **862** | **Óptima:** Uso de comodines (`*`), descriptores _KIE/Doc AI_ y ampliación morfológica ($800 \le n \le 1200$). | **Aprobada** | `project/metodologia/evidencias/scopus_iteracion2_862.png` |
+| **Web of Science** | **Iteración 1** | `[EQ-IT1-WOS]` | **123** | **Sobre-restringida:** El campo `TS` de WoS con sintaxis estricta resultó excesivamente restrictivo frente a Scopus. | **Descartada** | `project/metodologia/evidencias/wos_iteracion_1_123.jpeg` |
+| **Web of Science** | **Iteración 2** | `[EQ-IT2-WOS]` | **730** | **Óptima:** Ampliación del bloque de Intervención con sinónimos generales (_NLP, deep learning, machine learning_). | **Aprobada** | `project/metodologia/evidencias/wos_iteracion_2_730.png` |
 
 ---
 ## 7. Paso 7 — Criterios de inclusión y exclusión codificados
@@ -144,7 +144,7 @@ Los criterios de elegibilidad se codifican de forma unívoca para permitir la tr
 | Código | Tipo | Criterio de elegibilidad | Evidencia / Verificación asociada |
 | :---: | :---: | :--- | :--- |
 | **IN1** | Inclusión | Estudios publicados en la ventana temporal comprendida entre **2020 y 2025**. | `project/metodologia/evidencias/IN1_Scopus_limite_años.png`<br>`project/metodologia/evidencias/IN1_WebOS_limite_años.png` |
-| **IN2** | Inclusión | Artículos de revista revisados por pares (_journal articles_) o ponencias en congresos internacionales indexados (_conference proceedings_). | `project/metodologia/evidencias/IN2_Scopus_tipo_documentos.png`<br>`project/metodologia/evidencias/IN2_WebOS_tipo_documentos.png` |
+| **IN2** | Inclusión | Artículos de revista revisados por pares (_journal articles_) o ponencias en congresos internacionales indexados (_conference proceedings_). | `project/metodologia/evidencias/IN2_Scopus_tipo_documento.png`<br>`project/metodologia/evidencias/IN2_WebOS_tipo_documentos.png` |
 | **IN3** | Inclusión | Estudios indexados en las bases de datos principales **Scopus** o **Web of Science Core Collection**. | `project/metodologia/evidencias/IN3_Scopus_evidencia.png`<br>`project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
 | **IN4** | Inclusión | Artículos que propongan, evalúen o comparen modelos de IA/IDP aplicados al registro, extracción o validación de documentos en entornos empresariales. | Matriz de Mapeo (Paso 10) y dataset final:<br>`project/metodologia/outputs/corpus_included_final.csv` |
 | **EX1** | Exclusión | Documentos publicados en idiomas distintos al **inglés** o **español**. | Filtros nativos aplicados en Scopus y WoS (`IN1_Scopus_limite_años.png`) |
@@ -163,17 +163,17 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en ambas bases 
 
 | Base de datos | Fecha de ejecución | Ecuación adaptada | Resultados brutos ($n$) | Tras filtros nativos ($n$) | Archivo exportado de evidencia |
 | :--- | :---: | :--- | :---: | :---: | :--- |
-| **Scopus** | 21/09/2026 | `[EQ-IT2-SCOPUS]` en `TITLE-ABS-KEY` | **865** | **458** | `project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv`<br>`project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
-| **Web of Science** | 21/09/2026 | `[EQ-IT2-WOS]` en `TS` | **755** | **502** | `project/metodologia/outputs/webos_export_Sep 21-2026.xls`<br>`project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
-| **Total consolidado** | **21/09/2026** | — | **1620** | **960** | Archivos archivados en `outputs/` y `evidencias/` |
+| **Scopus** | 21/09/2026 | `[EQ-IT2-SCOPUS]` en `TITLE-ABS-KEY` | **862** | **458** | `project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv`<br>`project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
+| **Web of Science** | 21/09/2026 | `[EQ-IT2-WOS]` en `TS` | **730** | **502** | `project/metodologia/outputs/webos_export_Sep 21-2026.xls`<br>`project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
+| **Total consolidado** | **21/09/2026** | — | **1592** | **960** | Archivos archivados en `outputs/` y `evidencias/` |
 
 ### 8.2. Bitácora de filtros nativos paso a paso (Scopus)
 
 | Base | Filtro nativo aplicado | Valor del filtro | $n$ restante | Evidencia asociada |
 | :--- | :--- | :--- | :---: | :--- |
-| **Scopus** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **865** | `project/metodologia/evidencias/scopus_iteracion2_865.png` |
+| **Scopus** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **862** | `project/metodologia/evidencias/scopus_iteracion2_862.png` |
 | Scopus | 1. Rango temporal (`IN1`) | 2020–2025 | **492** | `project/metodologia/evidencias/IN1_Scopus_limite_años.png` |
-| Scopus | 2. Tipo de documento (`IN2` / `EX3`) | Article (109), Conference Paper (349) | **458** | `project/metodologia/evidencias/IN2_Scopus_tipo_documentos.png` |
+| Scopus | 2. Tipo de documento (`IN2` / `EX3`) | Article (109), Conference Paper (349) | **458** | `project/metodologia/evidencias/IN2_Scopus_tipo_documento.png` |
 | Scopus | 3. Idioma y Colección (`IN3` / `EX1`) | English, Spanish / Scopus Elsevier | **458** | `project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
 | Scopus | **Total Scopus exportado** | Filtros acumulados | **458** | `project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv` |
 
@@ -181,8 +181,8 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en ambas bases 
 
 | Base | Filtro nativo aplicado | Valor del filtro | $n$ restante | Evidencia asociada |
 | :--- | :--- | :--- | :---: | :--- |
-| **WoS** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **755** | `project/metodologia/evidencias/wos_iteracion_2_755.png` |
-| WoS | 1. Rango temporal (`IN1`) | 2020–2025 | **502** | `project/metodologia/evidencias/IN1_WebOS_limite_años.png` |
+| **WoS** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **730** | `project/metodologia/evidencias/wos_iteracion_2_730.png` |
+| WoS | 1. Rango temporal (`IN1`) | 2020–2025 | **536** | `project/metodologia/evidencias/IN1_WebOS_limite_años.png` |
 | WoS | 2. Tipo de documento (`IN2` / `EX3`) | Article (502) | **502** | `project/metodologia/evidencias/IN2_WebOS_tipo_documentos.png` |
 | WoS | 3. Indexación (`IN3`) | Web of Science Core Collection | **502** | `project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
 | WoS | **Total WoS exportado** | Filtros acumulados | **502** | `project/metodologia/outputs/webos_export_Sep 21-2026.xls` |
