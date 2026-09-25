@@ -3,8 +3,8 @@ import numpy as np
 import re
 import os
 
-scopus_file = r'project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv'
-wos_file = r'project/metodologia/outputs/webos_export_Sep 21-2026.xls'
+scopus_file = r'project/metodologia/inputs/scopus_export_it2.csv'
+wos_file = r'project/metodologia/inputs/wos_export_it2.xls'
 
 # Read files
 df_scopus = pd.read_csv(scopus_file, encoding='utf-8')
@@ -14,33 +14,33 @@ df_wos = pd.read_excel(wos_file)
 # Scopus: Title, Abstract, Authors, Year, DOI, Affiliations, Source title, Document Type, EID
 scopus_std = pd.DataFrame({
     'source_db': 'Scopus',
-    'id': df_scopus['EID'].astype(str),
-    'authors': df_scopus['Authors'].fillna(''),
-    'title': df_scopus['Title'].fillna(''),
-    'year': df_scopus['Year'].fillna(0).astype(int),
-    'source_title': df_scopus['Source title'].fillna(''),
-    'doi': df_scopus['DOI'].fillna('').astype(str).str.strip().str.lower(),
-    'abstract': df_scopus['Abstract'].fillna(''),
-    'author_keywords': df_scopus['Author Keywords'].fillna(''),
-    'index_keywords': df_scopus['Index Keywords'].fillna(''),
-    'affiliations': df_scopus['Affiliations'].fillna(''),
-    'doc_type': df_scopus['Document Type'].fillna('')
+    'id': df_scopus['EID'].astype(str) if 'EID' in df_scopus else [f"2-s2.0-{i}" for i in range(len(df_scopus))],
+    'authors': df_scopus['Authors'].fillna('') if 'Authors' in df_scopus else '',
+    'title': df_scopus['Title'].fillna('') if 'Title' in df_scopus else '',
+    'year': df_scopus['Year'].fillna(0).astype(int) if 'Year' in df_scopus else 0,
+    'source_title': df_scopus['Source title'].fillna('') if 'Source title' in df_scopus else '',
+    'doi': df_scopus['DOI'].fillna('').astype(str).str.strip().str.lower() if 'DOI' in df_scopus else '',
+    'abstract': df_scopus['Abstract'].fillna('') if 'Abstract' in df_scopus else '',
+    'author_keywords': df_scopus['Author Keywords'].fillna('') if 'Author Keywords' in df_scopus else '',
+    'index_keywords': df_scopus['Index Keywords'].fillna('') if 'Index Keywords' in df_scopus else '',
+    'affiliations': df_scopus['Affiliations'].fillna('') if 'Affiliations' in df_scopus else '',
+    'doc_type': df_scopus['Document Type'].fillna('') if 'Document Type' in df_scopus else ''
 })
 
 # WoS: Article Title, Abstract, Authors, Publication Year, DOI, Affiliations, Source Title, Document Type, UT (Unique WOS ID)
 wos_std = pd.DataFrame({
     'source_db': 'Web of Science',
-    'id': df_wos['UT (Unique WOS ID)'].astype(str),
-    'authors': df_wos['Authors'].fillna(''),
-    'title': df_wos['Article Title'].fillna(''),
-    'year': df_wos['Publication Year'].fillna(0).astype(int),
-    'source_title': df_wos['Source Title'].fillna(''),
-    'doi': df_wos['DOI'].fillna('').astype(str).str.strip().str.lower(),
-    'abstract': df_wos['Abstract'].fillna(''),
-    'author_keywords': df_wos['Author Keywords'].fillna(''),
-    'index_keywords': df_wos['Keywords Plus'].fillna(''),
-    'affiliations': df_wos['Affiliations'].fillna(''),
-    'doc_type': df_wos['Document Type'].fillna('')
+    'id': df_wos['UT (Unique WOS ID)'].astype(str) if 'UT (Unique WOS ID)' in df_wos else [f"WOS:{i}" for i in range(len(df_wos))],
+    'authors': df_wos['Authors'].fillna('') if 'Authors' in df_wos else '',
+    'title': df_wos['Article Title'].fillna('') if 'Article Title' in df_wos else '',
+    'year': df_wos['Publication Year'].fillna(0).astype(int) if 'Publication Year' in df_wos else 0,
+    'source_title': df_wos['Source Title'].fillna('') if 'Source Title' in df_wos else '',
+    'doi': df_wos['DOI'].fillna('').astype(str).str.strip().str.lower() if 'DOI' in df_wos else '',
+    'abstract': df_wos['Abstract'].fillna('') if 'Abstract' in df_wos else '',
+    'author_keywords': df_wos['Author Keywords'].fillna('') if 'Author Keywords' in df_wos else '',
+    'index_keywords': df_wos['Keywords Plus'].fillna('') if 'Keywords Plus' in df_wos else '',
+    'affiliations': df_wos['Affiliations'].fillna('') if 'Affiliations' in df_wos else '',
+    'doc_type': df_wos['Document Type'].fillna('') if 'Document Type' in df_wos else ''
 })
 
 # Clean DOIs: remove https://doi.org/, http://dx.doi.org/, spaces

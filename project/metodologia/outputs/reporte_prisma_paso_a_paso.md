@@ -19,7 +19,7 @@ A continuación se resume la transición cuantitativa a través de las cuatro fa
 
 | Fase PRISMA | Registros de Entrada | Operación Metodológica | Criterios Aplicados | Registros Excluidos | Registros Resultantes |
 | :--- | :---: | :--- | :--- | :---: | :---: |
-| **Fase 1: Identificación** | **1,592** brutos | Filtros nativos de base de datos + Detección cruzada de duplicados | • Años: 2020–2025<br>• Tipos: Article, Conf. Paper, Review<br>• Deduplicación por DOI y título | **-85** duplicados | **875** únicos |
+| **Fase 1: Identificación** | **1,593** brutos | Filtros nativos de base de datos + Detección cruzada de duplicados | • Años: 2020–2025<br>• Tipos: Article, Conf. Paper, Review<br>• Deduplicación por DOI y título | **-85** duplicados | **875** únicos |
 | **Fase 2: Cribado (Screening)** | **875** únicos | Cribado por Título, Resumen (Abstract) y Palabras Clave | • Criterio de exclusión temático `EX4`<br>• Criterio de no pertinencia con PIs `EX-n` | **-745** registros<br>*(680 EX4 + 65 EX-n)* | **130** elegibles |
 | **Fase 3: Elegibilidad (Eligibility)** | **130** elegibles | Lectura de Texto Completo y Evaluación de Calidad (QA $\ge 3.0$) | • Exclusión de surveys teóricos `EX3`<br>• Exclusión por falta de métricas `EX-n`<br>• Exclusión por acceso `EX2` | **-20** registros<br>*(8 EX3 + 7 EX-n + 5 EX2)* | **110** con QA $\ge 3.0$ |
 | **Fase 4: Inclusión (Included)** | **110** primarios | Categorización y Mapeo Sistemático de Preguntas de Investigación | • Matriz de extracción de datos<br>• Asignación de pertinencia PI1–PI4 | **0** | **110** incluidos en síntesis |
@@ -90,13 +90,13 @@ Se ejecutaron dos iteraciones de búsqueda en **Scopus** y **Web of Science (WoS
    * *Scopus:* Devuelve $140$ documentos.
    * *WoS:* Devuelve $123$ documentos.
 2. **Iteración 2 (Cadena booleana expandida con operadores de proximidad y sinónimos):**
-   * *Scopus:* Devuelve $862$ documentos brutos.
+   * *Scopus:* Devuelve $863$ documentos brutos.
    * *WoS:* Devuelve $730$ documentos brutos.
-   * *Total bruto sin filtrar:* $1,592$ documentos.
+   * *Total bruto sin filtrar:* $1,593$ documentos.
 
 3. **Aplicación de Criterios de Inclusión Nativos en Plataforma:**
    * **Filtro `IN1` (Ventana Temporal 2020–2025):**
-     * Scopus se reduce de $862$ a **$492$**.
+     * Scopus se reduce de $863$ a **$492$**.
      * WoS se reduce de $730$ a **$536$**.
    * **Filtro `IN2` (Tipología Documental: Articles, Conference Papers, Reviews):**
      * Scopus se reduce de $492$ a **$458$** registros finales exportados.
@@ -217,17 +217,26 @@ Los cuatro estudios nucleares emergieron de forma completamente **natural y org�
 
 ## 7. Repositorio de Archivos y Trazabilidad
 
-Todos los datasets, scripts de cálculo y evidencias fotográficas se encuentran alojados en la estructura del proyecto:
+Todos los archivos de entrada, scripts ejecutables, salidas tabulares y evidencias fotográficas se encuentran organizados en la siguiente arquitectura:
 
-1. **Documento Metodológico Principal:**
-   * [`project/metodologia/main.md`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/main.md)
-2. **Datasets y Salidas Cuantitativas en `outputs/`:**
+1. **Entradas y exportaciones brutas en `inputs/`:**
+   * [`scopus_export_it2.csv`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/inputs/scopus_export_it2.csv): Exportación con filtros de Scopus ($n=458$).
+   * [`wos_export_it2.xls`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/inputs/wos_export_it2.xls): Exportación con filtros de Web of Science ($n=502$).
+
+2. **Scripts de procesamiento y validación en `scripts/`:**
+   * [`run_full_calculations.py`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/scripts/run_full_calculations.py): Script de cálculo y validación estadística automatizada.
+   * [`natural_evaluation.py`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/scripts/natural_evaluation.py): Evaluador semántico de preguntas PI1–PI4 y detección orgánica de estudios nucleares.
+   * [`process_and_screen.py`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/scripts/process_and_screen.py): Pipeline de deduplicación y cribado computacional.
+
+3. **Datasets y Salidas Cuantitativas en `outputs/`:**
    * [`corpus_included_final.csv`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/corpus_included_final.csv): Registro completo de los $110$ estudios primarios con sus metadatos, DOIs y evaluación PI1–PI4.
    * [`corpus_estudios_nucleares_4_4.csv`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/corpus_estudios_nucleares_4_4.csv): Ficha detallada de los $4$ estudios nucleares.
    * [`corpus_duplicates_removed.csv`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/corpus_duplicates_removed.csv): Bitácora de los $85$ registros duplicados descartados.
-   * [`run_full_calculations.py`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/run_full_calculations.py): Script de validación estadística automatizada.
-3. **Evidencias de Filtros Nativos en `capturas/`:**
-   * `scopus_iteracion1_140.png`, `scopus_iteracion2_862.png`
+   * [`corpus_screened_master.csv`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/corpus_screened_master.csv): Matriz maestra con el estado de cribado de los $875$ registros únicos.
+   * [`reporte_prisma_paso_a_paso.md`](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/metodologia/outputs/reporte_prisma_paso_a_paso.md): Reporte técnico integral del protocolo PRISMA 2020.
+
+4. **Evidencias de Filtros Nativos en `evidencias/`:**
+   * `scopus_iteracion1_140.png`, `scopus_iteracion2_863.png`
    * `IN1_Scopus_limite_años.png` ($n=492$), `IN2_Scopus_tipo_documento.png` ($n=458$), `IN3_Scopus_evidencia.png` ($n=458$)
    * `wos_iteracion_1_123.jpeg`, `wos_iteracion_2_730.png`
    * `IN1_WebOS_limite_años.png` ($n=536$), `IN2_WebOS_tipo_documentos.png` ($n=502$), `IN3_WebOS_evidencia.png` ($n=502$)

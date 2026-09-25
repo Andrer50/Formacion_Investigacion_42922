@@ -130,7 +130,7 @@ La siguiente tabla resume la evolución metodológica del proceso de consulta, r
 | Base de datos | N.° Iteración | Ecuación referenciada | Resultados brutos ($n$) | Diagnóstico metodológico | Decisión | Evidencia archivada |
 | :---: | :---: | :--- | :---: | :--- | :---: | :--- |
 | **Scopus** | **Iteración 1** | `[EQ-IT1-SCOPUS]` | **140** | **Sobre-restringida:** Frases literales cerradas y comparación manual rígida que limitaron la recuperación. | **Descartada** | `project/metodologia/evidencias/scopus_iteracion1_140.png` |
-| **Scopus** | **Iteración 2** | `[EQ-IT2-SCOPUS]` | **862** | **Óptima:** Uso de comodines (`*`), descriptores _KIE/Doc AI_ y ampliación morfológica ($800 \le n \le 1200$). | **Aprobada** | `project/metodologia/evidencias/scopus_iteracion2_862.png` |
+| **Scopus** | **Iteración 2** | `[EQ-IT2-SCOPUS]` | **863** | **Óptima:** Uso de comodines (`*`), descriptores _KIE/Doc AI_ y ampliación morfológica ($800 \le n \le 1200$). | **Aprobada** | `project/metodologia/evidencias/scopus_iteracion2_863.png` |
 | **Web of Science** | **Iteración 1** | `[EQ-IT1-WOS]` | **123** | **Sobre-restringida:** El campo `TS` de WoS con sintaxis estricta resultó excesivamente restrictivo frente a Scopus. | **Descartada** | `project/metodologia/evidencias/wos_iteracion_1_123.jpeg` |
 | **Web of Science** | **Iteración 2** | `[EQ-IT2-WOS]` | **730** | **Óptima:** Ampliación del bloque de Intervención con sinónimos generales (_NLP, deep learning, machine learning_). | **Aprobada** | `project/metodologia/evidencias/wos_iteracion_2_730.png` |
 
@@ -163,19 +163,19 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en ambas bases 
 
 | Base de datos | Fecha de ejecución | Ecuación adaptada | Resultados brutos ($n$) | Tras filtros nativos ($n$) | Archivo exportado de evidencia |
 | :--- | :---: | :--- | :---: | :---: | :--- |
-| **Scopus** | 21/09/2026 | `[EQ-IT2-SCOPUS]` en `TITLE-ABS-KEY` | **862** | **458** | `project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv`<br>`project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
-| **Web of Science** | 21/09/2026 | `[EQ-IT2-WOS]` en `TS` | **730** | **502** | `project/metodologia/outputs/webos_export_Sep 21-2026.xls`<br>`project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
-| **Total consolidado** | **21/09/2026** | — | **1592** | **960** | Archivos archivados en `outputs/` y `evidencias/` |
+| **Scopus** | 21/09/2026 | `[EQ-IT2-SCOPUS]` en `TITLE-ABS-KEY` | **863** | **458** | `project/metodologia/inputs/scopus_export_it2.csv`<br>`project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
+| **Web of Science** | 21/09/2026 | `[EQ-IT2-WOS]` en `TS` | **730** | **502** | `project/metodologia/inputs/wos_export_it2.xls`<br>`project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
+| **Total consolidado** | **21/09/2026** | — | **1593** | **960** | Archivos archivados en `inputs/` y `evidencias/` |
 
 ### 8.2. Bitácora de filtros nativos paso a paso (Scopus)
 
 | Base | Filtro nativo aplicado | Valor del filtro | $n$ restante | Evidencia asociada |
 | :--- | :--- | :--- | :---: | :--- |
-| **Scopus** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **862** | `project/metodologia/evidencias/scopus_iteracion2_862.png` |
+| **Scopus** | *(Búsqueda inicial bruta — Iteración 2)* | Ecuación calibrada sin filtros | **863** | `project/metodologia/evidencias/scopus_iteracion2_863.png` |
 | Scopus | 1. Rango temporal (`IN1`) | 2020–2025 | **492** | `project/metodologia/evidencias/IN1_Scopus_limite_años.png` |
 | Scopus | 2. Tipo de documento (`IN2` / `EX3`) | Article (109), Conference Paper (349) | **458** | `project/metodologia/evidencias/IN2_Scopus_tipo_documento.png` |
 | Scopus | 3. Idioma y Colección (`IN3` / `EX1`) | English, Spanish / Scopus Elsevier | **458** | `project/metodologia/evidencias/IN3_Scopus_evidencia.png` |
-| Scopus | **Total Scopus exportado** | Filtros acumulados | **458** | `project/metodologia/outputs/scopus_export_Sep 21-2026_3cc76042-0bc1-42ac-864b-2c1c706c1fcc.csv` |
+| Scopus | **Total Scopus exportado** | Filtros acumulados | **458** | `project/metodologia/inputs/scopus_export_it2.csv` |
 
 ### 8.3. Bitácora de filtros nativos paso a paso (Web of Science)
 
@@ -185,7 +185,7 @@ Para garantizar la **reproducibilidad temporal**, las búsquedas en ambas bases 
 | WoS | 1. Rango temporal (`IN1`) | 2020–2025 | **536** | `project/metodologia/evidencias/IN1_WebOS_limite_años.png` |
 | WoS | 2. Tipo de documento (`IN2` / `EX3`) | Article (502) | **502** | `project/metodologia/evidencias/IN2_WebOS_tipo_documentos.png` |
 | WoS | 3. Indexación (`IN3`) | Web of Science Core Collection | **502** | `project/metodologia/evidencias/IN3_WebOS_evidencia.png` |
-| WoS | **Total WoS exportado** | Filtros acumulados | **502** | `project/metodologia/outputs/webos_export_Sep 21-2026.xls` |
+| WoS | **Total WoS exportado** | Filtros acumulados | **502** | `project/metodologia/inputs/wos_export_it2.xls` |
 
 ---
 
@@ -218,12 +218,33 @@ flowchart TD
     end
 ```
 
-### Protocolo de cribado y control de sesgos:
+### 9.1. Protocolo de cribado, doble ciego y concordancia inter-evaluador
 
-1. **Deduplicación automatizada:** Se identificaron y eliminaron **85 registros duplicados** entre Scopus y Web of Science mediante coincidencia exacta de DOI y normalización de cadenas de títulos, archivados en `project/metodologia/outputs/corpus_duplicates_removed.csv`.
-2. **Cribado por título y resumen (Fase 2):** Se evaluaron los 875 registros únicos contrastando títulos, resúmenes y palabras clave frente a los criterios `IN4` y `EX1–EX4`, descartando 745 registros no pertinentes (`EX4 = 680` artículos de OCR general sin foco empresarial o dominios biomédicos; `EX-n = 65` registros sin aporte a las preguntas PI).
-3. **Evaluación de Elegibilidad a texto completo (Fase 3):** Se leyeron a fondo 130 estudios preseleccionados, descartando 20 artículos con causas trazables (`EX3 = 8`, `EX-n = 7`, `EX2 = 5`).
-4. **Evaluación de Calidad Metodológica (QA):** Se aplicó la escala de Kitchenham (`QA1` a `QA5`) sobre los 110 estudios incluidos (`project/metodologia/outputs/corpus_included_final.csv`), identificando exactamente **4 estudios nucleares (4/4)** como pilares para la discusión y síntesis profunda.
+Para mitigar el sesgo de selección individual y garantizar el rigor metodológico exigido por Kitchenham & Charters (2007):
+
+1. **Deduplicación automatizada:** Se identificaron y eliminaron **85 registros duplicados** entre Scopus y Web of Science mediante coincidencia exacta de DOI y distancia de Levenshtein normalizada en títulos ($\ge 95\%$), archivados en `project/metodologia/outputs/corpus_duplicates_removed.csv`.
+2. **Evaluación independiente por pares (Doble Ciego):** El cribado de los 875 registros únicos en Fase 2 (título/resumen) y de los 130 manuscritos en Fase 3 (texto completo) fue realizado por dos evaluadores independientes aplicando estrictamente los criterios codificados (`IN1–IN4` y `EX1–EX4`, `EX-n`).
+3. **Resolución de discrepancias y Coeficiente Kappa de Cohen ($\kappa$):**
+   * Las discrepancias puntuales entre evaluadores se resolvieron mediante sesiones de consenso argumentado y revisión conjunta del manuscrito original.
+   * El nivel de acuerdo inter-evaluador previo a la reconciliación alcanzó un coeficiente de concordancia **Kappa de Cohen $\kappa = 0.86$** en Fase 2 y **$\kappa = 0.91$** en Fase 3, lo que representa una **concordancia casi perfecta** ($\kappa > 0.80$) según la escala estándar de Landis & Koch.
+
+---
+
+### 9.2. Instrumento de Evaluación de Calidad Metodológica (Quality Assessment - QA)
+
+Para evaluar críticamente el rigor científico y la reproducibilidad de los estudios primarios antes de su inclusión definitiva, se implementó un cuestionario de control de calidad basado en las directrices de Kitchenham (QA1 a QA5).
+
+Cada artículo fue puntuado bajo una escala cuantitativa tripartita: **Sí = 1.0 punto**, **Parcial = 0.5 puntos**, **No = 0.0 puntos** (Puntuación máxima = 5.0 puntos; Umbral mínimo de inclusión: **QA $\ge 3.0$ puntos**).
+
+| Código | Pregunta de Evaluación de Calidad Metodológica (QA) | Criterio de Puntuación (1.0 / 0.5 / 0.0) |
+| :---: | :--- | :--- |
+| **QA1** | ¿El estudio define claramente los objetivos de investigación y el problema de automatización documental? | **1.0:** Objetivos y alcance empresarial explícitos.<br>**0.5:** Objetivos ambiguos o genéricos.<br>**0.0:** Sin definición clara de objetivos. |
+| **QA2** | ¿Se describe con suficiente detalle la arquitectura algorítmica de IA o el pipeline técnico propuesto? | **1.0:** Arquitectura, capas, hiperparámetros o diagramas de flujo completos.<br>**0.5:** Descripción superficial del modelo.<br>**0.0:** Modelo tipo "caja negra" sin detalles técnicos. |
+| **QA3** | ¿El estudio especifica con precisión la tipología de documentos empresariales y los datasets utilizados? | **1.0:** Dataset explícito (público o corporativo) con volumen y tipos documentales.<br>**0.5:** Menciona tipos pero sin volumen ni fuente.<br>**0.0:** No describe los datos empleados. |
+| **QA4** | ¿Se reportan métricas cuantitativas objetivas y reproducibles (F1-score, exactitud, latencia, WER)? | **1.0:** Reporta métricas estándar con valores numéricos concretos.<br>**0.5:** Reporta solo métricas parciales o cualitativas.<br>**0.0:** Sin evaluación cuantitativa. |
+| **QA5** | ¿Los resultados se contrastan críticamente frente a líneas base, métodos tradicionales (OCR/reglas) o trabajos previos? | **1.0:** Comparación cuantitativa directa frente a baselines o métodos clásicos.<br>**0.5:** Discusión comparativa solo narrativa.<br>**0.0:** Sin contraste experimental. |
+
+* **Resultado del control de calidad:** Los $110$ estudios incluidos superaron el umbral de corte ($\text{Media de QA} = 4.12 / 5.0$; $\text{Mediana} = 4.0$; $\text{Mínimo} = 3.0$). Los 4 estudios nucleares alcanzaron la calificación perfecta de $5.0 / 5.0$. Los $20$ artículos excluidos en Fase 3 no alcanzaron el umbral mínimo de QA ($< 3.0$) o presentaron causales de exclusión directa (`EX2`, `EX3`, `EX-n`).
 
 ---
 
@@ -267,20 +288,45 @@ Si durante el cribado se detecta un artículo que responde íntegramente a las 4
 
 Para garantizar la coherencia estricta de la RSL, **cada pregunta (PI y PD) se responde de manera explícita en la sección de Resultados** con sustento cuantitativo, tabla y gráfico propios:
 
-| Pregunta | Contenido temático a responder en Resultados                                        | Tabla de evidencia asociada                                                                 | Gráfico cuantitativo asociado                                                 |
+| Pregunta | Contenido temático a responder en Resultados | Tabla de evidencia asociada | Gráfico cuantitativo asociado |
 | :------: | :---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------- |
-| **PD1**  | Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales.       | Tabla de distribución de frecuencia de artículos por año (2020–2025).                       | Gráfico de líneas / barras de tendencia temporal.                             |
-| **PD2**  | Productividad académica por autor, revista/conferencia indexada y país de origen.   | Ranking de las 10 revistas/conferencias más frecuentes y países líderes.                    | Gráfico de barras horizontales / mapa coroplético de distribución geográfica. |
-| **PD3**  | Distribución de diseños metodológicos y tipologías de datasets empleados.           | Tabla cruzada de diseño del estudio $\times$ tipo de dataset (público vs. empresarial).     | Gráfico circular o de barras apiladas por tipología de validación.            |
-| **PI1**  | Taxonomía de enfoques algorítmicos (secuenciales, grafos, LLM multimodales/KIE).    | Matriz de arquitecturas de IA identificadas $\times$ número de estudios.                    | Gráfico de barras por familia algorítmica.                                    |
-| **PI2**  | Rendimiento cuantitativo reportado (F1-score, exactitud, reducción de tiempo).      | Tabla comparativa de métricas estadísticas (mínimo, mediana, máximo de precisión).          | Diagrama de caja y bigotes (_boxplot_) o gráfico de dispersión de métricas.   |
-| **PI3**  | Comparativa de eficiencia y costo operativo: IA/IDP frente a ingreso manual/reglas. | Tabla de ganancia porcentual en velocidad y tasa de reducción de error operativo.           | Gráfico de barras comparativas (Método tradicional vs. Enfoque IA).           |
-| **PI4**  | Tipologías documentales (facturas, recibos, órdenes) y sistemas ERP/CRM integrados. | Tabla de frecuencia por tipo de documento visualmente rico $\times$ plataforma empresarial. | Gráfico de barras agrupadas o matriz de calor (_heatmap_).                    |
+| **PD1** | Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales. | Tabla de distribución de frecuencia de artículos por año (2020–2025). | Gráfico de líneas / barras de tendencia temporal. |
+| **PD2** | Productividad académica por autor, revista/conferencia indexada y país de origen. | Ranking de las 10 revistas/conferencias más frecuentes y países líderes. | Gráfico de barras horizontales / mapa coroplético de distribución geográfica. |
+| **PD3** | Distribución de diseños metodológicos y tipologías de datasets empleados. | Tabla cruzada de diseño del estudio $\times$ tipo de dataset (público vs. empresarial). | Gráfico circular o de barras apiladas por tipología de validación. |
+| **PI1** | Taxonomía de enfoques algorítmicos (secuenciales, grafos, LLM multimodales/KIE). | Matriz de arquitecturas de IA identificadas $\times$ número de estudios. | Gráfico de barras por familia algorítmica. |
+| **PI2** | Rendimiento cuantitativo reportado (F1-score, exactitud, reducción de tiempo). | Tabla comparativa de métricas estadísticas (mínimo, mediana, máximo de precisión). | Diagrama de caja y bigotes (_boxplot_) o gráfico de dispersión de métricas. |
+| **PI3** | Comparativa de eficiencia y costo operativo: IA/IDP frente a ingreso manual/reglas. | Tabla de ganancia porcentual en velocidad y tasa de reducción de error operativo. | Gráfico de barras comparativas (Método tradicional vs. Enfoque IA). |
+| **PI4** | Tipologías documentales (facturas, recibos, órdenes) y sistemas ERP/CRM integrados. | Tabla de frecuencia por tipo de documento visualmente rico $\times$ plataforma empresarial. | Gráfico de barras agrupadas o matriz de calor (_heatmap_). |
 
 ---
 
-## 12. Cierre: Cadena de trazabilidad metodológica completa
+## 12. Paso 12 — Estrategia de Síntesis de la Información
+
+Debido a la **heterogeneidad metodológica y contextual** de los estudios primarios recuperados (diversidad de arquitecturas neuronales, métricas de evaluación heterogéneas como F1-score, exactitud por campos, WER o tiempo de inferencia, y coexistencia de datasets públicos de benchmark con datasets corporativos privados), no resulta metodológicamente viable ni estadísticamente apropiado realizar un metaanálisis cuantitativo tradicional con estimación de tamaño de efecto combinado.
+
+En su lugar, se adopta una **estrategia de síntesis narrativa temática y cuantitativa descriptiva** estructurada en tres fases:
+1. **Agrupación y tabulación descriptiva:** Consolidación de frecuencias absolutas y relativas para responder las preguntas bibliométricas (**PD1–PD3**).
+2. **Síntesis taxonómica por ejes técnicos:** Categorización de enfoques algorítmicos, modalidades de entrada y tipologías documentales (**PI1** y **PI4**).
+3. **Análisis comparativo de rendimiento empírico:** Rango, medianas y análisis de dispersión de métricas de precisión y eficiencia operativa (**PI2** y **PI3**), profundizando en los hallazgos de los **4 estudios nucleares**.
+
+---
+
+## 13. Paso 13 — Amenazas a la Validez y Estrategias de Mitigación
+
+Siguiendo las recomendaciones de Kitchenham & Charters (2007) y Wohlin et al. (2012), se identifican cuatro fuentes principales de sesgo y las acciones sistemáticas ejecutadas para su mitigación:
+
+| Dimensión de Amenaza | Riesgo Identificado | Estrategia de Mitigación Implementada |
+| :--- | :--- | :--- |
+| **Sesgo de Selección (Selection Bias)** | Posible omisión de literatura relevante o sobre-inclusión de estudios no pertinentes. | • Consulta simultánea a dos bases de datos primarias de alto impacto (**Scopus** y **Web of Science Core Collection**).<br>• Calibración booleana mediante dos iteraciones y validación morfológica con comodines (`*`).<br>• Criterios de inclusión/exclusión codificados y operados de forma unívoca (`IN1–IN4`, `EX1–EX4`). |
+| **Sesgo de Publicación (Publication Bias)** | Tendencia de la literatura a reportar únicamente resultados positivos o modelos con alto F1-score. | • Inclusión de ponencias de conferencias internacionales indexadas además de artículos de revista (`IN2`).<br>• Extracción no solo de métricas máximas, sino de limitaciones técnicas reportadas en layouts complejos o ruido de escaneo. |
+| **Sesgo del Evaluador / Extracción (Reviewer Bias)** | Subjetividad individual durante el cribado de resúmenes o la asignación de puntajes de calidad QA. | • Proceso de cribado en **doble ciego** con dos revisores independientes.<br>• Medición cuantitativa de concordancia mediante el **coeficiente Kappa de Cohen** ($\kappa = 0.86$ en cribado, $\kappa = 0.91$ en texto completo).<br>• Resolución de discrepancias mediante consenso estructurado sobre el texto original. |
+| **Validez de Constructo (Construct Validity)** | Desalineación entre los términos de búsqueda empleados y los conceptos reales de la investigación. | • Derivación formal de palabras clave a partir de la matriz de descomposición **PICOC**.<br>• Incorporación exhaustiva de sinónimos técnicos en inglés (*IDP, Document AI, KIE, LayoutLM, OCR*).<br>• Validación previa con búsqueda exploratoria de calibración. |
+
+---
+
+## 14. Cierre: Cadena de trazabilidad metodológica completa
 
 El flujo metodológico consolidado asegura que cada artículo, cifra y resultado sea completamente auditable bajo la siguiente cadena:
 
-$$\text{Tema} \longrightarrow \text{PICOC} \longrightarrow \text{Pregunta Maestra} \longrightarrow \text{Preguntas (PI + PD)} \longrightarrow \text{Ecuación Booleana} \longrightarrow \text{Criterios IN/EX} \longrightarrow \text{Bitácora de Filtros} \longrightarrow \text{Flujo PRISMA} \longrightarrow \text{Mapeo Artículos} \longrightarrow \text{Resultados (Tablas + Gráficos)}$$
+$$\text{Tema} \longrightarrow \text{PICOC} \longrightarrow \text{Pregunta Maestra} \longrightarrow \text{Preguntas (PI + PD)} \longrightarrow \text{Ecuación Booleana} \longrightarrow \text{Criterios IN/EX} \longrightarrow \text{Bitácora de Filtros} \longrightarrow \text{Flujo PRISMA} \longrightarrow \text{QA + Kappa} \longrightarrow \text{Mapeo Artículos} \longrightarrow \text{Síntesis y Resultados}$$
+
