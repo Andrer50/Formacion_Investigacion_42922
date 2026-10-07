@@ -1,27 +1,39 @@
-# III. Taxonomía y Caracterización
+# Taxonomía y Caracterización — Documentación paso a paso (guía de Resultados Q3-Q2)
 
-Tal como se anuncia en la introducción, esta sección presenta la caracterización general de las propuestas de Inteligencia Artificial identificadas para la automatización del registro y la validación documental en sistemas empresariales, clasificándolas según dos ejes: sus **enfoques algorítmicos** y sus **inputs de datos**. Este esquema es el que permitirá, en la Sección II (extracción de datos) y en la Sección IV (Análisis de Brechas), determinar qué arquitecturas —basadas en secuencias, en grafos o en modelos multimodales masivos— resultan más adecuadas para cada tipología documental [1], [5].
+Corpus congelado: **N = 110** (`project/metodologia/outputs/corpus_included_final.csv`). Guía: `assets/taxonomia_y_caracterizacion/documents/Guía_de_Resultados_...pdf`.
+Artículo en formato IEEE: `Taxonomia_y_Caracterizacion_IEEE.docx`. Borrador anterior: `borrador_previo_main.md`.
 
-**A. Enfoques algorítmicos**
+## Estado por paso de la guía
 
-Siguiendo la evolución descrita en la literatura, los enfoques se ordenan en un continuo de madurez técnica [1], [2]:
+| Paso | Qué pide la guía | Qué se hizo | Evidencia | Estado |
+|:-:|:--|:--|:--|:-:|
+| 1 | Congelar el corpus | N = 110 fijo; ID `[S###]` | `matriz_extraccion.csv` | Hecho (ver NOTAS §1–5) |
+| 2 | Declarar método de síntesis por pregunta | PD1–PD3, PI1, PI4: mapeo sistemático / conteos; PI2–PI3 fuera de alcance | Intro del docx | Hecho |
+| 3 | Matriz de extracción + doble codificación 20 % | Codificación automática (título+resumen+keywords) con término de evidencia por celda; muestra de 22 estudios | `matriz_extraccion.csv`, `muestra_doble_codificacion.csv` | Parcial: κ manual vs auto hecho; falta κ entre 2 humanos |
+| 4 | Bibliometría (año, fuentes, países, redes) | Tablas II–III, Fig. 1–2, red de keywords Fig. 7 (umbral ≥ 4) | `outputs/tablas`, `outputs/figuras` | Hecho (países solo WoS) |
+| 5 | Clasificar diseños metodológicos | Tabla IV | `T_PD3_diseno.csv` | Hecho (automático) |
+| 6 | Reportar calidad QA, κ ponderado | El corpus no tiene puntajes QA por estudio | — | **Pendiente** |
+| 7 | Aplicar la síntesis (mapeo burbujas) | Fig. 6 enfoque × tipología | `T_mapeo_enfoque_x_tipologia.csv` | Hecho |
+| 8 | Sensibilidad | Proxy por pertinencia (N = 75), no por QA | `T_sensibilidad_enfoque.csv` | Hecho (proxy) |
+| 9 | GRADE-CERQual | Requiere juicio de revisores | — | **Pendiente** |
+| 10 | Tabla y figura por pregunta | 8 tablas, 7 figuras, 300 ppp, 8 pt | docx | Hecho |
+| 11 | Redactar (apertura, desarrollo, contraste, cierre) | Secciones A–G del docx | docx | Hecho |
+| 12 | Verificar trazabilidad | Cifras generadas por script; citas `[S###]`; "Anexo A" = matriz | scripts | Hecho |
+| 13 | Publicar en OSF/Zenodo + DOI | Carpeta lista para subir | — | Pendiente (equipo) |
 
-- **Basados en reglas y plantillas (OCR tradicional)**: dependen de layouts estáticos predefinidos; son la causa principal de los cuellos de botella, costos y errores operativos señalados en la introducción [2].
-- **Basados en secuencias**: representan el documento como una cadena de tokens con embeddings posicionales; paradigma dominante desde 2021 [1].
-- **Basados en grafos**: modelan el documento como nodos y aristas espaciales entre palabras o segmentos; predominantes antes de 2021, útiles ante layouts muy irregulares [1].
-- **Multimodales / generativos (LLM)**: fusionan texto, layout e imagen en un solo modelo, con salidas de texto libre; categoría emergente que habilita KIE sin plantillas rígidas [1].
+## Pregunta → tabla/figura
+PD1: Tabla II, Fig. 1 · PD2: Tabla III, Fig. 2 · PD3: Tabla IV, Fig. 3 · PI1: Tabla V, Fig. 4 · inputs: Tabla VI · PI4: Tabla VII, Fig. 5–6 · sensibilidad: Tabla VIII.
 
-**B. Inputs de datos**
+## Cómo reproducir
+```
+python project/taxonomia_y_caracterizacion/scripts/01_codificar_corpus.py
+python project/taxonomia_y_caracterizacion/scripts/02_analisis_tablas_figuras.py
+python project/taxonomia_y_caracterizacion/scripts/03_muestra_kappa.py generar   # luego calcular
+python project/taxonomia_y_caracterizacion/scripts/04_generar_docx_ieee.py
+```
+Requiere pandas, matplotlib, networkx, python-docx, xlrd. Si se corrige el corpus, todo se regenera.
 
-En paralelo, cada propuesta se caracteriza según las modalidades de entrada que combina —texto, posición/layout y visual, más características hechas a mano en los enfoques más antiguos [1]— y según el tipo de documento visualmente rico (VRD) sobre el que se valida: facturas, recibos, formularios o contratos [2], [3]. Esta segunda variable es la que evidencia si el estudio se probó sobre benchmarks públicos controlados (p. ej. FUNSD, CORD, SROIE) o sobre datos de un flujo empresarial real (ERP/CRM), distinción central para responder las preguntas de investigación **PI4** y **PD3** del presente estudio.
-
-La Tabla I resume ambos ejes y sirve como formulario de codificación para el cribado a texto completo de los estudios primarios.
-
-**TABLA I. Caracterización de los estudios primarios**
-
-| Eje | Categorías | Evidencia a extraer |
-|---|---|---|
-| Enfoque algorítmico | Reglas/plantillas · Secuencial · Grafo · Multimodal/generativo | Arquitectura o modelo empleado y año de publicación |
-| Inputs de datos | Textual · Layout · Visual · Hand-crafted | Modalidades fusionadas y mecanismo de integración |
-| Tipología documental | Facturas · Recibos · Formularios · Contratos | Tipo de documento y sistema empresarial (ERP/CRM) asociado |
-| Base de validación | Benchmark público · Dataset privado/empresarial | Dataset usado y métrica reportada (F1, precisión, recall) |
+## Cómo cerrar los pendientes
+1. Dos revisores llenan sin verse `muestra_doble_codificacion.csv` (columnas A_ y B_) → `03_muestra_kappa.py calcular` → pegar κ en el docx (amarillo).
+2. Codificar a mano S001, S003, S004 (sin resumen).
+3. Revisar `alerta_pertinencia.csv`; si se excluyen estudios, actualizar PRISMA y rerun.
