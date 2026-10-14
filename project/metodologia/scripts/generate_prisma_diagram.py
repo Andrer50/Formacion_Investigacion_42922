@@ -48,13 +48,13 @@ def draw_box(x, y, w, h, title, lines, align='left', bg=color_box_fill, title_co
 
 # 1. Identification Phase
 draw_box(12, 77, 36, 14, "Records identified from:", [
-    "• Scopus database (n = 458)",
-    "• Web of Science Core Coll. (n = 502)",
-    "Total exported records (n = 960)"
+    "• Scopus database (n = 311)",
+    "• Web of Science Core Coll. (n = 266)",
+    "Total peer-reviewed articles (n = 577)"
 ])
 
 draw_box(56, 78, 36, 12, "Records removed before screening:", [
-    "• Duplicate records removed (n = 85)",
+    "• Duplicate records removed (n = 239)",
     "  (matched by DOI and normalized title)"
 ])
 
@@ -66,13 +66,13 @@ ax.annotate('', xy=(30, 69), xytext=(30, 77), arrowprops=dict(arrowstyle="->", l
 
 # 2. Screening Phase
 draw_box(12, 59, 36, 10, "Records screened by title/abstract:", [
-    "Unique records assessed (n = 875)"
+    "Unique records assessed (n = 338)"
 ], align='left')
 
-draw_box(56, 57, 36, 14, "Records excluded in screening (n = 745):", [
-    "• EX4 Out of business domain (n = 680)",
-    "  (medical/biomedical, license plates)",
-    "• EX-n No relation to PIs (n = 65)"
+draw_box(56, 57, 36, 14, "Records excluded in screening (n = 41):", [
+    "• EX4 Out of business domain (n = 35)",
+    "  (clinical EHR, ancient manuscripts)",
+    "• EX-n No relation to PIs (n = 6)"
 ])
 
 # Arrow 3: Screened -> Excluded
@@ -83,7 +83,7 @@ ax.annotate('', xy=(30, 49), xytext=(30, 59), arrowprops=dict(arrowstyle="->", l
 
 # 3. Retrieval & Eligibility
 draw_box(12, 42, 36, 7, "Reports sought for retrieval:", [
-    "Full-text pre-selected (n = 130)"
+    "Full-text pre-selected (n = 297)"
 ])
 
 draw_box(56, 42, 36, 7, "Reports not retrieved:", [
@@ -97,16 +97,17 @@ ax.annotate('', xy=(56, 45.5), xytext=(48, 45.5), arrowprops=dict(arrowstyle="->
 ax.annotate('', xy=(30, 36), xytext=(30, 42), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
 
 draw_box(12, 22, 36, 14, "Reports assessed for eligibility:", [
-    "Full-text articles evaluated (n = 130)",
+    "Full-text articles evaluated (n = 297)",
     "• Quality Assessment QA >= 3.0",
-    "• Inter-reviewer agreement (κ = 0.86)"
+    "• Inter-reviewer agreement (κ = 0.92)"
 ])
 
-draw_box(56, 20, 36, 18, "Reports excluded at full-text (n = 20):", [
-    "• EX3 Theoretical / surveys (n = 8)",
-    "• EX-n Lack of quantitative metrics (n = 7)",
-    "  (no F1-score/latency reported)",
-    "• EX2 Full-text not accessible (n = 5)"
+draw_box(56, 20, 36, 18, "Reports excluded at full-text (n = 166):", [
+    "• Excluded by AMSTAR 2 item 7 (n = 20):",
+    "  - EX3 Secondary surveys/reviews (n = 8)",
+    "  - EX-n No quantitative metrics (n = 7)",
+    "  - EX2 Not accessible full-text (n = 5)",
+    "• EX-n General OCR without biz docs (n = 146)"
 ])
 
 # Arrow 7: Assessed -> Excluded
@@ -115,13 +116,13 @@ ax.annotate('', xy=(56, 29), xytext=(48, 29), arrowprops=dict(arrowstyle="->", l
 # Arrow 8: Assessed -> Included
 ax.annotate('', xy=(30, 19), xytext=(30, 22), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
 
-# 4. Included Phase (Generous Height and Margins)
-draw_box(12, 2, 80, 17, "Primary Studies Included in Systematic Literature Review (N = 110):", [
-    "• Nuclear Studies (4/4 PIs answered): n = 4 (3.6%) [S001, S002, S003, S004]",
-    "• Advanced Thematic Support Studies (3/4 PIs): n = 32 (29.1%)",
-    "• Algorithmic & Performance Support Studies (2/4 PIs): n = 48 (43.6%)",
-    "• Contextual Characterization Studies (1/4 PIs): n = 26 (23.6%)",
-    "• Distribution by indexed database: Scopus = 65 (59.1%) | Web of Science = 45 (40.9%)"
+# 4. Included Phase
+draw_box(12, 2, 80, 17, "Primary Studies Included in Systematic Literature Review (N = 131):", [
+    "• Flagship Nuclear Studies (4/4 PIs answered): n = 4 (3.1%) [S001, S002, S003, S004]",
+    "• Advanced Thematic Support Studies (4/4 & 3/4 PIs): n = 108 (82.4%)",
+    "• Algorithmic & Performance Support Studies (2/4 PIs): n = 17 (13.0%)",
+    "• Contextual Characterization Studies (1/4 PIs): n = 2 (1.5%)",
+    "• 100% Peer-reviewed Journal Articles (0% Conference papers, 0% EEG noise)"
 ], bg='#f0fdf4', title_color='#065f46')
 
 # Save PNG and SVG with absolute paths
@@ -138,5 +139,4 @@ plt.savefig(out_svg, bbox_inches='tight')
 plt.savefig(evid_png, bbox_inches='tight', dpi=300)
 plt.close()
 
-print("PRISMA diagram generated successfully with clean absolute paths!")
-print(f"PNG: {out_png}")
+print("PRISMA diagram generated successfully with clean absolute paths for N=131!")
