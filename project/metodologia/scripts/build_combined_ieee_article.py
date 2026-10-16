@@ -542,7 +542,7 @@ add_p(
 )
 add_p(
     "4) Fase 4 (Inclusión): El corpus primario final comprende N = 131 estudios de revista científica (100% Journal Articles), distribuidos orgánicamente "
-    "en 4 estudios nucleares paradigmáticos (4/4), 58 estudios de soporte avanzado (4/4), 50 estudios de soporte temático (3/4), 17 de soporte "
+    "en 4 estudios nucleares paradigmáticos (4/4), 59 estudios de soporte avanzado (4/4), 49 estudios de soporte temático (3/4), 17 de soporte "
     "algorítmico (2/4) y 2 de contextualización (1/4)."
 )
 
@@ -655,67 +655,80 @@ add_p(
 )
 
 add_table_title("TABLA IX", "CARACTERIZACIÓN DE LOS 4 ESTUDIOS NUCLEARES INSIGNIA (100% REVISTA)")
-t_nuc = doc.add_table(rows=5, cols=5)
+t_nuc = doc.add_table(rows=5, cols=6)
 hdr = t_nuc.rows[0].cells
 hdr[0].paragraphs[0].text = "ID"
-hdr[1].paragraphs[0].text = "Autores y Año"
-hdr[2].paragraphs[0].text = "Revista Indexada y Cuartil"
-hdr[3].paragraphs[0].text = "DOI"
-hdr[4].paragraphs[0].text = "Aporte Metodológico Fundamental"
+hdr[1].paragraphs[0].text = "Ref."
+hdr[2].paragraphs[0].text = "Autores y Año"
+hdr[3].paragraphs[0].text = "Revista Indexada y Cuartil"
+hdr[4].paragraphs[0].text = "DOI"
+hdr[5].paragraphs[0].text = "Aporte Metodológico Fundamental"
 
 nuc_table_data = [
-    ("[S001]", "Wei et al. (2026/2025)", "Pattern Recognition (Elsevier, Q1)", "10.1016/j.patcog.2025.112348", "VLM multimodal para QA visual sobre gráficos y tablas complejas, superando baselines de OCR tradicional."),
-    ("[S002]", "Chen et al. (2025)", "Electronics (MDPI, Q2)", "10.3390/electronics14112145", "Evaluación rigurosa de LLMs e ingeniería de prompts en extracción de información documental frente a reglas fijas."),
-    ("[S003]", "Ali Khandokar & Deshpande (2025)", "IEEE Access (IEEE, Q1)", "10.1109/access.2024.3522141", "Pipeline de visión computacional y deep learning para extracción de tablas financieras heterogéneas sin plantillas."),
-    ("[S004]", "Mifsud et al. (2025)", "Mach. Learn. Knowl. Extr. (MDPI, Q2)", "10.3390/make7040167", "Modelo híbrido que combina y contrasta Transformers multimodales con sistemas basados en reglas en recibos comerciales.")
+    ("[S001]", "[3]", "Wei et al. (2026/2025)", "Pattern Recognition (Elsevier, Q1)", "10.1016/j.patcog.2025.112348", "VLM multimodal para QA visual sobre gráficos y tablas complejas, superando baselines de OCR tradicional."),
+    ("[S002]", "[4]", "Chen et al. (2025)", "Electronics (MDPI, Q2)", "10.3390/electronics14112145", "Evaluación rigurosa de LLMs e ingeniería de prompts en extracción de información documental frente a reglas fijas."),
+    ("[S003]", "[5]", "Ali Khandokar & Deshpande (2025)", "IEEE Access (IEEE, Q1)", "10.1109/access.2024.3522141", "Pipeline de visión computacional y deep learning para extracción de tablas financieras heterogéneas sin plantillas."),
+    ("[S004]", "[6]", "Mifsud et al. (2025)", "Mach. Learn. Knowl. Extr. (MDPI, Q2)", "10.3390/make7040167", "Modelo híbrido que combina y contrasta Transformers multimodales con sistemas basados en reglas en recibos comerciales.")
 ]
-for idx, (nid, auth, rev, doi, apt) in enumerate(nuc_table_data, start=1):
+for idx, (nid, nref, auth, rev, doi, apt) in enumerate(nuc_table_data, start=1):
     c = t_nuc.rows[idx].cells
     c[0].paragraphs[0].text = nid
-    c[1].paragraphs[0].text = auth
-    c[2].paragraphs[0].text = rev
-    c[3].paragraphs[0].text = doi
-    c[4].paragraphs[0].text = apt
-style_table(t_nuc, [Inches(0.4), Inches(0.7), Inches(0.9), Inches(0.6), Inches(0.8)], font_size=Pt(7.5))
+    c[1].paragraphs[0].text = nref
+    c[2].paragraphs[0].text = auth
+    c[3].paragraphs[0].text = rev
+    c[4].paragraphs[0].text = doi
+    c[5].paragraphs[0].text = apt
+style_table(t_nuc, [Inches(0.35), Inches(0.3), Inches(0.65), Inches(0.85), Inches(0.55), Inches(0.75)], font_size=Pt(7.2))
 
 add_heading_2("K. Muestra de la Matriz de Mapeo frente a PI1–PI4")
 add_p(
     "El corpus de N = 131 estudios primarios se clasificó mediante una evaluación semántica directa sobre sus variables empíricas: "
     "Nucleares (n = 4), Soporte Temático Avanzado (n = 108), Soporte Algorítmico y de Rendimiento (n = 17) y Contextualización (n = 2). "
-    "La Tabla X presenta una muestra representativa de 11 estudios a lo largo de los estratos:"
+    "La relación biunívoca matemática entre el identificador del corpus [Sxxx] y la cita IEEE [n] está regida estrictamente por "
+    "Ref IEEE [n] = ID S + 2 (dado que las citas [1] y [2] corresponden a las normas metodológicas marco Kitchenham & Charters y PRISMA 2020). "
+    "La Tabla X presenta una muestra representativa de 11 estudios a lo largo de los estratos evidenciando esta correspondencia perfecta:"
 )
 
 add_table_title("TABLA X", "MUESTRA REPRESENTATIVA DE LA MATRIZ DE MAPEO FRENTE A PI1–PI4")
 sample_ids = ['[S001]', '[S002]', '[S003]', '[S004]', '[S005]', '[S015]', '[S030]', '[S050]', '[S075]', '[S100]', '[S125]']
 df_sample = df_final[df_final['id'].isin(sample_ids)]
 
-t_map = doc.add_table(rows=len(df_sample) + 1, cols=8)
+t_map = doc.add_table(rows=len(df_sample) + 1, cols=9)
 hdr = t_map.rows[0].cells
 hdr[0].paragraphs[0].text = "ID"
-hdr[1].paragraphs[0].text = "Autores (Año)"
-hdr[2].paragraphs[0].text = "PI1"
-hdr[3].paragraphs[0].text = "PI2"
-hdr[4].paragraphs[0].text = "PI3"
-hdr[5].paragraphs[0].text = "PI4"
-hdr[6].paragraphs[0].text = "Total"
-hdr[7].paragraphs[0].text = "Estrato de Evidencia"
+hdr[1].paragraphs[0].text = "Ref."
+hdr[2].paragraphs[0].text = "Autores (Año)"
+hdr[3].paragraphs[0].text = "PI1"
+hdr[4].paragraphs[0].text = "PI2"
+hdr[5].paragraphs[0].text = "PI3"
+hdr[6].paragraphs[0].text = "PI4"
+hdr[7].paragraphs[0].text = "Total"
+hdr[8].paragraphs[0].text = "Estrato de Evidencia"
 
 for idx, r in df_sample.reset_index(drop=True).iterrows():
     c = t_map.rows[idx + 1].cells
+    s_num = int(str(r['id']).replace('[S', '').replace(']', ''))
     c[0].paragraphs[0].text = str(r['id'])
-    c[1].paragraphs[0].text = f"{r['authors'].split(';')[0]} et al. ({r['year']})" if ';' in str(r['authors']) else f"{r['authors']} ({r['year']})"
-    c[2].paragraphs[0].text = "✔" if r['PI1'] == 1 else "—"
-    c[3].paragraphs[0].text = "✔" if r['PI2'] == 1 else "—"
-    c[4].paragraphs[0].text = "✔" if r['PI3'] == 1 else "—"
-    c[5].paragraphs[0].text = "✔" if r['PI4'] == 1 else "—"
-    c[6].paragraphs[0].text = f"{r['total_pi']}/4"
-    c[7].paragraphs[0].text = "Nuclear" if r['total_pi'] == 4 and r['id'] in ['[S001]', '[S002]', '[S003]', '[S004]'] else ("Soporte (4/4)" if r['total_pi'] == 4 else ("Soporte (3/4)" if r['total_pi'] == 3 else "Soporte (2/4)"))
-style_table(t_map, [Inches(0.4), Inches(1.1), Inches(0.2), Inches(0.2), Inches(0.2), Inches(0.2), Inches(0.3), Inches(0.8)], font_size=Pt(7.5), align_cols={2: WD_ALIGN_PARAGRAPH.CENTER, 3: WD_ALIGN_PARAGRAPH.CENTER, 4: WD_ALIGN_PARAGRAPH.CENTER, 5: WD_ALIGN_PARAGRAPH.CENTER, 6: WD_ALIGN_PARAGRAPH.CENTER})
+    c[1].paragraphs[0].text = f"[{s_num + 2}]"
+    c[2].paragraphs[0].text = f"{r['authors'].split(';')[0]} et al. ({r['year']})" if ';' in str(r['authors']) else f"{r['authors']} ({r['year']})"
+    c[3].paragraphs[0].text = "✔" if r['PI1'] == 1 else "—"
+    c[4].paragraphs[0].text = "✔" if r['PI2'] == 1 else "—"
+    c[5].paragraphs[0].text = "✔" if r['PI3'] == 1 else "—"
+    c[6].paragraphs[0].text = "✔" if r['PI4'] == 1 else "—"
+    c[7].paragraphs[0].text = f"{r['total_pi']}/4"
+    c[8].paragraphs[0].text = "Nuclear" if r['total_pi'] == 4 and r['id'] in ['[S001]', '[S002]', '[S003]', '[S004]'] else ("Soporte (4/4)" if r['total_pi'] == 4 else ("Soporte (3/4)" if r['total_pi'] == 3 else "Soporte (2/4)"))
+style_table(t_map, [Inches(0.35), Inches(0.3), Inches(1.0), Inches(0.2), Inches(0.2), Inches(0.2), Inches(0.2), Inches(0.3), Inches(0.7)], font_size=Pt(7.2), align_cols={1: WD_ALIGN_PARAGRAPH.CENTER, 3: WD_ALIGN_PARAGRAPH.CENTER, 4: WD_ALIGN_PARAGRAPH.CENTER, 5: WD_ALIGN_PARAGRAPH.CENTER, 6: WD_ALIGN_PARAGRAPH.CENTER, 7: WD_ALIGN_PARAGRAPH.CENTER})
 
 add_heading_2("L. Vinculación con Resultados y Estrategia de Síntesis")
 add_p(
-    "Siguiendo las directrices metodológicas de Kitchenham & Charters (2007) y PRISMA 2020, los hallazgos de los 131 estudios primarios "
-    "se consolidaron mediante una síntesis narrativa temática complementada con análisis cuantitativo descriptivo y agregación estadística tabular. "
+    "Siguiendo las directrices metodológicas de Kitchenham & Charters (2007) [1] y PRISMA 2020 [2], los hallazgos de los 131 estudios primarios "
+    "[3]–[133] se estructuran y consolidan mediante métodos rigurosos y formalizados según la naturaleza de cada interrogante: "
+    "Síntesis Temática (Thomas & Harden [134]; Cruzes & Dybå [135]) para la taxonomía algorítmica y tipologías documentales (PI1, PI4); "
+    "Síntesis Narrativa Estructurada (Popay et al. [136]) con reporte de rangos empíricos [mín, máx] y dispersión por benchmark para el rendimiento "
+    "técnico (PI2); Síntesis sin metaanálisis (SWiM, Campbell et al. [137]) con conteo de votos de dirección del efecto y barras divergentes para la "
+    "comparativa de eficiencia frente a métodos tradicionales (PI3); Mapeo Sistemático con gráficos de burbujas (Petersen et al. [138]) para el cruce "
+    "de diseños y datasets (PD3); análisis cienciométrico con mapas de coocurrencia de palabras clave en VOSviewer (van Eck & Waltman [139]) para redes de "
+    "investigación (PD2); y calificación formal de la certeza de la evidencia mediante el marco GRADE-CERQual (Lewin et al. [140]). "
     "Se descarta formalmente la ejecución de un metaanálisis estadístico de efectos fijos o aleatorios debido a la profunda heterogeneidad técnica, "
     "métrica y contextual del dominio de Information Extraction en documentos empresariales: (a) heterogeneidad métrica: los estudios evalúan el "
     "rendimiento a niveles de granularidad conceptualmente incompatibles (exactitud de OCR a nivel de carácter/token mediante CER/WER frente a KIE a "
@@ -724,7 +737,7 @@ add_p(
     "(desde clústeres NVIDIA A100/H100 hasta servidores locales sin GPU acelerada), imposibilitando un pool homogéneo de tiempos; y (c) disparidad de "
     "corpus de validación: mientras una fracción de autores evalúa sobre benchmarks públicos (SROIE, CORD, FUNSD), una porción sustancial valida sus "
     "arquitecturas en datasets corporativos cerrados y propietarios no estandarizados, los cuales no reportan intervalos de confianza ni desviaciones "
-    "estándar requeridas para un modelo metaanalítico combinado. En consecuencia, la síntesis narrativa-estructurada por preguntas de investigación "
+    "estándar requeridas para un modelo metaanalítico combinado. En consecuencia, la síntesis estructurada por preguntas de investigación "
     "constituye el enfoque epistemológicamente riguroso y apropiado.",
     bold_prefix="Estrategia de Síntesis y Justificación de la Inviabilidad de Metaanálisis Cuantitativo: "
 )
@@ -744,11 +757,11 @@ hdr[3].paragraphs[0].text = "Gráfico Asignado"
 
 enl_data = [
     ("PD1", "Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales.", "Distribución anual de artículos (2020–2025).", "Gráfico de líneas de tendencia temporal."),
-    ("PD2", "Productividad académica por autores, revistas indexadas y países líderes.", "Ranking de las 10 revistas líderes y países.", "Gráfico de barras horizontales geográfico."),
-    ("PD3", "Distribución de diseños metodológicos y datasets (públicos vs. privados).", "Tabla cruzada: diseño × tipo de dataset.", "Gráfico de barras apiladas de validación."),
-    ("PI1", "Taxonomía de enfoques algorítmicos (secuencias, grafos, transformers multimodales).", "Matriz de arquitecturas de IA identificadas.", "Gráfico de barras por familia algorítmica."),
-    ("PI2", "Rendimiento cuantitativo reportado (F1-score, exactitud, latencia de inferencia).", "Tabla comparativa de métricas estadísticas.", "Diagrama de cajas y bigotes (boxplot)."),
-    ("PI3", "Comparativa de eficiencia y costo: IA/IDP frente a ingreso manual y reglas.", "Ganancia en velocidad y reducción de error.", "Gráfico comparativo: Tradicional vs. IA."),
+    ("PD2", "Productividad académica por autores, revistas indexadas y países líderes.", "Ranking de las 10 revistas líderes, autores prolíficos y países.", "Gráfico de barras geográfico y red de coocurrencia de palabras clave en VOSviewer."),
+    ("PD3", "Distribución de diseños metodológicos y datasets (públicos vs. privados).", "Tabla cruzada: diseño metodológico × tipo de dataset.", "Gráfico de burbujas (mapeo sistemático de Petersen et al. [138])."),
+    ("PI1", "Taxonomía de enfoques algorítmicos (secuencias, grafos, transformers multimodales).", "Matriz de arquitecturas de IA identificadas.", "Gráfico de barras por familia algorítmica (síntesis temática [134], [135])."),
+    ("PI2", "Rendimiento cuantitativo reportado (F1-score, exactitud, latencia de inferencia).", "Tabla comparativa de métricas por benchmark (SROIE, FUNSD, CORD).", "Síntesis narrativa estructurada (Popay et al. [136]) con rangos [mín, máx] y dispersión."),
+    ("PI3", "Comparativa de eficiencia y costo: IA/IDP frente a ingreso manual y reglas.", "Conteo de votos de dirección del efecto (mejora, sin diferencia, empeora).", "Método SWiM (Campbell et al. [137]) con gráfico de barras divergentes."),
     ("PI4", "Tipologías documentales (facturas, recibos) y sistemas ERP/CRM integrados.", "Frecuencia por tipo de documento × plataforma.", "Matriz de calor (heatmap) documental.")
 ]
 for idx, (p, cont, tab, grf) in enumerate(enl_data, start=1):
@@ -757,7 +770,7 @@ for idx, (p, cont, tab, grf) in enumerate(enl_data, start=1):
     c[1].paragraphs[0].text = cont
     c[2].paragraphs[0].text = tab
     c[3].paragraphs[0].text = grf
-style_table(t_enl, [Inches(0.4), Inches(1.1), Inches(1.0), Inches(0.9)], font_size=Pt(7.5))
+style_table(t_enl, [Inches(0.4), Inches(1.1), Inches(1.0), Inches(0.9)], font_size=Pt(7.2))
 
 add_heading_2("M. Amenazas a la Validez y Mitigación")
 add_p(
@@ -808,11 +821,26 @@ add_ref(1, "B. Kitchenham and S. Charters, 'Guidelines for performing Systematic
 add_ref(2, "M. J. Page et al., 'The PRISMA 2020 statement: an updated guideline for reporting systematic reviews,' BMJ, vol. 372, p. n71, 2021.")
 
 for idx, r in df_final.iterrows():
-    doi_part = f", doi: {r['doi']}." if pd.notna(r['doi']) and str(r['doi']).startswith('10.') else "."
-    # Formato IEEE exacto sin "vol. 202x"
+    doi_val = str(r['doi']) if pd.notna(r['doi']) else ""
+    if doi_val.startswith('10.'):
+        doi_part = f", doi: {doi_val}."
+    elif 'tmlr' in doi_val.lower() or 'jmlr.org' in doi_val.lower():
+        doi_part = ", ISSN: 2835-8856. [Online]. Available: https://jmlr.org/tmlr/papers/."
+    else:
+        doi_part = "."
     cit = f"{r['authors']}, \"{r['title']},\" {r['source_title']}, {r['year']}{doi_part}"
     add_ref(idx + 3, cit)
+
+# Referencias metodológicas de síntesis [134] - [140]
+add_ref(134, "J. Thomas and A. Harden, 'Methods for the thematic synthesis of qualitative research in systematic reviews,' BMC Med. Res. Methodol., vol. 8, art. 45, 2008, doi: 10.1186/1471-2288-8-45.")
+add_ref(135, "D. S. Cruzes and T. Dybå, 'Research synthesis in software engineering: A tertiary study,' Inf. Softw. Technol., vol. 53, no. 5, pp. 440–455, 2011, doi: 10.1016/j.infsof.2011.01.004.")
+add_ref(136, "J. Popay et al., 'Guidance on the conduct of narrative synthesis in systematic reviews,' ESRC Methods Programme, Lancaster Univ., 2006.")
+add_ref(137, "M. Campbell et al., 'Synthesis without meta-analysis (SWiM) in systematic reviews: Reporting guideline,' BMJ, vol. 368, p. l6890, 2020, doi: 10.1136/bmj.l6890.")
+add_ref(138, "K. Petersen, S. Vakkalanka, and L. Kuzniarz, 'Guidelines for conducting systematic mapping studies in software engineering: An update,' Inf. Softw. Technol., vol. 64, pp. 1–18, 2015, doi: 10.1016/j.infsof.2015.03.007.")
+add_ref(139, "N. J. van Eck and L. Waltman, 'Software survey: VOSviewer, a computer program for bibliometric mapping,' Scientometrics, vol. 84, no. 2, pp. 523–538, 2010, doi: 10.1007/s11192-009-0146-3.")
+add_ref(140, "S. Lewin et al., 'Applying GRADE-CERQual to qualitative evidence synthesis findings: Introduction to the series,' Implement. Sci., vol. 13, suppl. 1, art. 2, 2018, doi: 10.1186/s13012-017-0688-3.")
 
 out_file = 'project/shared/Articulo_RSL_Introduccion_y_Metodologia_IEEE.docx'
 doc.save(out_file)
 print(f"\n¡Éxito total! Archivo generado y guardado en: {out_file}")
+
