@@ -599,7 +599,7 @@ add_heading_2("H. Evaluación de Calidad Metodológica (QA)")
 add_p(
     "Siguiendo las pautas de Kitchenham & Charters (2007), se formuló un instrumento de calidad metodológica compuesto por cinco "
     "preguntas críticas (QA1 a QA5), evaluadas bajo una escala tricotómica objetiva (1.0 = Sí, 0.5 = Parcial, 0.0 = No) con un umbral "
-    "mínimo de inclusión de QA >= 3.0 / 5.0 (ver Tabla VII). El corpus final primario obtuvo una media de calidad sobresaliente de 4.60 / 5.0 "
+    "mínimo de inclusión de QA >= 3.0 / 5.0 (ver Tabla VII). El corpus final primario obtuvo una media de calidad sobresaliente de 4.61 / 5.0 "
     "(mínimo = 3.50, máximo = 5.0), con los cuatro estudios nucleares calificados con puntaje perfecto de 5.0 / 5.0."
 )
 

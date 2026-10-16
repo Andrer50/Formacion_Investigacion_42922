@@ -243,7 +243,7 @@ Se implementó un cuestionario de control de calidad basado en las directrices d
 | **QA4** | ¿Se reportan métricas cuantitativas objetivas y reproducibles (F1-score, exactitud, latencia, WER)? | **1.0:** Reporta métricas estándar con valores numéricos concretos.<br>**0.5:** Reporta solo métricas parciales o cualitativas.<br>**0.0:** Sin evaluación cuantitativa. |
 | **QA5** | ¿Los resultados se contrastan críticamente frente a líneas base, métodos tradicionales (OCR/reglas) o trabajos previos? | **1.0:** Comparación cuantitativa directa frente a baselines o métodos clásicos.<br>**0.5:** Discusión comparativa solo narrativa.<br>**0.0:** Sin contraste experimental. |
 
-* **Resultado del control de calidad:** Los 131 estudios incluidos superaron el umbral de corte (Media global de QA = **4.60 / 5.0**; Mínimo = **3.50**; Máximo = **5.0**). Los 4 estudios nucleares alcanzaron la calificación perfecta de **5.0 / 5.0**.
+* **Resultado del control de calidad:** Los 131 estudios incluidos superaron el umbral de corte (Media global de QA = **4.61 / 5.0**; Mínimo = **3.50**; Máximo = **5.0**). Los 4 estudios nucleares alcanzaron la calificación perfecta de **5.0 / 5.0**.
 
 ### 9.3. Tabla de Estudios Excluidos en Fase de Elegibilidad (AMSTAR 2 Ítem 7)
 
