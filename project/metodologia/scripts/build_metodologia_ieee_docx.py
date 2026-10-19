@@ -114,9 +114,10 @@ p_auth = doc.add_paragraph()
 p_auth.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p_auth.paragraph_format.space_before = Pt(2)
 p_auth.paragraph_format.space_after = Pt(1)
-r_auth = p_auth.add_run("Rodrigo Eduardo Gallegos Cartagena, Sergio André Rupay Huancachoque")
+r_auth = p_auth.add_run("Sergio André Rupay Huancachoque")
 r_auth.bold = True
 r_auth.font.size = Pt(10)
+
 
 p_aff = doc.add_paragraph()
 p_aff.alignment = WD_ALIGN_PARAGRAPH.CENTER

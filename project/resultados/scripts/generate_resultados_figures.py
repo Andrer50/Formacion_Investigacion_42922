@@ -68,8 +68,8 @@ fig.text(0.5, 0.01, '* Nota: 2026 corresponde a 3 artículos indexados como Earl
 plt.tight_layout(rect=[0, 0.05, 1, 0.98])
 fig2_png = os.path.join(out_dir, 'fig2_evolucion_anual.png')
 fig2_svg = os.path.join(out_dir, 'fig2_evolucion_anual.svg')
-plt.savefig(fig2_png, dpi=300)
-plt.savefig(fig2_svg)
+plt.savefig(fig2_png, dpi=300, bbox_inches='tight')
+plt.savefig(fig2_svg, bbox_inches='tight')
 plt.close()
 print("Generada:", fig2_png)
 
@@ -117,14 +117,14 @@ ax_kw.grid(axis='x', linestyle='--', alpha=0.5)
 for i, count in enumerate(kw_freq):
     ax_kw.text(count + 0.6, i, f"{count}", va='center', fontsize=7.5, fontweight='bold')
 
-fig.suptitle('Fig. 3. Concentración geográfica y mapa de términos temáticos clave (PD2, N = 131)', fontsize=10, fontweight='bold', y=0.98)
+fig.suptitle('Fig. 3. Concentración geográfica y mapa de términos temáticos clave (PD2, N = 131)', fontsize=9.5, fontweight='bold', y=0.98)
 fig.text(0.5, 0.01, 'Fuente: elaboración propia a partir del corpus primario [3]–[133] mediante análisis en VOSviewer y normalización Scopus/WoS.', ha='center', fontsize=7.5, style='italic')
 
 plt.tight_layout(rect=[0, 0.05, 1, 0.95])
 fig3_png = os.path.join(out_dir, 'fig3_vosviewer_geografia.png')
 fig3_svg = os.path.join(out_dir, 'fig3_vosviewer_geografia.svg')
-plt.savefig(fig3_png, dpi=300)
-plt.savefig(fig3_svg)
+plt.savefig(fig3_png, dpi=300, bbox_inches='tight')
+plt.savefig(fig3_svg, bbox_inches='tight')
 plt.close()
 print("Generada:", fig3_png)
 
@@ -178,8 +178,8 @@ fig.text(0.5, 0.01, 'Nota: El área de cada burbuja es proporcional al volumen d
 plt.tight_layout(rect=[0, 0.05, 1, 0.98])
 fig4_png = os.path.join(out_dir, 'fig4_burbujas_disenos_datasets.png')
 fig4_svg = os.path.join(out_dir, 'fig4_burbujas_disenos_datasets.svg')
-plt.savefig(fig4_png, dpi=300)
-plt.savefig(fig4_svg)
+plt.savefig(fig4_png, dpi=300, bbox_inches='tight')
+plt.savefig(fig4_svg, bbox_inches='tight')
 plt.close()
 print("Generada:", fig4_png)
 
@@ -235,8 +235,8 @@ fig.text(0.5, 0.01, '* Nota: El estrato de 3.5 pts se excluye temporalmente en e
 plt.tight_layout(rect=[0, 0.05, 1, 0.95])
 fig5_png = os.path.join(out_dir, 'fig5_distribucion_qa_criterios.png')
 fig5_svg = os.path.join(out_dir, 'fig5_distribucion_qa_criterios.svg')
-plt.savefig(fig5_png, dpi=300)
-plt.savefig(fig5_svg)
+plt.savefig(fig5_png, dpi=300, bbox_inches='tight')
+plt.savefig(fig5_svg, bbox_inches='tight')
 plt.close()
 print("Generada:", fig5_png)
 

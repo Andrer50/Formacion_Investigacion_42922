@@ -2,7 +2,7 @@
 ## Reducción Metodológica Paso a Paso del Corpus Bibliográfico
 
 **Proyecto de Investigación:** *Inteligencia Artificial para la Automatización del Registro y Validación de Documentos Empresariales: Una Revisión Sistemática de la Literatura*  
-**Autor:** Gallegos Cartagena, Rodrigo Eduardo; Rupay Huancachoque, Sergio André  
+**Autor:** Rupay Huancachoque, Sergio André  
 **Institución:** Universidad Tecnológica del Perú (UTP) – Formación para la Investigación  
 **Docente Asesor:** Mg. Jimmy Sánchez Portugal  
 **Fecha de Actualización:** 14 de Octubre de 2026  

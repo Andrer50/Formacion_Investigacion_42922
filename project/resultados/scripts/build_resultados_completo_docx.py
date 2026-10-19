@@ -2,18 +2,20 @@
 Compilador de Word (.docx) en formato IEEE para la Sección III COMPLETA (Bloque 1 + Bloque 2):
 "Articulo_RSL_Resultados_Completo_IEEE.docx" en project/shared/
 
-Contiene:
-- Apertura General del Corpus y Métodos de Síntesis
-- PD1: Evolución Temporal -> TABLA XIII y Fig. 2
-- PD2: Revistas, Autores, Países y Red de Coocurrencia -> TABLA XIV, TABLA XV y Fig. 3
-- PD3: Diseños Metodológicos x Tipología de Datasets -> TABLA XVI y Fig. 4
-- Paso 6: Evaluación de Calidad Metodológica (QA) -> TABLA XVII y Fig. 5
-- PI1: Taxonomía de Familias Algorítmicas de IA e IDP -> TABLA XVIII y Fig. 6
-- PI2: Rendimiento Cuantitativo por Benchmark -> TABLA XIX y Fig. 7
-- PI3: Comparativa de Eficiencia vs. Métodos Tradicionales (SWiM) -> TABLA XX y Fig. 8
-- PI4: Tipologías Documentales y Sistemas ERP/CRM -> TABLA XXI y Fig. 9
-- Paso 8: Análisis de Sensibilidad Global -> TABLA XXII
-- Paso 9: Tabla Resumen de Hallazgos (SoF) GRADE-CERQual -> TABLA XXIII
+Cumple con:
+1. Ajuste exacto en Análisis de Sensibilidad (TABLA XXII y cierres de PI1, PI2, PI4):
+   - PI1: [117], [118], [122], [123] excluidos. CNN-RNN: 53/101 (52.5 %, var -0.8 %), Transformers/VLMs: 22/101 (21.8 %, var +0.8 %), GNN: 15/101 (14.9 %, var -0.3 %), LLMs: 11/101 (10.9 %, var +0.4 %).
+   - PI2: Ningún estudio con QA=3.5 pertenece a PI2 (0 excluidos). Muestra de 117 estudios intacta, mediana SROIE en 95.2 % (0.0 % var).
+   - PI4: Balances (59) contiene 4 con QA=3.5 ([123], [127], [128], [133]) y Facturas (34) contiene 2 ([121], [132]). Núcleo contable pasa de 93/131 (71.0 %) a 87/121 (71.9 %, var +0.9 %).
+   - PI1 Bloque 2: Porcentajes exactos de QA >= 4.5 por familia: CNN-RNN 85.7 % (48/56), Transformers/VLMs 100.0 % (22/22), GNN 93.8 % (15/16), LLMs 100.0 % (11/11).
+2. Sincronización visual Fig. 6 a Fig. 9:
+   - Fig. 8 (SWiM) sincronizada 100 % con TABLA XX (+71 Mejora [86.6 %], 8 Paridad [9.8 %], -3 Empeora [3.7 %] sobre n = 82).
+   - Todas las figuras con bbox_inches='tight' y márgenes holgados.
+3. Restauración de extensión normativa de 4 bloques (Guía ATI3 Sec. 5.3):
+   - Textos completos para PD1, PD2 y PD3 restaurados.
+   - Bloque 2 de PI1, PI2, PI3 y PI4 con párrafos independientes de 6 a 10 líneas (70–100 palabras) por categoría, conteniendo en orden los 5 elementos obligatorios.
+   - Bloque 3 con citas individuales IEEE [n] para cada postura del debate.
+   - Apertura de PI1, PI3 y PI4 con coeficiente Kappa de Cohen (κ >= 0.85 sobre muestra de 20.6 %, n = 27).
 """
 
 import os
@@ -103,19 +105,6 @@ def add_heading_2(text):
     run.font.name = 'Times New Roman'
     run.font.size = Pt(10)
     run.bold = True
-    run.font.color.rgb = RGBColor(0x1F, 0x49, 0x7D)
-    return p
-
-def add_heading_3(text):
-    p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(8)
-    p.paragraph_format.space_after = Pt(2)
-    p.paragraph_format.keep_with_next = True
-    run = p.add_run(text)
-    run.font.name = 'Times New Roman'
-    run.font.size = Pt(9.5)
-    run.bold = True
-    run.italic = True
     run.font.color.rgb = RGBColor(0x33, 0x33, 0x33)
     return p
 
@@ -131,12 +120,12 @@ def add_p(text, bold_prefix=None, italic_text=False, indent=None):
     if bold_prefix:
         r_pre = p.add_run(bold_prefix)
         r_pre.font.name = 'Times New Roman'
-        r_pre.font.size = Pt(9)
+        r_pre.font.size = Pt(9.5)
         r_pre.bold = True
 
     r = p.add_run(text)
     r.font.name = 'Times New Roman'
-    r.font.size = Pt(9)
+    r.font.size = Pt(9.5)
     r.italic = italic_text
     return p
 
@@ -163,11 +152,11 @@ def add_table_footer(text):
     p.paragraph_format.space_after = Pt(6)
     r = p.add_run(text)
     r.font.name = 'Times New Roman'
-    r.font.size = Pt(7.5)
+    r.font.size = Pt(8)
     r.italic = True
     return p
 
-def style_table(table, col_widths, font_size=Pt(7.5), align_cols=None):
+def style_table(table, col_widths, font_size=Pt(8), align_cols=None):
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     for r_idx, row in enumerate(table.rows):
         is_header = (r_idx == 0)
@@ -181,101 +170,116 @@ def style_table(table, col_widths, font_size=Pt(7.5), align_cols=None):
             cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
 
             if is_header:
-                set_cell_shading(cell, "1F497D")
-                set_cell_border(cell, top="single", top_sz="12", top_color="002060",
-                                      bottom="single", bottom_sz="12", bottom_color="002060",
-                                      left="none", right="none")
+                set_cell_shading(cell, "F2F2F2")
+                set_cell_border(cell, top="single", top_sz="8", top_color="000000",
+                                      bottom="single", bottom_sz="8", bottom_color="000000")
+            elif r_idx == len(table.rows) - 1:
+                set_cell_border(cell, bottom="single", bottom_sz="8", bottom_color="000000")
             else:
-                bg = "F2F5F9" if r_idx % 2 == 1 else "FFFFFF"
-                set_cell_shading(cell, bg)
-                set_cell_border(cell, top="single", top_sz="4", top_color="D3D3D3",
-                                      bottom="single", bottom_sz="4", bottom_color="D3D3D3",
-                                      left="none", right="none")
+                set_cell_border(cell, bottom="single", bottom_sz="4", bottom_color="D3D3D3")
 
-            for paragraph in cell.paragraphs:
-                paragraph.paragraph_format.space_before = Pt(2)
-                paragraph.paragraph_format.space_after = Pt(2)
-                paragraph.paragraph_format.line_spacing = 1.0
-                
+            for p in cell.paragraphs:
+                p.paragraph_format.space_before = Pt(1.5)
+                p.paragraph_format.space_after = Pt(1.5)
+                p.paragraph_format.line_spacing = 1.0
                 if align_cols and c_idx < len(align_cols):
-                    paragraph.alignment = align_cols[c_idx]
+                    p.alignment = align_cols[c_idx]
                 elif is_header:
-                    paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 else:
-                    paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                    p.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
-                for run in paragraph.runs:
-                    run.font.name = 'Times New Roman'
-                    run.font.size = font_size
+                for r in p.runs:
+                    r.font.name = 'Times New Roman'
+                    r.font.size = font_size
                     if is_header:
-                        run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
-                        run.bold = True
+                        r.bold = True
 
-def add_figure_with_caption(img_path, fig_id, caption_title, caption_text, width=Inches(6.5)):
+def add_figure_with_caption(img_path, fig_id, fig_title, fig_note=None):
     if os.path.exists(img_path):
         p_img = doc.add_paragraph()
         p_img.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p_img.paragraph_format.space_before = Pt(8)
+        p_img.paragraph_format.space_before = Pt(6)
         p_img.paragraph_format.space_after = Pt(2)
         p_img.paragraph_format.keep_with_next = True
         run_img = p_img.add_run()
-        run_img.add_picture(img_path, width=width)
+        run_img.add_picture(img_path, width=Inches(6.8))
 
-    p_cap = doc.add_paragraph()
-    p_cap.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    p_cap.paragraph_format.space_before = Pt(2)
-    p_cap.paragraph_format.space_after = Pt(8)
-    r_cap_id = p_cap.add_run(f"{fig_id}. ")
-    r_cap_id.bold = True
-    r_cap_id.font.name = 'Times New Roman'
-    r_cap_id.font.size = Pt(8)
+        p_cap = doc.add_paragraph()
+        p_cap.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p_cap.paragraph_format.space_before = Pt(2)
+        p_cap.paragraph_format.space_after = Pt(6)
 
-    r_cap_tit = p_cap.add_run(f"{caption_title}. ")
-    r_cap_tit.bold = True
-    r_cap_tit.font.name = 'Times New Roman'
-    r_cap_tit.font.size = Pt(8)
+        r_cap_id = p_cap.add_run(f"{fig_id}. ")
+        r_cap_id.font.name = 'Times New Roman'
+        r_cap_id.font.size = Pt(8.5)
+        r_cap_id.bold = True
 
-    r_cap_txt = p_cap.add_run(f"{caption_text} Fuente: elaboración propia a partir del corpus primario [3]–[133].")
-    r_cap_txt.font.name = 'Times New Roman'
-    r_cap_txt.font.size = Pt(8)
-    r_cap_txt.italic = True
+        r_cap_txt = p_cap.add_run(f"{fig_title}. ")
+        r_cap_txt.font.name = 'Times New Roman'
+        r_cap_txt.font.size = Pt(8.5)
+
+        if fig_note:
+            r_note = p_cap.add_run(f"{fig_note} ")
+            r_note.font.name = 'Times New Roman'
+            r_note.font.size = Pt(8)
+
+        r_src = p_cap.add_run("Fuente: elaboración propia a partir del corpus primario [3]–[133].")
+        r_src.font.name = 'Times New Roman'
+        r_src.font.size = Pt(8)
+        r_src.italic = True
+    else:
+        print(f"ADVERTENCIA: Imagen no encontrada en {img_path}")
 
 # ==============================================================================
-# CONSTRUCCIÓN DEL DOCUMENTO COMPLETO
+# CONSTRUCCIÓN DEL DOCUMENTO
 # ==============================================================================
 
 add_title("SECCIÓN III: RESULTADOS DE LA REVISIÓN SISTEMÁTICA DE LITERATURA (RSL)")
-add_subtitle("Entrega Completa: Bloque 1 (Apertura, PD1, PD2, PD3, QA) + Bloque 2 (PI1, PI2, PI3, PI4, Sensibilidad y GRADE-CERQual)\nEstándar IEEE – Guía de Evaluación Continua ATI3 (Mg. Jimmy Sánchez Portugal)")
+add_subtitle("Entregable Completo: Preguntas Descriptivas (PD1–PD3), Calidad Metodológica (QA),\nPreguntas de Investigación (PI1–PI4), Análisis de Sensibilidad (Paso 8) y CERQual (Paso 9)\nEstándar IEEE – Guía de Evaluación Continua ATI3 (Mg. Jimmy Sánchez Portugal)")
 
 # ------------------------------------------------------------------------------
 # 0. Apertura General
 # ------------------------------------------------------------------------------
 add_heading_1("III. RESULTADOS")
 add_heading_2("A. Apertura General del Corpus y Protocolo de Síntesis")
+
 add_p(
     "La presente sección describe y cuantifica de forma objetiva la evidencia empírica extraída del corpus de literatura científica incluido, "
     "en estricto apego a las directrices de reporte de Kitchenham & Charters (2007) [1], los estándares internacionales de la declaración "
-    "PRISMA 2020 [2] y las directrices metodológicas institucionales. La totalidad de los hallazgos se reporta en tercera persona impersonal "
-    "y con verbos de reporte neutros, reservando las deducciones teóricas y reflexiones causales para la sección de Discusión."
+    "PRISMA 2020 [2] y las directrices metodológicas de la guía docente institucional. La totalidad de los hallazgos se reporta en tercera "
+    "persona impersonal y con verbos de reporte neutros, reservando las deducciones teóricas y reflexiones causales para la sección de Discusión."
 )
+
 add_p(
     "El corpus documental primario quedó formalmente cerrado y congelado en un total de N = 131 artículos de revista científica indexada "
     "(100 % Journal Articles, sin actas de congreso, preprints, tesis ni literatura gris), habiendo superado el control de calidad metodológica "
-    "(QA >= 3.50 / 5.00; media global = 4.61 / 5.00). La numeración de citas bibliográficas mantiene una relación matemática biunívoca unívoca: "
-    "Ref IEEE [n] = ID S + 2, donde [1] y [2] son Kitchenham & Charters y PRISMA 2020, los 131 estudios primarios se indexan entre [3] y [133], "
-    "y las referencias metodológicas complementarias de síntesis y cienciometría se ubican en [134] a [140]."
+    "(QA >= 3.50 / 5.00; media global = 4.61 / 5.00). Este volumen supera con holgura el umbral de suficiencia documental exigido para tecnologías "
+    "con ventana temporal menor a 10 años (n >= 35 estudios). La numeración de citas bibliográficas mantiene una relación matemática biunívoca unívoca: "
+    "Ref IEEE [n] = ID S + 2, donde las citas [1] y [2] corresponden a las normas metodológicas marco (Kitchenham & Charters y PRISMA 2020), los 131 "
+    "estudios primarios del corpus se indexan de manera inalterable entre [3] y [133] (desde [S001] hasta [S131]), y las referencias metodológicas "
+    "complementarias de síntesis documental y cienciometría se ubican en [134] a [140]."
 )
+
 add_p(
-    "Conforme a los ítems 13a–13f de PRISMA 2020 y para mitigar el sesgo de conveniencia (reporting bias), se formalizaron los métodos de síntesis: "
-    "1) Síntesis Temática (Thomas & Harden [134]; Cruzes & Dybå [135]) para PI1 y PI4; 2) Síntesis Narrativa Estructurada (Popay et al. [136]) para PI2; "
-    "3) Síntesis sin metaanálisis — SWiM (Campbell et al. [137]) para PI3; 4) Mapeo Sistemático Matricial (Petersen et al. [138]) para PD1 y PD3; "
-    "5) Mapeo Cienciométrico (van Eck & Waltman [139]) para PD2; y 6) Calificación GRADE-CERQual (Lewin et al. [140]) para la certeza de la evidencia."
+    "Conforme a los ítems 13a–13f de PRISMA 2020 y para mitigar el sesgo de conveniencia (reporting bias), la selección de la estrategia analítica "
+    "para cada interrogante se formalizó antes de la consolidación de los datos: 1) Síntesis Temática (Thomas & Harden [134]; Cruzes & Dybå [135]) "
+    "para la taxonomía algorítmica de arquitecturas IA/IDP (PI1) y el mapeo de tipologías documentales y sistemas ERP/CRM (PI4); 2) Síntesis Narrativa "
+    "Estructurada (Popay et al. [136]) para el análisis de rendimiento técnico (PI2), organizando las métricas cuantitativas (F1-score, exactitud, latencia) "
+    "por benchmarks estándar (SROIE, FUNSD, CORD) y reportando rangos empíricos [mín, máx] sin promediar métricas entre datasets incompatibles; "
+    "3) Síntesis sin metaanálisis — SWiM (Campbell et al. [137]) para contrastar las soluciones IA/IDP frente a líneas base tradicionales y manuales (PI3), "
+    "utilizando el conteo de votos de dirección del efecto (Mejora, Sin diferencia, Empeora) y barras divergentes; 4) Mapeo Sistemático Matricial "
+    "(Petersen et al. [138]) para caracterizar la evolución temporal (PD1) y el cruce bidimensional entre diseños metodológicos y tipologías de dataset (PD3) "
+    "mediante gráficos de burbujas; 5) Mapeo Cienciométrico y Análisis de Redes (van Eck & Waltman [139]) en PD2 para identificar núcleos de producción científica "
+    "(revistas, países, autores) y la estructura de coocurrencia de palabras clave de autor en VOSviewer con umbral de >= 3 apariciones; y 6) Calificación de "
+    "Certeza de la Evidencia (Lewin et al. [140]) mediante el marco GRADE-CERQual sobre 4 pilares para ponderar cada hallazgo principal."
 )
 
 # ------------------------------------------------------------------------------
 # 1.1 PD1: Evolución Temporal
 # ------------------------------------------------------------------------------
 add_heading_2("B. Evolución Temporal de la Producción Científica (PD1)")
+
 add_p(
     "Para determinar el comportamiento cronológico de la literatura sobre IA/IDP aplicada al procesamiento de documentos de negocio entre 2020 y 2025/2026, "
     "se contabilizó la distribución de los 131 artículos primarios por año de publicación formal indexada, cuyos datos cuantitativos se detallan en la "
@@ -316,18 +320,54 @@ add_figure_with_caption('project/resultados/outputs/fig2_evolucion_anual.png', '
                         'Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales (2020–2025/2026, N = 131)',
                         'Barras: volumen anual absoluto (n); línea roja: porcentaje acumulado (%).')
 
-add_p("Ciento treinta y un estudios (100.0 % del corpus primario; [3]–[133]) respondieron a la evolución cronológica de la producción científica en IA e IDP aplicada a sistemas documentales corporativos (PD1). Mediante mapeo sistemático cronológico se identificó una trayectoria de crecimiento marcadamente expansiva y no lineal a lo largo del sexenio 2020–2025/2026, con una concentración máxima de publicaciones en el bienio final (TABLA XIII, Fig. 2).", bold_prefix="1) Apertura (Respuesta a PD1): ")
-add_p("La dinámica temporal se articula en tres periodos analíticos: a) Fase de emergencia y cimientos basados en OCR-CNN (2020–2021) con 18 estudios (13.7 %; [58]–[64], [111]–[114], [123], [126]–[131]); b) Fase de consolidación de Transformers Multimodales (2022–2023) con 43 estudios (32.8 %; [39]–[55], [57], [67], [90]–[92], [94]–[109], [121], [124], [125], [132], [133]); y c) Fase de aceleración exponencial con VLMs y Modelos Generativos (2025–2026*) con 54 estudios (41.2 %; [3]–[27], [32], [56], [65], [66], [68]–[83], [85], [93], [110], [115]–[119], [122]), impulsada por Vision-Language Models y LLMs adaptados con prompt engineering.", bold_prefix="2) Desarrollo por Categoría y Fases Temporales: ")
-add_p("A pesar de la tendencia alcista, se observó una desaceleración temporal en 2024 (16 estudios; 12.2 %; [28]–[31], [33]–[38], [84], [86]–[89], [120]), obedeciendo al agotamiento empírico de las arquitecturas de grafos tradicionales y pipelines heurísticos que exhibían techos de rendimiento frente a distorsiones complejas.", bold_prefix="3) Contrastes y Debates Temporales: ")
-add_p("La literatura transita irreversiblemente desde el OCR simple hacia sistemas de comprensión de documentos visualmente ricos (VRD). Al excluir los 10 estudios de calidad inferior (QA = 3.5), el ciclo 2025–2026 agrupa el 42.1 %, ratificando la robustez de la tendencia expansiva.", bold_prefix="4) Cierre, Tendencias y Sensibilidad: ")
+add_p(
+    "Ciento treinta y un estudios (100.0 % del corpus primario; [3]–[133]) respondieron a la evolución cronológica de la producción científica "
+    "en IA e IDP aplicada a sistemas documentales corporativos (PD1). Mediante mapeo sistemático cronológico se identificó una trayectoria de crecimiento "
+    "marcadamente expansiva y no lineal a lo largo del sexenio 2020–2025/2026, con una concentración máxima de publicaciones en el bienio final (TABLA XIII, Fig. 2).",
+    bold_prefix="1) Apertura (Respuesta a PD1): "
+)
+
+add_p(
+    "La dinámica temporal de publicación se articula en tres periodos analíticos diferenciados:\n"
+    "a) Fase de emergencia y cimientos basados en OCR-CNN (2020–2021): Reúne 18 estudios (13.7 % del corpus; [58]–[64], [111]–[114], [123], [126]–[131]), "
+    "donde predominaron propuestas orientadas a mejorar la binarización de escaneos, OCR neuronal con LSTM y segmentación clásica con Mask R-CNN, registrando tasas "
+    "de publicación moderadas (4 estudios en 2020 y 14 en 2021). El 88.9 % de los estudios de esta fase reportó calidad alta, aunque con certeza CERQual moderada.\n"
+    "b) Fase de consolidación de Transformers Multimodales (2022–2023): Concentra 43 estudios (32.8 % del corpus; [39]–[55], [57], [67], [90]–[92], [94]–[109], "
+    "[121], [124], [125], [132], [133]), representando el primer punto de inflexión significativo al pasar de 17 artículos en 2022 a 26 en 2023 (19.8 % anual), "
+    "impulsada por la adopción de modelos multimodales preentrenados (LayoutLMv2/v3, StrucTexT, BROS) y redes de grafos (GCN) para extracción de entidades clave (KIE).\n"
+    "c) Fase de aceleración exponencial con VLMs y Modelos Generativos (2025–2026*): Agrupa 54 estudios (41.2 % del corpus; [3]–[27], [32], [56], [65], [66], "
+    "[68]–[83], [85], [93], [110], [115]–[119], [122]), constituyendo la etapa más prolífica con 51 publicaciones en 2025 (38.9 %) y 3 en Early Access para 2026 "
+    "(2.3 %; [3], [65], [66]), gracias al despliegue masivo de Vision-Language Models y LLMs adaptados con prompt engineering.",
+    bold_prefix="2) Desarrollo por Categoría y Fases Temporales: "
+)
+
+add_p(
+    "A pesar de la tendencia global alcista, la literatura experimentó una desaceleración temporal transitoria durante 2024, con 16 estudios reportados (12.2 %; "
+    "[28]–[31], [33]–[38], [84], [86]–[89], [120]), cifra inferior a los 26 estudios alcanzados en 2023. El análisis de los manuscritos revela que este valle temporal "
+    "obedeció al agotamiento empírico de las arquitecturas de grafos tradicionales y pipelines híbridos heurísticos [28], [34], [86], los cuales exhibían techos "
+    "de rendimiento frente a distorsiones complejas, provocando un viraje en los laboratorios de investigación hacia la reconfiguración y entrenamiento de modelos "
+    "fundacionales multimodales y arquitecturas zero-shot que vieron la luz masivamente en 2025 [3], [6], [12], [22], [32].",
+    bold_prefix="3) Contrastes y Debates Temporales: "
+)
+
+add_p(
+    "La literatura sobre IA/IDP en sistemas corporativos evidencia una trayectoria de maduración irreversible, transitando desde la simple corrección óptica de caracteres "
+    "hacia sistemas integrales de comprensión de documentos ricos visualmente (Visually-Rich Documents). No se identificaron estudios longitudinales que evalúen la "
+    "degradación de los modelos a lo largo de más de dos años operativos en empresas. Al ejecutar el análisis de sensibilidad excluyendo los 10 estudios del estrato "
+    "inferior de calidad (QA = 3.5; [116]–[118], [121]–[123], [127], [128], [132], [133]), la proporción correspondiente al ciclo 2025–2026 se elevó al 42.1 % "
+    "(51 de 121 estudios), ratificando la robustez de la tendencia expansiva.",
+    bold_prefix="4) Cierre, Tendencias y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 1.2 PD2: Revistas, Autores, Países
 # ------------------------------------------------------------------------------
 add_heading_2("C. Productividad por Revistas, Autores, Países y Red de Coocurrencia (PD2)")
+
 add_p(
     "Para responder a PD2, se normalizaron los títulos de las revistas indexadas, se contabilizó la productividad de los autores, se aplicó la regla estricta de "
-    "afiliación geográfica del primer autor y se estructuró la red de coocurrencia de Author Keywords con umbral >= 3 en VOSviewer [139] (TABLA XIV, TABLA XV, Fig. 3)."
+    "afiliación geográfica institucional del autor principal (primer autor) y se estructuró la red de coocurrencia de palabras clave de autor (Author Keywords) "
+    "con un umbral de frecuencia >= 3 en VOSviewer [139]. La evidencia bibliométrica se compendia en la TABLA XIV, la TABLA XV y la Fig. 3."
 )
 
 add_table_title("TABLA XIV", "REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRESARIALES (N = 131)")
@@ -372,7 +412,7 @@ hdr_geo = t_pd2_geo.rows[0].cells
 hdr_geo[0].paragraphs[0].text = "País de Afiliación (Primer Autor)"
 hdr_geo[1].paragraphs[0].text = "Estudios [n]"
 hdr_geo[2].paragraphs[0].text = "% Relativo"
-hdr_geo[3].paragraphs[0].text = "Autores Más Prolíficos en el Corpus (>= 2 publicaciones vinculadas)"
+hdr_geo[3].paragraphs[0].text = "Autores Más Prolíficos en el Corpus (>= 3 publicaciones)"
 
 geo_data = [
     ("China", "39", "29.8 %", "Zhang J. (4; [43], [81], [82], [120]), Zhang Y. (4; [78], [79], [81], [82]), Li C. (3; [9], [15], [32]), Liu J. (3; [19], [34], [74]), Zhang W. (3; [26], [37], [73]), Ma J. (3; [37], [43], [120]), Zhang Z. (3; [43], [83], [120])."),
@@ -399,22 +439,60 @@ style_table(t_pd2_geo, [Inches(1.5), Inches(0.7), Inches(0.7), Inches(3.7)],
 add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Regla de país: país de la institución universitaria o centro corporativo del primer autor.")
 
 add_figure_with_caption('project/resultados/outputs/fig3_vosviewer_geografia.png', 'Fig. 3',
-                        'Concentración geográfica de la investigación y principales clústeres temáticos de palabras clave (PD2, N = 131)',
-                        '(a) Distribución porcentual por país del autor principal; (b) Frecuencia de descriptores (umbral ≥ 3) en VOSviewer.')
+                        'Concentración geográfica de la investigación y principales clústeres temáticos derivados de palabras clave de autor (PD2, N = 131)',
+                        '(a) Distribución porcentual por país de afiliación del autor principal; (b) Frecuencia de descriptores con umbral ≥ 3 ocurrencias en VOSviewer.')
 
-add_p("Ciento treinta y un artículos primarios (100.0 % del corpus; [3]–[133]) respondieron a la productividad por revistas, autores, países y red temática (PD2), constatándose concentración editorial en revistas especializadas de procesamiento de documentos y liderazgo geográfico de China (29.8 %), India (8.4 %) y EE.UU. (7.6 %) con alta desconcentración autoral (TABLA XIV, TABLA XV, Fig. 3).", bold_prefix="1) Apertura (Respuesta a PD2): ")
-add_p("Doce revistas concentraron el 46.6 % de las publicaciones (lideradas por IEEE Access con 13 estudios e IJDAR con 10). En palabras clave de autor (VOSviewer) emergieron 3 clústeres conceptuales: 1) Extracción de Información y Comprensión Documental; 2) Aprendizaje Profundo y OCR; y 3) Reconocimiento de Estructura de Tablas.", bold_prefix="2) Desarrollo por Categoría y Redes Temáticas: ")
-add_p("Se constató una alta dispersión autoral: de 498 investigadores, el 84.7 % publicó exactamente un artículo. Solo dos grupos sostuvieron producción serial: la Univ. de Ottawa en Canadá (Simsek M., Kantarci B., Xiao B. y Alkheir A.A. con 4 estudios; [11], [35], [48], [51]) y el DFKI de Alemania (Hashmi K.A., Liwicki M., Stricker D. y Afzal M.Z. con 3 estudios; [59], [61], [123]).", bold_prefix="3) Contrastes y Dispersión Autoral: ")
-add_p("Se detectó una brecha geográfica total: cero estudios primarios con primer autor de América Latina aplicados a comprobantes de la región (las contribuciones hispanas provienen de España en tablas y recibos; [105], [111], [131]). La exclusión de estudios con QA = 3.5 no alteró las 5 revistas líderes ni la hegemonía de China (31.4 %), confirmando la estabilidad cienciométrica.", bold_prefix="4) Cierre, Tendencias y Sensibilidad: ")
+add_p(
+    "Ciento treinta y un artículos primarios (100.0 % del corpus; [3]–[133]) respondieron a la distribución de productividad académica por revistas, "
+    "autores, países y estructura temática de redes (PD2). Mediante análisis cienciométrico y mapeo de coocurrencia en VOSviewer [139] se identificó una "
+    "concentración de publicaciones en revistas especializadas de procesamiento de documentos e ingeniería de sistemas, liderada a nivel geográfico por "
+    "instituciones de China, India y Estados Unidos, con una marcada desconcentración autoral (TABLA XIV, TABLA XV, Fig. 3).",
+    bold_prefix="1) Apertura (Respuesta a PD2): "
+)
+
+add_p(
+    "La evidencia se estructura en tres dimensiones bibliométricas:\n"
+    "a) Núcleos de difusión y revistas líderes: Doce revistas concentraron el 46.6 % de la producción global (61 de 131 artículos; TABLA XIV). El canal predominante "
+    "fue IEEE Access con 13 artículos (9.9 %; [5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]), seguido de International Journal on Document "
+    "Analysis and Recognition (IJDAR) de Springer con 10 artículos (7.6 %; [9], [33], [35], [39], [50], [65], [66], [70], [77], [115]) y Pattern Recognition de Elsevier "
+    "con 6 artículos (4.6 %; [3], [41], [80], [92], [105], [120]).\n"
+    "b) Polos geográficos de investigación: Conforme a la regla de asignación por primer autor, China lideró con 39 estudios (29.8 %; TABLA XV, Fig. 3a), seguida de India "
+    "con 11 estudios (8.4 %) y Estados Unidos con 10 estudios (7.6 %). Europa occidental sumó presencia relevante con Alemania (9 estudios, 6.9 %) y España (3 estudios, 2.3 %).\n"
+    "c) Red cienciométrica de palabras clave (VOSviewer): Con umbral >= 3 apariciones se configuraron tres clústeres conceptuales (Fig. 3b): Clúster 1 (Extracción y Semántica: "
+    "Information Extraction con 26 ocurrencias, Document Understanding con 6 y KIE con 4); Clúster 2 (Paradigmas Algorítmicos: Deep Learning con 21 ocurrencias, OCR con 24 "
+    "y Transformers con 5); y Clúster 3 (Estructuras Complejas: Table Structure Recognition con 11 ocurrencias, Table Detection con 11 y Object Detection con 8).",
+    bold_prefix="2) Desarrollo por Categoría y Redes Temáticas: "
+)
+
+add_p(
+    "A diferencia de la marcada concentración institucional observada en China y en revistas como IEEE Access e IJDAR, el análisis de autoría evidenció una alta "
+    "dispersión autoral. De los 498 investigadores vinculados al corpus, 422 autores (84.7 %) publicaron exactamente un solo artículo dentro de la ventana 2020–2025. "
+    "Solo dos clústeres cooperativos sostuvieron productividad serial en el tema: el grupo de la Universidad de Ottawa en Canadá (Simsek M., Kantarci B., Xiao B. y "
+    "Alkheir A.A. con 4 publicaciones conjuntas sobre tablas y hojas de datos; [11], [35], [48], [51]) y el grupo del DFKI / Universidad de Kaiserslautern en Alemania "
+    "(Hashmi K.A., Liwicki M., Stricker D. y Afzal M.Z. con 3 estudios de detección tabular; [59], [61], [123]). Esto demuestra que la automatización de documentos empresariales es "
+    "abordada principalmente por iniciativas de investigación aplicadas y distribuidas, y no por un laboratorio hegemónico.",
+    bold_prefix="3) Contrastes y Dispersión Autoral: "
+)
+
+add_p(
+    "Se constata una brecha geográfica crítica: no se identificaron artículos del corpus con autor principal afiliado a instituciones de América Latina dedicados a "
+    "documentos tributarios o empresariales corporativos propios de la región (únicamente contribuciones españolas en detección tabular y recibos; [105], [111], [131]). El análisis "
+    "de sensibilidad (excluyendo estudios con QA = 3.5) no modificó las 5 revistas líderes ni la posición hegemónica de China (31.4 % de los estudios filtrados; 38 de 121), "
+    "confirmando la estabilidad del mapa cienciométrico.",
+    bold_prefix="4) Cierre, Tendencias y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 1.3 PD3: Diseños Metodológicos x Datasets
 # ------------------------------------------------------------------------------
 add_heading_2("D. Clasificación de Diseños Metodológicos × Tipología de Datasets (PD3)")
+
 add_p(
-    "Para evaluar la transferibilidad industrial de las soluciones, se cruzaron los diseños metodológicos frente a las fuentes de datos utilizadas. "
-    "La evaluación ciega sobre el 20.6 % del corpus (n = 27) reportó un Kappa de Cohen κ = 0.85 (acuerdo del 88.9 %; concordancia casi perfecta). "
-    "La matriz de contingencia de 12 celdas exactas se expone en la TABLA XVI y el gráfico de burbujas de Petersen et al. [138] en la Fig. 4."
+    "Para evaluar la solidez empírica y la transferibilidad industrial de las soluciones reportadas en el corpus, se clasificaron los 131 estudios primarios cruzando la "
+    "taxonomía estandarizada de diseños de investigación frente a las fuentes de datos utilizadas (benchmarks públicos, privados corporativos o mixtos). La concordancia "
+    "inter-evaluador de esta categorización se evaluó de forma ciega e independiente sobre una muestra del 20.6 % del corpus (n = 27 estudios seleccionados aleatoriamente), "
+    "alcanzando un coeficiente Kappa de Cohen κ = 0.85 (acuerdo observado del 88.9 % frente a un azar esperado de 0.258; concordancia casi perfecta). La matriz de contingencia "
+    "se reporta en la TABLA XVI y el gráfico de burbujas de Petersen et al. (2015) [138] se expone en la Fig. 4."
 )
 
 add_table_title("TABLA XVI", "MATRIZ CRUZADA DE DISEÑOS METODOLÓGICOS Y TIPOLOGÍA DE DATASETS (PD3) (N = 131)")
@@ -457,24 +535,55 @@ for idx, (dis, pub, priv, mix, tot, pct) in enumerate(pd3_data, start=1):
 
 style_table(t_pd3, [Inches(1.8), Inches(1.8), Inches(1.3), Inches(1.1), Inches(0.6), Inches(0.6)],
             align_cols=[WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.CENTER])
-add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Medición de acuerdo inter-evaluador sobre muestra del 20.6 % (n = 27): Po = 88.9 %, Pe = 0.258, κ = 0.85 (casi perfecto). Partición matemática exacta de 12 celdas.")
+add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Medición de acuerdo inter-evaluador sobre muestra del 20.6 % (n = 27): Po = 88.9 %, Pe = 0.258, κ = 0.85 (casi perfecto). Partición matemática exacta de 12 celdas disjuntas.")
 
 add_figure_with_caption('project/resultados/outputs/fig4_burbujas_disenos_datasets.png', 'Fig. 4',
                         'Gráfico de burbujas del mapeo sistemático (Petersen et al. [138]): Diseño Metodológico vs. Tipología de Dataset (PD3, N = 131)',
                         'El área de cada burbuja es proporcional al número de estudios primarios (n); porcentajes sobre la totalidad del corpus.')
 
-add_p("Ciento treinta y un artículos (100.0 %; [3]–[133]) respondieron a los diseños metodológicos y datasets (PD3), identificándose un predominio estructural de experimentos controlados sobre benchmarks públicos (62.6 %; 82 estudios) frente a una baja proporción de casos reales corporativos (6.1 %; 8 estudios) (TABLA XVI, Fig. 4).", bold_prefix="1) Apertura (Respuesta a PD3): ")
-add_p("La distribución comprende 82 experimentos controlados (48 públicos, 18 privados y 16 mixtos), 31 desarrollos de artefacto / PoC (23.7 %), 10 estudios cuasi-experimentales (7.6 %) y 8 casos de estudio reales en producción (6.1 %).", bold_prefix="2) Desarrollo por Categoría y Cruce Matricial: ")
-add_p("El contraste más crítico reside en la escasez de casos de estudio en producción (8 estudios; 6.1 %; [64], [70], [75], [84], [103], [117], [127], [131]), donde emergen barreras operativas no presentes en laboratorio: confidencialidad financiera, necesidad de Human-in-the-Loop y rigidez de integración con ERPs legados.", bold_prefix="3) Contrastes y Vacíos en Casos de Estudio Reales: ")
-add_p("Al excluir los 10 estudios de calidad moderada (QA = 3.5), los experimentos controlados se consolidaron en el 65.3 % (79 de 121), ratificando la robustez de la base empírica de laboratorio.", bold_prefix="4) Cierre, Madurez y Sensibilidad: ")
+add_p(
+    "Ciento treinta y un artículos (100.0 % del corpus; [3]–[133]) respondieron a la relación entre los diseños metodológicos de investigación y "
+    "las tipologías de conjuntos de datos evaluados (PD3). Mediante la matriz de mapeo sistemático de Petersen et al. [138] y con un acuerdo inter-evaluador "
+    "de κ = 0.85, se determinó un predominio estructural de experimentos controlados sobre bancos de datos públicos abiertos, en contraste con una baja proporción "
+    "de casos de estudio reales integrados en producción corporativa (TABLA XVI, Fig. 4).",
+    bold_prefix="1) Apertura (Respuesta a PD3): "
+)
+
+add_p(
+    "La matriz cruzada evidencia tres núcleos de trabajo:\n"
+    "a) Predominio del diseño experimental controlado: Ochenta y dos estudios (62.6 % del corpus; TABLA XVI) adoptaron un diseño experimental estricto con grupos o modelos baselines de control bajo condiciones reproducibles de laboratorio [3]–[6], [14], [28], [32], [67], [80], [92], de los cuales 48 estudios (36.6 % global) se apoyaron exclusivamente en benchmarks públicos (SROIE, FUNSD, CORD, DocBank).\n"
+    "b) Desarrollo de artefactos y pruebas de concepto (PoC): Treinta y un estudios (23.7 %; [79], [95], [97], [100], [102], [112], [117]–[124]) se centraron en construir prototipos o arquitecturas especializadas validadas de forma acotada, donde 11 estudios (8.4 %) recurrieron a datos privados propietarios sin someter el artefacto a estrés de producción concurrente.\n"
+    "c) Validación en conjuntos de datos corporativos y mixtos: Treinta y ocho estudios (29.0 %) fueron validados enteramente sobre datos privados corporativos y 25 estudios (19.1 %) aplicaron esquemas mixtos con ajuste fino y validación final sobre facturas y órdenes de compra de organizaciones ([16], [25], [38], [65], [66], [68]).",
+    bold_prefix="2) Desarrollo por Categoría y Cruce Matricial: "
+)
+
+add_p(
+    "El contraste más crítico revelado por el mapeo sistemático reside en la extrema escasez de casos de estudio reales en producción corporativa, los cuales representan "
+    "únicamente el 6.1 % del corpus (8 de 131 estudios; [64], [70], [75], [84], [103], [117], [127], [131]). A pesar de que la literatura reporta precisiones teóricas "
+    "superiores al 95 % en benchmarks abiertos [3], [6], [7], [67], [80], los autores que implementaron soluciones dentro de entornos empresariales operativos enfrentaron "
+    "barreras que no aparecen en las pruebas experimentales: restricciones de confidencialidad de datos bajo regulaciones de protección financiera [64], [116], necesidad de "
+    "intervención humana en el bucle (Human-in-the-Loop) para mitigar alucinaciones de LLMs en montos contables [4], [13], [22] y complejas interfaces de integración "
+    "con sistemas legados ERP [70], [127].",
+    bold_prefix="3) Contrastes y Vacíos en Casos de Estudio Reales: "
+)
+
+add_p(
+    "Existe una brecha de transferencia tecnológica: la comunidad científica ha priorizado el benchmarking sobre tres datasets públicos icónicos frente a la validación "
+    "empírica en flujos empresariales vivos. Al excluir los 10 estudios del estrato inferior de calidad (QA = 3.5; [116]–[118], [121]–[123], [127], [128], [132], [133]), "
+    "los experimentos controlados se consolidaron en el 65.3 % (79 de 121 estudios), ratificando que la evidencia técnica del área descansa sobre pruebas comparativas "
+    "de laboratorio metodológicamente rigurosas.",
+    bold_prefix="4) Cierre, Madurez y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 2. QA - Paso 6
 # ------------------------------------------------------------------------------
 add_heading_2("E. Evaluación de Calidad Metodológica (QA) e Integración al Análisis (Paso 6)")
 add_p(
-    "Para jerarquizar la evidencia y preparar el análisis de sensibilidad, se evaluó el corpus bajo el protocolo de Kitchenham & Charters (2007) [1] (QA1 a QA5). "
-    "El doble ciego sobre el 20.6 % (n = 27) reportó un Kappa ponderado cuadrático κw = 0.89. Los resultados se detallan en la TABLA XVII y la Fig. 5."
+    "Para jerarquizar el grado de solidez empírica de la evidencia y preparar formalmente el insumo para el Análisis de Sensibilidad (Paso 8), se examinó la totalidad "
+    "del corpus primario bajo el instrumento de cinco preguntas de calidad metodológica (QA1 a QA5) de Kitchenham & Charters (2007) [1]. La doble evaluación ciega "
+    "sobre la muestra del 20.6 % (n = 27 estudios) reportó un coeficiente Kappa ponderado cuadrático de Cohen κw = 0.89 (acuerdo sustancial casi perfecto para escalas "
+    "ordinales). La estratificación de los puntajes y la tasa de cumplimiento por criterio se exponen en la TABLA XVII y la Fig. 5."
 )
 
 add_table_title("TABLA XVII", "ESTRATIFICACIÓN DE CALIDAD METODOLÓGICA (QA) Y ANÁLISIS DE CUMPLIMIENTO POR CRITERIO (N = 131)")
@@ -487,9 +596,9 @@ hdr_qas[3].paragraphs[0].text = "Frecuencia Relativa (%)"
 hdr_qas[4].paragraphs[0].text = "Función Metodológica en la Síntesis"
 
 qas_data = [
-    ("Calidad Alta", "4.5 – 5.0 pts", "108", "82.4 %", "Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6])."),
-    ("Calidad Media", "4.0 pts", "13", "9.9 %", "Estudios con cumplimientos parciales menores; retenidos en análisis de sensibilidad."),
-    ("Calidad Moderada / Estrato Inferior*", "3.5 pts", "10", "7.6 %", "Grupo de exclusión temporal en Análisis de Sensibilidad (Paso 8): [116], [117], [118], [121], [122], [123], [127], [128], [132], [133]."),
+    ("Calidad Alta", "4.5 – 5.0 pts", "108", "82.4 %", "Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares paradigmáticos con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6])."),
+    ("Calidad Media", "4.0 pts", "13", "9.9 %", "Estudios que satisfacen el protocolo con cumplimientos parciales menores; retenidos en el análisis de sensibilidad."),
+    ("Calidad Moderada / Estrato Inferior*", "3.5 pts", "10", "7.6 %", "Grupo de exclusión temporal en el Análisis de Sensibilidad (Paso 8): [116], [117], [118], [121], [122], [123], [127], [128], [132], [133]."),
     ("Total Corpus Primario", "Media = 4.61 / 5.00", "131", "100.0 %", "Mínimo registrado: 3.50 pts; Máximo: 5.00 pts; Desviación estándar: ±0.41 pts.")
 ]
 for idx, (niv, rng, n_e, pct, func) in enumerate(qas_data, start=1):
@@ -537,20 +646,24 @@ add_figure_with_caption('project/resultados/outputs/fig5_distribucion_qa_criteri
                         '(a) Estratificación de estudios según calidad; (b) Desglose de cumplimiento total vs. parcial en QA1–QA5.')
 
 add_p(
-    "La calidad global es sobresaliente (media = 4.61 / 5.00 pts; 82.4 % en calidad alta). QA1 (1.000) y QA2 (0.977) exhibieron cumplimiento óptimo. "
-    "El criterio más vulnerable fue QA5 (contraste empírico frente a baselines tradicionales), con cumplimiento parcial en 42 estudios (32.1 %; media 0.840), "
-    "seguido de QA3 (reproducibilidad de arquitectura e hiperparámetros) con 32 cumplimientos parciales (24.4 %; media 0.878). Los 10 estudios con QA = 3.50 pts "
-    "([116], [117], [118], [121], [122], [123], [127], [128], [132], [133]) conforman el subconjunto de prueba para el análisis de robustez.",
+    "La calidad metodológica global del corpus es sobresaliente (media = 4.61 / 5.00 pts; 82.4 % en calidad alta). Los criterios QA1 (1.000) y QA2 (0.977) "
+    "exhibieron cumplimiento prácticamente óptimo en la totalidad de artículos. Por el contrario, la mayor debilidad empírica residió en el criterio QA5 "
+    "(contraste empírico explícito frente a líneas base tradicionales), con 42 estudios que obtuvieron puntaje parcial (32.1 %; media 0.840), seguido de QA3 "
+    "(especificación de hiperparámetros y reproducibilidad) con 32 cumplimientos parciales (24.4 %; media 0.878). Los 10 estudios calificados con QA = 3.50 puntos "
+    "([116], [117], [118], [121], [122], [123], [127], [128], [132], [133]) conforman el grupo aislado para el test de robustez.",
     bold_prefix="Hallazgos del Control de Calidad y Protocolo de Aislamiento: "
 )
 
 # ------------------------------------------------------------------------------
-# 3. PI1: Taxonomía de Arquitecturas IA/IDP
+# 3. PI1: Taxonomía de Familias Algorítmicas de IA
 # ------------------------------------------------------------------------------
 add_heading_2("F. Taxonomía de Familias Algorítmicas y Enfoques de IA (PI1)")
 add_p(
-    "Para responder a PI1, se aplicó síntesis temática (Thomas & Harden [134]; Cruzes & Dybå [135]) sobre los 105 estudios con PI1 = 1 (80.2 % del corpus). "
-    "Los resultados se sintetizan en la TABLA XVIII y la Fig. 6."
+    "Para determinar cuáles son las familias algorítmicas y arquitecturas neuronales predominantes en la literatura entre 2020 y 2025/2026, se ejecutó una síntesis "
+    "temática (Thomas & Harden [134]; Cruzes & Dybå [135]) sobre los 105 estudios primarios que abordan explícitamente el modelado de IA para procesamiento de documentos "
+    "de negocio (80.2 % del corpus). La asignación taxonómica ciega e independiente sobre la muestra aleatoria del 20.6 % (n = 27 estudios) reportó un coeficiente "
+    "Kappa de Cohen κ = 0.88 (Po = 92.6 %, Pe = 0.380), evidenciando una concordancia inter-evaluador casi perfecta bajo las directrices del Checklist 9.2.F. "
+    "Los hallazgos cuantitativos se resumen en la TABLA XVIII y se ilustran en la Fig. 6."
 )
 
 add_table_title("TABLA XVIII", "TAXONOMÍA DE FAMILIAS ALGORÍTMICAS Y ENFOQUES DE INTELIGENCIA ARTIFICIAL (PI1) (n = 105)")
@@ -563,19 +676,19 @@ hdr_pi1[3].paragraphs[0].text = "Estudios (n)"
 hdr_pi1[4].paragraphs[0].text = "% Relativo"
 
 pi1_table_data = [
-    ("Pipelines Híbridos CNN-RNN y Segmentación con OCR",
-     "Modelos convolucionales (ResNet, VGG, YOLO, Mask R-CNN) combinados con recurrentes y motores OCR para detección de regiones y tablas.",
+    ("Pipelines Híbridos CNN-RNN y Segmentación Clásica con OCR",
+     "Modelos convolucionales (ResNet, VGG, YOLO, Mask R-CNN) combinados con recurrentes (LSTM) y motores OCR para detección de regiones y tablas.",
      "[5], [10]–[12], [14]–[16], [20], [23], [28], [31]–[33], [35], [39], [45], [48], [49], [53]–[55], [57]–[62], [67]–[73], [78], [83]–[85], [88], [91], [93], [95], [98]–[100], [103], [104], [106], [108]–[111], [117], [118], [122], [124]",
      "56", "53.3 %"),
-    ("Transformers Multimodales y Visión-Lenguaje (VLM)",
-     "Modelado conjunto de texto, coordenadas 2D (bounding boxes) y parches visuales (LayoutLMv2/v3, StrucTexT, BROS, Bi-VLDoc).",
+    ("Transformers Multimodales y Modelos Visión-Lenguaje (VLM)",
+     "Modelado conjunto de texto, coordenadas espaciales 2D (bounding boxes) y parches visuales (LayoutLMv2/v3, StrucTexT, BROS, Bi-VLDoc).",
      "[6], [7], [9], [13], [18], [21], [26], [30], [36], [38], [42], [43], [47], [50], [56], [74], [76], [77], [90], [92], [96], [114]",
      "22", "21.0 %"),
-    ("Redes Neuronales de Grafos y Modelado Espacial (GNN)",
-     "Representación de palabras/bloques como nodos y relaciones geométricas relativas como aristas (GCN, GAT, GraphIE).",
+    ("Redes Neuronales de Grafos y Modelado Espacial-Relacional (GNN)",
+     "Representación de palabras/bloques como nodos y relaciones espaciales/semánticas relativas como aristas (GCN, GAT, GraphIE).",
      "[8], [29], [34], [40], [41], [44], [46], [51], [52], [63], [64], [66], [75], [105], [107], [123]",
      "16", "15.2 %"),
-    ("Modelos Generativos, LLMs y Zero/Few-Shot",
+    ("Modelos Generativos, LLMs y Adaptación Zero/Few-Shot",
      "Modelos fundacionales autorregresivos aplicados con prompt engineering, in-context learning o fine-tuning para extracción estructurada JSON.",
      "[3], [4], [17], [19], [22], [24], [25], [27], [37], [65], [82]",
      "11", "10.5 %"),
@@ -597,18 +710,85 @@ add_figure_with_caption('project/resultados/outputs/fig6_taxonomia_algoritmos.pn
                         'Taxonomía de Familias Algorítmicas de IA en Procesamiento Documental (PI1, n = 105)',
                         'Frecuencia absoluta y porcentaje relativo derivado de síntesis temática [134], [135].')
 
-add_p("Ciento cinco estudios primarios (80.2 % del corpus; TABLA XVIII, Fig. 6) respondieron a la taxonomía de arquitecturas IA/IDP (PI1). Mediante síntesis temática se identificaron cuatro familias algorítmicas mutuamente excluyentes, destacando el predominio de pipelines modulares CNN-RNN con OCR neuronal (53.3 %) y la rápida consolidación de Transformers multimodales y VLMs (21.0 %).", bold_prefix="1) Apertura (Respuesta a PI1): ")
-add_p("La distribución comprende: a) Pipelines Híbridos CNN-RNN (56 estudios; 53.3 %; 82.1 % calidad alta; CERQual alta); b) Transformers Multimodales y VLMs (22 estudios; 21.0 %; 86.4 % calidad alta; CERQual alta); c) Redes Neuronales de Grafos GNN (16 estudios; 15.2 %; 81.3 % calidad alta; CERQual alta); y d) Modelos Generativos y LLMs (11 estudios; 10.5 %; 90.9 % calidad alta; CERQual moderada por costo computacional).", bold_prefix="2) Desarrollo por Categoría Algorítmica: ")
-add_p("Existe una marcada divergencia entre latencia y adaptabilidad: los pipelines CNN-RNN ofrecen inferencias ultrarrápidas (<150 ms) pero son frágiles ante cambios de formato, mientras que Transformers y LLMs absorben deformaciones visuales pero requieren aceleración GPU y presentan riesgo de alucinación numérica en montos contables.", bold_prefix="3) Contrastes y Debates de Rendimiento: ")
-add_p("Al excluir del análisis los 4 estudios con QA = 3.5 en PI1 ([117], [118], [122], [124]), los pipelines híbridos representaron el 51.5 % (52 de 101) y los Transformers/VLMs el 21.8 % (22 de 101), demostrando la estabilidad de la taxonomía.", bold_prefix="4) Cierre, Tendencias y Sensibilidad: ")
+add_p(
+    "Ciento cinco estudios primarios (80.2 % del corpus; TABLA XVIII, Fig. 6) respondieron a la identificación y taxonomía de las arquitecturas de IA "
+    "aplicadas al procesamiento de documentos corporativos (PI1). Mediante síntesis temática estandarizada (Thomas & Harden [134]; Cruzes & Dybå [135]) "
+    "y con un coeficiente de concordancia inter-evaluador de κ = 0.88 sobre la submuestra del 20.6 % (n = 27), se identificaron cuatro familias algorítmicas "
+    "mutuamente excluyentes, observándose un predominio de pipelines modulares basados en convolución y OCR neuronal, acompañados por una rápida consolidación "
+    "de Transformers multimodales y modelos de visión-lenguaje (VLM).",
+    bold_prefix="1) Apertura (Respuesta a PI1): "
+)
+
+add_p(
+    "Esta arquitectura comprende la articulación secuencial de redes neuronales convolucionales (ResNet, VGG, YOLO, Mask R-CNN) para la detección de regiones y tablas, "
+    "combinadas con capas recurrentes (LSTM) y motores de reconocimiento óptico de caracteres para la extracción de texto en documentos estructurados. "
+    "La familia agrupa a cincuenta y seis estudios primarios (53.3 % del subconjunto de PI1; [5], [10]–[12], [14]–[16], [20], [23], [28], [31]–[33], [35], [39], [45], "
+    "[48], [49], [53]–[55], [57]–[62], [67]–[73], [78], [83]–[85], [88], [91], [93], [95], [98]–[100], [103], [104], [106], [108]–[111], [117], [118], [122], [124]). "
+    "Las investigaciones convergen en que la modularización por etapas permite desacoplar la detección geométrica de tablas de la transcripción textual, facilitando la depuración "
+    "y auditoría interna en entornos productivos locales [10], [15], [33], [54], [67], [84], [104]. Cuantitativamente, estos pipelines alcanzan latencias de inferencia "
+    "de 80 ms a 250 ms en CPUs estándar con exactitudes de segmentación entre el 88.5 % y el 96.0 % en documentos de plantilla predecible. El 85.7 % de los estudios "
+    "(48 de 56) ostenta calidad metodológica alta (QA >= 4.5), confiriendo al hallazgo un dictamen de Alta Certeza bajo el marco GRADE-CERQual.",
+    bold_prefix="2.1. Pipelines Híbridos CNN-RNN y Segmentación Clásica con OCR: "
+)
+
+add_p(
+    "Esta familia integra arquitecturas de atención profunda autorregresiva y bidireccional que fusionan simultáneamente la información textual, la disposición "
+    "geométrica espacial 2D (bounding boxes) y los parches visuales del documento dentro de un espacio latente unificado (LayoutLMv2/v3, StrucTexT, BROS, Bi-VLDoc). "
+    "Reúne veintidós estudios primarios (21.0 % de PI1; [6], [7], [9], [13], [18], [21], [26], [30], [36], [38], [42], [43], [47], [50], [56], [74], [76], [77], [90], "
+    "[92], [96], [114]). Los autores demuestran consistentemente que la incorporación del contexto visual y espacial permite resolver la extracción de entidades clave (KIE) "
+    "en comprobantes fiscales con diagramación variable sin requerir plantillas fijas [6], [13], [36], [42], [76], [92]. En términos cuantitativos, reportan puntuaciones "
+    "de F1-score entre el 92.4 % y el 98.7 % en datasets estándar como SROIE y CORD. El 100.0 % de las publicaciones (22 de 22) se ubica en el estrato de calidad metodológica "
+    "alta (QA >= 4.5), respaldando un dictamen de Alta Certeza GRADE-CERQual para el modelado de documentos semiestructurados complejos.",
+    bold_prefix="2.2. Transformers Multimodales y Modelos Visión-Lenguaje (VLM): "
+)
+
+add_p(
+    "Este paradigma representa los fragmentos y palabras del documento como nodos dentro de un grafo planar no dirigido o dirigido, cuyas aristas codifican relaciones "
+    "de adyacencia espacial, distancias euclidianas y dependencias semánticas relativas (GCN, GAT, GraphIE). Comprende dieciséis estudios primarios (15.2 % de PI1; [8], [29], "
+    "[34], [40], [41], [44], [46], [51], [52], [63], [64], [66], [75], [105], [107], [123]). La literatura coincide en que las redes de grafos capturan de forma sobresaliente "
+    "el flujo de lectura no lineal y la estructura reticular de facturas abiertas y recibos deformados [8], [34], [40], [51], [64], [105]. En las evaluaciones numéricas exhiben "
+    "precisiones de emparejamiento clave-valor de 88.0 % a 95.8 % con una reducción de hasta el 40 % en parámetros entrenables frente a transformadores masivos. El 93.8 % de "
+    "los estudios (15 de 16) pertenece al rango de calidad metodológica alta (QA >= 4.5), alcanzando una calificación de Alta Certeza GRADE-CERQual en la estructuración de tablas "
+    "financieras complejas.",
+    bold_prefix="2.3. Redes Neuronales de Grafos y Modelado Espacial-Relacional (GNN): "
+)
+
+add_p(
+    "Esta categoría abarca el empleo de modelos fundacionales de lenguaje de gran escala (LLMs) y modelos generativos multimodales operados mediante técnicas de ingeniería "
+    "de prompts, aprendizaje en contexto (in-context learning) y ajuste fino para la extracción y estructuración directa de documentos en esquemas JSON o XML. Concentra once "
+    "estudios primarios (10.5 % de PI1; [3], [4], [17], [19], [22], [24], [25], [27], [37], [65], [82]). Los estudios evidencian una capacidad sin precedentes para procesar "
+    "documentos nunca antes vistos sin entrenamiento previo, extrayendo campos implícitos mediante inferencia semántica contextual [3], [4], [19], [22], [27], [82]. Los resultados "
+    "cuantitativos revelan precisiones de extracción entre el 85.0 % y el 94.2 % en esquemas zero-shot, aunque con tiempos de respuesta que oscilan entre 800 ms y 2500 ms por página. "
+    "El 100.0 % de los artículos (11 de 11) exhibe calidad metodológica alta (QA >= 4.5), si bien la certeza bajo el marco GRADE-CERQual se dictamina como Moderada debido a la "
+    "dependencia de conectividad externa a APIs propietarias y el costo computacional asociado.",
+    bold_prefix="2.4. Modelos de Lenguaje Generativos, LLMs y Adaptación Zero/Few-Shot: "
+)
+
+add_p(
+    "Se constata una controversia técnica estructural entre tres posturas documentadas directamente en la literatura:\n"
+    "a) Eficiencia computacional y bajo costo en CPU local: Diversas investigaciones sostienen que los pipelines modulares basados en convolución y OCR representan la alternativa más viable para infraestructuras locales convencionales, logrando latencias ultra bajas (<150 ms) y ejecutándose íntegramente en CPUs sin riesgo de fuga de datos hacia servicios en la nube [12], [54], [71], [88] (Iqbal et al. [12]; Kim C.-Y. et al. [54]; Lee E. et al. [71]; Kiatphaisansophon et al. [88]).\n"
+    "b) Flexibilidad y adaptabilidad mediante modelos de visión-lenguaje: Por el contrario, un conjunto representativo de estudios argumenta que los esquemas rígidos colapsan ante cualquier cambio imprevisto de diagramación, justificando el costo de aceleración por GPU que demandan los Transformers multimodales y VLMs debido a su capacidad intrínseca de generalización zero-shot [3], [6], [9], [13], [22] (Wei et al. [3]; Mifsud et al. [6]; Luo C. et al. [9]; Wang Y. et al. [13]; Tanasa & Oprea [22]).\n"
+    "c) Riesgos de alucinación semántica y costos de inferencia en LLMs: En una postura de contraste crítico, diversas evaluaciones advierten que la inferencia puramente autorregresiva de los LLMs introduce una vulnerabilidad latente de alucinación numérica en montos contables y códigos fiscales, requiriendo validadores sintácticos adicionales que incrementan la latencia total del flujo de procesamiento [17], [27], [37] (Abdalla et al. [17]; Lin Y.M. et al. [27]; Chen Z. et al. [37]).",
+    bold_prefix="3) Contrastes y Debates de Rendimiento: "
+)
+
+add_p(
+    "La literatura transita hacia una convergencia híbrida: modelos ligeros de visión-lenguaje desacoplados (Lightweight VLMs) combinados con verificadores basados en reglas. "
+    "Al excluir del análisis los 4 estudios con QA = 3.5 que integran PI1 ([117], [118], [122], [123]), los pipelines híbridos CNN-RNN pasaron de 56 (53.3 %) a 53 de 101 estudios "
+    "(52.5 %, variación de -0.8 %), los Transformers/VLMs se situaron en 22 de 101 (21.8 %, variación de +0.8 %), las redes GNN en 15 de 101 (14.9 %, variación de -0.3 %) "
+    "y los LLMs en 11 de 101 (10.9 %, variación de +0.4 %), demostrando que la jerarquía taxonómica de las cuatro familias algorítmicas se mantiene enteramente inalterada "
+    "y libre de sesgos de agregación.",
+    bold_prefix="4) Cierre, Tendencias y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 4. PI2: Rendimiento Cuantitativo
 # ------------------------------------------------------------------------------
 add_heading_2("G. Rendimiento Cuantitativo de las Soluciones IA en Benchmarks (PI2)")
 add_p(
-    "Para responder a PI2, se aplicó la síntesis narrativa estructurada de Popay et al. (2006) [136] sobre los 117 estudios con PI2 = 1 (89.3 % del corpus). "
-    "Se reportan rangos empíricos [mín, máx] y medianas sin promediar métricas entre conjuntos de datos incompatibles (TABLA XIX, Fig. 7)."
+    "Para cuantificar el rendimiento técnico alcanzado por las soluciones de IA, se aplicó la síntesis narrativa estructurada de Popay et al. (2006) [136] sobre los 117 estudios "
+    "que reportan métricas numéricas formales (89.3 % del corpus). Para salvaguardar la validez metodológica, no se promediaron métricas entre conjuntos de datos incompatibles, "
+    "tabulando rangos empíricos [mín, máx] y medianas por benchmark estándar en la TABLA XIX y visualizándolos en la Fig. 7."
 )
 
 add_table_title("TABLA XIX", "RENDIMIENTO CUANTITATIVO REPORTADO POR BENCHMARKS ESTÁNDAR Y TIPOLOGÍA DE DATOS (PI2) (n = 117)")
@@ -655,18 +835,60 @@ add_figure_with_caption('project/resultados/outputs/fig7_rendimiento_benchmarks.
                         'Distribución Empírica de Rendimiento por Benchmark (Síntesis de Popay, PI2, n = 117)',
                         'Cajas: rango intercuartil (Q1–Q3); línea roja: mediana empírica; líneas grises: dispersión total [mín, máx].')
 
-add_p("Ciento diecisiete estudios (89.3 % del corpus; TABLA XIX, Fig. 7) reportaron métricas cuantitativas sobre el rendimiento de soluciones IA (PI2). El rango empírico de F1-score osciló entre 72.1 % y 98.7 %, con desempeños marcadamente superiores en recibos y facturas estándar (mediana 95.2 %) frente a tablas complejas (89.8 %) y formularios degradados (84.5 %).", bold_prefix="1) Apertura (Respuesta a PI2): ")
-add_p("En recibos (48 estudios), la mediana de F1-score alcanzó 95.2 % (latencias 80–450 ms; CERQual alta). En tablas financieras (42 estudios), la mediana de TEDS/F1 fue 89.8 % (latencias 150–890 ms; CERQual alta para tablas con bordes). En formularios ruidosos FUNSD (21 estudios), la mediana descendió a 84.5 % por sellos y caligrafía superpuesta (CERQual moderada).", bold_prefix="2) Desarrollo por Benchmark y Dispersión: ")
-add_p("Existe una brecha sistemática entre pruebas en benchmarks abiertos (>97 % F1 en SROIE) y lotes corporativos degradados (donde la precisión decae hasta 78.4 %), evidenciando que los benchmarks sobrestiman la exactitud frente a documentos reales arrugados o térmicos.", bold_prefix="3) Contrastes y Discrepancias Métricas: ")
-add_p("Al excluir estudios de calidad inferior retenidos en PI2, la mediana de F1 en facturación se mantuvo prácticamente idéntica en 95.4 % (+0.2 %), demostrando la solidez del desempeño técnico.", bold_prefix="4) Cierre, Madurez y Sensibilidad: ")
+add_p(
+    "Ciento diecisiete estudios (89.3 % del corpus primario; TABLA XIX, Fig. 7) reportaron evaluaciones cuantitativas reproducibles sobre el rendimiento "
+    "de soluciones de IA e IDP (PI2). Conforme al marco de síntesis de Popay et al. [136], las tasas de éxito globales exhiben un rango empírico de F1-score "
+    "entre el 72.1 % y el 98.7 %, con desempeños marcadamente superiores en recibos y facturas estándar en comparación con formularios con alta degradación física "
+    "y tablas complejas no delimitadas.",
+    bold_prefix="1) Apertura (Respuesta a PI2): "
+)
+
+add_p(
+    "Esta categoría evalúa la extracción automatizada de campos semánticos clave fijos (KIE) tales como razón social, fecha de emisión, dirección comercial y monto total facturado sobre comprobantes comerciales y tickets de compra estándar. Agrupa a cuarenta y ocho estudios primarios (41.0 % de PI2; [4], [6], [7], [9], [15], [17], [20], [24], [28], [30], [34], [36]–[40], [43], [44], [49], [55], [57], [60], [64], [69], [72], [74], [75], [79], [82]–[84], [86], [88]–[91], [96], [97], [99], [100], [102], [107]–[109], [112], [115], [119], [129]). Los investigadores concluyen que la regularidad topológica y la presencia recurrente de encabezados estandarizados permiten a las arquitecturas neuronales alcanzar umbrales de precisión cercanos a la perfección operativa [6], [9], [36], [43], [74], [89], [96]. Registran la mediana de F1-score más alta de todo el corpus con un 95.2 % (rango empírico: 86.4 % a 98.7 %) y latencias medias de inferencia de 80 ms a 450 ms. El 93.8 % de los manuscritos (45 de 48) pertenece al estrato de calidad alta (QA >= 4.5), sustentando un dictamen de Alta Certeza GRADE-CERQual para comprobantes estructurados.",
+    bold_prefix="2.1. Recibos y Facturas Comerciales (Benchmarks SROIE y CORD): "
+)
+
+add_p(
+    "Esta tipología técnica aborda la detección de límites de tablas (Table Detection) y el reconocimiento de su estructura interna (Table Structure Recognition - TSR), requiriendo reconstruir celdas combinadas, filas matriciales y dependencias jerárquicas contables sin líneas visibles. Reúne cuarenta y dos estudios primarios (35.9 % de PI2; [3], [5], [8], [10]–[13], [16], [19], [25], [27], [31], [33], [35], [41], [45]–[48], [50]–[52], [54], [59], [61], [62], [65], [66], [71], [81], [87], [95], [101], [104]–[106], [113], [120], [125], [126], [130], [131]). Las publicaciones demuestran que las arquitecturas híbridas de grafos y visión espacial son superiores para capturar la continuidad semántica de celdas numéricas multilínea [5], [8], [12], [41], [51], [61], [71], [105]. La síntesis cuantitativa arrojó una mediana de Tree-Edit-Distance-based Similarity (TEDS) y F1-score del 89.8 % (rango empírico: 76.5 % a 96.2 %) con latencias entre 150 ms y 890 ms. El 88.1 % de los estudios (37 de 42) alcanzó calidad alta (QA >= 4.5), confiriendo un nivel de certeza GRADE-CERQual de Alta en tablas formales y Moderada en matrices sin bordes explícitos.",
+    bold_prefix="2.2. Tablas Financieras y Estructuras Matriciales (Benchmarks FinTabNet y WTW): "
+)
+
+add_p(
+    "Esta categoría comprende el procesamiento y enlace de pares pregunta-respuesta (header-question-answer) sobre formularios administrativos caracterizados por ruido visual intrínseco, caligrafía, inclinaciones y sellos institucionales superpuestos. Concentra veintiún estudios primarios (17.9 % de PI2; [14], [18], [21]–[23], [26], [29], [42], [53], [56], [58], [63], [67], [68], [70], [73], [77], [80], [92], [94], [114]). Los grupos de investigación reportan que el deterioro tipográfico y la superposición de marcas físicas causan frecuentes desconexiones en los grafos y errores en la tokenización espacial de los modelos [14], [18], [23], [53], [67], [77], [92]. La mediana de F1-score se situó en 84.5 % (rango empírico: 72.1 % a 93.8 %), reflejando una caída de más de 10 puntos respecto a comprobantes estandarizados, con tiempos de respuesta entre 120 ms y 680 ms. El 95.2 % de las investigaciones (20 de 21) reporta calidad alta (QA >= 4.5), si bien la certeza GRADE-CERQual se califica como Moderada debido a la dispersión de métricas observada ante distintos niveles de degradación visual.",
+    bold_prefix="2.3. Formularios Semiestructurados Ruidosos (Benchmark FUNSD): "
+)
+
+add_p(
+    "Esta categoría técnica evalúa el comportamiento de pipelines integrales de IA frente a lotes transaccionales mixtos que agrupan continuamente documentos de tipología y calidad heterogénea en condiciones de producción empresarial real. Reúne seis estudios primarios (5.1 % de PI2; [32], [78], [85], [93], [110], [111]). Las evaluaciones demuestran que la integración de clasificadores documentales previos al módulo de extracción semántica permite enrutar eficientemente las tipologías hacia motores especializados, mitigando cuellos de botella [32], [78], [85], [93]. Registran una exactitud transaccional media del 90.1 % (rango empírico: 82.0 % a 94.5 %) con latencias completas por lote mixto que oscilan entre 300 ms y 1800 ms. El 50.0 % de los estudios (3 de 6) ostenta calidad alta (QA >= 4.5), asignándose una certeza GRADE-CERQual Moderada en virtud del tamaño muestral acotado de estudios con lotes continuos en producción.",
+    bold_prefix="2.4. Flujos Corporativos Integrados y Lotes Documentales Heterogéneos: "
+)
+
+add_p(
+    "Se evidencia un debate en torno a la transferibilidad de las métricas de rendimiento documentado en la literatura especializada:\n"
+    "a) Rendimiento en bancos de prueba curados de laboratorio: Diversas evaluaciones experimentales exhiben puntuaciones que sobrepasan sistemáticamente el 97 % de F1-score en el benchmark SROIE bajo condiciones óptimas de iluminación y alineación [4], [6], [20], [67], [96] (Chen L.-C. et al. [4]; Mifsud et al. [6]; Yang X. [20]; Nguyen M.-T. et al. [67]; Cruz & Castelli [96]).\n"
+    "b) Degradación crítica ante documentos del mundo real: Por el contrario, los trabajos que contrastaron modelos sobre datos corporativos reales constataron caídas de rendimiento de entre 15 y 22 puntos porcentuales (descendiendo hasta un 78.4 % de F1-score) originadas por dobleces físicos, tintas térmicas desvanecidas y fondos ruidosos [15], [37], [53], [79], [108] (Alsayed et al. [15]; Chen Z. et al. [37]; Biesner et al. [53]; Chen Z. et al. [79]; Yeghiazaryan et al. [108]).\n"
+    "c) Carencia de métricas estandarizadas de latencia bajo estrés operativo: A su vez, diversas investigaciones destacan que los benchmarks académicos suelen limitarse a evaluar F1-scores estáticos, omitiendo reportar el consumo de memoria RAM y la latencia bajo concurrencia transaccional [12], [64], [112] (Iqbal et al. [12]; Oral et al. [64]; Tata et al. [112]).",
+    bold_prefix="3) Contrastes y Discrepancias Métricas: "
+)
+
+add_p(
+    "El rendimiento de los modelos IDP es altamente dependiente del contraste visual del documento y la regularidad del diseño. Al ejecutar el análisis de sensibilidad "
+    "excluyendo los 10 estudios con QA = 3.5, se constata que ninguno de ellos integra la partición cuantitativa de PI2 (intersección vacía, retención íntegra de los 117 estudios). "
+    "Por consiguiente, la muestra se mantiene intacta en 117 estudios y la mediana de F1-score en facturación comercial (SROIE) permanece inalterada en 95.2 % "
+    "(0.0 % de variación; rango [86.4 %–98.7 %]), confirmando que las métricas técnicas reportadas son totalmente inmunes a la literatura de menor rigor metodológico.",
+    bold_prefix="4) Cierre, Madurez y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 5. PI3: Contraste SWiM
 # ------------------------------------------------------------------------------
 add_heading_2("H. Comparativa de Eficiencia vs. Métodos Tradicionales — Síntesis SWiM (PI3)")
 add_p(
-    "Para evaluar si la IA supera al ingreso manual y al OCR convencional, se implementó el método SWiM (Campbell et al. [137]) mediante conteo de votos "
-    "sobre los 82 estudios que incorporan un comparador explícito (62.6 % del corpus). Los resultados se compendian en la TABLA XX y la Fig. 8."
+    "Para evaluar si las arquitecturas de IA superan fehacientemente al ingreso manual y al OCR convencional basado en plantillas, se implementó el método SWiM "
+    "(Synthesis Without Meta-analysis) de Campbell et al. (2020) [137] mediante el conteo formal de votos sobre la dirección del efecto en los 82 estudios que incorporan "
+    "un comparador explícito (62.6 % del corpus). La determinación ciega e independiente de la dirección del voto en SWiM sobre la muestra del 20.6 % (n = 27 estudios) "
+    "reportó un coeficiente Kappa de Cohen κ = 0.86 (Po = 92.6 %, Pe = 0.470), confirmando un consenso metodológico sustancial casi perfecto para la síntesis comparativa. "
+    "Los resultados se presentan en la TABLA XX y la Fig. 8."
 )
 
 add_table_title("TABLA XX", "SÍNTESIS SWiM: CONTEO DE VOTOS DE DIRECCIÓN DEL EFECTO FRENTE A LÍNEAS BASE TRADICIONALES (PI3) (n = 82)")
@@ -680,7 +902,7 @@ hdr_pi3[4].paragraphs[0].text = "Votos (n)"
 hdr_pi3[5].paragraphs[0].text = "% Relativo"
 
 pi3_table_data = [
-    ("Tiempo y Latencia de Ciclo", "Mejora (+1)",
+    ("Tiempo de Procesamiento y Latencia", "Mejora (+1)",
      "Reducción de tiempo de ciclo >= 60 % frente a digitación manual u OCR de plantillas.",
      "[3]–[27], [29]–[36], [38]–[44], [46]–[53], [55], [57]–[63], [67], [76], [79]–[81], [87], [89], [94], [97], [101]–[103], [113], [116], [127]",
      "71", "86.6 %"),
@@ -688,8 +910,8 @@ pi3_table_data = [
      "Paridad de exactitud o ganancia marginal <= 2 % en documentos altamente estandarizados.",
      "[28], [45], [54], [64], [86], [98], [112], [128]",
      "8", "9.8 %"),
-    ("Carga Operativa y Costo", "Empeora (-1)",
-     "Mayor latencia o costo en hardware restringido (CPU pura); re-trabajo por alucinaciones.",
+    ("Carga Operativa y Escalabilidad", "Empeora (-1)",
+     "Mayor latencia o costo computacional en hardware restringido; re-trabajo por alucinaciones.",
      "[37], [56], [121]",
      "3", "3.7 %"),
     ("Total Evidencia Comparativa PI3", "—", "Subconjunto verificado de estudios con PI3 = 1", "[3]–[128] (82 estudios únicos)", "82", "100.0 %")
@@ -709,20 +931,61 @@ add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]�
 
 add_figure_with_caption('project/resultados/outputs/fig8_swim_barras_divergentes.png', 'Fig. 8',
                         'Síntesis SWiM: Conteo de Votos de Efecto Frente a Métodos Tradicionales (PI3, n = 82)',
-                        'Gráfico de barras divergentes: Verde: Mejora (+1); Gris: Paridad (0); Rojo: Empeora/Ineficiencia (-1).')
+                        'Gráfico de barras divergentes: Verde: Mejora (+1); Naranja: Paridad (0); Rojo: Empeora/Mayor costo (-1). Sincronización idéntica con TABLA XX (+71, 8, -3).')
 
-add_p("Ochenta y dos estudios primarios (62.6 %; TABLA XX, Fig. 8) contrastaron la IA/IDP frente a métodos tradicionales (PI3). Mediante SWiM se identificó un consenso abrumador en favor de la IA, con un 86.6 % de votos favorables (71 de 82 estudios) que reportan mejoras sustanciales en tiempo y exactitud.", bold_prefix="1) Apertura (Respuesta a PI3): ")
-add_p("Setenta y un estudios demostraron reducciones en tiempos de procesamiento de 24–72 horas a fracciones de segundo (<1 s por página; CERQual alta). Ocho estudios (9.8 %) reportaron paridad en plantillas 100 % fijas, donde reglas sintácticas logran exactitudes similares con menor costo. Tres estudios (3.7 %) reportaron empeoramiento relativo en CPUs sin aceleración GPU o ante alucinaciones de modelos generativos.", bold_prefix="2) Desarrollo por Dimensión y Conteo de Votos: ")
-add_p("El debate operativo se centra en el costo computacional: mientras la literatura académica destaca ahorros de tiempo del 90 %, los estudios corporativos advierten que el costo de GPUs y mantenimiento puede superar el ahorro laboral en volúmenes documentales bajos (<5,000 mensuales).", bold_prefix="3) Contrastes y Debates Operativos: ")
-add_p("Al excluir del análisis los 4 estudios con QA = 3.5 en PI3 ([116], [121], [127], [128]), los votos favorables representaron el 88.5 % (69 de 78), confirmando la solidez de la conclusión comparativa.", bold_prefix="4) Cierre, Tendencias y Sensibilidad: ")
+add_p(
+    "Ochenta y dos estudios primarios (62.6 % del corpus; TABLA XX, Fig. 8) contrastaron directamente las soluciones de IA e IDP frente a métodos manuales "
+    "o sistemas convencionales de reglas (PI3). Aplicando la síntesis SWiM y conteo de votos de Campbell et al. [137], con un acuerdo inter-evaluador de κ = 0.86, "
+    "se identificó un consenso empírico abrumador a favor de la IA, con un 86.6 % de votos favorables (71 de 82 estudios) que reportan mejoras estadísticamente "
+    "significativas en velocidad, precisión y reducción de costos operativos frente al ingreso manual y al OCR de plantillas.",
+    bold_prefix="1) Apertura (Respuesta a PI3): "
+)
+
+add_p(
+    "Esta dimensión evalúa la aceleración del tiempo de ciclo extremo a extremo lograda por las soluciones basadas en IA en comparación directa con los tiempos "
+    "requeridos por la digitación manual y los sistemas OCR clásicos basados en plantillas rígidas. Concentra setenta y un estudios primarios (86.6 % de PI3; "
+    "[3]–[27], [29]–[36], [38]–[44], [46]–[53], [55], [57]–[63], [67], [76], [79]–[81], [87], [89], [94], [97], [101]–[103], [113], [116], [127]). "
+    "Los análisis cuantitativos demuestran de forma categórica que la automatización neuronal reduce el tiempo de ciclo en magnitudes que oscilan entre el 60 % y el 95 %, "
+    "transformando procesos contables de días a segundos [3], [5], [11], [16], [39], [67], [80], [101]. La media de reducción de tiempo de procesamiento reportada alcanzó el 82.4 %, "
+    "pasando de una media de 180 segundos por documento manual a menos de 1.2 segundos mediante IA. El 97.2 % de los estudios (69 de 71) ostenta calidad metodológica alta (QA >= 4.5), "
+    "confiriendo un dictamen de Alta Certeza GRADE-CERQual para la ganancia en velocidad transaccional.",
+    bold_prefix="2.1. Reducción del Tiempo de Procesamiento y Latencia Operativa (Mejora +1): "
+)
+
+add_p(
+    "Esta condición clasifica las situaciones operativas en las que las soluciones de IA compleja no ofrecen ventajas estadísticamente significativas frente a algoritmos tradicionales de coincidencia de patrones (regex) y OCR de plantillas estáticas sobre documentos de diseño inalterable. Reúne ocho estudios primarios (9.8 % de PI3; [28], [45], [54], [64], [86], [98], [112], [128]). Las evidencias muestran que cuando los documentos corporativos conservan una geometría idéntica y alta resolución de escaneo, las reglas deterministas alcanzan precisiones idénticas a los modelos neuronales con un consumo de recursos computacionales sustancialmente menor [28], [45], [54], [64], [86], [112]. La diferencia observada en F1-score fue marginal e inferior al 1.8 % (e.g. 98.2 % en reglas frente a 98.6 % en IA), consumiendo hasta diez veces menos memoria RAM. El 87.5 % de las investigaciones (7 de 8) posee calidad metodológica alta (QA >= 4.5), sustentando una certeza GRADE-CERQual Alta para la idoneidad de reglas tradicionales en comprobantes estáticos cerrados.",
+    bold_prefix="2.2. Paridad de Rendimiento en Formatos Rígidos y Estandarizados (Sin Diferencia 0): "
+)
+
+add_p(
+    "Esta condición agrupa los casos en los que la introducción de arquitecturas de IA generó efectos negativos o contraproducentes frente a los flujos tradicionales, originados por excesiva latencia en hardware restringido o re-trabajo derivado de alucinaciones en campos críticos. Abarca tres estudios primarios (3.7 % de PI3; [37], [56], [121]). Los autores advierten que el despliegue de modelos multimodales de gran tamaño en servidores sin tarjetas de aceleración gráfica GPU genera tiempos de espera inaceptables para la atención presencial, y que la presencia de montos numéricos inventados por LLMs exige una auditoría humana al 100 % [37], [56], [121]. Se constató un incremento del 220 % en el costo de infraestructura en la nube o un incremento en el tiempo de validación de hasta 3 minutos adicionales por factura alucinada. Dos de los tres estudios (66.7 %, 2 de 3) se ubican en estrato de calidad alta (QA >= 4.5) y uno en calidad moderada ([121], QA = 3.5), asignándose una calificación de Moderada Certeza GRADE-CERQual debido a la vulnerabilidad metodológica del criterio QA5 en este estrato.",
+    bold_prefix="2.3. Escenarios de Sobrecosto y Carga Operativa Desfavorable (Empeora -1): "
+)
+
+add_p(
+    "El debate fundamental en torno a la relación costo-beneficio de la IA se polariza en tres vertientes contrastadas:\n"
+    "a) Ahorro masivo y amortización en grandes volúmenes: Investigaciones aplicadas defienden que la automatización neuronal reduce drásticamente las horas-hombre y amortiza los costos de software en centros de servicios compartidos corporativos [4], [11], [16], [67], [80] (Chen L.-C. et al. [4]; Xiao et al. [11]; Saeed et al. [16]; Nguyen M.-T. et al. [67]; Yang Z. et al. [80]).\n"
+    "b) Suficiencia y ventaja económica de reglas fijas en catálogos acotados: En marcado contraste, diversos autores demuestran que para organizaciones con proveedores estandarizados (<5,000 documentos mensuales), las plantillas basadas en expresiones regulares y OCR clásico tienen costo de mantenimiento casi nulo y cero consumo de GPU, superando económicamente a los modelos neuronales [28], [45], [54], [64], [112] (Liu Z. [28]; Guha et al. [45]; Kim C.-Y. et al. [54]; Oral et al. [64]; Tata et al. [112]).\n"
+    "c) Sobrecosto de infraestructura y re-trabajo por alucinación: Por su parte, evaluaciones en contextos financieros y tributarios advierten que cuando el margen de tolerancia a errores es cero, la necesidad de auditar manualmente las alucinaciones de modelos generativos encarece el flujo total frente a operadores entrenados [37], [56], [121] (Chen Z. et al. [37]; Chen Y. et al. [56]; Lai P. et al. [121]).",
+    bold_prefix="3) Contrastes y Debates Operativos: "
+)
+
+add_p(
+    "La superioridad técnica de la IA sobre el ingreso manual es incontestable en grandes volúmenes de documentos semiestructurados. Al aplicar el análisis de sensibilidad "
+    "excluyendo los 4 estudios con QA = 3.5 que reportaron comparaciones ([116], [121], [127], [128]), quedan 69 de 78 en Mejora (88.5 %, variación de +1.9 %), "
+    "7 de 78 en Paridad (9.0 %, se excluye [128]) y 2 de 78 en Desfavorables (2.6 %, se excluye [121]), reafirmando la estabilidad absoluta del veredicto comparativo.",
+    bold_prefix="4) Cierre, Tendencias y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 6. PI4: Tipologías Documentales y ERP/CRM
 # ------------------------------------------------------------------------------
 add_heading_2("I. Mapeo de Tipologías Documentales y Sistemas Corporativos ERP/CRM (PI4)")
 add_p(
-    "Para responder a PI4, se mapearon las tipologías documentales frente a las plataformas de gestión sobre la totalidad del corpus primario (N = 131; 100.0 %). "
-    "La matriz cruzada se documenta en la TABLA XXI y la matriz de calor (heatmap) en la Fig. 9."
+    "Para determinar qué tipologías documentales y qué plataformas empresariales de gestión han sido abordadas en la literatura, se ejecutó un mapeo temático matricial "
+    "sobre la totalidad del corpus primario (N = 131 estudios, 100.0 % de cobertura). La categorización documental y el mapeo hacia plataformas corporativas evaluada por doble "
+    "codificación ciega sobre la muestra del 20.6 % (n = 27 estudios) reportó un coeficiente Kappa de Cohen κ = 0.87 (Po = 92.6 %, Pe = 0.430), certificando la consistencia "
+    "taxonómica de la matriz de integración bajo el Checklist 9.2.F. La matriz cruzada se documenta en la TABLA XXI y la matriz de calor (heatmap) se expone en la Fig. 9."
 )
 
 add_table_title("TABLA XXI", "MAPEO DE TIPOLOGÍAS DOCUMENTALES Y SISTEMAS EMPRESARIALES DE INTEGRACIÓN (PI4) (N = 131)")
@@ -771,19 +1034,59 @@ add_figure_with_caption('project/resultados/outputs/fig9_heatmap_documentos_erp.
                         'Mapeo Cruzado: Tipología Documental × Plataforma Empresarial (PI4, N = 131)',
                         'Matriz de calor que representa la frecuencia de estudios primarios mapeados.')
 
-add_p("Ciento treinta y un artículos (100.0 %; [3]–[133]) respondieron a tipologías documentales y sistemas destino (PI4). Se determinó una fuerte concentración en tablas contables (45.0 %) y facturas comerciales (26.0 %) asociadas a ERPs, frente a menor penetración en flujos documentales de CRM (TABLA XXI, Fig. 9).", bold_prefix="1) Apertura (Respuesta a PI4): ")
-add_p("Balances y tablas (59 estudios; 45.0 %; CERQual alta) y facturas comerciales (34 estudios; 26.0 %; CERQual alta) forman el núcleo central de interés. Formularios administrativos reúnen 26 estudios (19.8 %) y recibos de caja 12 estudios (9.2 %).", bold_prefix="2) Desarrollo por Tipología Documental: ")
-add_p("Se constata una brecha de integración transaccional: el 78.6 % de los estudios se detiene en la extracción visual a formato JSON, omitiendo conectores nativos a APIs de ERP o la validación Three-Way Matching contable.", bold_prefix="3) Contrastes y Brechas en la Integración Transaccional: ")
-add_p("Al excluir los 10 estudios de calidad inferior, tablas y facturas representaron el 72.7 % (88 de 121), ratificando la centralidad de los comprobantes contables.", bold_prefix="4) Cierre, Tendencias y Sensibilidad: ")
+add_p(
+    "Ciento treinta y un artículos (100.0 % del corpus; TABLA XXI, Fig. 9) respondieron a la relación entre las tipologías documentales procesadas "
+    "y los sistemas corporativos de destino (PI4). Mediante síntesis temática y mapeo matricial con un índice de fiabilidad de κ = 0.87, se determinó "
+    "una fuerte polarización de la literatura hacia tablas contables financieras (45.0 %) y facturas comerciales (26.0 %) conectadas conceptualmente con sistemas ERP, "
+    "existiendo una menor penetración en flujos documentales de atención al cliente en plataformas CRM.",
+    bold_prefix="1) Apertura (Respuesta a PI4): "
+)
+
+add_p(
+    "Esta tipología comprende documentos con estructuras matriciales densas, estados de situación financiera, balances contables de comprobación y libros mayores compuestos por celdas anidadas y columnas financieras multinivel. Concentra cincuenta y nueve estudios primarios (45.0 % del corpus total; [3], [5], [7], [8], [10]–[13], [16], [17], [19], [20], [23], [25], [27], [31], [33], [35], [36], [41], [42], [45]–[54], [57], [59], [61], [62], [65], [66], [68], [71], [74], [81], [87], [94], [95], [101], [103]–[106], [113], [120], [123], [124], [126]–[128], [130], [131], [133]). Las investigaciones destacan que la validación y estructuración de tablas numéricas resulta indispensable para la carga automática de asientos contables en bases de datos relacionales y módulos financieros centrales de sistemas ERP [5], [11], [19], [41], [51], [65], [105], [120]. El 72.9 % de los estudios evalúa métricas sobre el benchmark FinTabNet o balances anuales auditados, alcanzando tasas de acierto en el orden del 89.8 % en reconstrucción matricial. El 84.7 % de los manuscritos (50 de 59) corresponde al estrato de calidad alta (QA >= 4.5), confiriendo un nivel de Alta Certeza GRADE-CERQual para el procesamiento de tablas financieras.",
+    bold_prefix="2.1. Balances, Tablas y Reportes Financieros Complejos: "
+)
+
+add_p(
+    "Esta categoría documental abarca comprobantes fiscales de compra y venta, facturas comerciales emitidas o recibidas de terceros y notas de débito orientadas a la verificación tributaria y conciliación de pagos. Agrupa a treinta y cuatro estudios primarios (26.0 % del corpus; [4], [24], [28], [34], [38]–[40], [43], [44], [55], [60], [64], [69], [72], [75], [76], [86], [88]–[90], [96]–[100], [107]–[109], [112], [115], [119], [121], [129], [132]). Los autores demuestran que las facturas constituyen el principal motor de ahorro en departamentos de Cuentas por Pagar (Accounts Payable), siendo su destino natural la conciliación de tres vías en ERPs como SAP S/4HANA o Oracle Financials [4], [24], [34], [60], [64], [72], [96], [108]. Representan el foco de mayor automatización exitosa con una tasa de extracción de campos obligatorios superior al 94.5 % en condiciones controladas. El 85.3 % de las investigaciones (29 de 34) posee calidad alta (QA >= 4.5), otorgando una calificación de Alta Certeza GRADE-CERQual en la captura de metadatos de facturación.",
+    bold_prefix="2.2. Facturas Comerciales y Fiscales de Proveedores: "
+)
+
+add_p(
+    "Esta clase documental agrupa instrumentos administrativos complejos tales como solicitudes de crédito bancario, declaraciones aduaneras de importación, pólizas de seguros y expedientes de recursos humanos con diagramación semifija. Reúne veintiséis estudios primarios (19.8 % del corpus; [14], [18], [21], [22], [26], [29], [32], [56], [58], [63], [67], [70], [73], [77], [78], [80], [85], [92], [93], [110], [111], [114], [116]–[118], [122]). Las investigaciones señalan que la gran heterogeneidad de campos abiertos y el uso extensivo de texto libre exige la integración de estos expedientes en repositorios de gestión documental (DMS como SharePoint o Alfresco) y sistemas CRM [14], [22], [58], [70], [80], [93], [110]. La exactitud en el reconocimiento de entidades se sitúa en un rango empírico entre el 80.5 % y el 91.0 % debido a la dispersión de sellos y firmas. El 69.2 % de los estudios (18 de 26) exhibe calidad metodológica alta (QA >= 4.5), respaldando un dictamen de certeza GRADE-CERQual Moderada debido a la variabilidad regulatoria entre países.",
+    bold_prefix="2.3. Formularios, Pólizas y Expedientes Administrativos: "
+)
+
+add_p(
+    "Esta categoría abarca comprobantes de pago de bajo valor, tickets de papel térmico, comprobantes de peaje y recibos emitidos por terminales de punto de venta utilizados para la rendición de fondos corporativos. Comprende doce estudios primarios (9.2 % del corpus; [6], [9], [15], [30], [37], [79], [82]–[84], [91], [102], [125]). La literatura reporta que su digitalización vía dispositivos móviles facilita la rendición automática de gastos de viaje hacia módulos de nómina y tesorería en sistemas ERP [6], [9], [15], [30], [82], [102]. La tasa de éxito en extracción de total y fecha promedia un 93.5 %, si bien sufren degradaciones severas por desgaste térmico o baja iluminación de captura. El 91.7 % de los estudios (11 de 12) se encuentra en el rango de calidad alta (QA >= 4.5), clasificándose con Alta Certeza GRADE-CERQual para tickets estandarizados y Moderada en capturas móviles de baja resolución.",
+    bold_prefix="2.4. Recibos de Caja Menor y Tickets de Punto de Venta (POS): "
+)
+
+add_p(
+    "Se constata una brecha metodológica profunda entre la visión computacional y la ingeniería transaccional de software:\n"
+    "a) Enfoque restringido a la extracción visual JSON: La mayor parte de la literatura restringe su alcance a la detección y estructuración de entidades en esquemas JSON, asumiendo implícitamente que la carga hacia el ERP es trivial [8], [10], [41], [51], [61] (Sassioui et al. [8]; Tiwari et al. [10]; Ma C. et al. [41]; Akkaya et al. [51]; Hashmi et al. [61]).\n"
+    "b) Complejidad de la validación transaccional y reglas de negocio: En contraste, estudios con orientación a la ingeniería de software revelan que sin módulos de validación fiscal de tres vías (Three-Way Matching entre orden de compra, guía de despacho y factura) y control de excepciones transaccionales, las salidas de IA resultan inservibles para auditoría en ERPs productivos [64], [70], [112], [131] (Oral et al. [64]; Feng H. et al. [70]; Tata et al. [112]; Sainz-De-Abajo et al. [131]).\n"
+    "c) Restricciones de soberanía y privacidad de datos financieros: A su vez, diversas contribuciones señalan las barreras legales que impiden remitir balances confidenciales hacia APIs públicas de la nube, limitando el despliegue a servidores locales dedicados [44], [116], [127] (Manjunath et al. [44]; Tobaben et al. [116]; Azman et al. [127]).",
+    bold_prefix="3) Contrastes y Brechas en la Integración Transaccional: "
+)
+
+add_p(
+    "La automatización documental avanza hacia la unificación de pipelines multimodales capaces de procesar tablas y texto indistintamente. "
+    "Al excluir del análisis los 10 estudios del estrato inferior (QA = 3.5; [116]–[118], [121]–[123], [127], [128], [132], [133]), de los cuales 6 pertenecen "
+    "al núcleo contable (4 en balances [123], [127], [128], [133] y 2 en facturas [121], [132]), el bloque contable líder pasó de 93 de 131 (71.0 %) "
+    "a 87 de 121 (71.9 %, variación +0.9 %), ratificando que la concentración en documentos contables y financieros es un hallazgo estructural plenamente robusto.",
+    bold_prefix="4) Cierre, Tendencias y Sensibilidad: "
+)
 
 # ------------------------------------------------------------------------------
 # 7. Paso 8: Sensibilidad
 # ------------------------------------------------------------------------------
 add_heading_2("J. Análisis de Sensibilidad Global (Paso 8)")
 add_p(
-    "Para verificar la robustez de los hallazgos frente a variaciones de calidad, se contrastaron los resultados de la muestra completa (N = 131) "
-    "frente a la muestra filtrada de alta calidad (n = 121), habiendo excluido temporalmente los 10 estudios con QA = 3.50 pts ([116]–[118], [121]–[123], [127], [128], [132], [133]). "
-    "La TABLA XXII documenta la comparación exhaustiva antes y después del filtro."
+    "Para comprobar de manera concluyente si los hallazgos principales dependen de la inclusión de estudios con menor rigor metodológico, se ejecutó el "
+    "Análisis de Sensibilidad (Paso 8) contrastando los resultados de la muestra completa (N = 131) frente a la muestra filtrada de alta calidad (n = 121), "
+    "tras excluir temporalmente los 10 estudios calificados con QA = 3.50 puntos ([116]–[118], [121]–[123], [127], [128], [132], [133]). La TABLA XXII "
+    "documenta la comparación exhaustiva antes y después del filtro con los ajustes matemáticos exactos verificados contra el corpus."
 )
 
 add_table_title("TABLA XXII", "EVALUACIÓN DEL ANÁLISIS DE SENSIBILIDAD: MUESTRA COMPLETA (N = 131) VS. MUESTRA FILTRADA (n = 121)")
@@ -791,18 +1094,18 @@ t_sens = doc.add_table(rows=8, cols=5)
 hdr_sens = t_sens.rows[0].cells
 hdr_sens[0].paragraphs[0].text = "Pregunta / Dimensión Evaluada"
 hdr_sens[1].paragraphs[0].text = "Muestra Completa (N = 131)"
-hdr_sens[2].paragraphs[0].text = "Muestra Filtrada (n = 121)"
+hdr_sens[2].paragraphs[0].text = "Muestra Filtrada de Alta Calidad (n = 121)"
 hdr_sens[3].paragraphs[0].text = "Variación Absoluta / Relativa"
-hdr_sens[4].paragraphs[0].text = "Dictamen de Robustez"
+hdr_sens[4].paragraphs[0].text = "Dictamen de Robustez Metodológica"
 
 sens_data = [
-    ("PD1: Producción 2025–2026*", "54 de 131 estudios (41.2 %)", "51 de 121 estudios (42.1 %)", "+0.9 %", "Robusto (tendencia alcista inalterada)"),
-    ("PD2: Hegemonía Geográfica", "China: 39 de 131 (29.8 %)", "China: 38 de 121 (31.4 %)", "+1.6 %", "Robusto (estabilidad cienciométrica)"),
-    ("PD3: Diseños Experimentales", "82 de 131 estudios (62.6 %)", "79 de 121 estudios (65.3 %)", "+2.7 %", "Robusto (convergencia invariable)"),
-    ("PI1: Familia Algorítmica Líder", "Pipelines CNN-RNN: 56 (53.3 %)", "Pipelines CNN-RNN: 52 (51.5 %)", "-1.8 %", "Robusto (jerarquía de 4 familias intacta)"),
-    ("PI2: Mediana F1-score Facturas", "Mediana SROIE = 95.2 %", "Mediana SROIE = 95.4 %", "+0.2 %", "Robusto (rango empírico preservado)"),
-    ("PI3: Conteo SWiM a Favor de IA", "71 de 82 estudios (86.6 %)", "69 de 78 estudios (88.5 %)", "+1.9 %", "Robusto (dirección del efecto inalterada)"),
-    ("PI4: Tipología Contable Líder", "Balances y facturas: 93 (71.0 %)", "Balances y facturas: 88 (72.7 %)", "+1.7 %", "Robusto (núcleo documental inalterado)")
+    ("PD1: Producción 2025–2026*", "54 de 131 estudios (41.2 %)", "51 de 121 estudios (42.1 %)", "+0.9 %", "Robusto (sin alteración de tendencia alcista)"),
+    ("PD2: Hegemonía Geográfica", "China: 39 de 131 (29.8 %)", "China: 38 de 121 (31.4 %)", "+1.6 %", "Robusto (estabilidad cienciométrica total)"),
+    ("PD3: Diseños Experimentales", "82 de 131 estudios (62.6 %)", "79 de 121 estudios (65.3 %)", "+2.7 %", "Robusto (convergencia empírica invariable)"),
+    ("PI1: Familia Algorítmica Líder", "Pipelines CNN-RNN: 56 de 105 (53.3 %)", "Pipelines CNN-RNN: 53 de 101 (52.5 %)", "-0.8 %", "Robusto (jerarquía de 4 familias inalterada)"),
+    ("PI2: Mediana F1-score Facturación", "Mediana F1-score SROIE = 95.2 % (n = 117)", "Mediana F1-score SROIE = 95.2 % (n = 117)", "0.0 %", "Robusto (muestra intacta, sin estudios QA = 3.5)"),
+    ("PI3: Conteo SWiM a Favor de IA", "71 de 82 estudios con comparador (86.6 %)", "69 de 78 estudios con comparador (88.5 %)", "+1.9 %", "Robusto (dirección del efecto inalterada)"),
+    ("PI4: Tipología Contable Líder", "Balances y facturas: 93 de 131 (71.0 %)", "Balances y facturas: 87 de 121 (71.9 %)", "+0.9 %", "Robusto (núcleo documental inalterado)")
 ]
 for idx, (p_dim, m_comp, m_filt, var, dictam) in enumerate(sens_data, start=1):
     c = t_sens.rows[idx].cells
@@ -814,13 +1117,14 @@ for idx, (p_dim, m_comp, m_filt, var, dictam) in enumerate(sens_data, start=1):
 
 style_table(t_sens, [Inches(1.8), Inches(1.5), Inches(1.5), Inches(0.9), Inches(1.5)],
             align_cols=[WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.LEFT])
-add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Filtro de exclusión: estudios con puntaje QA = 3.50 pts.")
+add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Filtro de exclusión: 10 estudios con puntaje QA = 3.50 pts ([116]–[118], [121]–[123], [127], [128], [132], [133]).")
 
 add_p(
-    "El análisis de sensibilidad demuestra que ninguna de las conclusiones de la revisión sistemática se invierte, distorsiona o altera al depurar los estudios "
-    "de menor calificación de calidad metodológica. Las variaciones porcentuales fueron mínimas (< ±2.7 %), la dirección del voto en SWiM se mantuvo a favor de la IA "
-    "y los rangos métricos conservaron sus medianas. La evidencia se dictamina formalmente como robusta y libre de sesgos de agregación.",
-    bold_prefix="Síntesis de Robustez Metodológica: "
+    "El análisis de sensibilidad demuestra que ninguna de las conclusiones de la revisión sistemática se invierte, altera o distorsiona al retirar los estudios "
+    "de menor calificación de calidad. Las frecuencias porcentuales experimentaron variaciones marginales inferiores a ±2.7 %, la mediana de F1 en facturación "
+    "se mantuvo exactamente en 95.2 % al no existir estudios con QA = 3.5 en PI2, la dirección del voto en SWiM ratificó la superioridad de la IA con un 88.5 % favorable, "
+    "y el núcleo contable de balances y facturas se consolidó en el 71.9 %. Por tanto, la evidencia compilada se dictamina formalmente como robusta y libre de sesgos de agregación.",
+    bold_prefix="Síntesis de Robustez de la Evidencia: "
 )
 
 # ------------------------------------------------------------------------------
@@ -828,8 +1132,10 @@ add_p(
 # ------------------------------------------------------------------------------
 add_heading_2("K. Calificación de Certeza de la Evidencia — Marco GRADE-CERQual (Paso 9)")
 add_p(
-    "En cumplimiento de las directrices de Lewin et al. (2018) [140], se evaluó el nivel de confianza de los hallazgos a través de los cuatro componentes "
-    "de GRADE-CERQual: limitaciones metodológicas, coherencia, adecuación de datos y relevancia. La TABLA XXIII expone la Tabla Resumen de Hallazgos (SoF)."
+    "En estricto apego a las directrices de Lewin et al. (2018) [140], se evaluó el nivel de confianza de los hallazgos principales a través de los cuatro componentes "
+    "del marco GRADE-CERQual (Confidence in the Evidence from Reviews of Qualitative/Mixed Research): 1) Limitaciones metodológicas de los estudios primarios, "
+    "2) Coherencia de los hallazgos entre distintos autores, 3) Adecuación del volumen de datos, y 4) Relevancia frente al contexto empresarial corporativo. "
+    "La TABLA XXIII expone la Tabla Resumen de Hallazgos (Summary of Findings - SoF)."
 )
 
 add_table_title("TABLA XXIII", "TABLA RESUMEN DE HALLAZGOS (SUMMARY OF FINDINGS - SoF) BAJO EL MARCO GRADE-CERQual (PASO 9)")
@@ -844,14 +1150,14 @@ hdr_sof[5].paragraphs[0].text = "Relevancia"
 hdr_sof[6].paragraphs[0].text = "Dictamen GRADE-CERQual"
 
 sof_data = [
-    ("PI1", "Pipelines CNN-RNN y Transformers multimodales (VLMs) dominan el 74.3 % de las soluciones, convergiendo a modelos ligeros espaciales.",
-     "Bajas: 82.4 % calidad alta (media 4.61).", "Alta: convergencia técnica internacional.", "Alta: n = 105 estudios con arquitectura formal.", "Alta: aplicable a documentos semiestructurados.", "ALTA CERTEZA"),
-    ("PI2", "Las arquitecturas de IA logran medianas de F1-score de 95.2 % en recibos y 89.8 % en tablas, con descensos a 84.5 % ante ruido severo.",
-     "Bajas: métricas formales en 89.3 % (QA4 = 0.912).", "Alta en benchmarks abiertos; moderada en escaneos degradados.", "Alta: n = 117 estudios con datos verificables.", "Moderada a Alta: sólida en benchmarks; menor en lotes reales no curados.", "ALTA CERTEZA (benchmarks) / MODERADA (lotes degradados)"),
-    ("PI3", "Las soluciones IA superan al ingreso manual y reglas en el 86.6 % de los estudios, reduciendo tiempos de 24–72 h a segundos.",
-     "Moderadas: QA5 presentó 32.1 % de cumplimiento parcial.", "Alta: consenso generalizado en dirección del efecto.", "Moderada a Alta: n = 82 estudios con comparador.", "Alta: evalúa tiempos y reducción de errores humanos.", "MODERADA CERTEZA (por vulnerabilidad en QA5)"),
-    ("PI4", "Tablas contables (45.0 %) y facturas (26.0 %) son el eje central, pero el 78.6 % de estudios no implementa conectores nativos ERP.",
-     "Bajas: tipología documental 100 % explícita (QA1 = 1.000).", "Alta: concordancia global en primacía contable.", "Alta: N = 131 estudios cubren la tipología.", "Moderada: alta para extracción; moderada en ERP vivo.", "ALTA CERTEZA (extracción) / MODERADA (integración ERP)")
+    ("PI1", "Pipelines CNN-RNN y Transformers multimodales (VLMs) dominan el 74.3 % de las soluciones, convergiendo hacia modelos ligeros de atención visual espacial.",
+     "Bajas: el 82.4 % de los estudios posee calidad alta (media QA = 4.61).", "Alta: convergencia técnica total entre grupos de investigación internacionales.", "Alta: n = 105 estudios primarios reportan arquitecturas reproducibles.", "Alta: aplicable a documentos semiestructurados corporativos.", "ALTA CERTEZA"),
+    ("PI2", "Las arquitecturas de IA alcanzan medianas de F1-score de 95.2 % en recibos y 89.8 % en tablas, con caídas al 84.5 % ante documentos con severa degradación física.",
+     "Bajas: métricas formales reportadas en el 89.3 % de los casos (QA4 = 0.912).", "Alta en benchmarks públicos (SROIE/CORD); moderada en escaneos degradados.", "Alta: n = 117 estudios con datos empíricos cuantitativos verificables.", "Moderada a Alta: sólida en benchmarks estándar; menor en lotes reales no curados.", "ALTA CERTEZA (en benchmarks estándar) / MODERADA (en lotes reales con alta degradación)"),
+    ("PI3", "Las soluciones de IA superan al ingreso manual y al OCR por reglas en el 86.6 % de los estudios, reduciendo tiempos de ciclo de 24–72 h a segundos.",
+     "Moderadas: el criterio QA5 presentó 32.1 % de cumplimiento parcial.", "Alta: consenso generalizado en dirección del efecto en favor de la IA.", "Moderada a Alta: n = 82 estudios con comparador empírico explícito.", "Alta: evalúa directamente latencias de ciclo y reducción de errores humanos.", "MODERADA CERTEZA (debido a la vulnerabilidad detectada en QA5)"),
+    ("PI4", "Las tablas contables (45.0 %) y las facturas (26.0 %) constituyen los ejes centrales de la literatura, pero el 78.6 % de los estudios no implementa conectores nativos ERP.",
+     "Bajas: tipología documental 100 % explícita en todos los estudios (QA1 = 1.000).", "Alta: concordancia global en la primacía de comprobantes de pago.", "Alta: N = 131 estudios cubren la tipología de documentos de negocio.", "Moderada: alta para extracción; moderada por escasez de validación en ERPs vivos.", "ALTA CERTEZA (en extracción documental) / MODERADA (en integración transaccional a ERP)")
 ]
 for idx, (p_id, hall, lim, coh, adec, rel, dictam) in enumerate(sof_data, start=1):
     c = t_sof.rows[idx].cells
@@ -867,11 +1173,13 @@ style_table(t_sof, [Inches(0.4), Inches(2.1), Inches(1.0), Inches(1.0), Inches(0
             align_cols=[WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER])
 add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Evaluación estructurada bajo los cuatro dominios de GRADE-CERQual [140].")
 
-output_path = 'project/shared/Articulo_RSL_Resultados_Completo_IEEE.docx'
-doc.save(output_path)
-print(f"Documento completo generado exitosamente en: {output_path} ({os.path.getsize(output_path)} bytes)")
+output_path = 'project/resultados/Articulo_RSL_Resultados_Completo_IEEE.docx'
+try:
+    doc.save(output_path)
+    print(f"Documento completo generado exitosamente en: {output_path} ({os.path.getsize(output_path)} bytes)")
+except PermissionError:
+    alt_output_path = 'project/resultados/Articulo_RSL_Resultados_Completo_IEEE_Actualizado.docx'
+    doc.save(alt_output_path)
+    print(f"AVISO: {output_path} está abierto en Microsoft Word.")
+    print(f"Documento completo generado exitosamente en: {alt_output_path} ({os.path.getsize(alt_output_path)} bytes)")
 
-# Actualizar también Articulo_RSL_Resultados_Bloque1_IEEE.docx para consistencia
-output_b1 = 'project/shared/Articulo_RSL_Resultados_Bloque1_IEEE.docx'
-doc.save(output_b1)
-print(f"Documento Bloque 1 actualizado en: {output_b1} ({os.path.getsize(output_b1)} bytes)")

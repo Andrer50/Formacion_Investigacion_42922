@@ -3,15 +3,16 @@ Repositorio orientado al seguimiento del curso Formación para la Investigación
 ##  Artículo: Revisión Sistemática de Literatura
 Integrantes:
 - Rupay Huancachoque Sergio André 
-- Gallegos Cartagena Rodrigo Eduardo
   
 **Inteligencia Artificial para la Automatización del Registro y Validación de Documentos Empresariales: una Revisión Sistemática de la Literatura**
 
 
 Revisión sistemática (formato IEEE, metodología Kitchenham & Charters y estándar PRISMA 2020) sobre las técnicas de Inteligencia Artificial (IA) y Procesamiento Inteligente de Documentos (IDP) empleadas para la extracción de información clave (KIE) y la automatización del registro y validación de documentos dentro de arquitecturas de sistemas empresariales, cubriendo el periodo 2020–2025.
 
-- **Artículo completo:** `project/metodologia/Metodologia_RSL_IEEE.docx`
-- **Presentación / Metodología:** `project/metodologia/Metodologia_RSL_Paso_a_Paso_IEEE.docx`
+- **Artículo completo (Integrado):** `project/shared/Articulo_RSL_Introduccion_y_Metodologia_IEEE.docx`
+- **Resultados:** `project/resultados/Articulo_RSL_Resultados_Completo_IEEE.docx`
+- **Metodología:** `project/metodologia/Metodologia_RSL_IEEE.docx`
+
 
 ---
 
