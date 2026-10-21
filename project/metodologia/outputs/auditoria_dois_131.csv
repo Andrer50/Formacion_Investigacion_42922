@@ -1,0 +1,132 @@
+Ref,DOI_o_URL,Estado,Titulo_Verificado
+[3] ([S001]),10.1016/j.patcog.2025.112348,OK (CrossRef 200),mChartQA and mChartQABench: A multimodal-only solution for c
+[4] ([S002]),10.3390/electronics14112145,OK (CrossRef 200),Evaluation of Prompt Engineering on the Performance of a Lar
+[5] ([S003]),10.1109/access.2024.3522141,OK (CrossRef 200),Computer Vision-Based Framework for Data Extraction From Het
+[6] ([S004]),10.3390/make7040167,OK (CrossRef 200),Receipt Information Extraction with Joint Multi-Modal Transf
+[7] ([S005]),10.3390/electronics14091717,OK (CrossRef 200),Receipt Recognition Technology Driven by Multimodal Alignmen
+[8] ([S006]),10.1109/access.2025.3568628,OK (CrossRef 200),LMGDoc: Light Multigranular GNN for Efficient Document Under
+[9] ([S007]),10.1007/s10032-025-00518-w,OK (CrossRef 200),Bi-VLDoc: bidirectional vision-language modeling for visuall
+[10] ([S008]),10.1142/s021946782550010x,OK (CrossRef 200),DNN-HHOA: Deep Neural Network Optimization-Based Tabular Dat
+[11] ([S009]),10.1016/j.eswa.2025.126461,OK (CrossRef 200),Rethinking detection based table structure recognition for v
+[12] ([S010]),10.3390/s25010203,OK (CrossRef 200),Table Extraction with Table Data Using VGG-19 Deep Learning 
+[13] ([S011]),10.1016/j.mlwa.2025.100665,OK (CrossRef 200),TransTab: A transformer-based approach for table detection a
+[14] ([S012]),10.1007/s10579-024-09802-3,OK (CrossRef 200),UFLA-FORMS: an academic forms dataset for information extrac
+[15] ([S013]),10.1007/s11042-025-20934-8,OK (CrossRef 200),A hybrid model for Arabic character recognition using CNN an
+[16] ([S014]),10.1109/access.2025.3531713,OK (CrossRef 200),Deep Learning-Based Detection of One and Two-Column Textual 
+[17] ([S015]),10.3390/math13111760,OK (CrossRef 200),ReceiptQA: A Question-Answering Dataset for Receipt Understa
+[18] ([S016]),10.1504/ijwmc.2025.148584,OK (CrossRef 200),Res-THL: multimodal pre-training models for document underst
+[19] ([S017]),10.1038/s41598-025-15627-z,OK (CrossRef 200),Large language model driven transferable key information ext
+[20] ([S018]),10.1177/14727978251346036,OK (CrossRef 200),Financial fraud identification and economic impact analysis 
+[21] ([S019]),10.1007/s11042-024-20162-6,OK (CrossRef 200),Template-based text field segmentation for ID documents usin
+[22] ([S020]),10.32604/cmc.2025.065421,OK (CrossRef 200),Rethinking Chart Understanding Using Multimodal Large Langua
+[23] ([S021]),10.1016/j.neucom.2024.128897,OK (CrossRef 200),ALDII: Adaptive Learning-based Document Image Inpainting to 
+[24] ([S022]),10.1016/j.engappai.2025.111542,OK (CrossRef 200),Retrieval-augmented visual parcel invoice understanding tran
+[25] ([S023]),10.1016/j.accinf.2025.100750,OK (CrossRef 200),Discriminative meets generative: Automated information retri
+[26] ([S024]),10.1109/access.2025.3619974,OK (CrossRef 200),Multimodal Information Extraction from Visually Rich Documen
+[27] ([S025]),10.1145/3769840,OK (CrossRef 200),Visual Template Inference for Data Extraction from Documents
+[28] ([S026]),10.37394/23207.2024.21.216,OK (CrossRef 200),Accounting-Oriented Research on Note Recognition Model based
+[29] ([S027]),10.1109/tip.2024.3357251,OK (CrossRef 200),A Robust Framework for One-Shot Key Information Extraction v
+[30] ([S028]),10.1109/tce.2022.3229438,OK (CrossRef 200),SRRNet: A Transformer Structure With Adaptive 2-D Spatial At
+[31] ([S029]),10.3233/jifs-232646,OK (CrossRef 200),Table structure recognition using black widow based mutual e
+[32] ([S030]),https://openreview.net/forum?id=R2rasAEPVi,OK (URL),Leopard: A Vision Language Model for Text-Rich Multi-Image T
+[33] ([S031]),10.1007/s10032-024-00461-2,OK (CrossRef 200),Datasets and annotations for layout analysis of scientific a
+[34] ([S032]),10.1109/tcsvt.2023.3287296,OK (CrossRef 200),DCMAI: A Dynamical Cross-Modal Alignment Interaction Framewo
+[35] ([S033]),10.1007/s10032-023-00453-8,OK (CrossRef 200),TableStrRec: framework for table structure recognition in da
+[36] ([S034]),10.1016/j.eswa.2024.125156,OK (CrossRef 200),SGFNet: A semantic graph-based multimodal network for financ
+[37] ([S035]),10.1007/s11432-024-4231-5,OK (CrossRef 200),How far are we to GPT-4V? Closing the gap to commercial mult
+[38] ([S036]),10.1016/j.neucom.2023.127223,OK (CrossRef 200),Multimodal weighted graph representation for information ext
+[39] ([S037]),10.1007/s10032-023-00434-x,OK (CrossRef 200),Inv3D: a high-resolution 3D invoice dataset for template-gui
+[40] ([S038]),10.3233/jifs-230204,OK (CrossRef 200),Information extraction from Visually Rich Documents using gr
+[41] ([S039]),10.1016/j.patcog.2022.109006,OK (CrossRef 200),Robust Table Detection and Structure Recognition from Hetero
+[42] ([S040]),10.3390/electronics12040939,OK (CrossRef 200),A Framework for Understanding Unstructured Financial Documen
+[43] ([S041]),10.1109/tmm.2022.3214102,OK (CrossRef 200),Multimodal Pre-Training Based on Graph Attention Network for
+[44] ([S042]),10.11591/ijai.v12.i2.pp514-521,OK (CrossRef 200),Automated invoice data extraction using image processing
+[45] ([S043]),10.1007/s13369-022-06735-3,OK (CrossRef 200),IIRM: Intelligent Information Retrieval Model for Structured
+[46] ([S044]),10.1007/s42979-022-01659-z,OK (CrossRef 200),Flexible Hybrid Table Recognition and Semantic Interpretatio
+[47] ([S045]),10.1142/s0218001423520092,OK (CrossRef 200),Key–Value Pair Identification from Tables Using Multimodal L
+[48] ([S046]),10.1016/j.knosys.2023.111080,OK (CrossRef 200),Table detection for visually rich document images
+[49] ([S047]),10.1080/03772063.2022.2054873,OK (CrossRef 200),RETRACTED ARTICLE: Financial Information Extraction Using th
+[50] ([S048]),10.1007/s10032-022-00399-3,OK (CrossRef 200),Fusion of visual representations for multimodal information 
+[51] ([S049]),10.1016/j.neucom.2022.09.094,OK (CrossRef 200),On cropped versus uncropped training sets in tabular structu
+[52] ([S050]),10.1007/s11042-021-11819-7,OK (CrossRef 200),Deep-learning and graph-based approach to table structure re
+[53] ([S051]),10.1007/s41060-021-00285-x,OK (CrossRef 200),Anonymization of German financial documents using neural net
+[54] ([S052]),10.3390/su141610010,OK (CrossRef 200),An AI-Based Automatic Risks Detection Solution for Plant Own
+[55] ([S053]),10.1007/s11042-022-12916-x,OK (CrossRef 200),Intelligent automation of invoice parsing using computer vis
+[56] ([S054]),10.1371/journal.pone.0315890,OK (CrossRef 200),Identification of distinct profiles of glioblastoma through 
+[57] ([S055]),10.1007/s11042-022-12741-2,OK (CrossRef 200),All-content text recognition method for financial ticket ima
+[58] ([S056]),10.14778/3446095.3446104,OK (CrossRef 200),Improving information extraction from visually rich document
+[59] ([S057]),10.1109/access.2021.3087865,OK (CrossRef 200),Current Status and Performance Analysis of Table Recognition
+[60] ([S058]),10.1109/access.2021.3096739,OK (CrossRef 200),Multi-Layout Unstructured Invoice Documents Dataset: A Datas
+[61] ([S059]),10.1109/access.2021.3103413,OK (CrossRef 200),Guided Table Structure Recognition Through Anchor Optimizati
+[62] ([S060]),10.32604/cmc.2021.018724,OK (CrossRef 200),Recurrent Convolutional Neural Network MSER-Based Approach f
+[63] ([S061]),10.32620/reks.2021.4.15,OK (CrossRef 200),Data pre-processing to increase the quality of optical text 
+[64] ([S062]),10.1016/j.ipm.2020.102361,OK (CrossRef 200),Information Extraction from Text Intensive and Visually Rich
+[65] ([S063]),10.1007/s10032-025-00563-5,OK (CrossRef 200),BoundingDocs: a Unified Dataset for Document Question Answer
+[66] ([S064]),10.1007/s10032-025-00553-7,OK (CrossRef 200),From pixels to tables: reconstructing complex tables from do
+[67] ([S065]),10.1016/j.eswa.2022.119274,OK (CrossRef 200),Gain more with less: Extracting information from business do
+[68] ([S066]),10.3390/su17156971,OK (CrossRef 200),"Smart Money, Greener Future: AI-Enhanced English Financial T"
+[69] ([S067]),10.52783/pst.1715,OK (CrossRef 200),A Structural Equation Model (SEM) Approach to Analyse the St
+[70] ([S068]),10.1007/s11263-025-02431-5,OK (CrossRef 200),DocScanner: Robust Document Image Rectification with Progres
+[71] ([S069]),10.1016/j.patrec.2025.07.022,OK (CrossRef 200),Single-stage table structure recognition approach via effici
+[72] ([S070]),10.11591/ijai.v14.i4.pp3412-3420,OK (CrossRef 200),Transforming images into words: optical character recognitio
+[73] ([S071]),10.1108/ijwis-07-2025-0204,OK (CrossRef 200),Geometry-aware and autonomous reading-order learning for OCR
+[74] ([S072]),10.1016/j.ipm.2024.104046,OK (CrossRef 200),DocExtractNet: A novel framework for enhanced information ex
+[75] ([S073]),10.1007/s41870-024-02089-1,OK (CrossRef 200),Efficiency evaluation of filter sizes on graph convolutional
+[76] ([S074]),10.2308/jeta-2023-028,OK (CrossRef 200),Utilizing Deep Learning for Field-Level Information Extracti
+[77] ([S075]),10.1007/s10032-025-00566-2,OK (CrossRef 200),A Graph-Augmented Multi-Stage Transformer Model for Document
+[78] ([S076]),10.1109/TIM.2025.3560748,OK (CrossRef 200),Word Length-Aware Text Spotting: Enhancing Dense Text Detect
+[79] ([S077]),10.3390/app152212216,OK (CrossRef 200),FE-WRNet: Frequency-Enhanced Network for Visible Watermark R
+[80] ([S078]),10.1016/j.patcog.2025.111624,OK (CrossRef 200),Generative compositor for few-shot visual information extrac
+[81] ([S079]),10.3389/frai.2025.1616007,OK (CrossRef 200),Image restoration and key field alignment for misaligned ove
+[82] ([S080]),10.1016/j.inffus.2025.103206,OK (CrossRef 200),DocRouter: Prompt guided vision transformer and Mixture of E
+[83] ([S081]),10.1016/j.eswa.2024.126375,OK (CrossRef 200),EJRSNet: A joint mechanism network for object detection with
+[84] ([S082]),10.1109/access.2024.3474616,OK (CrossRef 200),MULDT: Multilingual Ultra-Lightweight Document Text Detectio
+[85] ([S083]),10.3390/app15020780,OK (CrossRef 200),Synergistic Chemical Modification and Physical Adsorption fo
+[86] ([S084]),10.3390/ai5040091,OK (CrossRef 200),A Bag-of-Words Approach for Information Extraction from Elec
+[87] ([S085]),10.1155/2024/7599415,OK (CrossRef 200),Document Information Extraction: An Analysis of Invoice Anat
+[88] ([S086]),10.1109/access.2024.3383911,OK (CrossRef 200),Efficient Text Bounding Box Identification Using Mask R-CNN:
+[89] ([S087]),10.1142/s0218001424590122,OK (CrossRef 200),Configurable Customized Information Extraction and Processin
+[90] ([S088]),10.1016/j.iswa.2023.200285,OK (CrossRef 200),Automated invoice processing: Machine learning-based informa
+[91] ([S089]),10.53106/160792642023122407012,OK (CrossRef 200),Document Classification Using Lightweight Neural Network
+[92] ([S090]),10.1016/j.patcog.2023.109542,OK (CrossRef 200),GraphRevisedIE: Multimodal information extraction with graph
+[93] ([S091]),10.3390/math13030422,OK (CrossRef 200),Privacy-Preserving Incentive Allocation for Fair and Resilie
+[94] ([S092]),10.1109/access.2023.3299880,OK (CrossRef 200),Fin-EMRC: An Efficient Machine Reading Comprehension Framewo
+[95] ([S093]),10.1142/s0218126623503218,OK (CrossRef 200),Applicability of OCR Engines for Text Recognition in Vehicle
+[96] ([S094]),10.28991/esj-2023-07-05-03,OK (CrossRef 200),Learning Curves Prediction for a Transformers-Based Model
+[97] ([S095]),10.3390/app13148463,OK (CrossRef 200),The Use of Blockchain Technology and OCR in E-Government for
+[98] ([S096]),10.3390/e25040658,OK (CrossRef 200),Structured Cluster Detection from Local Feature Learning for
+[99] ([S097]),10.47839/ijc.22.3.3232,OK (CrossRef 200),Classification of Letter Images from Scanned Invoices using 
+[100] ([S098]),10.14569/ijacsa.2023.0140295,OK (CrossRef 200),An OCR Engine for Printed Receipt Images using Deep Learning
+[101] ([S099]),10.1016/j.engappai.2023.106330,OK (CrossRef 200),A method supporting fault-tolerant optical text recognition 
+[102] ([S100]),10.12785/ijcds/140132,OK (CrossRef 200),Digitizing Receipts with OCR
+[103] ([S101]),10.1109/access.2022.3192828,OK (CrossRef 200),End to End Invoice Processing Application Based on Key Field
+[104] ([S102]),10.1016/j.asoc.2022.108942,OK (CrossRef 200),End-to-end table structure recognition and extraction in het
+[105] ([S103]),10.1016/j.patcog.2022.108641,OK (CrossRef 200),Table detection in business document images by message passi
+[106] ([S104]),10.6688/jise.202211_38(6).0011,OK (doi.org),Deformable Convolutional Neuron Network Model for Detecting 
+[107] ([S105]),10.5573/ieiespc.2022.11.5.316,OK (CrossRef 200),Information Extraction from Invoices by using a Graph Convol
+[108] ([S106]),10.1109/access.2022.3164674,OK (CrossRef 200),Tokengrid: Toward More Efficient Data Extraction From Unstru
+[109] ([S107]),10.32604/cmc.2022.022458,OK (CrossRef 200),Denoising Letter Images from Scanned Invoices Using Stacked 
+[110] ([S108]),10.1007/s41870-025-02540-x,OK (CrossRef 200),OCR-CRNN (WBS): an optical character recognition system base
+[111] ([S109]),10.1016/j.patrec.2020.05.029,OK (CrossRef 200),Accelerating projections to kernel-induced spaces by feature
+[112] ([S110]),10.14778/3447689.3447703,OK (CrossRef 200),Glean
+[113] ([S111]),10.1155/2021/6529859,OK (CrossRef 200),Automatic Recognition of Financial Instruments Based on Anis
+[114] ([S112]),10.1016/j.engappai.2021.104273,OK (CrossRef 200),SpaceLDA: Topic distributions aggregation from a heterogeneo
+[115] ([S113]),10.1007/s10032-025-00530-0,OK (CrossRef 200),Neurosymbolic Information Extraction from Transactional Docu
+[116] ([S114]),https://openreview.net/forum?id=3HKNwejEEq,OK (URL),NeurIPS 2023 Competition: Privacy Preserving Federated Learn
+[117] ([S115]),10.1108/JERER-05-2023-0015,OK (CrossRef 200),Machine learning-powered automation for real estate document
+[118] ([S116]),10.1038/s41598-025-07439-y,OK (CrossRef 200),Printed document layout analysis and optical character recog
+[119] ([S117]),10.1016/j.engappai.2025.110478,OK (CrossRef 200),Information extraction from multi-layout invoice images usin
+[120] ([S118]),10.1016/j.patcog.2024.110279,OK (CrossRef 200),SEMv2: Table separation line detection based on instance seg
+[121] ([S119]),10.1142/s0218001423540137,OK (CrossRef 200),Customized Information Extraction and Processing Pipeline fo
+[122] ([S120]),10.1109/TBDATA.2025.3596854,OK (CrossRef 200),Document-Image Perceptual Hashing for Content Authentication
+[123] ([S121]),10.3390/app11188396,OK (CrossRef 200),HybridTabNet: Towards Better Table Detection in Scanned Docu
+[124] ([S122]),10.1007/s11227-022-04912-7,OK (CrossRef 200),Multi-modal text recognition and encryption in scanned docum
+[125] ([S123]),10.3390/s22207944,OK (CrossRef 200),A Novel Adaptive Deskewing Algorithm for Document Images
+[126] ([S124]),10.11591/ijeecs.v21.i1.pp233-241,OK (CrossRef 200),Corpus-based technique for improving Arabic OCR system
+[127] ([S125]),10.30630/joiv.5.3.669,OK (CrossRef 200),Artificial Intelligence in Automated Bookkeeping: A Value-ad
+[128] ([S126]),10.1162/dint_a_00103,OK (CrossRef 200),A Prior Information Enhanced Extraction Framework for Docume
+[129] ([S127]),10.3390/data6070078,OK (CrossRef 200),Multi-Layout Invoice Document Dataset (MIDD): A Dataset for 
+[130] ([S128]),10.14778/3415478.3415563,OK (CrossRef 200),Table extraction and understanding for scientific and enterp
+[131] ([S129]),10.1109/access.2020.3046031,OK (CrossRef 200),FoodScan: Food Monitoring App by Scanning the Groceries Rece
+[132] ([S130]),10.1016/j.image.2021.116601,OK (CrossRef 200),Information extraction from scanned invoice images using tex
+[133] ([S131]),10.3390/informatics9010019,OK (CrossRef 200),The Future of Accounting: How Will Digital Transformation Im

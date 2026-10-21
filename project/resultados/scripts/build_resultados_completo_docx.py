@@ -381,7 +381,7 @@ hdr_rev[4].paragraphs[0].text = "Frecuencia Relativa (%)"
 
 rev_data = [
     ("IEEE Access", "IEEE", "Q1 / Q2", "[5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]", "13 (9.9 %)"),
-    ("International Journal on Document Analysis and Recognition (IJDAR)", "Springer", "Q2", "[9], [33], [35], [39], [50], [65], [66], [70], [77], [115]", "10 (7.6 %)"),
+    ("International Journal on Document Analysis and Recognition (IJDAR)", "Springer", "Q2", "[9], [33], [35], [39], [50], [65], [66], [77], [115]", "9 (6.9 %)"),
     ("Pattern Recognition", "Elsevier", "Q1", "[3], [41], [80], [92], [105], [120]", "6 (4.6 %)"),
     ("Multimedia Tools and Applications", "Springer", "Q2", "[15], [21], [52], [55], [57]", "5 (3.8 %)"),
     ("Expert Systems with Applications", "Elsevier", "Q1", "[11], [36], [67], [83]", "4 (3.1 %)"),
@@ -392,7 +392,7 @@ rev_data = [
     ("Neurocomputing", "Elsevier", "Q1", "[23], [38], [51]", "3 (2.3 %)"),
     ("Computers, Materials and Continua", "Tech Science Press", "Q2", "[22], [62], [109]", "3 (2.3 %)"),
     ("Proceedings of the VLDB Endowment (PVLDB)", "VLDB Endowment", "Q1", "[58], [112], [130]", "3 (2.3 %)"),
-    ("Otras 61 revistas indexadas (<= 2 estudios c/u)", "Diversas", "Q1–Q3", "Citas dispersas [10], [12], [13], [17]–[20], etc.", "70 (53.4 %)")
+    ("Otras 62 revistas indexadas (<= 2 estudios c/u)", "Diversas", "Q1–Q3", "Citas dispersas [10], [12], [13], [17]–[20], etc.", "71 (54.2 %)")
 ]
 for idx, (rev, ed, q, refs, fa) in enumerate(rev_data, start=1):
     c = t_pd2_rev.rows[idx].cells
@@ -452,9 +452,9 @@ add_p(
 
 add_p(
     "La evidencia se estructura en tres dimensiones bibliométricas:\n"
-    "a) Núcleos de difusión y revistas líderes: Doce revistas concentraron el 46.6 % de la producción global (61 de 131 artículos; TABLA XIV). El canal predominante "
+    "a) Núcleos de difusión y revistas líderes: Doce revistas concentraron el 45.8 % de la producción global (60 de 131 artículos; TABLA XIV). El canal predominante "
     "fue IEEE Access con 13 artículos (9.9 %; [5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]), seguido de International Journal on Document "
-    "Analysis and Recognition (IJDAR) de Springer con 10 artículos (7.6 %; [9], [33], [35], [39], [50], [65], [66], [70], [77], [115]) y Pattern Recognition de Elsevier "
+    "Analysis and Recognition (IJDAR) de Springer con 9 artículos (6.9 %; [9], [33], [35], [39], [50], [65], [66], [77], [115]) y Pattern Recognition de Elsevier "
     "con 6 artículos (4.6 %; [3], [41], [80], [92], [105], [120]).\n"
     "b) Polos geográficos de investigación: Conforme a la regla de asignación por primer autor, China lideró con 39 estudios (29.8 %; TABLA XV, Fig. 3a), seguida de India "
     "con 11 estudios (8.4 %) y Estados Unidos con 10 estudios (7.6 %). Europa occidental sumó presencia relevante con Alemania (9 estudios, 6.9 %) y España (3 estudios, 2.3 %).\n"

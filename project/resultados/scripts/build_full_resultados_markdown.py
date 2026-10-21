@@ -4,7 +4,7 @@ Script para compilar el archivo Markdown maestro completo:
 
 Incorpora rigurosamente los ajustes solicitados por la auditoría:
 1. Parche del Bloque 1 restaurado:
-   - TABLA XIV: Última fila "Otras 61 revistas indexadas" con 70 (53.4 %) y suma de 12 primeras revistas = 61 estudios (46.6 %).
+   - TABLA XIV: Última fila "Otras 62 revistas indexadas" con 71 (54.2 %) y suma de 12 primeras revistas = 60 estudios (45.8 %).
    - TABLA XV y texto de PD2 (Bloques 3 y 4): Citas exactas de autores del CSV (Zhang, Simsek [11], [35], [48], [51], Hashmi [59], [61], [123], Fornés [105], [111], Sainz-De-Abajo [131], etc.).
    - TABLA XVI: Partición matemática exacta y mutuamente excluyente de 12 celdas (Exp_Pub = 48, Exp_Priv = 18, etc.).
 2. Eliminación de apellidos inventados en Bloque 3 (Contrastes y debates) de PI1, PI2, PI3 y PI4:
@@ -108,7 +108,7 @@ REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRES
 | Revista Científica Indexada | Editorial | Cuartil (JCR/SJR) | Artículos en Corpus [n] | Frecuencia Relativa (%) |
 | :--- | :--- | :---: | :---: | :---: |
 | **IEEE Access** | IEEE | Q1 / Q2 | [5], [8], [16], [26], [59], [60], [61], [84], [88], [94], [103], [108], [131] | 13 (9.9 %) |
-| **International Journal on Document Analysis and Recognition (IJDAR)** | Springer | Q2 | [9], [33], [35], [39], [50], [65], [66], [70], [77], [115] | 10 (7.6 %) |
+| **International Journal on Document Analysis and Recognition (IJDAR)** | Springer | Q2 | [9], [33], [35], [39], [50], [65], [66], [77], [115] | 9 (6.9 %) |
 | **Pattern Recognition** | Elsevier | Q1 | [3], [41], [80], [92], [105], [120] | 6 (4.6 %) |
 | **Multimedia Tools and Applications** | Springer | Q2 | [15], [21], [52], [55], [57] | 5 (3.8 %) |
 | **Expert Systems with Applications** | Elsevier | Q1 | [11], [36], [67], [83] | 4 (3.1 %) |
@@ -119,7 +119,7 @@ REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRES
 | **Neurocomputing** | Elsevier | Q1 | [23], [38], [51] | 3 (2.3 %) |
 | **Computers, Materials and Continua** | Tech Science Press | Q2 | [22], [62], [109] | 3 (2.3 %) |
 | **Proceedings of the VLDB Endowment (PVLDB)** | VLDB Endowment | Q1 | [58], [112], [130] | 3 (2.3 %) |
-| **Otras 61 revistas indexadas (<= 2 estudios c/u)** | Diversas | Q1–Q3 | Citas dispersas [10], [12], [13], [17]–[20], etc. | 70 (53.4 %) |
+| **Otras 62 revistas indexadas (<= 2 estudios c/u)** | Diversas | Q1–Q3 | Citas dispersas [10], [12], [13], [17]–[20], etc. | 71 (54.2 %) |
 | **Total Corpus Primario** | — | — | **[3]–[133] (131 estudios únicos)** | **131 (100.0 %)** |
 
 *Fuente: elaboración propia a partir del corpus primario [3]–[133]. Nombres de revistas unificados y normalizados de Scopus y Web of Science.*
@@ -153,7 +153,7 @@ Ciento treinta y un artículos primarios (100.0 % del corpus; [3]–[133]) respo
 
 #### Bloque 2 — Desarrollo por Categoría y Redes Temáticas
 La evidencia se estructura en tres dimensiones bibliométricas:
-1. **Núcleos de difusión y revistas líderes:** Doce revistas concentraron el 46.6 % de la producción global (61 de 131 artículos; TABLA XIV). El canal predominante fue *IEEE Access* con 13 artículos (9.9 %; [5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]), seguido de *International Journal on Document Analysis and Recognition (IJDAR)* de Springer con 10 artículos (7.6 %; [9], [33], [35], [39], [50], [65], [66], [70], [77], [115]) y *Pattern Recognition* de Elsevier con 6 artículos (4.6 %; [3], [41], [80], [92], [105], [120]). Las restantes 61 revistas indexadas reunieron los 70 artículos complementarios (53.4 % del corpus), reflejando una amplia diversidad editorial.
+1. **Núcleos de difusión y revistas líderes:** Doce revistas concentraron el 45.8 % de la producción global (60 de 131 artículos; TABLA XIV). El canal predominante fue *IEEE Access* con 13 artículos (9.9 %; [5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]), seguido de *International Journal on Document Analysis and Recognition (IJDAR)* de Springer con 9 artículos (6.9 %; [9], [33], [35], [39], [50], [65], [66], [77], [115]) y *Pattern Recognition* de Elsevier con 6 artículos (4.6 %; [3], [41], [80], [92], [105], [120]). Las restantes 62 revistas indexadas reunieron los 71 artículos complementarios (54.2 % del corpus), reflejando una amplia diversidad editorial.
 2. **Polos geográficos de investigación:** Conforme a la regla de asignación por primer autor, China lideró ampliamente con 39 estudios (29.8 %; TABLA XV, Fig. 3a), seguida de India con 11 estudios (8.4 %) y Estados Unidos con 10 estudios (7.6 %). Europa occidental sumó presencia relevante encabezada por Alemania con 9 artículos (6.9 %) y España con 3 (2.3 %).
 3. **Red cienciométrica de palabras clave (VOSviewer):** Con un umbral $\\ge 3$ apariciones se configuraron tres clústeres conceptuales (Fig. 3b): Clúster 1 (Extracción y Semántica: *Information Extraction* con 26 ocurrencias, *Document Understanding* con 6 y *Key Information Extraction - KIE* con 4); Clúster 2 (Paradigmas Algorítmicos: *Deep Learning* con 21 ocurrencias, *Optical Character Recognition - OCR* con 24 y *Transformers* con 5); y Clúster 3 (Estructuras Complejas: *Table Structure Recognition* con 11 ocurrencias, *Table Detection* con 11 y *Object Detection* con 8).
 

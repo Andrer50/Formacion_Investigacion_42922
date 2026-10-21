@@ -6,10 +6,10 @@ def verify(file_path):
         t = f.read()
 
     tests = [
-        ("1. Tabla XIV ultima fila 70 (53.4 %)", "70 (53.4 %)" in t),
-        ("1. Tabla XIV NO tiene 63 (48.1 %)", "63 (48.1 %)" not in t),
-        ("1. Texto Sec III.C.2.a 61 de 131", "61 de 131" in t),
-        ("1. Texto Sec III.C.2.a NO tiene 68 de 131", "68 de 131" not in t),
+        ("1. Tabla XIV ultima fila 71 (54.2 %)", "71 (54.2 %)" in t),
+        ("1. Tabla XIV NO tiene 70 (53.4 %)", "70 (53.4 %)" not in t),
+        ("1. Texto Sec III.C.2.a 60 de 131", "60 de 131" in t),
+        ("1. Texto Sec III.C.2.a NO tiene 61 de 131", "61 de 131" not in t),
         ("2. Tabla XV NO tiene Villa-García [70]", "Villa-García" not in t),
         ("2. Tabla XV NO tiene Harit [40]", "Harit" not in t),
         ("2. Tabla XV Simsek 11, 35, 48, 51", "[11], [35], [48], [51]" in t),
