@@ -113,8 +113,8 @@ r_abst = p_abs.add_run(
     "41 excluidos) y evaluación crítica a texto completo bajo control de calidad QA (κ = 0.92, "
     "166 excluidos, incluyendo 20 justificados individualmente bajo el ítem 7 de AMSTAR 2 y 146 de OCR genérico no empresarial), "
     "se consolidó un corpus final primario de N = 131 estudios de revista científica (100% Journal Articles revisados por pares). "
-    "A partir de este corpus, se identificaron cuatro estudios nucleares paradigmáticos de alto impacto (Elsevier Q1, "
-    "IEEE Q1, MDPI Q2) y se sintetizó la evidencia en torno a cuatro preguntas de investigación temáticas y tres descriptivas. "
+    "A partir de este corpus, se identificaron cuatro estudios nucleares paradigmáticos de alto impacto (tres indexados en Q1 y uno en Q2: "
+    "Elsevier Q1, IEEE Q1, MDPI Q1 y MDPI Q2) y se sintetizó la evidencia en torno a cuatro preguntas de investigación temáticas y tres descriptivas. "
     "Los resultados demuestran que las arquitecturas neuronales multimodales (LayoutLM, transformers visual-lingüísticos y VLMs) "
     "superan consistentemente a los enfoques tradicionales basados en reglas y OCR clásico, alcanzando puntajes F1 superiores al "
     "92% en extracción de información clave (KIE) y reducciones de latencia operativa de hasta un 70%, transformando la eficiencia "
@@ -350,8 +350,8 @@ add_p(
 )
 add_p(
     "El procesamiento manual y los flujos asistidos por OCR convencional continúan generando cuellos de botella operativos sustanciales, "
-    "con tiempos de respuesta que oscilan entre 24 y 72 horas por lote y tasas de error de digitación que oscilan entre el 2% y el 8% [6], [137], "
-    "repercutiendo en multas tributarias y demoras en pagos a proveedores.",
+    "debido a la extrema rigidez de las plantillas predefinidas y a su reducida capacidad de generalización ante variaciones topológicas y formatos semiestructurados [6], "
+    "lo que ocasiona errores sistemáticos de lectura y una alta dependencia de re-digitación y validación manual humana.",
     bold_prefix="1) Fragilidad Operativa de Enfoques Tradicionales: "
 )
 add_p(
@@ -592,7 +592,7 @@ add_p(
     "sin cortes artificiales de muestra (ver Tabla VI y Fig. 1):"
 )
 add_p(
-    "La revisión, cribado y extracción de datos fue conducida por el autor principal bajo un protocolo estandarizado de fiabilidad intra-evaluador "
+    "Los procesos de revisión, cribado y extracción de datos fueron conducidos por el autor principal bajo un protocolo estandarizado de fiabilidad intra-evaluador "
     "(test-retest a ciegas con intervalo de separación de tres semanas entre evaluaciones sobre una muestra del 20.6 % del corpus, n = 27 estudios), "
     "conforme a las directrices metodológicas para revisiones sistemáticas de autor único (Kitchenham & Charters [1]; Higgins et al. [2]). "
     "En la fase de cribado por título y resumen se obtuvo un coeficiente de concordancia Kappa de Cohen κ = 0.88 (acuerdo casi perfecto según Landis & Koch). "
@@ -722,11 +722,11 @@ style_table(t_am, [Inches(1.2), Inches(0.4), Inches(0.3), Inches(1.5)], font_siz
 
 add_heading_2("J. Caracterización de los 4 Estudios Nucleares Paradigmáticos (100% Revista)")
 add_p(
-    "A partir de la evaluación de calidad metodológica (QA = 5.0 / 5.0) y la cobertura integral de las cuatro preguntas temáticas (PI1 a PI4), "
-    "se seleccionaron cuatro estudios nucleares paradigmáticos de alto impacto (Q1/Q2) aplicando un criterio metodológico de muestreo de máxima "
-    "variación y representatividad estructural (Maximum Variation Sampling). Dicha selección garantiza que cada una de las cuatro familias "
-    "algorítmicas predominantes (Transformers/VLMs [3], LLMs con ingeniería de prompts [4], Deep Learning con visión computacional [5] y pipelines "
-    "híbridos con reglas [6]) y cada una de las cuatro tipologías documentales empresariales (gráficos/tablas, comprobantes corporativos, balances "
+    "A partir de la evaluación de calidad metodológica aplicada a los estudios primarios del corpus, en la cual obtuvieron la calificación máxima (QA = 5.0 / 5.0) "
+    "y la cobertura integral de las cuatro preguntas temáticas (PI1 a PI4), se seleccionaron cuatro estudios nucleares paradigmáticos de alto impacto (Q1/Q2) "
+    "aplicando un criterio metodológico de muestreo de máxima variación y representatividad estructural (Maximum Variation Sampling). Dicha selección garantiza que "
+    "cada una de las cuatro familias algorítmicas predominantes (Transformers/VLMs [3], LLMs con ingeniería de prompts [4], Deep Learning con visión computacional [5] "
+    "y pipelines híbridos con reglas [6]) y cada una de las cuatro tipologías documentales empresariales (gráficos/tablas, comprobantes corporativos, balances "
     "financieros y recibos comerciales) estén formalmente representadas como ancla empírica de calibración para la revisión (ver Tabla IX):"
 )
 
@@ -744,7 +744,7 @@ nuc_table_data = [
     ("[S001]", "[3]", "Wei et al. (2026/2025)", "Pattern Recognition (Elsevier, Q1)", "10.1016/j.patcog.2025.112348", "VLM multimodal para QA visual sobre gráficos y tablas complejas, superando baselines de OCR tradicional."),
     ("[S002]", "[4]", "Chen et al. (2025)", "Electronics (MDPI, Q2)", "10.3390/electronics14112145", "Evaluación rigurosa de LLMs e ingeniería de prompts en extracción de información documental frente a reglas fijas."),
     ("[S003]", "[5]", "Ali Khandokar & Deshpande (2025)", "IEEE Access (IEEE, Q1)", "10.1109/access.2024.3522141", "Pipeline de visión computacional y deep learning para extracción de tablas financieras heterogéneas sin plantillas."),
-    ("[S004]", "[6]", "Mifsud et al. (2025)", "Mach. Learn. Knowl. Extr. (MDPI, Q2)", "10.3390/make7040167", "Modelo híbrido que combina y contrasta Transformers multimodales con sistemas basados en reglas en recibos comerciales.")
+    ("[S004]", "[6]", "Mifsud et al. (2025)", "Mach. Learn. Knowl. Extr. (MDPI, Q1)", "10.3390/make7040167", "Modelo híbrido que combina y contrasta Transformers multimodales con sistemas basados en reglas en recibos comerciales.")
 ]
 for idx, (nid, nref, auth, rev, doi, apt) in enumerate(nuc_table_data, start=1):
     c = t_nuc.rows[idx].cells
