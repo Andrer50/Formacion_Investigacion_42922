@@ -101,11 +101,11 @@ ax.annotate('', xy=(30, 36), xytext=(30, 42), arrowprops=dict(arrowstyle="->", l
 draw_box(12, 22, 36, 14, "Reports assessed for eligibility:", [
     "Full-text articles evaluated (n = 297)",
     "• Quality Assessment QA >= 3.0",
-    "• Inter-reviewer agreement (κ = 0.92)"
+    "• Test-retest reliability (κ = 0.87)"
 ])
 
 draw_box(56, 20, 36, 18, "Reports excluded at full-text (n = 166):", [
-    "• Excluded by AMSTAR 2 item 7 (n = 20):",
+    "• Excluded per PRISMA item 16b (n = 20):",
     "  - EX3 Secondary surveys/reviews (n = 8)",
     "  - EX-n No quantitative metrics (n = 7)",
     "  - EX2 Not accessible full-text (n = 5)",

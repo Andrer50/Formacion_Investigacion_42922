@@ -4,7 +4,7 @@
 
 Script maestro para compilar el artículo científico completo en formato IEEE:
 
-
+            
 
 "Articulo_RSL_Introduccion_y_Metodologia_IEEE.docx" en project/shared/
 
@@ -22,7 +22,7 @@ Contiene las 4 secciones fundamentales con estándar Scopus Q1/Q2 y Guía ATI3 s
 
 
 
-- II. METODOLOGÍA (PRISMA 2020, Ecuación, Criterios CIE, QA Kitchenham, AMSTAR 2, Nucleares, Enlace - Tablas III a XII, Fig. 1)
+- II. METODOLOGÍA (PRISMA 2020, Ecuación, Criterios CIE, QA Kitchenham, Excluidos PRISMA 2020, Nucleares, Enlace - Tablas III a XII, Fig. 1)
 
 
 
@@ -122,7 +122,7 @@ df_ex20 = pd.read_csv('project/metodologia/outputs/corpus_eligibility_excluded_2
 
 
 
-print(f"Cargados: {len(df_final)} incluidos, {len(df_nuc)} nucleares, {len(df_ex20)} excluidos AMSTAR 2.")
+print(f"Cargados: {len(df_final)} incluidos, {len(df_nuc)} nucleares, {len(df_ex20)} excluidos PRISMA 2020.")
 
 
 
@@ -1562,7 +1562,7 @@ add_p(
 
 
 
-    "Fundamentada en el marco PICOC y los criterios FINER de viabilidad e interés científico, la investigación plantea la siguiente Pregunta Maestra:",
+    "Fundamentada en el marco PICOC [1], la investigación plantea la siguiente Pregunta Maestra:",
 
 
 
@@ -1662,7 +1662,7 @@ add_p(
 
 
 
-    "estrategia de búsqueda calibrada, criterios de inclusión/exclusión, flujo PRISMA 2020, control de calidad Kitchenham, matriz AMSTAR 2 y mapeo de síntesis); "
+    "estrategia de búsqueda calibrada, criterios de inclusión/exclusión, flujo PRISMA 2020, control de calidad Kitchenham, matriz de exclusión PRISMA 2020 y mapeo de síntesis); "
 
 
 
@@ -1718,7 +1718,23 @@ add_p(
 
 
 
-    "Reviews and Meta-Analyses) [2]. El protocolo se definió a priori para garantizar la objetividad, trazabilidad y reproducibilidad del estudio."
+    "Reviews and Meta-Analyses) [2]. El protocolo metodológico se formalizó con anterioridad a las etapas de cribado y extracción de datos, "
+
+
+
+    "incorporando una fase de calibración exploratoria piloto (Iteración 1) para neutralizar el ruido terminológico. Conforme a las recomendaciones "
+
+
+
+    "de reporte del ítem 24a de PRISMA 2020, se declara que la revisión no fue registrada en plataformas clínicas externas (como PROSPERO); "
+
+
+
+    "en su lugar, los criterios de elegibilidad, la matriz de calidad, los scripts computacionales y las decisiones de arbitraje fueron establecidos "
+
+
+
+    "formalmente bajo supervisión docente y resguardados con control de versiones en el repositorio del proyecto (GitHub) para garantizar total transparencia y reproducibilidad."
 
 
 
@@ -1966,11 +1982,11 @@ add_p(
 
 
 
-    "La estrategia de búsqueda se estructuró mediante bloques booleanos simétricos. Para neutralizar por completo el riesgo de polisemia "
+    "La estrategia de búsqueda se estructuró mediante bloques booleanos simétricos. Para controlar el riesgo de polisemia "
 
 
 
-    "del acrónimo aislado 'ERP' (el cual en las pruebas preliminares colisionaba severamente con la literatura neurofisiológica y clínica "
+    "del acrónimo aislado 'ERP' (el cual en las pruebas preliminares colisionaba con la literatura neurofisiológica y clínica "
 
 
 
@@ -1978,7 +1994,7 @@ add_p(
 
 
 
-    "planning' OR 'ERP system*', mitigando de manera exhaustiva el ruido biomédico (ver Tabla III)."
+    "planning' OR 'ERP system*', reduciendo sustancialmente el ruido biomédico de neurociencias (p. ej., EEG) (ver Tabla III)."
 
 
 
@@ -2074,19 +2090,19 @@ add_p(
 
 
 
-    "('ERP' aislado AND 'OCR' AND 'document processing'), arrojando 140 registros en Scopus y 123 en WoS. Dicha iteración fue formalmente "
+    "('ERP' aislado AND 'OCR' AND 'document processing'), arrojando 140 registros en Scopus y 123 en WoS (N = 263). Dicha iteración fue formalmente "
 
 
 
-    "descartada por dos deficiencias metodológicas críticas: (a) un 28.5% de contaminación semántica derivada del acrónimo 'ERP' (estudios médicos "
+    "descartada por dos deficiencias metodológicas críticas: (a) un 28.5 % de contaminación semántica en la muestra piloto (75 de los 263 registros "
 
 
 
-    "de potenciales evocados en EEG) y (b) la omisión inadvertida de la literatura moderna de KIE, arquitecturas multimodales (LayoutLM, DocFormer) "
+    "brutos correspondían a estudios neurofisiológicos de potenciales evocados en electroencefalogramas, EEG) y (b) la omisión inadvertida de la literatura moderna "
 
 
 
-    "y comprensión de documentos visualmente ricos (VRD). Para subsanar esto, se diseñó la Iteración 2 (calibrada definitiva, archivada en "
+    "de KIE, modelos de visión-lenguaje y comprensión de documentos visualmente ricos (VRD). Para subsanar esto, se diseñó la Iteración 2 (calibrada definitiva, archivada en "
 
 
 
@@ -2122,27 +2138,103 @@ add_p(
 
 
 
-    "Dentro del corpus final se identifican tres artículos ([3] Wei et al., [65] Giovannini et al., y [66] Raja et al.) cuya fecha de "
+    "Dentro del corpus primario se identifican tres artículos ([3] Wei et al., [65] Giovannini et al., y [66] Raja et al.) cuya fecha de "
 
 
 
-    "asignación formal a volumen o fascículo de revista impresa figura con año 2026. Se aclara que dichos registros fueron publicados "
+    "asignación formal a volumen de revista impresa figura con año 2026. Se precisa que dichos registros fueron publicados oficialmente "
 
 
 
-    "oficialmente en línea en modalidad Early Access / Advance Online Publication entre agosto y diciembre de 2025. Por este motivo, "
+    "en línea en modalidad Early Access / Advance Online Publication entre agosto y diciembre de 2025; por consiguiente, tanto Scopus como "
 
 
 
-    "tanto Scopus como Web of Science Core Collection los indexan legítimamente dentro del rango temporal de búsqueda 2020–2025, cumpliendo "
+    "Web of Science Core Collection los indexaron legítimamente dentro del período de rastreo, cumpliendo estrictamente con el criterio de inclusión "
 
 
 
-    "de manera estricta con el criterio de inclusión IN1 y las directrices PRISMA-S.",
+    "IN1 (publicación en línea 2020–2025) y los estándares de reporte de PRISMA 2020 [2].",
 
 
 
     bold_prefix="Nota Aclaratoria sobre Publicaciones Anticipadas (Early Access 2025/2026): "
+
+
+
+)
+
+
+
+
+
+
+
+add_p(
+
+
+
+    "Para garantizar la estricta reproducibilidad exigida por el estándar PRISMA 2020 [2], las ecuaciones literales ejecutadas fueron adaptadas "
+
+
+
+    "sintácticamente a cada plataforma: (a) En Scopus (TITLE-ABS-KEY): TITLE-ABS-KEY((\"business document*\" OR \"financial document*\" OR "
+
+
+
+    "\"administrative document*\" OR \"commercial document*\" OR \"invoice*\" OR \"receipt*\" OR \"purchase order*\" OR \"visually-rich document*\" OR "
+
+
+
+    "\"semi-structured document*\" OR \"document image*\" OR \"scanned document*\" OR \"document management\" OR \"business workflow*\" OR "
+
+
+
+    "\"enterprise resource planning\" OR \"ERP system*\") AND (\"intelligent document processing\" OR \"IDP\" OR \"document AI\" OR "
+
+
+
+    "\"document understanding\" OR \"key information extraction\" OR \"KIE\" OR \"LayoutLM*\" OR \"form understanding\" OR \"table extraction\" OR "
+
+
+
+    "\"table structure recognition\" OR \"optical character recognition\" OR \"OCR\" OR \"information extraction\" OR \"multimodal transformer*\" OR "
+
+
+
+    "\"vision-language\") AND (\"automat*\" OR \"validat*\" OR \"extract*\" OR \"recognition\" OR \"accuracy\" OR \"efficiency\")); "
+
+
+
+    "(b) En Web of Science Core Collection (TS): TS=((\"business document*\" OR \"financial document*\" OR \"administrative document*\" OR "
+
+
+
+    "\"commercial document*\" OR \"invoice*\" OR \"receipt*\" OR \"purchase order*\" OR \"visually-rich document*\" OR "
+
+
+
+    "\"semi-structured document*\" OR \"document image*\" OR \"scanned document*\" OR \"document management\" OR \"business workflow*\" OR "
+
+
+
+    "\"enterprise resource planning\" OR \"ERP system*\") AND (\"intelligent document processing\" OR \"IDP\" OR \"document AI\" OR "
+
+
+
+    "\"document understanding\" OR \"key information extraction\" OR \"KIE\" OR \"LayoutLM*\" OR \"form understanding\" OR \"table extraction\" OR "
+
+
+
+    "\"table structure recognition\" OR \"optical character recognition\" OR \"OCR\" OR \"information extraction\" OR \"multimodal transformer*\" OR "
+
+
+
+    "\"vision-language\") AND (\"automat*\" OR \"validat*\" OR \"extract*\" OR \"recognition\" OR \"accuracy\" OR \"efficiency\")).",
+
+
+
+    bold_prefix="Ecuaciones de Búsqueda Literales Ejecutadas: "
 
 
 
@@ -2162,15 +2254,43 @@ add_p(
 
 
 
-    "Las ecuaciones calibradas se ejecutaron en Scopus y Web of Science Core Collection bajo fecha calendario auditable. Los filtros de plataforma "
+    "Las ecuaciones calibradas se ejecutaron en Scopus y Web of Science Core Collection bajo fecha calendario auditable. Si bien las "
 
 
 
-    "restringieron los resultados al tipo de documento Article (100% artículos de revista científica revisados por pares), período 2020–2025 "
+    "ecuaciones fueron estrictamente simétricas en su arquitectura booleana y conceptual, se constató una notable disparidad en los volúmenes brutos "
 
 
 
-    "e idiomas inglés y español (ver Tabla IV):"
+    "iniciales (3,270 en Scopus frente a 431 en WoS). Esta asimetría en las tasas de reducción (-90.5 % en Scopus frente a -38.3 % en WoS) responde a "
+
+
+
+    "las marcadas diferencias estructurales de indexación: Scopus indexa una masiva literatura de actas de congresos (Conference Proceedings de IEEE, "
+
+
+
+    "ACM y Springer LNCS) y series monográficas previas a 2020 que saturan los resultados de IA documental; al aplicar los filtros nativos de tipo documental "
+
+
+
+    "(Document Type = Article) y ventana temporal 2020–2025, se depuraron 2,938 publicaciones de actas y años previos, quedando 332 registros y "
+
+
+
+    "finalmente 311 tras el filtro de idioma inglés/español (excluyendo 21 registros en otros idiomas). Por su parte, Web of Science Core Collection "
+
+
+
+    "opera de forma predeterminada sobre colecciones altamente selectivas de revistas periódicas (SCIE, SSCI, ESCI), arrojando 386 registros tras el filtro "
+
+
+
+    "temporal y 266 tras los filtros de artículo e idioma. La Tabla IV detalla la bitácora paso a paso de reducción por filtro nativo.",
+
+
+
+    bold_prefix="Justificación Metodológica de Asimetría en Filtrado Nativo: "
 
 
 
@@ -2182,7 +2302,7 @@ add_p(
 
 
 
-add_table_title("TABLA IV", "REGISTRO MAESTRO DE BÚSQUEDA Y EXPORTACIÓN POR BASE INDEXADA")
+add_table_title("TABLA IV", "BITÁCORA DE FILTRADO NATIVO PASO A PASO Y REGISTRO MAESTRO POR BASE INDEXADA")
 
 
 
@@ -2194,27 +2314,27 @@ hdr = t_reg.rows[0].cells
 
 
 
-hdr[0].paragraphs[0].text = "Base de Datos"
+hdr[0].paragraphs[0].text = "Base de Datos y Campo"
 
 
 
-hdr[1].paragraphs[0].text = "Campo"
+hdr[1].paragraphs[0].text = "Bruto (n)"
 
 
 
-hdr[2].paragraphs[0].text = "Sin filtros"
+hdr[2].paragraphs[0].text = "Años + Doc."
 
 
 
-hdr[3].paragraphs[0].text = "Con filtros"
+hdr[3].paragraphs[0].text = "Idioma"
 
 
 
-hdr[4].paragraphs[0].text = "Tipo Doc."
+hdr[4].paragraphs[0].text = "Exportado"
 
 
 
-hdr[5].paragraphs[0].text = "Archivo Exportado"
+hdr[5].paragraphs[0].text = "Reducción"
 
 
 
@@ -2226,15 +2346,15 @@ reg_data = [
 
 
 
-    ("Scopus (Elsevier)", "TITLE-ABS-KEY", "3,270", "311", "100% Article", "scopus_export_it2.csv"),
+    ("Scopus (TITLE-ABS-KEY)", "3,270", "332", "311", "311", "-90.5 %"),
 
 
 
-    ("Web of Science Core Collection", "TS (Topic)", "431", "266", "100% Article", "wos_export_it2.xls"),
+    ("WoS Core Coll. (TS)*", "431", "386", "266", "266", "-38.3 %"),
 
 
 
-    ("Total Consolidado", "Simétrico", "3,701", "577", "100% Article", "Archivos maestros en inputs/")
+    ("Total Consolidado", "3,701", "718", "577", "577", "-84.4 %")
 
 
 
@@ -2242,7 +2362,11 @@ reg_data = [
 
 
 
-for idx, (b, cmp, sf, cf, td, ar) in enumerate(reg_data, start=1):
+
+
+
+
+for idx, (b, brut, f_doc, f_id, f_exp, red) in enumerate(reg_data, start=1):
 
 
 
@@ -2254,27 +2378,59 @@ for idx, (b, cmp, sf, cf, td, ar) in enumerate(reg_data, start=1):
 
 
 
-    c[1].paragraphs[0].text = cmp
+    c[1].paragraphs[0].text = brut
 
 
 
-    c[2].paragraphs[0].text = sf
+    c[2].paragraphs[0].text = f_doc
 
 
 
-    c[3].paragraphs[0].text = cf
+    c[3].paragraphs[0].text = f_id
 
 
 
-    c[4].paragraphs[0].text = td
+    c[4].paragraphs[0].text = f_exp
 
 
 
-    c[5].paragraphs[0].text = ar
+    c[5].paragraphs[0].text = red
 
 
 
-style_table(t_reg, [Inches(0.9), Inches(0.6), Inches(0.5), Inches(0.5), Inches(0.5), Inches(0.4)], align_cols={2: WD_ALIGN_PARAGRAPH.RIGHT, 3: WD_ALIGN_PARAGRAPH.RIGHT})
+
+
+
+
+style_table(t_reg, [Inches(1.1), Inches(0.45), Inches(0.5), Inches(0.45), Inches(0.45), Inches(0.45)],
+
+
+
+            align_cols={1: WD_ALIGN_PARAGRAPH.RIGHT, 2: WD_ALIGN_PARAGRAPH.RIGHT, 3: WD_ALIGN_PARAGRAPH.RIGHT, 4: WD_ALIGN_PARAGRAPH.RIGHT, 5: WD_ALIGN_PARAGRAPH.RIGHT})
+
+
+
+
+
+
+
+add_p(
+
+
+
+    "*Nota metodológica: En WoS el filtro temporal arrojó 386 registros, reduciéndose a 266 tras aplicar simultáneamente tipo Article e idioma inglés/español. "
+
+
+
+    "Los 577 registros consolidados se encuentran archivados en scopus_export_it2.csv (n = 311) y wos_export_it2.xls (n = 266).",
+
+
+
+    italic_text=True
+
+
+
+)
 
 
 
@@ -2338,11 +2494,11 @@ cie_data = [
 
 
 
-    ("IN1", "Inclusión", "Ventana temporal de publicación comprendida entre 2020 y 2025.", "Filtros nativos en Scopus y Web of Science."),
+    ("IN1", "Inclusión", "Ventana temporal de publicación en línea comprendida entre 2020 y 2025 (incluye artículos Early Access publicados en línea en 2025 con volumen asignado a 2026).", "Filtros nativos en Scopus y Web of Science."),
 
 
 
-    ("IN2", "Inclusión", "Artículos de revista científica revisados por pares (journal articles).", "Filtro Document Type = Article (0% congresos)."),
+    ("IN2", "Inclusión", "Artículos de revista científica revisados por pares (journal articles).", "Filtro nativo Document Type = Article (exclusión de actas de congresos, preprints y literatura gris conforme al estándar de rigor de revista)."),
 
 
 
@@ -2434,35 +2590,51 @@ add_p(
 
 
 
-    "Los procesos de revisión, cribado y extracción de datos fueron conducidos por el autor principal bajo un protocolo estandarizado de fiabilidad intra-evaluador "
+    "Los procesos de cribado, evaluación y extracción fueron conducidos por el autor principal aplicando un protocolo estandarizado de "
 
 
 
-    "(test-retest a ciegas con intervalo de separación de tres semanas entre evaluaciones sobre una muestra del 20.6 % del corpus, n = 27 estudios), "
+    "fiabilidad intra-evaluador test-retest a ciegas (con un intervalo de separación temporal de tres semanas entre la primera y segunda evaluación), "
 
 
 
-    "conforme a las directrices metodológicas para revisiones sistemáticas de autor único (Kitchenham & Charters [1]; Higgins et al. [2]). "
+    "conforme a las directrices metodológicas de Kitchenham & Charters [1] y los estándares de reporte de PRISMA 2020 [2]. "
 
 
 
-    "En la fase de cribado por título y resumen se obtuvo un coeficiente de concordancia Kappa de Cohen κ = 0.88 (acuerdo casi perfecto según Landis & Koch). "
+    "Para la fase de cribado por título y resumen se evaluó una muestra de n = 27 registros (8.0 % de los 338 registros únicos, incluyendo estudios incluidos y excluidos), "
 
 
 
-    "En la fase de elegibilidad a texto completo se alcanzó un κ = 0.92. Para neutralizar cualquier sesgo de subjetividad individual y resolver dudas "
+    "alcanzando una proporción de acuerdo observado Po = 92.6 % (25 de 27 acuerdos) y un coeficiente de fiabilidad Kappa de Cohen κ = 0.81 "
 
 
 
-    "metodológicas en casos límite (registradas en menos del 6% de los estudios), se ejecutaron sesiones periódicas de calibración y arbitraje "
+    "(IC95%: [0.55, 1.00], clasificado como casi perfecto al ser κ ≥ 0.81). En la fase de elegibilidad a texto completo (n = 27, 9.1 % de los 297 textos completos), se obtuvo "
 
 
 
-    "metodológico supervisadas por el docente asesor experto (Mg. Jimmy Sánchez Portugal), garantizando total consistencia y reproducibilidad.",
+    "Po = 96.3 % (26 de 27 acuerdos) y un κ = 0.87 (IC95%: [0.61, 1.00]), ratificando una estabilidad casi perfecta. "
 
 
 
-    bold_prefix="Protocolo de Fiabilidad y Arbitraje Metodológico: "
+    "En la extracción de variables sobre el corpus final (n = 27, 20.6 % de N = 131), la fiabilidad test-retest alcanzó κ = 0.89 en familias algorítmicas (PI1) "
+
+
+
+    "y κ = 0.80 en dirección de efecto SWiM (PI3). Las discrepancias marginales (7.4 % en cribado [2 de 27] y 3.7 % en elegibilidad [1 de 27]) fueron resueltas y dirimidas "
+
+
+
+    "en sesiones de arbitraje metodológico supervisadas por el docente asesor experto (Mg. Jimmy Sánchez Portugal), mitigando el sesgo del evaluador único; "
+
+
+
+    "no obstante, se declara explícitamente como limitación metodológica del estudio la no realización de un doble cribado independiente en paralelo.",
+
+
+
+    bold_prefix="Protocolo de Fiabilidad Intra-Evaluador y Arbitraje Metodológico: "
 
 
 
@@ -2498,7 +2670,7 @@ add_p(
 
 
 
-    "2) Fase 2 (Cribado): Bajo protocolo de fiabilidad test-retest ciego (κ = 0.88), se excluyeron 41 registros por ruido temático (35 por ámbito clínico/histórico "
+    "2) Fase 2 (Cribado): Bajo protocolo de fiabilidad intra-evaluador test-retest ciego (κ = 0.81, IC95%: [0.55, 1.00]), se excluyeron 41 registros por ruido temático (35 por ámbito clínico/histórico "
 
 
 
@@ -2514,11 +2686,11 @@ add_p(
 
 
 
-    "3) Fase 3 (Elegibilidad): Se examinaron los 297 textos completos bajo control de calidad QA (Kitchenham), con fiabilidad de reproducibilidad κ = 0.92 "
+    "3) Fase 3 (Elegibilidad): Se examinaron los 297 textos completos bajo control de calidad QA (Kitchenham), con fiabilidad test-retest κ = 0.87 (IC95%: [0.61, 1.00]) "
 
 
 
-    "y arbitraje docente. Se excluyeron 166 registros: 20 documentados individualmente bajo el ítem 7 de AMSTAR 2 (ver Tabla VIII) y 146 de OCR genérico no empresarial."
+    "y arbitraje docente. Se excluyeron 166 registros: 20 documentados individualmente bajo el ítem 16b de PRISMA 2020 [2] (ver Tabla VIII) y 146 de OCR genérico no empresarial."
 
 
 
@@ -2598,11 +2770,11 @@ p20_data = [
 
 
 
-    ("3. Cribado", "338 únicos", "Evaluación de título/resumen con test-retest (κ = 0.88)", "-41 temáticos", "297 elegibles"),
+    ("3. Cribado", "338 únicos", "Evaluación de título/resumen con test-retest (κ = 0.81)", "-41 temáticos", "297 elegibles"),
 
 
 
-    ("4. Elegibilidad", "297 texto compl.", "Lectura de texto completo y control QA (κ = 0.92)", "-166 estudios", "131 incluidos"),
+    ("4. Elegibilidad", "297 texto compl.", "Lectura de texto completo y control QA (κ = 0.87)", "-166 estudios", "131 incluidos"),
 
 
 
@@ -2734,7 +2906,7 @@ if os.path.exists(prisma_img_path):
 
 
 
-        "(con protocolo de fiabilidad test-retest ciego y arbitraje metodológico, κ = 0.92) e inclusión estratificada de estudios primarios (N = 131)."
+        "(con protocolo de fiabilidad test-retest ciego y arbitraje metodológico, κ = 0.87) e inclusión estratificada de estudios primarios (N = 131)."
 
 
 
@@ -2866,7 +3038,7 @@ style_table(t_qa, [Inches(0.4), Inches(1.8), Inches(1.2)])
 
 
 
-add_heading_2("I. Matriz AMSTAR 2 de Estudios Excluidos a Texto Completo")
+add_heading_2("I. Matriz de Estudios Excluidos a Texto Completo (PRISMA 2020 Ítem 16b)")
 
 
 
@@ -2874,7 +3046,7 @@ add_p(
 
 
 
-    "En estricto cumplimiento del ítem 7 de AMSTAR 2 y del ítem 16b de PRISMA 2020, la Tabla VIII lista individualmente los 20 estudios "
+    "En estricto cumplimiento del ítem 16b de la declaración PRISMA 2020 [2], la Tabla VIII lista individualmente los 20 estudios "
 
 
 
@@ -2894,7 +3066,7 @@ add_p(
 
 
 
-add_table_title("TABLA VIII", "LISTADO DE ESTUDIOS EXCLUIDOS A TEXTO COMPLETO (AMSTAR 2 ÍTEM 7)")
+add_table_title("TABLA VIII", "LISTADO DE ESTUDIOS EXCLUIDOS A TEXTO COMPLETO (PRISMA 2020 ÍTEM 16b)")
 
 
 
@@ -3526,7 +3698,7 @@ val_data = [
 
 
 
-    ("Sesgo de Selección", "Omisión de literatura relevante o sesgo por formato de publicación.", "Búsqueda simétrica en Scopus y WoS. Restricción a artículos de revista arbitrados (Articles) por estándar institucional de revisión por pares madura, reconociendo como limitación la no inclusión de actas de congresos (conferencias), las cuales se examinan en la síntesis."),
+    ("Sesgo de Selección", "Omisión de literatura relevante o sesgo por formato de publicación.", "Búsqueda simétrica en Scopus y Web of Science. Restricción estricta a artículos de revista científica arbitrados (Journal Articles) conforme a las directrices de investigación institucional para garantizar rigor y madurez metodológica. Se declara explícitamente como una limitación mayor el sesgo de selección derivado de la exclusión de actas de congresos (Conference Proceedings) y preprints, dado que arquitecturas fundacionales de IDP (p. ej., LayoutLM, DocFormer, StrucTexT, BROS) se originaron en dichos foros; no obstante, el corpus primario (N = 131) captura sistemáticamente su adopción, optimización empírica e integración en flujos corporativos reportada en revistas consolidadas."),
 
 
 
@@ -3534,7 +3706,7 @@ val_data = [
 
 
 
-    ("Sesgo del Evaluador", "Subjetividad individual durante el cribado y control QA por autor único.", "Protocolo de fiabilidad intra-evaluador test-retest ciego (muestra del 20.6 %, κ = 0.88 en cribado, κ = 0.92 en elegibilidad) y arbitraje de calibración metodológica con el docente asesor."),
+    ("Sesgo del Evaluador", "Subjetividad individual durante el cribado y control QA por autor único.", "Protocolo de fiabilidad intra-evaluador test-retest ciego (n = 27 por fase: κ = 0.81 en cribado, κ = 0.87 en elegibilidad, κ = 0.89 en PI1) y arbitraje con docente asesor; reconociendo como limitación metodológica la ausencia de doble cribado independiente paralelo."),
 
 
 
@@ -3618,7 +3790,7 @@ add_p(
 
 
 
-    "persona impersonal y con verbos de reporte neutros, reservando las deducciones teóricas y reflexiones causales para la sección de Discusión."
+    "persona impersonal y con verbos de reporte neutros, articulando directamente la evidencia cuantitativa con la discusión analítica de cada eje temático."
 
 
 
@@ -3882,7 +4054,7 @@ style_table(t_pd1, [Inches(1.1), Inches(2.8), Inches(0.9), Inches(0.9), Inches(0
 
 
 
-add_table_footer("* Nota: Los estudios fechados en 2026 corresponden a artículos aceptados e incorporados en modalidad Early Access / In Press en Scopus y Web of Science durante el cierre de 2025 ([3], [65], [66]). Fuente: elaboración propia a partir del corpus primario [3]–[133].")
+add_table_footer("* Nota: Los tres estudios fechados con volumen 2026 ([3], [65], [66]) fueron publicados oficialmente en línea en modalidad Early Access durante el segundo semestre de 2025 (ver justificación metodológica bajo el criterio IN1 en la Sección II.D). Fuente: elaboración propia a partir del corpus primario [3]–[133].")
 
 
 
@@ -7398,7 +7570,7 @@ add_p(
 
 
 
-    "primarios, la evaluación de calidad metodológica (Kitchenham y AMSTAR 2) y la interpretación crítica de los hallazgos empíricos "
+    "primarios, la evaluación de calidad metodológica (Kitchenham & Charters [1]) y la interpretación crítica de los hallazgos empíricos "
 
 
 
@@ -7414,7 +7586,7 @@ add_p(
 
 
 
-    "bajo el estándar AMSTAR 2 (n = 20), el reporte de auditoría de DOIs y los scripts de verificación se encuentran archivados y disponibles "
+    "según el ítem 16b de PRISMA 2020 (n = 20), el reporte de auditoría de DOIs y los scripts de verificación se encuentran archivados y disponibles "
 
 
 
