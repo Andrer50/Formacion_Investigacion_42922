@@ -22,7 +22,7 @@ ax.text(50, 95.7, "PRISMA 2020 Flow Diagram: Systematic Literature Review", ha='
 
 # Left Phase Banners
 phases = [
-    ("IDENTIFICATION", 77, 14),
+    ("IDENTIFICATION", 75, 16),
     ("SCREENING", 55, 18),
     ("ELIGIBILITY", 32, 18),
     ("INCLUDED", 2, 26)
@@ -47,22 +47,24 @@ def draw_box(x, y, w, h, title, lines, align='left', bg=color_box_fill, title_co
         curr_y -= 2.4
 
 # 1. Identification Phase
-draw_box(12, 77, 36, 14, "Records identified from:", [
-    "• Scopus database (n = 311)",
-    "• Web of Science Core Coll. (n = 266)",
-    "Total peer-reviewed articles (n = 577)"
+draw_box(12, 75, 36, 16, "Records identified from databases:", [
+    "• Scopus database (n = 3,270)",
+    "• Web of Science Core Coll. (n = 431)",
+    "Total raw records identified (n = 3,701)"
 ])
 
-draw_box(56, 78, 36, 12, "Records removed before screening:", [
+draw_box(56, 75, 36, 16, "Records removed before screening:", [
+    "• Platform automation limits (n = 3,124)",
+    "  (Document Type != Article, 2020–2026)",
     "• Duplicate records removed (n = 239)",
     "  (matched by DOI and normalized title)"
 ])
 
-# Arrow 1: ID -> Dup
-ax.annotate('', xy=(56, 84), xytext=(48, 84), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
+# Arrow 1: ID -> Dup/Removed
+ax.annotate('', xy=(56, 83), xytext=(48, 83), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
 
 # Arrow 2: ID -> Screening
-ax.annotate('', xy=(30, 69), xytext=(30, 77), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
+ax.annotate('', xy=(30, 69), xytext=(30, 75), arrowprops=dict(arrowstyle="->", lw=1.5, color=color_arrow))
 
 # 2. Screening Phase
 draw_box(12, 59, 36, 10, "Records screened by title/abstract:", [
