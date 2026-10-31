@@ -213,7 +213,7 @@ ESTRATIFICACIÓN DE CALIDAD METODOLÓGICA (QA) Y ANÁLISIS DE CUMPLIMIENTO POR C
 ```
 | Nivel de Calidad Metodológica | Rango de Puntaje (Máx. 5.0) | Estudios en Corpus [n] | Frecuencia Relativa (%) | Función Metodológica en la Síntesis |
 | :--- | :---: | :---: | :---: | :--- |
-| **Calidad Alta** | 4.5 – 5.0 pts | 108 | 82.4 % | Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares paradigmáticos con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6]). |
+| **Calidad Alta** | 4.5 – 5.0 pts | 108 | 82.4 % | Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares de referencia con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6]). |
 | **Calidad Media** | 4.0 pts | 13 | 9.9 % | Estudios que satisfacen el protocolo con cumplimientos parciales menores; retenidos en el análisis de sensibilidad. |
 | **Calidad Moderada / Estrato Inferior\*** | 3.5 pts | 10 | 7.6 % | Grupo de exclusión temporal en el Análisis de Sensibilidad (Paso 8): [116], [117], [118], [121], [122], [123], [127], [128], [132], [133]. |
 | **Total Corpus Primario** | **Media = 4.61 / 5.00** | **131** | **100.0 %** | Mínimo registrado: 3.50 pts; Máximo: 5.00 pts; Desviación estándar: ±0.41 pts. |

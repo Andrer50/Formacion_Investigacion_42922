@@ -2686,11 +2686,27 @@ add_p(
 
 
 
-    "3) Fase 3 (Elegibilidad): Se examinaron los 297 textos completos bajo control de calidad QA (Kitchenham), con fiabilidad test-retest κ = 0.87 (IC95%: [0.61, 1.00]) "
+    "3) Fase 3 (Elegibilidad): Se examinaron los 297 textos completos aplicando los criterios de elegibilidad y el instrumento QA (Kitchenham), "
 
 
 
-    "y arbitraje docente. Se excluyeron 166 registros: 20 documentados individualmente bajo el ítem 16b de PRISMA 2020 [2] (ver Tabla VIII) y 146 de OCR genérico no empresarial."
+    "con fiabilidad test-retest κ = 0.87 (IC95%: [0.61, 1.00]) y arbitraje docente. Se excluyeron 166 registros: 20 estudios candidatos con justificación "
+
+
+
+    "individual detallada bajo el ítem 16b de PRISMA 2020 [2] (ver Tabla VIII) y 146 registros descartados bajo la causal operativa IN4 / EX-n "
+
+
+
+    "(investigaciones de OCR genérico de caracteres o visión por computadora sin validación en flujos documentales empresariales, cuyo inventario "
+
+
+
+    "completo se encuentra depositado en el repositorio auditable del estudio). El QA operó como instrumento de caracterización y estratificación, "
+
+
+
+    "constatándose que todos los estudios que satisficieron los criterios temáticos superaron holgadamente el umbral formal de QA >= 3.0 / 5.0."
 
 
 
@@ -2702,15 +2718,15 @@ add_p(
 
 
 
-    "4) Fase 4 (Inclusión): El corpus primario final comprende N = 131 estudios de revista científica (100% Journal Articles), distribuidos orgánicamente "
+    "4) Fase 4 (Inclusión): El corpus primario final comprende N = 131 estudios de revista científica (100% Journal Articles), estratificados "
 
 
 
-    "en 4 estudios nucleares paradigmáticos (4/4), 59 estudios de soporte avanzado (4/4), 49 estudios de soporte temático (3/4), 17 de soporte "
+    "según su amplitud de cobertura de preguntas de investigación en 4 estudios nucleares de referencia cualitativa (4/4), 59 estudios de soporte avanzado (4/4), "
 
 
 
-    "algorítmico (2/4) y 2 de contextualización (1/4)."
+    "49 estudios de soporte temático (3/4), 17 de soporte algorítmico (2/4) y 2 de contextualización (1/4)."
 
 
 
@@ -2930,7 +2946,7 @@ add_p(
 
 
 
-    "Siguiendo las pautas de Kitchenham & Charters (2007), se formuló un instrumento de calidad metodológica compuesto por cinco "
+    "Siguiendo las pautas de Kitchenham & Charters (2007) [1], se formuló un instrumento de calidad metodológica compuesto por cinco "
 
 
 
@@ -2938,11 +2954,23 @@ add_p(
 
 
 
-    "mínimo de inclusión de QA >= 3.0 / 5.0 (ver Tabla VII). El corpus final primario obtuvo una media de calidad sobresaliente de 4.61 / 5.0 "
+    "mínimo de protocolo fijado a priori en QA >= 3.0 / 5.0 (ver Tabla VII). Dicho instrumento no operó como un filtro de exclusión fáctico "
 
 
 
-    "(mínimo = 3.50, máximo = 5.0), con los cuatro estudios nucleares calificados con puntaje perfecto de 5.0 / 5.0."
+    "(dado que la totalidad de los estudios que satisficieron los criterios temáticos superaron holgadamente el corte, con un puntaje mínimo observado "
+
+
+
+    "de 3.50), sino como una herramienta de caracterización descriptiva, estratificación de evidencia y base para el análisis de sensibilidad. "
+
+
+
+    "El corpus primario alcanzó una media de calidad metodológica de 4.61 / 5.0 (DE = ±0.41), con los cuatro estudios nucleares obteniendo la "
+
+
+
+    "calificación máxima de 5.0 / 5.0."
 
 
 
@@ -3046,15 +3074,31 @@ add_p(
 
 
 
-    "En estricto cumplimiento del ítem 16b de la declaración PRISMA 2020 [2], la Tabla VIII lista individualmente los 20 estudios "
+    "En estricto cumplimiento del ítem 16b de la declaración PRISMA 2020 [2], de los 166 registros descartados en la fase de elegibilidad a texto completo, "
 
 
 
-    "excluidos durante la lectura a texto completo que a priori cumplían con los criterios de búsqueda pero no satisficieron los requerimientos "
+    "la Tabla VIII lista individualmente los 20 estudios candidatos que a priori abordaban la problemática pero no satisficieron los requerimientos de "
 
 
 
-    "de elegibilidad primaria, consignando sus autores completos, base de origen, código y justificación técnica sin truncamientos:"
+    "elegibilidad primaria (8 revisiones secundarias EX3, 7 sin métricas cuantitativas empíricas EX-n y 5 sin acceso a texto completo EX2), "
+
+
+
+    "consignando sus autores completos, base de origen, código y justificación técnica sin truncamientos. Los 146 registros restantes fueron excluidos "
+
+
+
+    "bajo el criterio IN4 / EX-n por corresponder a modelos de OCR genérico a nivel de carácter o visión artificial sin validación en tipologías "
+
+
+
+    "documentales de negocio (facturas, recibos, formularios o balances); su catálogo bibliográfico auditable completo (corpus_eligibility_excluded_146.csv) "
+
+
+
+    "se encuentra disponible en el repositorio abierto de datos de la investigación conforme a las directrices de reporte PRISMA 2020."
 
 
 
@@ -3130,38 +3174,25 @@ style_table(t_am, [Inches(1.2), Inches(0.4), Inches(0.3), Inches(1.5)], font_siz
 
 
 
-add_heading_2("J. Caracterización de los 4 Estudios Nucleares Paradigmáticos (100% Revista)")
+add_heading_2("J. Caracterización de los 4 Estudios Nucleares de Mayor Puntaje QA y Cobertura Integral (100% Revista)")
 
 
 
 add_p(
-
-
-
-    "A partir de la evaluación de calidad metodológica aplicada a los estudios primarios del corpus, en la cual obtuvieron la calificación máxima (QA = 5.0 / 5.0) "
-
-
-
-    "y la cobertura integral de las cuatro preguntas temáticas (PI1 a PI4), se seleccionaron cuatro estudios nucleares paradigmáticos de alto impacto (Q1/Q2) "
-
-
-
-    "aplicando un criterio metodológico de muestreo de máxima variación y representatividad estructural (Maximum Variation Sampling). Dicha selección garantiza que "
-
-
-
-    "cada una de las cuatro familias algorítmicas predominantes (Transformers/VLMs [3], LLMs con ingeniería de prompts [4], Deep Learning con visión computacional [5] "
-
-
-
-    "y pipelines híbridos con reglas [6]) y cada una de las cuatro tipologías documentales empresariales (gráficos/tablas, comprobantes corporativos, balances "
-
-
-
-    "financieros y recibos comerciales) estén formalmente representadas como ancla empírica de calibración para la revisión (ver Tabla IX):"
-
-
-
+    "A partir de la evaluación de calidad metodológica sobre el corpus primario, se identificaron 61 estudios con calificación "
+    "máxima (QA = 5.0 / 5.0) y cobertura integral de las cuatro preguntas temáticas (PI1 a PI4). Para conformar un núcleo de referencia "
+    "cualitativa profunda y calibración analítica sin incurrir en redundancias, se aplicó un embudo operativo sistemático basado en "
+    "muestreo de máxima variación (Maximum Variation Sampling) bajo cinco criterios sucesivos: (i) calidad metodológica máxima "
+    "(QA = 5.0 / 5.0); (ii) cobertura temática integral estricta de las cuatro preguntas formuladas (4/4 PIs); (iii) pertenencia a la "
+    "frontera temporal más reciente del corpus (bienio 2025–2026, subconjunto de 25 estudios); (iv) indexación en revistas Q1/Q2 "
+    "en Scopus / Web of Science; y (v) representatividad disjunta sobre las cuatro tipologías documentales cardinales de negocio y familias "
+    "algorítmicas de PI1. Siguiendo este protocolo se seleccionaron cuatro estudios nucleares ([3], [4], [5], [6]). Respecto al estudio [3] (Wei et al.), "
+    "se aclara que su selección obedece a la necesidad metodológica de modelar la tipología de gráficos analíticos, diagramas estadísticos y tablas complejas "
+    "embebidas en memorias financieras y reportes corporativos de negocio, donde la comprensión documental excede el texto lineal y exige "
+    "razonamiento visual multimodal. Esta tipología se complementa armónicamente con órdenes y comprobantes de compra B2B ([4]), balances "
+    "financieros tabulares heterogéneos ([5]) y recibos comerciales transaccionales B2C ([6]) (ver Tabla IX). Por su parte, las redes neuronales de grafos (GNN), "
+    "al no contar con un estudio primario en la frontera 2025–2026 con QA = 5.0 que cubriera simultáneamente las 4 PIs, se analizan exhaustivamente dentro "
+    "del corpus general de soporte (p. ej., [8], [34], [64], [66])."
 )
 
 
@@ -3170,7 +3201,7 @@ add_p(
 
 
 
-add_table_title("TABLA IX", "CARACTERIZACIÓN DE LOS 4 ESTUDIOS NUCLEARES PARADIGMÁTICOS (100% REVISTA)")
+add_table_title("TABLA IX", "CARACTERIZACIÓN DE LOS 4 ESTUDIOS NUCLEARES DE REFERENCIA CUALITATIVA (100% REVISTA)")
 
 
 
@@ -3214,7 +3245,7 @@ nuc_table_data = [
 
 
 
-    ("[S001]", "[3]", "Wei et al. (2026/2025)", "Pattern Recognition (Elsevier, Q1)", "10.1016/j.patcog.2025.112348", "VLM multimodal para QA visual sobre gráficos y tablas complejas, superando baselines de OCR tradicional."),
+    ("[S001]", "[3]", "Wei et al. (2026/2025)", "Pattern Recognition (Elsevier, Q1)", "10.1016/j.patcog.2025.112348", "VLM multimodal para QA visual sobre gráficos analíticos y tablas complejas en reportes corporativos, superando baselines de OCR tradicional."),
 
 
 
@@ -3282,11 +3313,23 @@ add_p(
 
 
 
-    "El corpus de N = 131 estudios primarios se clasificó mediante una evaluación semántica directa sobre sus variables empíricas: "
+    "El corpus de N = 131 estudios primarios se clasificó según su nivel de cobertura temática de las preguntas de investigación (PI1 a PI4): "
 
 
 
-    "Nucleares (n = 4), Soporte Temático Avanzado (n = 108), Soporte Algorítmico y de Rendimiento (n = 17) y Contextualización (n = 2). "
+    "Nucleares (n = 4; 4/4 PIs y referencia cualitativa), Soporte Avanzado (n = 59; 4/4 PIs), Soporte Temático (n = 49; 3/4 PIs), "
+
+
+
+    "Soporte Algorítmico (n = 17; 2/4 PIs) y Contextualización (n = 2; 1/4 PIs). Se aclara que esta estratificación evalúa la amplitud "
+
+
+
+    "de respuesta a las preguntas formuladas (donde PI4 exhibe cobertura del 100 % al constituir el filtro temático obligatorio de documentos de negocio), "
+
+
+
+    "distinguiéndose conceptualmente de la calidad metodológica (QA de Kitchenham), en la cual 108 estudios alcanzaron calidad alta (QA >= 4.5 pts). "
 
 
 
@@ -3298,7 +3341,7 @@ add_p(
 
 
 
-    "La Tabla X presenta una muestra representativa de 11 estudios a lo largo de los estratos evidenciando esta correspondencia perfecta:"
+    "La Tabla X presenta una muestra representativa de 11 estudios a lo largo de los estratos de cobertura temática, evidenciando esta correspondencia perfecta:"
 
 
 
@@ -3366,7 +3409,7 @@ hdr[7].paragraphs[0].text = "Total"
 
 
 
-hdr[8].paragraphs[0].text = "Estrato de Evidencia"
+hdr[8].paragraphs[0].text = "Estrato de Cobertura Temática"
 
 
 
@@ -3814,7 +3857,7 @@ add_p(
 
 
 
-    "(QA >= 3.50 / 5.00; media global = 4.61 / 5.00). Este volumen supera con holgura el umbral de suficiencia documental exigido para tecnologías "
+    "(superando el umbral formal de QA >= 3.0 / 5.0, con una media global de 4.61 / 5.0 y un rango observado entre 3.50 y 5.00 puntos). Este volumen supera con holgura el umbral de suficiencia documental exigido para tecnologías "
 
 
 
@@ -5190,7 +5233,7 @@ qas_data = [
 
 
 
-    ("Calidad Alta", "4.5 – 5.0 pts", "108", "82.4 %", "Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares paradigmáticos con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6])."),
+    ("Calidad Alta", "4.5 – 5.0 pts", "108", "82.4 %", "Núcleo empírico robusto para extracción y síntesis temática (PI1–PI4). Incluye los 4 estudios nucleares de referencia con puntaje perfecto de 5.0 / 5.0 ([3], [4], [5], [6])."),
 
 
 
