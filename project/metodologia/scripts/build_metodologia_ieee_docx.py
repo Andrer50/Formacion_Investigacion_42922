@@ -524,7 +524,7 @@ style_table(t_qa, [Inches(0.4), Inches(1.8), Inches(1.2)])
 
 add_heading_1("VII. ESTUDIOS EXCLUIDOS (AMSTAR 2 ÍTEM 7)")
 add_p(
-    "En estricto cumplimiento del ítem 7 de AMSTAR 2 y del ítem 16b de PRISMA 2020, la Tabla VIII lista individualmente "
+    "Conforme al ítem 7 de AMSTAR 2 y del ítem 16b de PRISMA 2020, la Tabla VIII lista individualmente "
     "los 20 estudios excluidos durante la lectura a texto completo que a priori parecían elegibles, detallando la referencia "
     "completa y la causal justificada de exclusión sin truncamientos:"
 )
@@ -547,7 +547,7 @@ style_table(t_am, [Inches(1.2), Inches(0.4), Inches(0.3), Inches(1.5)], font_siz
 
 add_heading_1("VIII. ESTUDIOS NUCLEARES Y MATRIZ DE MAPEO")
 add_p(
-    "El corpus final primario (N = 131) se clasifica en cuatro estratos orgánicos según su cobertura demostrada sobre "
+    "El corpus final primario (N = 131) se clasifica en cuatro estratos metodológicos según su cobertura demostrada sobre "
     "las preguntas PI1–PI4: Estudios Nucleares Insignia (4/4, n = 4, 3.1%), Estudios de Soporte Temático Avanzado (4/4 y 3/4, "
     "n = 108, 82.4%), Estudios de Soporte Algorítmico y Rendimiento (2/4, n = 17, 13.0%) y Estudios de Contextualización y "
     "Caracterización (1/4, n = 2, 1.5%)."
@@ -676,7 +676,7 @@ hdr[2].paragraphs[0].text = "Estrategia de Mitigación Implementada"
 
 val_data = [
     ("Sesgo de Selección", "Omisión de literatura relevante o inclusión de ruido ajeno.", "Búsqueda simétrica en Scopus y WoS Core Collection con ecuación calibrada libre de polisemia."),
-    ("Sesgo de Publicación", "Predominancia de literatura que reporta solo resultados favorables.", "Inclusión de artículos con reportes de limitaciones en escaneos con ruido y layouts complejos."),
+    ("Sesgo de Publicación", "Predominancia en la literatura indexada de artículos con resultados favorables (efecto file-drawer).", "Reconocido formalmente como una limitación metodológica intrínseca no mitigada por completo, asumiéndose el sesgo derivado de experimentos fallidos no publicados en la industria."),
     ("Sesgo del Evaluador", "Subjetividad individual durante el cribado y control QA.", "Evaluación en doble ciego independiente con medición Kappa (κ = 0.88 en cribado, κ = 0.92 en texto completo)."),
     ("Validez de Constructo", "Desalineación entre términos de búsqueda y conceptos reales.", "Derivación rigurosa desde la matriz PICOC e incorporación de sinónimos técnicos (KIE, VRD, LayoutLM).")
 ]

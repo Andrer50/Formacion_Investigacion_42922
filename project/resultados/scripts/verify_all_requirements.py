@@ -6,8 +6,8 @@ def verify(file_path):
         t = f.read()
 
     tests = [
-        ("1. Tabla XIV ultima fila 71 (54.2 %)", "71 (54.2 %)" in t),
-        ("1. Tabla XIV NO tiene 70 (53.4 %)", "70 (53.4 %)" not in t),
+        ("1. Tabla XIV ultima fila 71 (54.2 % o 54,2 %)", ("71 (54.2 %)" in t or "71 (54,2 %)" in t)),
+        ("1. Tabla XIV NO tiene 70 (53.4 %)", ("70 (53.4 %)" not in t and "70 (53,4 %)" not in t)),
         ("1. Texto Sec III.C.2.a 60 de 131", "60 de 131" in t),
         ("1. Texto Sec III.C.2.a NO tiene 61 de 131", "61 de 131" not in t),
         ("2. Tabla XV NO tiene Villa-García [70]", "Villa-García" not in t),
@@ -21,20 +21,20 @@ def verify(file_path):
         ("4. PI2 Bloque 3 NO Tanaka et al. [37]", "Tanaka et al. [37]" not in t),
         ("4. PI3 Bloque 3 NO Krause et al. [56]", "Krause et al. [56]" not in t),
         ("4. PI4 Bloque 3 NO Villa-García et al. [70]", "Villa-García et al. [70]" not in t),
-        ("5. PI2 SROIE 93.8 % (45 de 48)", "93.8" in t and ("45 de 48" in t or "$45$ de $48$" in t)),
-        ("5. PI2 FinTabNet 88.1 % (37 de 42)", "88.1" in t and ("37 de 42" in t or "$37$ de $42$" in t)),
-        ("5. PI2 FUNSD 95.2 % (20 de 21)", "95.2" in t and ("20 de 21" in t or "$20$ de $21$" in t)),
-        ("5. PI2 Flujos 50.0 % (3 de 6)", "50.0" in t and ("3 de 6" in t or "$3$ de $6$" in t)),
-        ("6. PI3 Mejora 97.2 % (69 de 71)", "97.2" in t and ("69 de 71" in t or "$69$ de $71$" in t)),
-        ("6. PI3 Paridad 87.5 % (7 de 8)", "87.5" in t and ("7 de 8" in t or "$7$ de $8$" in t)),
-        ("6. PI3 Empeora 66.7 % (2 de 3)", "66.7" in t and ("2 de 3" in t or "$2$ de $3$" in t)),
-        ("6. PI3 Bloque 4 69 de 78 en Mejora (88.5 %)", ("69 de 78 en Mejora" in t and "88.5" in t)),
-        ("6. PI3 Bloque 4 7 de 78 en Paridad (9.0 %)", ("7 de 78 en Paridad" in t and "9.0" in t)),
-        ("6. PI3 Bloque 4 2 de 78 en Desfavorables (2.6 %)", ("2 de 78 en Desfavorables" in t and "2.6" in t)),
-        ("7. PI4 Balances 84.7 % (50 de 59)", "84.7" in t and ("50 de 59" in t or "$50$ de $59$" in t)),
-        ("7. PI4 Facturas 85.3 % (29 de 34)", "85.3" in t and ("29 de 34" in t or "$29$ de $34$" in t)),
-        ("7. PI4 Formularios 69.2 % (18 de 26)", "69.2" in t and ("18 de 26" in t or "$18$ de $26$" in t)),
-        ("7. PI4 Recibos 91.7 % (11 de 12)", "91.7" in t and ("11 de 12" in t or "$11$ de $12$" in t)),
+        ("5. PI2 SROIE 93.8 % (45 de 48)", ("93.8" in t or "93,8" in t) and ("45 de 48" in t or "$45$ de $48$" in t)),
+        ("5. PI2 FinTabNet 88.1 % (37 de 42)", ("88.1" in t or "88,1" in t) and ("37 de 42" in t or "$37$ de $42$" in t)),
+        ("5. PI2 FUNSD 95.2 % (20 de 21)", ("95.2" in t or "95,2" in t) and ("20 de 21" in t or "$20$ de $21$" in t)),
+        ("5. PI2 Flujos 50.0 % (3 de 6)", ("50.0" in t or "50,0" in t) and ("3 de 6" in t or "$3$ de $6$" in t)),
+        ("6. PI3 Mejora 97.2 % (69 de 71)", ("97.2" in t or "97,2" in t) and ("69 de 71" in t or "$69$ de $71$" in t)),
+        ("6. PI3 Paridad 87.5 % (7 de 8)", ("87.5" in t or "87,5" in t) and ("7 de 8" in t or "$7$ de $8$" in t)),
+        ("6. PI3 Empeora 66.7 % (2 de 3)", ("66.7" in t or "66,7" in t) and ("2 de 3" in t or "$2$ de $3$" in t)),
+        ("6. PI3 Bloque 4 69 de 78 en Mejora (88.5 %)", ("69 de 78 en Mejora" in t and ("88.5" in t or "88,5" in t))),
+        ("6. PI3 Bloque 4 7 de 78 en Paridad (9.0 %)", ("7 de 78 en Paridad" in t and ("9.0" in t or "9,0" in t))),
+        ("6. PI3 Bloque 4 2 de 78 en Desfavorables (2.6 %)", ("2 de 78 en Desfavorables" in t and ("2.6" in t or "2,6" in t))),
+        ("7. PI4 Balances 84.7 % (50 de 59)", ("84.7" in t or "84,7" in t) and ("50 de 59" in t or "$50$ de $59$" in t)),
+        ("7. PI4 Facturas 85.3 % (29 de 34)", ("85.3" in t or "85,3" in t) and ("29 de 34" in t or "$29$ de $34$" in t)),
+        ("7. PI4 Formularios 69.2 % (18 de 26)", ("69.2" in t or "69,2" in t) and ("18 de 26" in t or "$18$ de $26$" in t)),
+        ("7. PI4 Recibos 91.7 % (11 de 12)", ("91.7" in t or "91,7" in t) and ("11 de 12" in t or "$11$ de $12$" in t)),
         ("8. Tabla XV Turquía Oral B. (2; [50], [64]) y Sayallar C. (1; [100])", "Oral B. (2; [50], [64])" in t and "Sayallar C. (1; [100])" in t)
     ]
 
@@ -55,4 +55,3 @@ if __name__ == '__main__':
         print(">>> TODOS LOS CHECKS VERIFICADOS AL 100 % CON EXITO EN LOS 3 ARCHIVOS <<<")
     else:
         print(">>> SE DETECTARON FALLOS EN LA VERIFICACION <<<")
-
