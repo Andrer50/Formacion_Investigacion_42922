@@ -3842,7 +3842,7 @@ add_p(
 # ------------------------------------------------------------------------------
 # 1.1 PD1: Evolución Temporal
 # ------------------------------------------------------------------------------
-add_heading_2("B. Evolución Temporal de la Producción Científica (PD1)")
+add_heading_2("B. Evolución Temporal de la Producción Científica (PD1: ¿Cómo ha evolucionado el volumen de producción científica anual sobre IA aplicada a documentos empresariales entre 2020 y 2025/2026?)")
 
 add_p(
     "Para determinar el comportamiento cronológico de la literatura sobre IA/IDP aplicada al procesamiento de documentos de negocio entre 2020 y 2025/2026, "
@@ -3888,7 +3888,7 @@ add_p(
     "Ciento treinta y un estudios (100,0 % del corpus primario; [3]–[133]) respondieron a la evolución cronológica de la producción científica "
     "en IA e IDP aplicada a sistemas documentales corporativos (PD1). Mediante mapeo sistemático cronológico se identificó una trayectoria de crecimiento "
     "marcadamente expansiva y no lineal a lo largo del sexenio 2020–2025/2026, con una concentración máxima de publicaciones en el bienio final (TABLA XIII, Fig. 2).",
-    bold_prefix="1) Apertura (Respuesta a PD1): "
+    bold_prefix="1) Apertura — Respuesta a «¿Cómo ha evolucionado el volumen de producción científica anual sobre IA aplicada a documentos empresariales entre 2020 y 2025/2026?»: "
 )
 
 add_p(
@@ -3904,7 +3904,6 @@ add_p(
     "de gran escala (LLMs) adaptados con prompt engineering y few-shot learning, donde el 88,9 % de los estudios alcanzó calidad alta con certeza GRADE-CERQual alta.",
     bold_prefix="2) Desarrollo por Categoría y Fases Temporales: "
 )
-)
 
 add_p(
     "A pesar de la tendencia global alcista, la literatura experimentó una desaceleración temporal transitoria durante 2024 (Tabla XIII). "
@@ -3912,7 +3911,6 @@ add_p(
     "de los laboratorios desde arquitecturas de grafos y pipelines heurísticos hacia el ajuste y maduración de modelos fundacionales multimodales "
     "y arquitecturas sin entrenamiento previo (zero-shot) publicadas formalmente en el ciclo 2025–2026 [3], [6], [22], [32].",
     bold_prefix="3) Contrastes y Debates Temporales: "
-)
 )
 
 add_p(
@@ -3926,49 +3924,13 @@ add_p(
 # ------------------------------------------------------------------------------
 # 1.2 PD2: Revistas, Autores, Países
 # ------------------------------------------------------------------------------
-add_heading_2("C. Productividad por Revistas, Autores, Países y Red de Coocurrencia (PD2)")
+add_heading_2("C. Productividad por Revistas, Autores, Países y Red de Coocurrencia (PD2: ¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?)")
 
 add_p(
-    "Para responder a PD2, se normalizaron los títulos de las revistas indexadas, se contabilizó la productividad de los autores, se aplicó la regla estricta de "
+    "Para responder a la pregunta «¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?» (PD2), se normalizaron los títulos de las revistas indexadas, se contabilizó la productividad de los autores, se aplicó la regla estricta de "
     "afiliación geográfica institucional del primer autor y se estructuró la red de coocurrencia de palabras clave de autor (Author Keywords) "
-    "con un umbral de frecuencia ≥ 3 en VOSviewer [139]. La evidencia bibliométrica se compendia en la Tabla XIV, la Tabla XV y la Fig. 3."
+    "con un umbral de frecuencia ≥ 3 en VOSviewer [139]. La evidencia bibliométrica de concentración autoral y geográfica se compendia en la Tabla XV y la Fig. 3, mientras que el desglose exhaustivo de los canales de difusión se traslada formalmente al Material Suplementario (Tabla XIV en Apéndice) para optimizar la densidad técnica del cuerpo principal."
 )
-
-add_table_title("TABLA XIV", "REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRESARIALES (N = 131)")
-t_pd2_rev = doc.add_table(rows=14, cols=5)
-hdr_rev = t_pd2_rev.rows[0].cells
-hdr_rev[0].paragraphs[0].text = "Revista Científica Indexada"
-hdr_rev[1].paragraphs[0].text = "Editorial"
-hdr_rev[2].paragraphs[0].text = "Cuartil"
-hdr_rev[3].paragraphs[0].text = "Artículos en Corpus [n]"
-hdr_rev[4].paragraphs[0].text = "Frecuencia Relativa (%)"
-
-rev_data = [
-    ("IEEE Access", "IEEE", "Q1 / Q2", "[5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]", "13 (9,9 %)"),
-    ("International Journal on Document Analysis and Recognition (IJDAR)", "Springer", "Q2", "[9], [33], [35], [39], [50], [65], [66], [77], [115]", "9 (6,9 %)"),
-    ("Pattern Recognition", "Elsevier", "Q1", "[3], [41], [80], [92], [105], [120]", "6 (4,6 %)"),
-    ("Multimedia Tools and Applications", "Springer", "Q2", "[15], [21], [52], [55], [57]", "5 (3,8 %)"),
-    ("Expert Systems with Applications", "Elsevier", "Q1", "[11], [36], [67], [83]", "4 (3,1 %)"),
-    ("Engineering Applications of Artificial Intelligence", "Elsevier", "Q1", "[24], [101], [114], [119]", "4 (3,1 %)"),
-    ("Applied Sciences", "MDPI", "Q2", "[79], [85], [97], [123]", "4 (3,1 %)"),
-    ("Electronics", "MDPI", "Q2", "[4], [7], [42]", "3 (2,3 %)"),
-    ("International Journal of Pattern Recognition and Artificial Intelligence", "World Scientific", "Q3", "[47], [89], [121]", "3 (2,3 %)"),
-    ("Neurocomputing", "Elsevier", "Q1", "[23], [38], [51]", "3 (2,3 %)"),
-    ("Computers, Materials and Continua", "Tech Science Press", "Q2", "[22], [62], [109]", "3 (2,3 %)"),
-    ("Proceedings of the VLDB Endowment (PVLDB)", "VLDB Endowment", "Q1", "[58], [112], [130]", "3 (2,3 %)"),
-    ("Otras 64 revistas indexadas (≤ 2 estudios c/u)", "Diversas", "Q1–Q3", "Citas dispersas [10], [12], [13], [17]–[20], etc.", "71 (54,2 %)")
-]
-for idx, (rev, ed, q, refs, fa) in enumerate(rev_data, start=1):
-    c = t_pd2_rev.rows[idx].cells
-    c[0].paragraphs[0].text = rev
-    c[1].paragraphs[0].text = ed
-    c[2].paragraphs[0].text = q
-    c[3].paragraphs[0].text = refs
-    c[4].paragraphs[0].text = fa
-
-style_table(t_pd2_rev, [Inches(2.5), Inches(0.9), Inches(0.6), Inches(1.8), Inches(0.8)],
-            align_cols=[WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER])
-add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Nombres de revistas unificados y normalizados de Scopus y Web of Science.")
 
 add_table_title("TABLA XV", "CONCENTRACIÓN GEOGRÁFICA POR AFILIACIÓN DEL PRIMER AUTOR Y AUTORES DESTACADOS (N = 131)")
 t_pd2_geo = doc.add_table(rows=12, cols=4)
@@ -4010,24 +3972,19 @@ add_p(
     "Ciento treinta y un artículos primarios (100,0 % del corpus; [3]–[133]) respondieron a la distribución de productividad académica por revistas, "
     "autores, países y estructura temática de redes (PD2). Mediante análisis cienciométrico y mapeo de coocurrencia en VOSviewer [139] se identificó una "
     "concentración de publicaciones en revistas especializadas de procesamiento de documentos e ingeniería de sistemas, liderada a nivel geográfico por "
-    "instituciones de China, India y Estados Unidos, coexistiendo una alta dispersión autoral de base con polos consolidados de productividad serial (TABLA XIV, TABLA XV, Fig. 3).",
-    bold_prefix="1) Apertura (Respuesta a PD2): "
+    "instituciones de China, India y Estados Unidos, coexistiendo una alta dispersión autoral de base con polos consolidados de productividad serial (Tabla XIV en Apéndice, TABLA XV, Fig. 3).",
+    bold_prefix="1) Apertura — Respuesta a «¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?»: "
 )
 
 add_p(
-    "La evidencia se estructura en tres dimensiones bibliométricas (Tabla XIV, Tabla XV, Fig. 3):\n"
-    "a) Núcleos de difusión y revistas líderes: Doce revistas concentraron casi la mitad de la producción global (60 de 131 artículos; Tabla XIV). Las cabeceras líderes "
-    "fueron IEEE Access, International Journal on Document Analysis and Recognition (IJDAR) y Pattern Recognition, consolidándose como los principales canales "
-    "de difusión de modelos de extracción estructurada e IDP. Las restantes 64 revistas indexadas reunieron una producción complementaria y diversa, reflejando "
-    "el carácter multidisciplinario del área entre la ingeniería de sistemas y la visión artificial.\n"
+    "La evidencia se estructura en tres dimensiones bibliométricas (Tabla XIV en Apéndice, Tabla XV, Fig. 3):\n"
+    "a) Núcleos de difusión y revistas líderes: Doce revistas concentraron casi la mitad de la producción global (60 de 131 artículos; Tabla XIV en Apéndice). Las cabeceras líderes fueron IEEE Access (9,9 %, n = 13; Q1/Q2), International Journal on Document Analysis and Recognition (IJDAR) (6,9 %, n = 9; Q2) y Pattern Recognition (4,6 %, n = 6; Q1), consolidándose como los principales canales de difusión de modelos de extracción estructurada e IDP. Las restantes 64 revistas indexadas reunieron una producción complementaria y diversa (71 artículos, 54,2 % del corpus; Tabla XIV en Apéndice), reflejando la dispersión propia de la Ley de Bradford en el área. El catálogo completo de revistas, editoriales y cuartiles JCR/SJR se compendia en la Tabla XIV del Apéndice de Material Suplementario para optimizar la densidad técnica del cuerpo principal.\n"
     "b) Polos geográficos de investigación: Conforme a la regla de asignación por primer autor, la investigación se concentró principalmente en Asia y Norteamérica, "
     "con China, India y Estados Unidos a la vanguardia, complementados por contribuciones significativas de Europa occidental en Alemania y España (Tabla XV, Fig. 3a).\n"
     "c) Red cienciométrica de palabras clave (VOSviewer): Con un umbral ≥ 3 apariciones se configuraron tres clústeres conceptuales (Fig. 3b): Clúster 1 (Extracción "
     "y Semántica: Information Extraction, Document Understanding y Key Information Extraction - KIE); Clúster 2 (Paradigmas Algorítmicos: Deep Learning, Optical Character Recognition - OCR "
     "y Transformers); y Clúster 3 (Estructuras Complejas: Table Structure Recognition, Table Detection y Object Detection).",
     bold_prefix="2) Desarrollo por Categoría y Redes Temáticas: "
-)
-)
 )
 
 add_p(
@@ -4038,7 +3995,6 @@ add_p(
     "junto a redes cooperativas en China en modelado multimodal y segmentación de tablas [43], [120], y líneas sostenidas en Estados Unidos [47], [89] y Corea del Sur [42], [71]. "
     "Para evitar sesgos cienciométricos por homonimia asiática, la atribución autoral se verificó y desambiguó mediante Scopus Author ID, ORCID y redes de coautoría institucional.",
     bold_prefix="3) Contrastes y Dispersión Autoral: "
-)
 )
 
 add_p(
@@ -4054,7 +4010,7 @@ add_p(
 # ------------------------------------------------------------------------------
 # 1.3 PD3: Diseños Metodológicos x Datasets
 # ------------------------------------------------------------------------------
-add_heading_2("D. Clasificación de Diseños Metodológicos × Tipología de Datasets (PD3)")
+add_heading_2("D. Clasificación de Diseños Metodológicos × Tipología de Datasets (PD3: ¿Qué diseños metodológicos y tipologías de conjuntos de datos predominan en la literatura?)")
 
 add_p(
     "Para evaluar la solidez empírica y la transferibilidad industrial de las soluciones reportadas en el corpus, se clasificaron los 131 estudios primarios cruzando la "
@@ -4103,7 +4059,7 @@ add_p(
     "las tipologías de conjuntos de datos evaluados (PD3). Mediante la matriz de mapeo sistemático de Petersen et al. [138] y con un acuerdo inter-evaluador "
     "de κ = 0,85, se determinó un predominio estructural de experimentos controlados sobre bancos de datos públicos abiertos, en contraste con una baja proporción "
     "de casos de estudio reales integrados en producción corporativa (TABLA XVI, Fig. 4).",
-    bold_prefix="1) Apertura (Respuesta a PD3): "
+    bold_prefix="1) Apertura — Respuesta a «¿Qué diseños metodológicos y tipologías de conjuntos de datos predominan en la literatura?»: "
 )
 
 add_p(
@@ -4118,7 +4074,6 @@ add_p(
     "preentrenamiento en bancos abiertos con ajuste fino y validación final sobre documentos reales de organizaciones (Tabla XVI).",
     bold_prefix="2) Desarrollo por Categoría y Cruce Matricial: "
 )
-)
 
 add_p(
     "El contraste más crítico revelado por el mapeo sistemático reside en la baja proporción de casos de estudio reales integrados en producción corporativa (Tabla XVI, Fig. 4). "
@@ -4128,7 +4083,6 @@ add_p(
     "los investigadores que implementaron soluciones en entornos corporativos reales enfrentaron restricciones de confidencialidad regulatoria [64], [116], requerimiento de supervisión humana (human-in-the-loop) "
     "ante alucinaciones de LLMs en montos contables [4], [13], [22] y problemas de integración con sistemas ERP heredados [70], [127].",
     bold_prefix="3) Contrastes y Vacíos en Casos de Estudio Reales: "
-)
 )
 
 add_p(
@@ -4219,12 +4173,11 @@ add_p(
     "y reproducibilidad de código), donde se concentraron los cumplimientos parciales (Tabla XVII). Los diez estudios calificados en el estrato moderado (QA = 3,50 pts; Tabla XVII) conforman el subgrupo aislado para el test de robustez.",
     bold_prefix="Hallazgos del Control de Calidad y Protocolo de Aislamiento: "
 )
-)
 
 # ------------------------------------------------------------------------------
 # 3. PI1: Taxonomía de Familias Algorítmicas de IA
 # ------------------------------------------------------------------------------
-add_heading_2("F. Taxonomía de Familias Algorítmicas y Enfoques de IA (PI1)")
+add_heading_2("F. Taxonomía de Familias Algorítmicas y Enfoques de IA (PI1: ¿Qué arquitecturas y enfoques algorítmicos de IA/IDP se han implementado en el procesamiento de documentos empresariales?)")
 add_p(
     "Para determinar cuáles son las familias algorítmicas y arquitecturas neuronales predominantes en la literatura entre 2020 y 2025/2026, se ejecutó una síntesis "
     "temática (Thomas & Harden [134]; Cruzes & Dybå [135]) sobre los 105 estudios primarios que abordan explícitamente el modelado de IA para procesamiento de documentos "
@@ -4277,7 +4230,7 @@ add_p(
     "y con un coeficiente de concordancia inter-evaluador de κ = 0,88 sobre la submuestra del 20,6 % (n = 27), se identificaron cuatro familias algorítmicas "
     "mutuamente excluyentes, observándose un predominio de pipelines modulares basados en convolución y OCR neuronal, acompañados por una rápida consolidación "
     "de Transformers multimodales y modelos de visión-lenguaje (VLM).",
-    bold_prefix="1) Apertura (Respuesta a PI1): "
+    bold_prefix="1) Apertura — Respuesta a «¿Qué arquitecturas y enfoques algorítmicos de IA/IDP se han implementado en el procesamiento de documentos empresariales?»: "
 )
 
 add_p(
@@ -4287,7 +4240,6 @@ add_p(
     "alcanzan latencias de inferencia de 80 ms a 250 ms en CPUs estándar con exactitudes de segmentación entre 88,5 % y 96,0 % en plantillas regulares, respaldando un dictamen de Alta Certeza GRADE-CERQual (Tabla XVIII).",
     bold_prefix="2.1. Canalizaciones Híbridas (Pipelines) CNN-RNN y Segmentación Clásica con OCR: "
 )
-)
 
 add_p(
     "Esta familia integra arquitecturas de atención profunda que fusionan simultáneamente la información textual, la disposición geométrica espacial 2D (bounding boxes) y los parches visuales del documento "
@@ -4295,7 +4247,6 @@ add_p(
     "del contexto visual y espacial permite resolver la extracción de entidades clave (KIE) en comprobantes fiscales con diagramación variable sin requerir plantillas fijas [6], [7], [36], [42], reportando puntuaciones "
     "de F1-score entre el 93,1 % y el 98,7 % en datasets estándar (CORD y SROIE) con un nivel de Alta Certeza GRADE-CERQual.",
     bold_prefix="2.2. Transformers Multimodales y Modelos Visión-Lenguaje (VLM): "
-)
 )
 
 add_p(
@@ -4305,14 +4256,12 @@ add_p(
     "obteniendo calificación de Alta Certeza GRADE-CERQual.",
     bold_prefix="2.3. Redes Neuronales de Grafos y Modelado Espacial-Relacional (GNN): "
 )
-)
 
 add_p(
     "Esta categoría abarca el empleo de modelos fundacionales autorregresivos aplicados con ingeniería de prompts, aprendizaje en contexto y ajuste fino para la estructuración directa de documentos en esquemas JSON o XML (Tabla XVIII). "
     "Los estudios evidencian una capacidad sin precedentes para procesar documentos nunca antes vistos sin entrenamiento previo [3], [4], [19], reportando precisiones de extracción entre el 85,0 % y el 94,2 % en esquemas zero-shot, "
     "si bien con latencias superiores (800 ms a 2 500 ms por página). La certeza GRADE-CERQual se dictamina como Moderada debido a la dependencia de conectividad externa a APIs propietarias y el costo computacional asociado.",
     bold_prefix="2.4. Modelos de Lenguaje Generativos, LLMs y Adaptación Zero/Few-Shot: "
-)
 )
 
 add_p(
@@ -4335,7 +4284,7 @@ add_p(
 # ------------------------------------------------------------------------------
 # 4. PI2: Rendimiento Cuantitativo
 # ------------------------------------------------------------------------------
-add_heading_2("G. Rendimiento Cuantitativo de las Soluciones IA en Benchmarks (PI2)")
+add_heading_2("G. Rendimiento Cuantitativo de las Soluciones IA en Benchmarks (PI2: ¿Qué niveles de precisión y velocidad de resolución reportan las soluciones de IA/IDP en extracción documental?)")
 add_p(
     "Para cuantificar el rendimiento técnico alcanzado por las soluciones de IA, se aplicó la síntesis narrativa estructurada de Popay et al. (2006) [136] sobre los 117 estudios "
     "que evalúan extracción sobre benchmarks formales (89,3 % del corpus). Para salvaguardar la validez metodológica, no se promediaron métricas entre conjuntos de datos incompatibles, "
@@ -4387,7 +4336,7 @@ add_p(
     "de soluciones de IA e IDP (PI2). Conforme al marco de síntesis estructurada de Popay et al. [136], las tasas de éxito empíricas exhiben rangos diferenciados por métrica y tipología documental: "
     "F1-score entre el 72,1 % y el 98,7 % en extracción de entidades (recibos y formularios), TEDS y F1-score entre el 76,5 % y el 96,2 % en reconstrucción de tablas complejas (TSR), "
     "y exactitud transaccional entre el 82,0 % y el 94,5 % en lotes corporativos heterogéneos continuos.",
-    bold_prefix="1) Apertura (Respuesta a PI2): "
+    bold_prefix="1) Apertura — Respuesta a «¿Qué niveles de precisión y velocidad de resolución reportan las soluciones de IA/IDP en extracción documental?»: "
 )
 
 add_p(
@@ -4396,16 +4345,12 @@ add_p(
     "reducidas (80 ms a 450 ms). El 93,8 % de los manuscritos (45 de 48) pertenece al estrato de calidad alta (QA ≥ 4,5), sustentando un dictamen de Alta Certeza GRADE-CERQual para comprobantes estructurados.",
     bold_prefix="2.1. Recibos y Facturas Comerciales (Benchmarks SROIE y CORD): "
 )
-)
-)
 
 add_p(
     "Esta tipología aborda la detección de límites y el reconocimiento de estructura interna (TSR) en tablas financieras y estados contables con celdas anidadas sin líneas visibles (Tabla XIX). "
     "Las arquitecturas de grafos y visión espacial capturan competentemente la continuidad semántica de celdas multilínea, alcanzando una mediana de TEDS/F1 del 89,8 % con tiempos de inferencia "
     "entre 150 ms y 890 ms (Tabla XIX, Fig. 7). El 88,1 % de los estudios (37 de 42) alcanzó calidad alta (QA ≥ 4,5), confiriendo un nivel de certeza GRADE-CERQual de Alta en tablas regulares y Moderada en matrices sin bordes explícitos.",
     bold_prefix="2.2. Tablas Financieras y Estructuras Matriciales (Benchmarks FinTabNet y WTW): "
-)
-)
 )
 
 add_p(
@@ -4414,16 +4359,12 @@ add_p(
     "lo que evidencia una merma superior a 10 puntos frente a comprobantes estandarizados. El 95,2 % de las investigaciones (20 de 21) reporta calidad alta (QA ≥ 4,5), si bien la certeza GRADE-CERQual se califica como Moderada debido a la dispersión ante distintos niveles de ruido.",
     bold_prefix="2.3. Formularios Semiestructurados Ruidosos (Benchmark FUNSD): "
 )
-)
-)
 
 add_p(
     "Esta categoría técnica evalúa el comportamiento de pipelines integrales frente a lotes transaccionales mixtos de documentos heterogéneos en condiciones de producción real (Tabla XIX). "
     "La incorporación de clasificadores documentales previos al módulo de extracción permite enrutar eficientemente las tipologías hacia motores especializados, mitigando cuellos de botella [32], [78], "
     "registrando una mediana de exactitud transaccional de 90,1 % con latencias entre 300 ms y 1 800 ms por lote. El 50,0 % de los estudios (3 de 6) presenta calidad metodológica alta (QA ≥ 4,5), asignándose certeza GRADE-CERQual Moderada ante el tamaño muestral acotado en esta tipología.",
     bold_prefix="2.4. Flujos Corporativos Integrados y Lotes Documentales Heterogéneos: "
-)
-)
 )
 
 add_p(
@@ -4445,7 +4386,7 @@ add_p(
 # ------------------------------------------------------------------------------
 # 5. PI3: Contraste SWiM
 # ------------------------------------------------------------------------------
-add_heading_2("H. Comparativa de Eficiencia vs. Métodos Tradicionales — Síntesis SWiM (PI3)")
+add_heading_2("H. Comparativa de Eficiencia vs. Métodos Tradicionales — Síntesis SWiM (PI3: ¿En qué medida el procesamiento con IA/IDP reduce los tiempos de ciclo y la carga de error operativo frente al ingreso manual y reglas?)")
 add_p(
     "Para evaluar si las arquitecturas de IA superan de manera convincente al ingreso manual y al OCR convencional basado en plantillas, se implementó el método SWiM "
     "(Synthesis Without Meta-analysis) de Campbell et al. (2020) [137] mediante el conteo formal de votos sobre la dirección del efecto en los 82 estudios que incorporan "
@@ -4499,7 +4440,7 @@ add_p(
     "o sistemas convencionales de reglas (PI3). Aplicando la síntesis SWiM y conteo de votos de Campbell et al. [137], con un acuerdo inter-evaluador de κ = 0,86, "
     "se constató que en el 86,6 % de los estudios con comparador empírico explícito (71 de 82 estudios), la implementación de arquitecturas de IA logró una reducción "
     "del tiempo de ciclo de procesamiento superior o igual al 60,0 % frente a las líneas base tradicionales reportadas (digitación manual, OCR de plantillas o baselines de referencia). Como limitación metodológica del marco SWiM, el conteo de votos pondera de forma unitaria a cada publicación independiente de su volumen muestral evaluado.",
-    bold_prefix="1) Apertura (Respuesta a PI3): "
+    bold_prefix="1) Apertura — Respuesta a «¿En qué medida el procesamiento con IA/IDP reduce los tiempos de ciclo y la carga de error operativo frente al ingreso manual y reglas?»: "
 )
 
 add_p(
@@ -4509,8 +4450,6 @@ add_p(
     "situando la mediana de reducción agregada en 82,4 %. El 97,2 % de los estudios (69 de 71) presenta calidad metodológica alta (QA ≥ 4,5), confiriendo un dictamen de Alta Certeza GRADE-CERQual para la ganancia en velocidad transaccional.",
     bold_prefix="2.1. Reducción del Tiempo de Procesamiento y Latencia Operativa (Mejora +1): "
 )
-)
-)
 
 add_p(
     "Clasifica las situaciones en las que las soluciones de IA compleja no ofrecen ventajas estadísticas significativas frente a algoritmos de coincidencia de expresiones regulares (regex) "
@@ -4519,16 +4458,12 @@ add_p(
     "El 87,5 % de estas investigaciones (7 de 8) posee calidad metodológica alta (QA ≥ 4,5), delimitando un nicho operacional restringido a documentos invariables sin contradecir la superioridad sistemática de la IA en flujos de diseño heterogéneo.",
     bold_prefix="2.2. Paridad de Rendimiento en Formatos Rígidos y Estandarizados (Sin Diferencia 0): "
 )
-)
-)
 
 add_p(
     "Agrupa casos minoritarios donde la introducción de arquitecturas de IA generó efectos contraproducentes frente a flujos convencionales (Tabla XX). El sobrecosto operativo se originó en la necesidad "
     "de re-inspección humana obligatoria ante alucinaciones de LLMs en montos monetarios críticos [121] o en la sobrecarga de latencia inducida por modelos masivos al ejecutarse en infraestructura local sin aceleración GPU [37], [56]. "
     "Dos de los tres estudios (66,7 %, 2 de 3) se ubican en estrato de calidad alta (QA ≥ 4,5) y uno en calidad moderada ([121], QA = 3,5), recibiendo calificación de Moderada Certeza GRADE-CERQual.",
     bold_prefix="2.3. Escenarios de Sobrecosto y Carga Operativa Desfavorable (Empeora -1): "
-)
-)
 )
 
 add_p(
@@ -4549,7 +4484,7 @@ add_p(
 # ------------------------------------------------------------------------------
 # 6. PI4: Tipologías Documentales y ERP/CRM
 # ------------------------------------------------------------------------------
-add_heading_2("I. Mapeo de Tipologías Documentales y Sistemas Corporativos ERP/CRM (PI4)")
+add_heading_2("I. Mapeo de Tipologías Documentales y Sistemas Corporativos ERP/CRM (PI4: ¿En qué tipologías documentales y arquitecturas de sistemas empresariales ERP/CRM se han validado las propuestas?)")
 add_p(
     "Para determinar qué tipologías documentales y qué plataformas empresariales de gestión han sido abordadas en la literatura, se ejecutó un mapeo temático matricial "
     "sobre la totalidad del corpus primario (N = 131 estudios, 100,0 % de cobertura). La categorización documental y el mapeo hacia plataformas corporativas evaluada por doble "
@@ -4605,7 +4540,7 @@ add_p(
     "existiendo una menor penetración en flujos documentales de plataformas CRM. En cuanto al nivel de integración técnica efectiva, el 78,6 % de los estudios (103 de 131) se restringe a la extracción algorítmica aislada "
     "(evaluación sobre colecciones de imágenes o benchmarks con salida JSON/XML sin conectores a plataformas empresariales), el 15,3 % (20 de 131) implementa mecanismos intermedios de persistencia relacional SQL o APIs REST, "
     "y solo el 6,1 % (8 de 131; [28], [44], [54], [62], [64], [97], [127], [133]) valida empíricamente la solución en flujos transaccionales vivos de producción empresarial. Es fundamental diferenciar esta categoría de integración técnica con ERP (PI4: 8 estudios con validación transaccional activa; [28], [44], [54], [62], [64], [97], [127], [133]) del diseño metodológico catalogado como Caso de Estudio Corporativo en PD3 ([64], [70], [75], [84], [103], [117], [127], [131]): mientras la primera exige acoplamiento funcional con las bases de datos y flujos contables del ERP, el segundo evalúa cualitativa u operativamente el proceso dentro de una organización; únicamente [64] y [127] satisfacen ambos requerimientos de manera concurrente.",
-    bold_prefix="1) Apertura (Respuesta a PI4): "
+    bold_prefix="1) Apertura — Respuesta a «¿En qué tipologías documentales y arquitecturas de sistemas empresariales ERP/CRM se han validado las propuestas?»: "
 )
 
 add_p(
@@ -4616,16 +4551,12 @@ add_p(
     "El 84,7 % de los manuscritos (50 de 59) corresponde al estrato de calidad alta (QA ≥ 4,5), confiriendo un nivel de Alta Certeza GRADE-CERQual para el procesamiento de tablas financieras.",
     bold_prefix="2.1. Balances, Tablas y Reportes Financieros Complejos: "
 )
-)
-)
 
 add_p(
     "Abarca comprobantes fiscales de compra y venta orientados a la conciliación tributaria y de pagos en departamentos de Cuentas por Pagar (Accounts Payable) mediante procesos de conciliación de tres vías en sistemas ERP (Tabla XXI). "
     "Constituye el dominio de mayor automatización exitosa, alcanzando tasas de extracción en metadatos clave (número, fecha, total) superiores al 94,5 % en condiciones estructuradas controladas [44], [60], [103]. "
     "El 85,3 % de las investigaciones (29 de 34) posee calidad alta (QA ≥ 4,5), confiriendo un nivel de Alta Certeza GRADE-CERQual.",
     bold_prefix="2.2. Facturas Comerciales y Fiscales de Proveedores: "
-)
-)
 )
 
 add_p(
@@ -4634,16 +4565,12 @@ add_p(
     "El 69,2 % de los estudios (18 de 26) exhibe calidad metodológica alta (QA ≥ 4,5), respaldando una certeza GRADE-CERQual Moderada ante la variabilidad regulatoria entre países.",
     bold_prefix="2.3. Formularios, Pólizas y Expedientes Administrativos: "
 )
-)
-)
 
 add_p(
     "Comprende comprobantes de bajo valor y recibos térmicos para rendiciones de caja chica y gastos de viaje hacia módulos de tesorería y nómina en ERPs (Tabla XXI). La extracción en campos críticos alcanza una mediana de F1 de 95,2 % "
     "en condiciones estándar (SROIE/CORD), pero desciende hasta un 78,4 % ante capturas móviles con tinta térmica degradada o dobleces físicos [30], [100]. "
     "El 91,7 % de los estudios (11 de 12) se encuentra en el rango de calidad alta (QA ≥ 4,5), clasificándose con certeza Alta en condiciones regulares y Moderada en capturas móviles de baja resolución.",
     bold_prefix="2.4. Recibos de Caja Menor y Comprobantes de Punto de Venta (POS): "
-)
-)
 )
 
 add_p(
@@ -5141,6 +5068,46 @@ add_p(
 add_p(
     "4) Recibos Comerciales y Puntos de Venta POS (12 estudios): [6], [9], [15], [37], [79], [82]–[84], [91], [102], [122], [125]."
 )
+
+
+
+add_heading_2("F. Distribución Exhaustiva por Revistas Científicas Indexadas (PD2 — Tabla XIV Suplementaria)")
+add_table_title("TABLA XIV", "REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRESARIALES (N = 131)")
+t_pd2_rev = doc.add_table(rows=14, cols=5)
+hdr_rev = t_pd2_rev.rows[0].cells
+hdr_rev[0].paragraphs[0].text = "Revista Científica Indexada"
+hdr_rev[1].paragraphs[0].text = "Editorial"
+hdr_rev[2].paragraphs[0].text = "Cuartil"
+hdr_rev[3].paragraphs[0].text = "Artículos en Corpus [n]"
+hdr_rev[4].paragraphs[0].text = "Frecuencia Relativa (%)"
+
+rev_data = [
+    ("IEEE Access", "IEEE", "Q1 / Q2", "[5], [8], [16], [26], [59]–[61], [84], [88], [94], [103], [108], [131]", "13 (9,9 %)"),
+    ("International Journal on Document Analysis and Recognition (IJDAR)", "Springer", "Q2", "[9], [33], [35], [39], [50], [65], [66], [77], [115]", "9 (6,9 %)"),
+    ("Pattern Recognition", "Elsevier", "Q1", "[3], [41], [80], [92], [105], [120]", "6 (4,6 %)"),
+    ("Multimedia Tools and Applications", "Springer", "Q2", "[15], [21], [52], [55], [57]", "5 (3,8 %)"),
+    ("Expert Systems with Applications", "Elsevier", "Q1", "[11], [36], [67], [83]", "4 (3,1 %)"),
+    ("Engineering Applications of Artificial Intelligence", "Elsevier", "Q1", "[24], [101], [114], [119]", "4 (3,1 %)"),
+    ("Applied Sciences", "MDPI", "Q2", "[79], [85], [97], [123]", "4 (3,1 %)"),
+    ("Electronics", "MDPI", "Q2", "[4], [7], [42]", "3 (2,3 %)"),
+    ("International Journal of Pattern Recognition and Artificial Intelligence", "World Scientific", "Q3", "[47], [89], [121]", "3 (2,3 %)"),
+    ("Neurocomputing", "Elsevier", "Q1", "[23], [38], [51]", "3 (2,3 %)"),
+    ("Computers, Materials and Continua", "Tech Science Press", "Q2", "[22], [62], [109]", "3 (2,3 %)"),
+    ("Proceedings of the VLDB Endowment (PVLDB)", "VLDB Endowment", "Q1", "[58], [112], [130]", "3 (2,3 %)"),
+    ("Otras 64 revistas indexadas (≤ 2 estudios c/u)", "Diversas", "Q1–Q3", "Citas dispersas [10], [12], [13], [17]–[20], etc.", "71 (54,2 %)")
+]
+for idx, (rev, ed, q, refs, fa) in enumerate(rev_data, start=1):
+    c = t_pd2_rev.rows[idx].cells
+    c[0].paragraphs[0].text = rev
+    c[1].paragraphs[0].text = ed
+    c[2].paragraphs[0].text = q
+    c[3].paragraphs[0].text = refs
+    c[4].paragraphs[0].text = fa
+
+style_table(t_pd2_rev, [Inches(2.5), Inches(0.9), Inches(0.6), Inches(1.8), Inches(0.8)],
+            align_cols=[WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.LEFT, WD_ALIGN_PARAGRAPH.CENTER])
+add_table_footer("Fuente: elaboración propia a partir del corpus primario [3]–[133]. Nombres de revistas unificados y normalizados de Scopus y Web of Science.")
+
 
 add_heading_1("VII. REFERENCIAS BIBLIOGRÁFICAS")
 

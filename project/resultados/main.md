@@ -24,7 +24,7 @@ Conforme a los ítems 13a–13f de PRISMA 2020 y para mitigar el sesgo de notifi
 
 ## 1. Preguntas Descriptivas y Análisis Cienciométrico (PD1, PD2, PD3)
 
-### 1.1. Evolución Temporal de la Producción Científica (PD1)
+### 1.1. Evolución Temporal de la Producción Científica (PD1: ¿Cómo ha evolucionado el volumen de producción científica anual sobre IA aplicada a documentos empresariales entre 2020 y 2025/2026?)
 
 Para determinar la evolución temporal de la investigación sobre IA e IDP en entornos empresariales (2020–2025/2026), se analizó la producción científica anual consolidada, cuyos datos cuantitativos se detallan en la Tabla XIII y se visualizan en la Fig. 2.
 
@@ -49,8 +49,8 @@ DISTRIBUCIÓN CRONOLÓGICA DE LA PRODUCCIÓN CIENTÍFICA (2020–2025/2026) (N =
 ![Fig. 2. Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales (2020–2025/2026, N = 131)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig2_evolucion_anual.png)
 *Fig. 2. Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales (2020–2025/2026, N = 131). Barras: volumen anual absoluto (n); línea roja: porcentaje acumulado (%). Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PD1)
-Ciento treinta y un estudios (100,0 % del corpus primario; [3]–[133]) respondieron a la evolución cronológica de la producción científica en IA e IDP aplicada a sistemas documentales corporativos (PD1). Mediante mapeo sistemático cronológico se identificó una trayectoria de crecimiento marcadamente expansiva y no lineal a lo largo del sexenio 2020–2025/2026, con una concentración máxima de publicaciones en el bienio final (TABLA XIII, Fig. 2).
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿Cómo ha evolucionado el volumen de producción científica anual sobre IA aplicada a documentos empresariales entre 2020 y 2025/2026?»)
+Ciento treinta y un estudios (100,0 % del corpus primario; [3]–[133]) aportan evidencia directa para responder a la pregunta sobre la evolución cronológica de la producción científica en IA e IDP aplicada a sistemas documentales corporativos (PD1). Mediante mapeo sistemático cronológico se identificó una trayectoria de crecimiento marcadamente expansiva y no lineal a lo largo del sexenio 2020–2025/2026, con una concentración máxima de publicaciones en el bienio final (TABLA XIII, Fig. 2).
 
 #### Bloque 2 — Desarrollo por Categoría y Fases Temporales
 La dinámica temporal de publicación se articula en tres periodos analíticos diferenciados (Tabla XIII, Fig. 2):
@@ -66,32 +66,9 @@ La literatura sobre IA/IDP en sistemas corporativos evidencia una trayectoria de
 
 ---
 
-### 1.2. Productividad por Revistas, Autores, Países y Red de Coocurrencia (PD2)
+### 1.2. Productividad por Revistas, Autores, Países y Red de Coocurrencia (PD2: ¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?)
 
-Para responder a PD2, se normalizaron los títulos de las revistas indexadas, se contabilizó la productividad de los autores, se aplicó la regla estricta de afiliación geográfica institucional del primer autor y se estructuró la red de coocurrencia de palabras clave de autor (*Author Keywords*) con un umbral de frecuencia $\ge 3$ en VOSviewer [139]. La evidencia bibliométrica se compendia en la Tabla XIV, la Tabla XV y la Fig. 3.
-
-```
-TABLA XIV
-REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRESARIALES (N = 131)
-```
-| Revista Científica Indexada | Editorial | Cuartil (JCR/SJR) | Artículos en Corpus [n] | Frecuencia Relativa (%) |
-| :--- | :--- | :---: | :---: | :---: |
-| **IEEE Access** | IEEE | Q1 / Q2 | [5], [8], [16], [26], [59], [60], [61], [84], [88], [94], [103], [108], [131] | 13 (9,9 %) |
-| **International Journal on Document Analysis and Recognition (IJDAR)** | Springer | Q2 | [9], [33], [35], [39], [50], [65], [66], [77], [115] | 9 (6,9 %) |
-| **Pattern Recognition** | Elsevier | Q1 | [3], [41], [80], [92], [105], [120] | 6 (4,6 %) |
-| **Multimedia Tools and Applications** | Springer | Q2 | [15], [21], [52], [55], [57] | 5 (3,8 %) |
-| **Expert Systems with Applications** | Elsevier | Q1 | [11], [36], [67], [83] | 4 (3,1 %) |
-| **Engineering Applications of Artificial Intelligence** | Elsevier | Q1 | [24], [101], [114], [119] | 4 (3,1 %) |
-| **Applied Sciences** | MDPI | Q2 | [79], [85], [97], [123] | 4 (3,1 %) |
-| **Electronics** | MDPI | Q2 | [4], [7], [42] | 3 (2,3 %) |
-| **International Journal of Pattern Recognition and Artificial Intelligence** | World Scientific | Q3 | [47], [89], [121] | 3 (2,3 %) |
-| **Neurocomputing** | Elsevier | Q1 | [23], [38], [51] | 3 (2,3 %) |
-| **Computers, Materials and Continua** | Tech Science Press | Q2 | [22], [62], [109] | 3 (2,3 %) |
-| **Proceedings of the VLDB Endowment (PVLDB)** | VLDB Endowment | Q1 | [58], [112], [130] | 3 (2,3 %) |
-| **Otras 64 revistas indexadas (≤ 2 estudios c/u)** | Diversas | Q1–Q3 | Citas dispersas [10], [12], [13], [17]–[20], etc. | 71 (54,2 %) |
-| **Total Corpus Primario** | — | — | **[3]–[133] (131 estudios únicos)** | **131 (100,0 %)** |
-
-*Fuente: elaboración propia a partir del corpus primario [3]–[133]. Nombres de revistas unificados y normalizados de Scopus y Web of Science.*
+Para responder a la pregunta «¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?» (PD2), se normalizaron los títulos de las revistas indexadas, se contabilizó la productividad de los autores, se aplicó la regla estricta de afiliación geográfica institucional del primer autor y se estructuró la red de coocurrencia de palabras clave de autor (*Author Keywords*) con un umbral de frecuencia $\ge 3$ en VOSviewer [139]. La evidencia bibliométrica de concentración autoral y geográfica se compendia en la Tabla XV y la Fig. 3, mientras que el desglose exhaustivo de los canales de difusión se traslada formalmente al Material Suplementario (Tabla XIV en Apéndice) para optimizar la densidad técnica del cuerpo principal.
 
 ```
 TABLA XV
@@ -117,12 +94,12 @@ CONCENTRACIÓN GEOGRÁFICA POR AFILIACIÓN DEL PRIMER AUTOR Y AUTORES DESTACADOS
 ![Fig. 3. Concentración geográfica y mapa de términos temáticos clave (PD2, N = 131)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig3_vosviewer_geografia.png)
 *Fig. 3. Concentración geográfica de la investigación y principales clústeres temáticos derivados de palabras clave de autor (PD2, N = 131). (a) Distribución porcentual por país de afiliación del primer autor; (b) Frecuencia de descriptores con umbral ≥ 3 ocurrencias en VOSviewer. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PD2)
-Ciento treinta y un artículos primarios (100,0 % del corpus; [3]–[133]) respondieron a la distribución de productividad académica por revistas, autores, países y estructura temática de redes (PD2). Mediante análisis cienciométrico y mapeo de coocurrencia en VOSviewer [139] se identificó una concentración de publicaciones en revistas especializadas de procesamiento de documentos e ingeniería de sistemas, liderada a nivel geográfico por instituciones de China, India y Estados Unidos, coexistiendo una alta dispersión autoral de base con polos consolidados de productividad serial (TABLA XIV, TABLA XV, Fig. 3).
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿Qué autores, revistas científicas indexadas y países concentran la mayor productividad e impacto académico?»)
+Ciento treinta y un artículos primarios (100,0 % del corpus; [3]–[133]) aportan evidencia para responder a la pregunta sobre la distribución de productividad académica por revistas, autores, países y estructura temática de redes (PD2). Mediante análisis cienciométrico y mapeo de coocurrencia en VOSviewer [139] se identificó una concentración de publicaciones en revistas especializadas de procesamiento de documentos e ingeniería de sistemas, liderada a nivel geográfico por instituciones de China, India y Estados Unidos, coexistiendo una alta dispersión autoral de base con polos consolidados de productividad serial (Tabla XIV en Apéndice, TABLA XV, Fig. 3).
 
 #### Bloque 2 — Desarrollo por Categoría y Redes Temáticas
-La evidencia se estructura en tres dimensiones bibliométricas (Tabla XIV, Tabla XV, Fig. 3):
-1. **Núcleos de difusión y revistas líderes:** Doce revistas concentraron casi la mitad de la producción global (60 de 131 artículos; Tabla XIV). Las cabeceras líderes fueron *IEEE Access*, *International Journal on Document Analysis and Recognition (IJDAR)* y *Pattern Recognition*, consolidándose como los principales canales de difusión de modelos de extracción estructurada e IDP. Las restantes 64 revistas indexadas reunieron una producción complementaria y diversa (71 artículos, 54,2 % del corpus; Tabla XIV), reflejando el carácter multidisciplinario del área entre la ingeniería de sistemas y la visión artificial.
+La evidencia se estructura en tres dimensiones bibliométricas (Tabla XIV en Apéndice, Tabla XV, Fig. 3):
+1. **Núcleos de difusión y revistas líderes:** Doce revistas concentraron casi la mitad de la producción global (60 de 131 artículos; Tabla XIV en Apéndice). Las cabeceras líderes fueron *IEEE Access* (9,9 %, n = 13; Q1/Q2), *International Journal on Document Analysis and Recognition (IJDAR)* (6,9 %, n = 9; Q2) y *Pattern Recognition* (4,6 %, n = 6; Q1), consolidándose como los principales canales de difusión de modelos de extracción estructurada e IDP. Las restantes 64 revistas indexadas reunieron una producción complementaria y diversa (71 artículos, 54,2 % del corpus; Tabla XIV en Apéndice), reflejando la dispersión propia de la Ley de Bradford en el área. El catálogo completo de revistas, editoriales y cuartiles JCR/SJR se compendia en la Tabla XIV del Apéndice de Material Suplementario para optimizar la densidad técnica del cuerpo principal.
 2. **Polos geográficos de investigación:** Conforme a la regla de asignación por primer autor, la investigación se concentró principalmente en Asia y Norteamérica, con China, India y Estados Unidos a la vanguardia, complementados por contribuciones significativas de Europa occidental en Alemania y España (Tabla XV, Fig. 3a).
 3. **Red cienciométrica de palabras clave (VOSviewer):** Con un umbral $\ge 3$ apariciones se configuraron tres clústeres conceptuales (Fig. 3b): Clúster 1 (Extracción y Semántica: *Information Extraction*, *Document Understanding* y *Key Information Extraction - KIE*); Clúster 2 (Paradigmas Algorítmicos: *Deep Learning*, *Optical Character Recognition - OCR* y *Transformers*); y Clúster 3 (Estructuras Complejas: *Table Structure Recognition*, *Table Detection* y *Object Detection*).
 
@@ -134,7 +111,7 @@ En el plano geográfico regional, la representación de América Latina en el co
 
 ---
 
-### 1.3. Clasificación de Diseños Metodológicos × Tipología de Datasets (PD3)
+### 1.3. Clasificación de Diseños Metodológicos × Tipología de Datasets (PD3: ¿Qué diseños metodológicos y tipologías de conjuntos de datos predominan en la literatura?)
 
 Con el propósito de evaluar la validez metodológica y la transferibilidad industrial de las propuestas, se contrastaron los diseños de investigación frente al tipo de fuentes de datos empleadas (benchmarks públicos, privados corporativos o mixtos). La concordancia inter-evaluador de esta categorización se evaluó de forma ciega e independiente sobre una muestra del 20,6 % del corpus ($n = 27$ estudios seleccionados aleatoriamente), alcanzando un coeficiente Kappa de Cohen **$\kappa = 0,85$** ($P_o = 88.9\,\%$, $P_e = 0,258$; concordancia casi perfecta bajo el protocolo formal de extracción y síntesis temática). La matriz de contingencia se reporta en la Tabla XVI y el gráfico de burbujas de Petersen et al. (2015) [138] se expone en la Fig. 4.
 
@@ -155,8 +132,8 @@ MATRIZ CRUZADA DE DISEÑOS METODOLÓGICOS Y TIPOLOGÍA DE DATASETS (PD3) (N = 13
 ![Fig. 4. Gráfico de burbujas del mapeo sistemático (Petersen et al. [138]): Diseño Metodológico vs. Tipología de Dataset (PD3, N = 131)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig4_burbujas_disenos_datasets.png)
 *Fig. 4. Gráfico de burbujas del mapeo sistemático (Petersen et al. [138]): Diseño Metodológico vs. Tipología de Dataset (PD3, N = 131). El área de cada burbuja es proporcional al número de estudios primarios (n); los porcentajes corresponden a la totalidad del corpus. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PD3)
-Ciento treinta y un artículos (100,0 % del corpus; [3]–[133]) respondieron a la relación entre los diseños metodológicos de investigación y las tipologías de conjuntos de datos evaluados (PD3). Mediante la matriz de mapeo sistemático de Petersen et al. [138] y con un acuerdo inter-evaluador de $\kappa = 0,85$, se determinó un predominio estructural de experimentos controlados sobre bancos de datos públicos abiertos, en contraste con una baja proporción de casos de estudio reales integrados en producción corporativa (TABLA XVI, Fig. 4).
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿Qué diseños metodológicos y tipologías de conjuntos de datos predominan en la literatura?»)
+Ciento treinta y un artículos (100,0 % del corpus; [3]–[133]) aportan evidencia para responder a la pregunta sobre los diseños metodológicos de investigación y las tipologías de conjuntos de datos evaluados (PD3). Mediante la matriz de mapeo sistemático de Petersen et al. [138] y con un acuerdo inter-evaluador de $\kappa = 0,85$, se determinó un predominio estructural de experimentos controlados sobre bancos de datos públicos abiertos, en contraste con una baja proporción de casos de estudio reales integrados en producción corporativa (TABLA XVI, Fig. 4).
 
 #### Bloque 2 — Desarrollo por Categoría y Cruce Matricial
 La matriz cruzada evidencia tres núcleos metodológicos de trabajo (Tabla XVI, Fig. 4):
@@ -211,7 +188,7 @@ Los estudios primarios alcanzaron una media global de 4,61 / 5,00 pts (DE = ±0.
 
 ---
 
-## 3. Síntesis Temática de Arquitecturas IA e IDP (PI1)
+## 3. Síntesis Temática de Arquitecturas IA e IDP (PI1: ¿Qué arquitecturas y enfoques algorítmicos de IA/IDP se han implementado en el procesamiento de documentos empresariales?)
 
 Para determinar cuáles son las familias algorítmicas y arquitecturas neuronales predominantes en la literatura entre 2020 y 2025/2026, se ejecutó una síntesis temática (*Thomas & Harden [134]; Cruzes & Dybå [135]*) sobre los 105 estudios primarios que abordan explícitamente el modelado de IA para procesamiento de documentos de negocio ($80.2\,\%$ del corpus). La asignación taxonómica ciega e independiente sobre la muestra aleatoria del 20,6 % ($n = 27$ estudios) reportó un coeficiente Kappa de Cohen **$\kappa = 0,88$** ($P_o = 92.6\,\%$, $P_e = 0,380$), evidenciando una concordancia inter-evaluador casi perfecta bajo el protocolo formal de extracción y síntesis temática. Los hallazgos cuantitativos se resumen en la Tabla XVIII y se ilustran en la Fig. 6.
 
@@ -232,8 +209,8 @@ TAXONOMÍA DE FAMILIAS ALGORÍTMICAS Y ENFOQUES DE INTELIGENCIA ARTIFICIAL (PI1)
 ![Fig. 6. Taxonomía de Familias Algorítmicas de IA en Procesamiento Documental (PI1, n = 105)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig6_taxonomia_algoritmos.png)
 *Fig. 6. Taxonomía de familias algorítmicas de IA en procesamiento documental empresarial (PI1, n = 105). Frecuencia absoluta y porcentaje relativo derivado de síntesis temática [134], [135]. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PI1)
-Ciento cinco estudios primarios (80,2 % del corpus; TABLA XVIII, Fig. 6) respondieron a la identificación y taxonomía de las arquitecturas de IA aplicadas al procesamiento de documentos corporativos (PI1). Mediante síntesis temática estandarizada (*Thomas & Harden [134]; Cruzes & Dybå [135]*) y con un coeficiente de concordancia inter-evaluador de $\kappa = 0,88$ sobre la submuestra del 20,6 % ($n = 27$), se identificaron cuatro familias algorítmicas mutuamente excluyentes, observándose un predominio de pipelines modulares basados en convolución y OCR neuronal, acompañados por una rápida consolidación de Transformers multimodales y modelos de visión-lenguaje (VLM).
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿Qué arquitecturas y enfoques algorítmicos de IA/IDP se han implementado en el procesamiento de documentos empresariales?»)
+Ciento cinco estudios primarios (80,2 % del corpus; TABLA XVIII, Fig. 6) aportan evidencia para responder a la pregunta sobre la taxonomía de arquitecturas de IA aplicadas al procesamiento de documentos corporativos (PI1). Mediante síntesis temática estandarizada (*Thomas & Harden [134]; Cruzes & Dybå [135]*) y con un coeficiente de concordancia inter-evaluador de $\kappa = 0,88$ sobre la submuestra del 20,6 % ($n = 27$), se identificaron cuatro familias algorítmicas mutuamente excluyentes, observándose un predominio de pipelines modulares basados en convolución y OCR neuronal, acompañados por una rápida consolidación de Transformers multimodales y modelos de visión-lenguaje (VLM).
 
 #### Bloque 2 — Desarrollo por Categoría Algorítmica (Extensión Normativa)
 
@@ -260,7 +237,7 @@ La literatura transita hacia una convergencia híbrida: modelos ligeros de visi�
 
 ---
 
-## 4. Rendimiento Cuantitativo de las Soluciones IA en Benchmarks (PI2)
+## 4. Rendimiento Cuantitativo de las Soluciones IA en Benchmarks (PI2: ¿Qué niveles de precisión y velocidad de resolución reportan las soluciones de IA/IDP en extracción documental?)
 
 Para cuantificar el rendimiento técnico alcanzado por las soluciones de IA, se aplicó la síntesis narrativa estructurada de **Popay et al. (2006)** [136] sobre los 117 estudios que evalúan extracción sobre benchmarks formales ($89.3\,\%$ del corpus). Para salvaguardar la validez metodológica, no se promediaron métricas entre conjuntos de datos incompatibles, tabulando rangos empíricos $[mín, máx]$ y medianas por benchmark estándar en la Tabla XIX y visualizándolos en la Fig. 7.
 
@@ -281,8 +258,8 @@ RENDIMIENTO CUANTITATIVO REPORTADO POR BENCHMARKS ESTÁNDAR Y TIPOLOGÍA DE DATO
 ![Fig. 7. Distribución Empírica de Rendimiento por Benchmark (Síntesis de Popay, PI2, n = 117)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig7_rendimiento_benchmarks.png)
 *Fig. 7. Distribución empírica de métricas cuantitativas de rendimiento (F1-score y TEDS) por benchmark documental (PI2, n = 117). Cajas: rango intercuartil (Q1–Q3); línea roja: mediana empírica; líneas grises: dispersión total [mín, máx]. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PI2)
-Ciento diecisiete estudios (89,3 % del corpus primario; TABLA XIX, Fig. 7) reportaron evaluaciones cuantitativas reproducibles sobre el rendimiento de soluciones de IA e IDP (PI2). Conforme al marco de síntesis estructurada de Popay et al. [136], las tasas de éxito empíricas exhiben rangos diferenciados por métrica y tipología documental: F1-score entre el $72.1\,\%$ y el $98.7\,\%$ en extracción de entidades (recibos y formularios), TEDS y F1-score entre el $76.5\,\%$ y el $96.2\,\%$ en reconstrucción de tablas complejas (TSR), y exactitud transaccional entre el $82.0\,\%$ y el $94.5\,\%$ en lotes corporativos heterogéneos continuos.
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿Qué niveles de precisión y velocidad de resolución reportan las soluciones de IA/IDP en extracción documental?»)
+Ciento diecisiete estudios (89,3 % del corpus primario; TABLA XIX, Fig. 7) reportaron evaluaciones cuantitativas reproducibles para responder a la pregunta sobre el rendimiento de soluciones de IA e IDP (PI2). Conforme al marco de síntesis estructurada de Popay et al. [136], las tasas de éxito empíricas exhiben rangos diferenciados por métrica y tipología documental: F1-score entre el $72.1\,\%$ y el $98.7\,\%$ en extracción de entidades (recibos y formularios), TEDS y F1-score entre el $76.5\,\%$ y el $96.2\,\%$ en reconstrucción de tablas complejas (TSR), y exactitud transaccional entre el $82.0\,\%$ y el $94.5\,\%$ en lotes corporativos heterogéneos continuos.
 
 #### Bloque 2 — Desarrollo por Benchmark y Dispersión (Extensión Normativa)
 
@@ -309,7 +286,7 @@ El rendimiento de los modelos IDP es altamente dependiente del contraste visual 
 
 ---
 
-## 5. Comparativa de Eficiencia vs. Métodos Tradicionales — Síntesis SWiM (PI3)
+## 5. Comparativa de Eficiencia vs. Métodos Tradicionales — Síntesis SWiM (PI3: ¿En qué medida el procesamiento con IA/IDP reduce los tiempos de ciclo y la carga de error operativo frente al ingreso manual y reglas?)
 
 Para evaluar si las arquitecturas de IA superan de manera convincente al ingreso manual y al OCR convencional basado en plantillas, se implementó el método **SWiM (Synthesis Without Meta-analysis)** de **Campbell et al. (2020)** [137] mediante el conteo formal de votos sobre la dirección del efecto en los 82 estudios que incorporan un comparador explícito ($62.6\,\%$ del corpus). La determinación ciega e independiente de la dirección del voto en SWiM sobre la muestra del 20,6 % ($n = 27$ estudios) reportó un coeficiente Kappa de Cohen **$\kappa = 0,86$** ($P_o = 92.6\,\%$, $P_e = 0,470$), confirmando un consenso metodológico sustancial casi perfecto para la síntesis comparativa. Los resultados se presentan en la Tabla XX y la Fig. 8.
 
@@ -329,8 +306,8 @@ SÍNTESIS SWiM: CONTEO DE VOTOS DE DIRECCIÓN DEL EFECTO FRENTE A LÍNEAS BASE T
 ![Fig. 8. Síntesis SWiM: Conteo de Votos de Efecto Frente a Métodos Tradicionales (PI3, n = 82)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig8_swim_barras_divergentes.png)
 *Fig. 8. Gráfico de barras divergentes de dirección del efecto (SWiM, Campbell et al. [137]) en comparativa de IA/IDP frente a ingreso manual y reglas (PI3, n = 82). Verde: Mejora (+1); Naranja: Paridad/Sin diferencia (0); Rojo: Empeora/Mayor costo (-1). Sincronización idéntica con TABLA XX (+71, 8, -3). Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PI3)
-Ochenta y dos estudios primarios (62,6 % del corpus; TABLA XX, Fig. 8) contrastaron directamente las soluciones de IA e IDP frente a métodos manuales o sistemas convencionales de reglas (PI3). Aplicando la síntesis SWiM y conteo de votos de Campbell et al. [137], con un acuerdo inter-evaluador de $\kappa = 0,86$, se constató que en el **$86.6\,\%$ de los estudios con comparador empírico explícito** (71 de 82 estudios), la implementación de arquitecturas de IA logró una reducción del tiempo de ciclo de procesamiento superior o igual al $60.0\,\%$ frente a las líneas base tradicionales reportadas (digitación manual, OCR de plantillas o baselines de referencia). Como limitación metodológica del marco SWiM, el conteo de votos pondera de forma unitaria a cada publicación independiente de su volumen muestral evaluado.
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿En qué medida el procesamiento con IA/IDP reduce los tiempos de ciclo y la carga de error operativo frente al ingreso manual y reglas?»)
+Ochenta y dos estudios primarios (62,6 % del corpus; TABLA XX, Fig. 8) aportan evidencia comparativa directa para responder a la pregunta de contraste entre soluciones de IA/IDP y métodos manuales o reglas (PI3). Aplicando la síntesis SWiM y conteo de votos de Campbell et al. [137], con un acuerdo inter-evaluador de $\kappa = 0,86$, se constató que en el **$86.6\,\%$ de los estudios con comparador empírico explícito** (71 de 82 estudios), la implementación de arquitecturas de IA logró una reducción del tiempo de ciclo de procesamiento superior o igual al $60.0\,\%$ frente a las líneas base tradicionales reportadas (digitación manual, OCR de plantillas o baselines de referencia). Como limitación metodológica del marco SWiM, el conteo de votos pondera de forma unitaria a cada publicación independiente de su volumen muestral evaluado.
 
 #### Bloque 2 — Desarrollo por Dimensión y Conteo de Votos (Extensión Normativa)
 
@@ -354,7 +331,7 @@ Los hallazgos confirman una ventaja empírica sistemática de las arquitecturas 
 
 ---
 
-## 6. Mapeo de Tipologías Documentales y Sistemas Corporativos ERP/CRM (PI4)
+## 6. Mapeo de Tipologías Documentales y Sistemas Corporativos ERP/CRM (PI4: ¿En qué tipologías documentales y arquitecturas de sistemas empresariales ERP/CRM se han validado las propuestas?)
 
 Para determinar qué tipologías documentales y qué plataformas empresariales de gestión han sido abordadas en la literatura, se ejecutó un mapeo temático matricial sobre la totalidad del corpus primario (**$N = 131$ estudios**, 100,0 % de cobertura). La categorización documental y el mapeo hacia plataformas corporativas evaluada por doble codificación ciega sobre la muestra del 20,6 % ($n = 27$ estudios) reportó un coeficiente Kappa de Cohen **$\kappa = 0,87$** ($P_o = 92.6\,\%$, $P_e = 0,430$), certificando la consistencia taxonómica de la matriz de integración bajo el protocolo formal de extracción y síntesis temática. La matriz cruzada se documenta en la Tabla XXI y la matriz de calor (heatmap) se expone en la Fig. 9.
 
@@ -375,8 +352,8 @@ MAPEO DE TIPOLOGÍAS DOCUMENTALES Y SISTEMAS EMPRESARIALES DE INTEGRACIÓN (PI4)
 ![Fig. 9. Mapeo Cruzado: Tipología Documental × Plataforma Empresarial (PI4, N = 131)](file:///c:/Users/HP/Desktop/ESCRITORIO/PROYECTOS%20UNIVERSIDAD/Formacion_Investigacion_42922/project/resultados/outputs/fig9_heatmap_documentos_erp.png)
 *Fig. 9. Mapeo cruzado de tipologías documentales frente a sistemas corporativos destino (PI4, N = 131). Intensidad de color proporcional al número de estudios mapeados. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
-#### Bloque 1 — Apertura (Respuesta a PI4)
-Ciento treinta y un artículos (100,0 % del corpus; TABLA XXI, Fig. 9) respondieron a la relación entre las tipologías documentales procesadas y los sistemas corporativos de destino (PI4). Mediante síntesis temática y mapeo matricial con un índice de fiabilidad de $\kappa = 0,87$, se determinó una fuerte polarización de la literatura hacia estructuras matriciales y tablas de negocio (59 estudios, $45.0\,\%$; comprendiendo 42 tablas financieras específicas [$32.1\,\%$] y 17 algoritmos de detección genérica [$13.0\,\%$]) y facturas comerciales (34 estudios, $26.0\,\%$), configurando un núcleo documental contable del $58.0\,\%$ en sentido estricto (76 de 131 estudios) y $71.0\,\%$ ampliado (93 de 131) orientado funcionalmente a módulos de sistemas ERP, existiendo una menor penetración en flujos documentales de plataformas CRM. En cuanto al nivel de integración técnica efectiva, el $78.6\,\%$ de los estudios (103 de 131) se restringe a la extracción algorítmica aislada (evaluación sobre colecciones de imágenes o benchmarks con salida JSON/XML sin conectores a plataformas empresariales), el $15.3\,\%$ (20 de 131) implementa mecanismos intermedios de persistencia relacional SQL o APIs REST, y solo el $6.1\,\%$ (8 de 131; [28], [44], [54], [62], [64], [97], [127], [133]) valida empíricamente la solución en flujos transaccionales vivos de producción empresarial. Es fundamental diferenciar esta categoría de integración técnica con ERP (PI4: 8 estudios con validación transaccional activa; [28], [44], [54], [62], [64], [97], [127], [133]) del diseño metodológico catalogado como Caso de Estudio Corporativo en PD3 ([64], [70], [75], [84], [103], [117], [127], [131]): mientras la primera exige acoplamiento funcional con las bases de datos y flujos contables del ERP, el segundo evalúa cualitativa u operativamente el proceso dentro de una organización; únicamente [64] y [127] satisfacen ambos requerimientos de manera concurrente.
+#### Bloque 1 — Apertura (Respuesta a la pregunta: «¿En qué tipologías documentales y arquitecturas de sistemas empresariales ERP/CRM se han validado las propuestas?»)
+Ciento treinta y un artículos (100,0 % del corpus; TABLA XXI, Fig. 9) aportan evidencia para responder a la pregunta sobre la relación entre las tipologías documentales procesadas y los sistemas corporativos de destino (PI4). Mediante síntesis temática y mapeo matricial con un índice de fiabilidad de $\kappa = 0,87$, se determinó una fuerte polarización de la literatura hacia estructuras matriciales y tablas de negocio (59 estudios, $45.0\,\%$; comprendiendo 42 tablas financieras específicas [$32.1\,\%$] y 17 algoritmos de detección genérica [$13.0\,\%$]) y facturas comerciales (34 estudios, $26.0\,\%$), configurando un núcleo documental contable del $58.0\,\%$ en sentido estricto (76 de 131 estudios) y $71.0\,\%$ ampliado (93 de 131) orientado funcionalmente a módulos de sistemas ERP, existiendo una menor penetración en flujos documentales de plataformas CRM. En cuanto al nivel de integración técnica efectiva, el $78.6\,\%$ de los estudios (103 de 131) se restringe a la extracción algorítmica aislada (evaluación sobre colecciones de imágenes o benchmarks con salida JSON/XML sin conectores a plataformas empresariales), el $15.3\,\%$ (20 de 131) implementa mecanismos intermedios de persistencia relacional SQL o APIs REST, y solo el $6.1\,\%$ (8 de 131; [28], [44], [54], [62], [64], [97], [127], [133]) valida empíricamente la solución en flujos transaccionales vivos de producción empresarial. Es fundamental diferenciar esta categoría de integración técnica con ERP (PI4: 8 estudios con validación transaccional activa; [28], [44], [54], [62], [64], [97], [127], [133]) del diseño metodológico catalogado como Caso de Estudio Corporativo en PD3 ([64], [70], [75], [84], [103], [117], [127], [131]): mientras la primera exige acoplamiento funcional con las bases de datos y flujos contables del ERP, el segundo evalúa cualitativa u operativamente el proceso dentro de una organización; únicamente [64] y [127] satisfacen ambos requerimientos de manera concurrente.
 
 #### Bloque 2 — Desarrollo por Tipología Documental (Extensión Normativa)
 
@@ -506,3 +483,29 @@ Para garantizar la transparencia, reproducibilidad y verificación independiente
 3. **Formularios y Pólizas Administrativas (26 estudios):** [14], [18], [21], [22], [26], [29], [30], [32], [56], [58], [63], [67], [70], [73], [77], [78], [80], [85], [92], [93], [110], [111], [114], [116]–[118].
 4. **Recibos Comerciales y Puntos de Venta POS (12 estudios):** [6], [9], [15], [37], [79], [82]–[84], [91], [102], [122], [125].
 
+
+
+### F. Distribución Exhaustiva por Revistas Científicas Indexadas (PD2 — Tabla XIV Suplementaria)
+
+```
+TABLA XIV
+REVISTAS CIENTÍFICAS LÍDERES EN PROCESAMIENTO INTELIGENTE DE DOCUMENTOS EMPRESARIALES (N = 131)
+```
+| Revista Científica Indexada | Editorial | Cuartil (JCR/SJR) | Artículos en Corpus [n] | Frecuencia Relativa (%) |
+| :--- | :--- | :---: | :---: | :---: |
+| **IEEE Access** | IEEE | Q1 / Q2 | [5], [8], [16], [26], [59], [60], [61], [84], [88], [94], [103], [108], [131] | 13 (9,9 %) |
+| **International Journal on Document Analysis and Recognition (IJDAR)** | Springer | Q2 | [9], [33], [35], [39], [50], [65], [66], [77], [115] | 9 (6,9 %) |
+| **Pattern Recognition** | Elsevier | Q1 | [3], [41], [80], [92], [105], [120] | 6 (4,6 %) |
+| **Multimedia Tools and Applications** | Springer | Q2 | [15], [21], [52], [55], [57] | 5 (3,8 %) |
+| **Expert Systems with Applications** | Elsevier | Q1 | [11], [36], [67], [83] | 4 (3,1 %) |
+| **Engineering Applications of Artificial Intelligence** | Elsevier | Q1 | [24], [101], [114], [119] | 4 (3,1 %) |
+| **Applied Sciences** | MDPI | Q2 | [79], [85], [97], [123] | 4 (3,1 %) |
+| **Electronics** | MDPI | Q2 | [4], [7], [42] | 3 (2,3 %) |
+| **International Journal of Pattern Recognition and Artificial Intelligence** | World Scientific | Q3 | [47], [89], [121] | 3 (2,3 %) |
+| **Neurocomputing** | Elsevier | Q1 | [23], [38], [51] | 3 (2,3 %) |
+| **Computers, Materials and Continua** | Tech Science Press | Q2 | [22], [62], [109] | 3 (2,3 %) |
+| **Proceedings of the VLDB Endowment (PVLDB)** | VLDB Endowment | Q1 | [58], [112], [130] | 3 (2,3 %) |
+| **Otras 64 revistas indexadas (≤ 2 estudios c/u)** | Diversas | Q1–Q3 | Citas dispersas [10], [12], [13], [17]–[20], etc. | 71 (54,2 %) |
+| **Total Corpus Primario** | — | — | **[3]–[133] (131 estudios únicos)** | **131 (100,0 %)** |
+
+*Fuente: elaboración propia a partir del corpus primario [3]–[133]. Nombres de revistas unificados y normalizados de Scopus y Web of Science.*
