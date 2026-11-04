@@ -12,7 +12,11 @@ REPLACEMENTS = {
     'Fig. 2': 'project/resultados/outputs/fig2_evolucion_anual.png',
     'Fig. 3': 'project/resultados/outputs/fig3_vosviewer_geografia.png',
     'Fig. 4': 'project/resultados/outputs/fig4_burbujas_disenos_datasets.png',
-    'Fig. 5': 'project/resultados/outputs/fig5_distribucion_qa_criterios.png'
+    'Fig. 5': 'project/resultados/outputs/fig5_distribucion_qa_criterios.png',
+    'Fig. 6': 'project/resultados/outputs/fig6_taxonomia_algoritmos.png',
+    'Fig. 7': 'project/resultados/outputs/fig7_rendimiento_benchmarks.png',
+    'Fig. 8': 'project/resultados/outputs/fig8_swim_barras_divergentes.png',
+    'Fig. 9': 'project/resultados/outputs/fig9_heatmap_documentos_erp.png'
 }
 
 def update_doc_figures(docpath):
@@ -53,5 +57,4 @@ def update_doc_figures(docpath):
 if __name__ == '__main__':
     update_doc_figures('project/shared/RSL_Sergio_Rupay.docx')
     update_doc_figures('project/resultados/Articulo_RSL_Resultados_Completo_IEEE.docx')
-    print("ALL EMBEDDED FIGURES UPDATED CLEANLY!")
-
+    print("ALL EMBEDDED FIGURES (Fig. 2 to Fig. 9) UPDATED CLEANLY!")
