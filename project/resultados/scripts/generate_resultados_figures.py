@@ -2,6 +2,7 @@
 Generador de figuras estadísticas oficiales para la Sección Resultados (ATI3)
 Revisión Sistemática de Literatura (RSL) - N = 131 estudios primarios
 Formato estándar IEEE (300 dpi, tipografía sans/serif académica, paleta sobria)
+Sin duplicación de 'Fig. X' ni 'Fuente' dentro del lienzo gráfico (se gestionan en el pie de figura de Word).
 """
 
 import matplotlib.pyplot as plt
@@ -62,10 +63,9 @@ ax1.annotate('Cierre 2025–2026:\n54 estudios (41.2%)\nExplosión VLM / LLMs',
              bbox=dict(boxstyle="round,pad=0.4", fc="#f0fff0", ec="#2ca02c", lw=1),
              fontsize=8, fontweight='semibold')
 
-plt.title('Fig. 2. Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales\n(2020–2025/2026, N = 131)', pad=12, fontweight='bold')
-fig.text(0.5, 0.01, '* Nota: 2026 corresponde a 3 artículos indexados como Early Access a finales de 2025 (refs [3], [65], [66]).\nFuente: elaboración propia a partir del corpus primario [3]–[133].', ha='center', fontsize=7.5, style='italic')
+plt.title('Evolución Temporal de Publicaciones sobre IA/IDP (2020–2025/2026, N = 131)', pad=10, fontweight='bold', fontsize=10)
 
-plt.tight_layout(rect=[0, 0.05, 1, 0.98])
+plt.tight_layout()
 fig2_png = os.path.join(out_dir, 'fig2_evolucion_anual.png')
 fig2_svg = os.path.join(out_dir, 'fig2_evolucion_anual.svg')
 plt.savefig(fig2_png, dpi=300, bbox_inches='tight')
@@ -117,10 +117,9 @@ ax_kw.grid(axis='x', linestyle='--', alpha=0.5)
 for i, count in enumerate(kw_freq):
     ax_kw.text(count + 0.6, i, f"{count}", va='center', fontsize=7.5, fontweight='bold')
 
-fig.suptitle('Fig. 3. Concentración geográfica y mapa de términos temáticos clave (PD2, N = 131)', fontsize=9.5, fontweight='bold', y=0.98)
-fig.text(0.5, 0.01, 'Fuente: elaboración propia a partir del corpus primario [3]–[133] mediante análisis en VOSviewer y normalización Scopus/WoS.', ha='center', fontsize=7.5, style='italic')
+fig.suptitle('Concentración Geográfica y Clústeres Temáticos Clave (PD2, N = 131)', fontsize=10, fontweight='bold', y=0.98)
 
-plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+plt.tight_layout(rect=[0, 0, 1, 0.96])
 fig3_png = os.path.join(out_dir, 'fig3_vosviewer_geografia.png')
 fig3_svg = os.path.join(out_dir, 'fig3_vosviewer_geografia.svg')
 plt.savefig(fig3_png, dpi=300, bbox_inches='tight')
@@ -172,10 +171,9 @@ ax.set_xlim(-0.6, 2.6)
 ax.set_ylim(-0.6, 3.6)
 ax.grid(True, linestyle=':', alpha=0.6, zorder=0)
 
-plt.title('Fig. 4. Gráfico de burbujas del mapeo sistemático (Petersen et al. [138]):\nDiseño Metodológico vs. Tipología de Dataset (PD3, N = 131)', pad=12, fontweight='bold')
-fig.text(0.5, 0.01, 'Nota: El área de cada burbuja es proporcional al volumen de estudios (n). Concordancia inter-evaluador κ = 0.85.\nFuente: elaboración propia a partir del corpus primario [3]–[133].', ha='center', fontsize=7.5, style='italic')
+plt.title('Mapeo Sistemático: Diseño Metodológico vs. Tipología de Dataset (PD3, N = 131)', pad=10, fontweight='bold', fontsize=10)
 
-plt.tight_layout(rect=[0, 0.05, 1, 0.98])
+plt.tight_layout()
 fig4_png = os.path.join(out_dir, 'fig4_burbujas_disenos_datasets.png')
 fig4_svg = os.path.join(out_dir, 'fig4_burbujas_disenos_datasets.svg')
 plt.savefig(fig4_png, dpi=300, bbox_inches='tight')
@@ -229,10 +227,9 @@ ax_crit.annotate('Mayor debilidad empírica:\n32.1% contraste parcial', xy=(110,
                  bbox=dict(boxstyle="square,pad=0.2", fc="#fff0f0", ec="#d62728", lw=0.8),
                  fontsize=7, color='#990000', fontweight='bold')
 
-fig.suptitle('Fig. 5. Evaluación de Calidad Metodológica (Kitchenham) y Vulnerabilidad por Criterio (N = 131)', fontsize=10, fontweight='bold', y=0.98)
-fig.text(0.5, 0.01, '* Nota: El estrato de 3.5 pts se excluye temporalmente en el análisis de sensibilidad (Paso 8). Media global = 4.61 / 5.0.\nFuente: elaboración propia a partir del corpus primario [3]–[133].', ha='center', fontsize=7.5, style='italic')
+fig.suptitle('Evaluación de Calidad Metodológica (Kitchenham) y Vulnerabilidad por Criterio (N = 131)', fontsize=10, fontweight='bold', y=0.98)
 
-plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+plt.tight_layout(rect=[0, 0, 1, 0.96])
 fig5_png = os.path.join(out_dir, 'fig5_distribucion_qa_criterios.png')
 fig5_svg = os.path.join(out_dir, 'fig5_distribucion_qa_criterios.svg')
 plt.savefig(fig5_png, dpi=300, bbox_inches='tight')
@@ -240,4 +237,4 @@ plt.savefig(fig5_svg, bbox_inches='tight')
 plt.close()
 print("Generada:", fig5_png)
 
-print("\n¡Todas las 4 figuras IEEE generadas exitosamente en 300 dpi y formato vectorial SVG!")
+print("\n¡Todas las 4 figuras IEEE regeneradas exitosamente en 300 dpi sin duplicaciones internas!")

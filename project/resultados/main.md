@@ -15,17 +15,17 @@ Para determinar la evolución temporal de la investigación sobre IA e IDP en en
 ```
 TABLA XIII
 DISTRIBUCIÓN CRONOLÓGICA DE LA PRODUCCIÓN CIENTÍFICA (2020–2025/2026) (N = 131)
-```
-| Año de Publicación | Estudios Primarios Indexados [n] | Frecuencia Relativa (%) | Porcentaje Acumulado (%) |
-| :---: | :--- | :---: | :---: |
-| **2020** | [64], [111], [130], [131] | 4 (3,1 %) | 3,1 % |
-| **2021** | [58], [59], [60], [61], [62], [63], [112], [113], [114], [123], [126], [127], [128], [129] | 14 (10,7 %) | 13,8 % |
-| **2022** | [50], [51], [52], [53], [54], [55], [57], [103], [104], [105], [106], [107], [108], [109], [125], [132], [133] | 17 (13,0 %) | 26,8 % |
-| **2023** | [39], [40], [41], [42], [43], [44], [45], [46], [47], [48], [49], [67], [90], [91], [92], [94], [95], [96], [97], [98], [99], [100], [101], [102], [116], [121], [124] | 27 (20,6 %) | 47,4 % |
-| **2024** | [28], [29], [30], [31], [33], [34], [35], [36], [37], [38], [84], [86], [87], [88], [89], [120] | 16 (12,2 %) | 59,6 % |
-| **2025** | [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [32], [56], [68], [69], [70], [71], [72], [73], [74], [75], [76], [77], [78], [79], [80], [81], [82], [83], [85], [93], [110], [115], [117], [118], [119], [122] | 50 (38,2 %) | 97,8 % |
-| **2026\*** | [3], [65], [66] | 3 (2,3 %) | 100,0 % |
-| **Total Corpus** | **[3]–[133]** | **131 (100,0 %)** | **100,0 %** |
+`
+| Año de Publicación | Frecuencia Absoluta (n) | Frecuencia Relativa (%) | Porcentaje Acumulado (%) |
+| :---: | :---: | :---: | :---: |
+| **2020** | 4 | 3,1 % | 3,1 % |
+| **2021** | 14 | 10,7 % | 13,8 % |
+| **2022** | 17 | 13,0 % | 26,8 % |
+| **2023** | 27 | 20,6 % | 47,4 % |
+| **2024** | 16 | 12,2 % | 59,6 % |
+| **2025** | 50 | 38,2 % | 97,8 % |
+| **2026\*** | 3 | 2,3 % | 100,0 % |
+| **Total Corpus** | **131** | **100,0 %** | **100,0 %** |
 
 *\* Nota: Los estudios fechados en 2026 corresponden a artículos aceptados e incorporados en modalidad Early Access / In Press en Scopus y Web of Science durante el cierre de 2025 ([3], [65], [66]).*  
 *Fuente: elaboración propia a partir del corpus primario [3]–[133].*
@@ -211,9 +211,9 @@ Esta categoría abarca el empleo de modelos fundacionales autorregresivos aplica
 
 #### Bloque 3 — Contrastes y Debates de Rendimiento
 Se constata una controversia técnica estructural entre tres posturas documentadas directamente en la literatura:
-1. **Eficiencia computacional y bajo costo en CPU local:** Diversas investigaciones sostienen que los pipelines modulares basados en convolución y OCR representan la alternativa más viable para infraestructuras locales convencionales, logrando latencias ultra bajas (<150 ms) y ejecutándose íntegramente en CPUs sin riesgo de fuga de datos hacia servicios en la nube [12], [54], [71], [88] (Iqbal et al. [12]; Kim C.-Y. et al. [54]; Lee E. et al. [71]; Kiatphaisansophon et al. [88]).
-2. **Flexibilidad y adaptabilidad mediante modelos de visión-lenguaje:** Por el contrario, un conjunto representativo de estudios argumenta que los esquemas rígidos colapsan ante cualquier cambio imprevisto de diagramación, justificando el costo de aceleración por GPU que demandan los Transformers multimodales y VLMs debido a su capacidad intrínseca de generalización zero-shot en documentos contables y comprobantes fiscales [3], [4], [6], [19], [25], [115] (Wei et al. [3]; Chen L.-C. et al. [4]; Mifsud et al. [6]; Hu et al. [19]; Levich & Knust [25]; Hemmer et al. [115]).
-3. **Riesgos de alucinación semántica y costos de inferencia en LLMs:** En una postura de contraste crítico, diversas evaluaciones advierten que la inferencia puramente autorregresiva de los LLMs introduce una vulnerabilidad latente de alucinación numérica en montos contables y códigos fiscales, requiriendo validadores sintácticos adicionales que incrementan la latencia total del flujo de procesamiento [17], [27], [37] (Abdalla et al. [17]; Lin Y.M. et al. [27]; Chen Z. et al. [37]).
+1. **Eficiencia computacional y bajo costo en CPU local:** Diversas investigaciones sostienen que los pipelines modulares basados en convolución y OCR representan la alternativa más viable para infraestructuras locales convencionales, logrando latencias ultra bajas (<150 ms) y ejecutándose íntegramente en CPUs sin riesgo de fuga de datos hacia servicios en la nube [12], [54], [71], [88].
+2. **Flexibilidad y adaptabilidad mediante modelos de visión-lenguaje:** Por el contrario, un conjunto representativo de estudios argumenta que los esquemas rígidos colapsan ante cualquier cambio imprevisto de diagramación, justificando el costo de aceleración por GPU que demandan los Transformers multimodales y VLMs debido a su capacidad intrínseca de generalización zero-shot en documentos contables y comprobantes fiscales [3], [4], [6], [19], [25], [115].
+3. **Riesgos de alucinación semántica y costos de inferencia en LLMs:** En una postura de contraste crítico, diversas evaluaciones advierten que la inferencia puramente autorregresiva de los LLMs introduce una vulnerabilidad latente de alucinación numérica en montos contables y códigos fiscales, requiriendo validadores sintácticos adicionales que incrementan la latencia total del flujo de procesamiento [17], [27], [37].
 
 #### Bloque 4 — Cierre y Tendencias
 La literatura transita hacia una convergencia híbrida: modelos ligeros de visión-lenguaje desacoplados (*Lightweight VLMs*) combinados con verificadores basados en reglas.
@@ -259,9 +259,9 @@ Esta categoría comprende el enlace de pares pregunta-respuesta sobre formulario
 
 #### Bloque 3 — Contrastes y Discrepancias Métricas
 Se evidencia un debate en torno a la transferibilidad de las métricas de rendimiento documentado en la literatura especializada:
-1. **Rendimiento en bancos de prueba curados de laboratorio:** Diversas evaluaciones experimentales exhiben puntuaciones que sobrepasan sistemáticamente el 97 % de F1-score en el benchmark SROIE bajo condiciones óptimas de iluminación y alineación [4], [6], [7], [9], [67], [74] (Chen L.-C. et al. [4]; Mifsud et al. [6]; Yu et al. [7]; Luo C. et al. [9]; Nguyen M.-T. et al. [67]; Yan et al. [74]).
-2. **Degradación crítica ante documentos del mundo real:** Por el contrario, los trabajos que contrastaron modelos sobre datos corporativos reales constataron caídas de rendimiento de entre 15 y 22 puntos porcentuales (descendiendo hasta un 78,4 % de F1-score) originadas por dobleces físicos, tintas térmicas desvanecidas y fondos ruidosos [30], [39], [57], [100], [102] (Zhou et al. [30]; Hertlein et al. [39]; Zhang H. et al. [57]; Sayallar et al. [100]; Yeung et al. [102]).
-3. **Carencia de métricas estandarizadas de latencia bajo estrés operativo:** A su vez, diversas investigaciones destacan que los benchmarks académicos suelen limitarse a evaluar F1-scores estáticos, omitiendo reportar el consumo de memoria RAM y la latencia bajo concurrencia transaccional [12], [64], [112] (Iqbal et al. [12]; Oral et al. [64]; Tata et al. [112]).
+1. **Rendimiento en bancos de prueba curados de laboratorio:** Diversas evaluaciones experimentales exhiben puntuaciones que sobrepasan sistemáticamente el 97 % de F1-score en el benchmark SROIE bajo condiciones óptimas de iluminación y alineación [4], [6], [7], [9], [67], [74].
+2. **Degradación crítica ante documentos del mundo real:** Por el contrario, los trabajos que contrastaron modelos sobre datos corporativos reales constataron caídas de rendimiento de entre 15 y 22 puntos porcentuales (descendiendo hasta un 78,4 % de F1-score) originadas por dobleces físicos, tintas térmicas desvanecidas y fondos ruidosos [30], [39], [57], [100], [102].
+3. **Carencia de métricas estandarizadas de latencia bajo estrés operativo:** A su vez, diversas investigaciones destacan que los benchmarks académicos suelen limitarse a evaluar F1-scores estáticos, omitiendo reportar el consumo de memoria RAM y la latencia bajo concurrencia transaccional [12], [64], [112].
 
 #### Bloque 4 — Cierre y Tendencias
 El rendimiento de los modelos IDP es altamente dependiente del contraste visual del documento y la regularidad del diseño. El rendimiento de las arquitecturas de extracción documental es altamente dependiente de la regularidad topológica y la calidad de escaneo: mientras los recibos y facturas estandarizados alcanzan niveles operativos sobresalientes, los formularios administrativos con ruido visual demandan esquemas de preprocesamiento y modelos multimodales más robustos.
@@ -306,9 +306,9 @@ Registra los estudios en los que la implementación de modelos pesados de IA res
 
 a) **Superioridad de la automatización cognitiva en flujos multiformato:** La mayoría de la evidencia sostiene que en entornos con alta rotación de proveedores y formatos heterogéneos, los modelos multimodales eliminan el cuello de botella del mantenimiento manual de plantillas, reduciendo drásticamente el tiempo de ciclo operativo [4], [6], [44], [55], [103], [127].
 
-b) **Suficiencia y ventaja económica de reglas fijas en catálogos acotados:** En marcado contraste, diversos autores plantean la hipótesis operativa de que en organizaciones con catálogos cerrados de proveedores y formatos invariables, las plantillas deterministas basadas en expresiones regulares y OCR convencional ofrecen una alternativa costo-eficiente al ejecutarse sobre arquitectura CPU estándar sin requerir infraestructura GPU dedicada [28], [45], [54], [64], [112] (Liu Z. [28]; Guha et al. [45]; Kim C.-Y. et al. [54]; Oral et al. [64]; Tata et al. [112]).
+b) **Suficiencia y ventaja económica de reglas fijas en catálogos acotados:** En marcado contraste, diversos autores plantean la hipótesis operativa de que en organizaciones con catálogos cerrados de proveedores y formatos invariables, las plantillas deterministas basadas en expresiones regulares y OCR convencional ofrecen una alternativa costo-eficiente al ejecutarse sobre arquitectura CPU estándar sin requerir infraestructura GPU dedicada [28], [45], [54], [64], [112].
 
-c) **Sobrecosto de infraestructura y re-trabajo por alucinación:** Por su parte, evaluaciones en contextos financieros y tributarios advierten que cuando el margen de tolerancia a errores es cero, la necesidad de auditar manualmente las alucinaciones de modelos generativos encarece el flujo total frente a operadores entrenados [37], [56], [121] (Chen Z. et al. [37]; Chen Y. et al. [56]; Lai P. et al. [121]).
+c) **Sobrecosto de infraestructura y re-trabajo por alucinación:** Por su parte, evaluaciones en contextos financieros y tributarios advierten que cuando el margen de tolerancia a errores es cero, la necesidad de auditar manualmente las alucinaciones de modelos generativos encarece el flujo total frente a operadores entrenados [37], [56], [121].
 
 #### Bloque 4 — Cierre y Tendencias
 Los hallazgos confirman una ventaja empírica sistemática de las arquitecturas de IA frente a flujos tradicionales en grandes volúmenes de documentos semiestructurados, delimitándose los nichos de paridad a comprobantes con geometría fija.
@@ -355,9 +355,9 @@ Comprende comprobantes de bajo valor y recibos térmicos para rendiciones de caj
 
 #### Bloque 3 — Contrastes y Brechas en la Integración Transaccional
 Se constata una brecha metodológica profunda entre la visión computacional y la ingeniería transaccional de software:
-1. **Enfoque restringido a la extracción visual JSON:** La mayor parte de la literatura restringe su alcance a la detección y estructuración de entidades en esquemas JSON, asumiendo implícitamente que la carga hacia el ERP es trivial [8], [10], [41], [51], [61] (Sassioui et al. [8]; Tiwari et al. [10]; Ma C. et al. [41]; Akkaya et al. [51]; Hashmi et al. [61]).
-2. **Complejidad de la validación transaccional y reglas de negocio:** En contraste, estudios con orientación a la ingeniería de software revelan que sin módulos de validación fiscal de tres vías (*Three-Way Matching* entre orden de compra, guía de despacho y factura) y control de excepciones transaccionales, las salidas de IA resultan inservibles para auditoría en ERPs productivos [64], [112], [131] (Oral et al. [64]; Tata et al. [112]; Sainz-De-Abajo et al. [131]).
-3. **Restricciones de soberanía y privacidad de datos financieros:** A su vez, diversas contribuciones señalan las barreras legales que impiden remitir balances confidenciales hacia APIs públicas de la nube, limitando el despliegue a servidores locales dedicados [44], [116], [127] (Manjunath et al. [44]; Tobaben et al. [116]; Azman et al. [127]).
+1. **Enfoque restringido a la extracción visual JSON:** La mayor parte de la literatura restringe su alcance a la detección y estructuración de entidades en esquemas JSON, asumiendo implícitamente que la carga hacia el ERP es trivial [8], [10], [41], [51], [61].
+2. **Complejidad de la validación transaccional y reglas de negocio:** En contraste, estudios con orientación a la ingeniería de software revelan que sin módulos de validación fiscal de tres vías (*Three-Way Matching* entre orden de compra, guía de despacho y factura) y control de excepciones transaccionales, las salidas de IA resultan inservibles para auditoría en ERPs productivos [64], [112], [131].
+3. **Restricciones de soberanía y privacidad de datos financieros:** A su vez, diversas contribuciones señalan las barreras legales que impiden remitir balances confidenciales hacia APIs públicas de la nube, limitando el despliegue a servidores locales dedicados [44], [116], [127].
 
 #### Bloque 4 — Cierre y Tendencias
 La automatización documental avanza hacia la unificación de pipelines multimodales capaces de procesar tablas y texto indistintamente, concentrándose el desarrollo futuro en la integración transaccional activa con sistemas ERP corporativos.

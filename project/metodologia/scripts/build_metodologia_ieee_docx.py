@@ -352,7 +352,7 @@ add_p(
     "descartada por dos deficiencias metodológicas críticas: (a) un 28.5% de contaminación semántica derivada del acrónimo 'ERP' (estudios médicos "
     "de potenciales evocados en EEG) y (b) la omisión inadvertida de la literatura moderna de KIE, arquitecturas multimodales (LayoutLM, DocFormer) "
     "y comprensión de documentos visualmente ricos (VRD). Para subsanar esto, se diseñó la Iteración 2 (calibrada definitiva, archivada en "
-    "scopus_export_it2.csv y wos_export_it2.xls), la cual expandió los términos a expresiones compuestas ('enterprise resource planning' OR 'ERP system*'), "
+    "el repositorio metodológico auditable de datos primarios), la cual expandió los términos a expresiones compuestas ('enterprise resource planning' OR 'ERP system*'), "
     "incorporó operadores booleanos para modelos de visión-lenguaje y limitó la tipología documental estrictamente a artículos de revista arbitrados "
     "(Document Type = Article). Esta calibración recuperó 3,270 registros brutos en Scopus y 431 en WoS (3,701 brutos), que tras filtros nativos "
     "se redujeron a 311 y 266 registros respectivamente (total n = 577), garantizando 0% de ruido médico y máxima exhaustividad temática.",
