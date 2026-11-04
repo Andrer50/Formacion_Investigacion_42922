@@ -34,7 +34,7 @@ DISTRIBUCIÓN CRONOLÓGICA DE LA PRODUCCIÓN CIENTÍFICA (2020–2025/2026) (N =
 *Fig. 2. Evolución temporal de publicaciones sobre IA/IDP en documentos empresariales (2020–2025/2026, N = 131). Barras: volumen anual absoluto (n); línea roja: porcentaje acumulado (%). Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
 #### Bloque 1 — Apertura
-1) Apertura: Ciento treinta y un estudios primarios (100,0 % del corpus; TABLA XIII, Fig. 2) conformaron la serie cronológica de producción científica entre 2020 y 2025/2026 (PD1), evidenciando un crecimiento sostenido que pasa de 4 artículos en 2020 (3,1 %) a un pico de 50 artículos en 2025 (38,2 %) y 3 en modalidad Early Access 2026 (2,3 %), concentrando el último bienio el 40,5 % de toda la literatura (53 de 131 estudios).
+**1) Apertura:** Ciento treinta y un estudios primarios (100,0 % del corpus; TABLA XIII, Fig. 2) conformaron la serie cronológica de producción científica entre 2020 y 2025/2026 (PD1), evidenciando un crecimiento sostenido que pasa de 4 artículos en 2020 (3,1 %) a un pico de 50 artículos en 2025 (38,2 %) y 3 en modalidad Early Access 2026 (2,3 %), concentrando el último bienio el 40,5 % de toda la literatura (53 de 131 estudios).
 
 #### Bloque 2 — Desarrollo por Categoría y Fases Temporales
 La dinámica temporal de publicación se articula en tres periodos analíticos diferenciados (Tabla XIII, Fig. 2):
@@ -79,7 +79,7 @@ CONCENTRACIÓN GEOGRÁFICA POR AFILIACIÓN DEL PRIMER AUTOR Y AUTORES DESTACADOS
 *Fig. 3. Concentración geográfica de la investigación y principales clústeres temáticos derivados de palabras clave de autor (PD2, N = 131). (a) Distribución porcentual por país de afiliación del primer autor; (b) Frecuencia de descriptores con umbral ≥ 3 ocurrencias en VOSviewer. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
 #### Bloque 1 — Apertura
-1) Apertura: Ciento treinta y un estudios (100,0 % del corpus; TABLA XIV, Fig. 3, Tabla S1) fueron analizados cienciométricamente para determinar los núcleos de difusión editorial, polos geográficos y redes de colaboración autoral (PD2), identificándose 76 revistas científicas indexadas, 498 autores únicos y 32 países de afiliación institucional.
+**1) Apertura:** Ciento treinta y un estudios (100,0 % del corpus; TABLA XIV, Fig. 3, Tabla S1) fueron analizados cienciométricamente para determinar los núcleos de difusión editorial, polos geográficos y redes de colaboración autoral (PD2), identificándose 76 revistas científicas indexadas, 498 autores únicos y 32 países de afiliación institucional.
 
 #### Bloque 2 — Desarrollo por Categoría y Redes Temáticas
 La evidencia se estructura en tres dimensiones bibliométricas (Tabla S1 en Apéndice, Tabla XIV, Fig. 3):
@@ -117,7 +117,7 @@ MATRIZ CRUZADA DE DISEÑOS METODOLÓGICOS Y TIPOLOGÍA DE DATASETS (PD3) (N = 13
 *Fig. 4. Gráfico de burbujas del mapeo sistemático (Petersen et al. [138]): Diseño Metodológico vs. Tipología de Dataset (PD3, N = 131). El área de cada burbuja es proporcional al número de estudios primarios (n); los porcentajes corresponden a la totalidad del corpus. Fuente: elaboración propia a partir del corpus primario [3]–[133].*
 
 #### Bloque 1 — Apertura
-1) Apertura: Ciento treinta y un estudios (100,0 % del corpus; TABLA XV, Fig. 4) se clasificaron en la matriz cruzada de diseños metodológicos frente a tipologías de conjuntos de datos (PD3), constatándose una marcada hegemonía de los diseños experimentales controlados de laboratorio (62,6 %, n = 82) y el uso de benchmarks públicos abiertos (51,9 %, n = 68), frente a una reducida proporción de casos de estudio corporativos reales (6,1 %, n = 8).
+**1) Apertura:** Ciento treinta y un estudios (100,0 % del corpus; TABLA XV, Fig. 4) se clasificaron en la matriz cruzada de diseños metodológicos frente a tipologías de conjuntos de datos (PD3), constatándose una marcada hegemonía de los diseños experimentales controlados de laboratorio (62,6 %, n = 82) y el uso de benchmarks públicos abiertos (51,9 %, n = 68), frente a una reducida proporción de casos de estudio corporativos reales (6,1 %, n = 8).
 
 #### Bloque 2 — Desarrollo por Categoría y Cruce Matricial
 La matriz cruzada evidencia tres núcleos metodológicos de trabajo (Tabla XV, Fig. 4):
@@ -194,7 +194,7 @@ TAXONOMÍA DE FAMILIAS ALGORÍTMICAS Y ENFOQUES DE INTELIGENCIA ARTIFICIAL (PI1)
 *Fig. 6. Distribución de estudios por familia algorítmica de IA en procesamiento documental (Síntesis Temática, PI1, n = 105).*
 
 #### Bloque 1 — Apertura
-1) Apertura: Ciento cinco estudios primarios (80,2 % del corpus; TABLA XVII, Fig. 6) especificaron arquitecturas algorítmicas reproducibles de IA para el procesamiento de documentos empresariales (PI1), estructurándose en cuatro familias tecnológicas principales.
+**1) Apertura:** Ciento cinco estudios primarios (80,2 % del corpus; TABLA XVII, Fig. 6) especificaron arquitecturas algorítmicas reproducibles de IA para el procesamiento de documentos empresariales (PI1), estructurándose en cuatro familias tecnológicas principales.
 
 #### Bloque 2 — Desarrollo por Categoría Algorítmica (Extensión Normativa)
 
@@ -336,7 +336,7 @@ MAPEO DE TIPOLOGÍAS DOCUMENTALES Y SISTEMAS EMPRESARIALES DE INTEGRACIÓN (PI4)
 *Fig. 9. Matriz de calor (heatmap) de tipologías documentales empresariales frente al nivel de integración en sistemas ERP/CRM/DMS (PI4, N = 131).*
 
 #### Bloque 1 — Apertura
-1) Apertura: Ciento treinta y un estudios (100,0 % del corpus; TABLA XX, Fig. 9) se mapearon en torno a las tipologías documentales corporativas y su integración sistémica (PI4). El núcleo contable conformado por balances/tablas matriciales (45,0 %, n = 59) y facturas comerciales (26,0 %, n = 34) concentra el 71,0 % de la investigación global (58,0 % estricto al considerar únicamente las 42 tablas financieras específicas más las 34 facturas). No obstante, se evidencia una marcada asimetría entre el reconocimiento documental y el despliegue en ingeniería de software: mientras que en PD3 se identificaron 8 casos de estudio corporativos a nivel de diseño metodológico ([64], [70], [75], [84], [103], [117], [127], [131]), en PI4 solo 8 investigaciones implementaron integración técnica transaccional activa con plataformas ERP ([28], [44], [54], [62], [64], [97], [127], [133]), convergiendo ambas dimensiones exclusivamente en dos estudios ([64], [127]).
+**1) Apertura:** Ciento treinta y un estudios (100,0 % del corpus; TABLA XX, Fig. 9) se mapearon en torno a las tipologías documentales corporativas y su integración sistémica (PI4). El núcleo contable conformado por balances/tablas matriciales (45,0 %, n = 59) y facturas comerciales (26,0 %, n = 34) concentra el 71,0 % de la investigación global (58,0 % estricto al considerar únicamente las 42 tablas financieras específicas más las 34 facturas). No obstante, se evidencia una marcada asimetría entre el reconocimiento documental y el despliegue en ingeniería de software: mientras que en PD3 se identificaron 8 casos de estudio corporativos a nivel de diseño metodológico ([64], [70], [75], [84], [103], [117], [127], [131]), en PI4 solo 8 investigaciones implementaron integración técnica transaccional activa con plataformas ERP ([28], [44], [54], [62], [64], [97], [127], [133]), convergiendo ambas dimensiones exclusivamente en dos estudios ([64], [127]).
 
 #### Bloque 2 — Desarrollo por Tipología Documental (Extensión Normativa)
 
@@ -390,7 +390,7 @@ El análisis de sensibilidad evidenció que la exclusión de los diez estudios d
 
 ## 8. Calificación de Certeza de la Evidencia — Marco GRADE-CERQual
 
-En estricto apego a las directrices de **Lewin et al. (2018)** [140], se evaluó el nivel de confianza de los hallazgos principales a través de los cuatro componentes del marco GRADE-CERQual (*Confidence in the Evidence from Reviews of Qualitative research*): 1) Limitaciones metodológicas de los estudios primarios, 2) Coherencia de los hallazgos entre distintos autores, 3) Adecuación del volumen de datos, y 4) Relevancia frente al contexto empresarial corporativo. La TABLA XXII expone la Tabla Resumen de Hallazgos (Summary of Findings - SoF).
+Conforme a las directrices SWiM (Campbell et al. [137]) y Popay et al. [136], se estructuró un juicio narrativo de confianza adaptando los cuatro dominios de GRADE-CERQual (Lewin et al. [140]): 1) limitaciones metodológicas (QA de [1]), 2) coherencia técnica de hallazgos, 3) adecuación de datos empíricos, y 4) relevancia en flujos ERP/CRM corporativos. Como limitación metodológica, los niveles de certeza fueron definidos operacionalmente por el autor y validados con el asesor metodológico, en lugar de un doble panel independiente (TABLA XXII).
 
 ```
 TABLA XXII
