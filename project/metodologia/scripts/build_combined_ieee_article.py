@@ -5310,8 +5310,8 @@ add_ref(133, "M. J. A. Gonçalves, A. C. F. da Silva, and C. G. Ferreira, \"The 
 
 # Referencias metodológicas de síntesis [134] - [140]
 add_ref(134, "J. Thomas and A. Harden, \"Methods for the thematic synthesis of qualitative research in systematic reviews,\" BMC Med. Res. Methodol., vol. 8, art. 45, 2008, doi: 10.1186/1471-2288-8-45.")
-add_ref(135, "D. S. Cruzes and T. Dybå, \"Research synthesis in software engineering: A tertiary study,\" Inf. Softw. Technol., vol. 53, no. 5, pp. 440–455, 2011, doi: 10.1016/j.infsof.2011.01.004.")
-add_ref(136, "J. Popay et al., \"Guidance on the conduct of narrative synthesis in systematic reviews,\" ESRC Methods Programme, Lancaster Univ., Tech. Rep., 2006.")
+add_ref(135, "D. S. Cruzes and T. Dybå, \"Recommended steps for thematic synthesis in software engineering,\" in Proc. Int. Symp. Empirical Softw. Eng. Meas. (ESEM), 2011, pp. 275–284, doi: 10.1109/ESEM.2011.36.")
+add_ref(136, "J. Popay et al., \"Guidance on the conduct of narrative synthesis in systematic reviews: A product from the ESRC methods programme,\" Lancaster Univ., Tech. Rep., 2006, doi: 10.13140/2.1.1018.4643.")
 add_ref(137, "M. Campbell et al., \"Synthesis without meta-analysis (SWiM) in systematic reviews: Reporting guideline,\" BMJ, vol. 368, p. l6890, 2020, doi: 10.1136/bmj.l6890.")
 add_ref(138, "K. Petersen, S. Vakkalanka, and L. Kuzniarz, \"Guidelines for conducting systematic mapping studies in software engineering: An update,\" Inf. Softw. Technol., vol. 64, pp. 1–18, 2015, doi: 10.1016/j.infsof.2015.03.007.")
 add_ref(139, "N. J. van Eck and L. Waltman, \"Software survey: VOSviewer, a computer program for bibliometric mapping,\" Scientometrics, vol. 84, no. 2, pp. 523–538, 2010, doi: 10.1007/s11192-009-0146-3.")
@@ -5320,9 +5320,9 @@ add_ref(141, "J. R. Landis and G. G. Koch, \"The measurement of observer agreeme
 
 # Referencias de modelos fundacionales citados en el texto [142] - [145]
 add_ref(142, "Y. Xu, M. Li, L. Cui, S. Huang, F. Wei, and M. Zhou, \"LayoutLM: Pre-training of text and layout for document image understanding,\" in Proc. 26th ACM SIGKDD Int. Conf. Knowl. Discov. Data Min. (KDD), 2020, pp. 1192–1200, doi: 10.1145/3394486.3403172.")
-add_ref(143, "S. Appalaraju, B. Jasani, B. U. Kota, Y. Xie, and R. Manmatha, \"DocFormer: End-to-end transformer for document understanding,\" in Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV), 2021, pp. 993–1003, doi: 10.1109/ICCV48922.2021.00104.")
-add_ref(144, "Y. Li et al., \"StrucTexT: Structured text understanding with multi-modal pre-training,\" in Proc. 29th ACM Int. Conf. Multimedia (MM), 2021, pp. 1917–1925, doi: 10.1145/3474085.3475313.")
-add_ref(145, "T. Hong et al., \"BROS: A pre-trained language model focusing on text and layout for better key information extraction from documents,\" in Proc. AAAI Conf. Artif. Intell. (AAAI), vol. 36, no. 10, pp. 10767–10775, 2022, doi: 10.1609/aaai.v36i10.21323.")
+add_ref(143, "S. Appalaraju, B. Jasani, B. U. Kota, Y. Xie, and R. Manmatha, \"DocFormer: End-to-end transformer for document understanding,\" in Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV), 2021, pp. 973–983, doi: 10.1109/ICCV48922.2021.00103.")
+add_ref(144, "Y. Li et al., \"StrucTexT: Structured text understanding with multi-modal transformers,\" in Proc. 29th ACM Int. Conf. Multimedia (MM), 2021, pp. 1912–1920, doi: 10.1145/3474085.3475345.")
+add_ref(145, "T. Hong, D. Kim, M. Ji, W. Hwang, D. Nam, and S. Park, \"BROS: A pre-trained language model focusing on text and layout for better key information extraction from documents,\" in Proc. AAAI Conf. Artif. Intell., vol. 36, no. 10, 2022, pp. 10767–10775, doi: 10.1609/aaai.v36i10.21322.")
 
 
 
